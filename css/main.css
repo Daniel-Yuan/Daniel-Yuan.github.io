@@ -1218,7 +1218,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b64ff7;
+  background: #60ffaf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2384,7 +2384,7 @@ mjx-container + br {
   }
 }
 body {
-  background-image: url("/images/background.jpg");
+  background-image: url("https://s1.ax1x.com/2020/08/09/aTl3DA.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
