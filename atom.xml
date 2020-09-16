@@ -37,4 +37,27 @@
     
   </entry>
   
+  <entry>
+    <title>CSP-S 2019 游记</title>
+    <link href="http://example.com/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://example.com/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</id>
+    <published>2019-11-16T10:48:53.000Z</published>
+    <updated>2020-09-16T10:50:41.904Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p><h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h2><p>教练组织高二的学长出去玩去了，苦逼的我还要接着考 CSP 信(zi)心(bi)赛。/羡慕</p><p>配 <code>emacs</code> 的时候突然忘记 <code>default</code> 怎么写了，一直认为最后两个字母是 <code>te</code> 。最后还是靠着 <code>switch</code> 的高亮打出来的（CSP 前犯这种错误我怕不是要爆零）</p><p>晚上 U 盘坏了，捣鼓了一晚上。</p><p>考前 RP 突然爆炸，感觉吃枣药丸（怕不是 CSP-S RP++ 爆负了……）</p><h2 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h2><p>上午写了一个线性基板子，一个矩阵快速幂板子，一个 <code>Miller-Rabin</code> 板子。</p><p>之后就欢快地颓了一下午加一晚上。<del>（某乎：如何看待某巨佬 AK CSP-S）</del></p><h2 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>在一阵互相膜拜之后进入了考场。</p><p>座位之间有隔板 <del>考试前还在讨论如何用毒瘤码风祸害周围同学</del>，键盘敲起来特别舒服，值得一提的是，<code>Emacs</code> 有配置文件！<del>好评</del>。</p><p>开考后 10 分钟就把 T1 切了。</p><p>T2 像极了考前的一道 <del>九条可怜</del> 的括号匹配题，几分钟码了个 <code>Trie</code> 树就过样例了，然而那个题<strong>忽略括号方向</strong> <del>我给忘了QAQ</del>。</p><p>然后 T3 看上去很玄学的样子，开始手玩，结果手玩不动样例……<del>还不如暴搜</del></p><p>闲的没事就给 T2 写了个对拍，一组就错……</p><p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p><p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p><p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p><p>当我百思不得其解时，已经 10:50了 QAQ。</p><p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p><p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p><p>改完之后拍几万组都没有问题，不过这次考试也因为 T2 止步 210 了……</p><p>又欢乐地颓了一下午加一晚上。</p><h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><p>昨天颓太欢乐了，今早莫名的困……</p><p>感觉今天心态都不一样了……昨天想着怎么拿高分怎么 AK，今天就只想着多拿点分 <del>（还是不能给我这种蒟蒻太高的期望）</del></p><p>开场就写了一个 T1 的 $n^2m$ 的做法，后来发现它假了，只能补上一维保证正确性，最后打了个 $n^3m$ 的 <code>DP</code>。</p><p>然后写 T2，一开始写了一个 $n^3$ 的<code>DP</code>，并且理性分析发现可以优化到 $n^2$ 。经过人(bao)类(li)智(da)慧(biao)后，发现每个以每个点为终点的 <code>DP</code> 值有且仅有一个有用，于是可以使用单调队列优化做到 $O(n)$ ，<del>但是为啥我压 8 位高精都可以MLE，只能过 type=0</del></p><p>最后写 T3，发现暴力分出奇地高，于是写完暴搜后就找特殊数据的规律，<del>还真被我找到了</del>，又骗了一大波分。</p><p>一道题都没切预计都比昨天高……<del>我 ** 昨天在干嘛</del>。</p><h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p><p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾&lt;/p&gt;
+&lt;h2 id=&quot;Day-1&quot;&gt;&lt;a href=&quot;#Day-1&quot; class=&quot;headerlink&quot; title=&quot;Day </summary>
+      
+    
+    
+    
+    
+    <category term="游记" scheme="http://example.com/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+  </entry>
+  
 </feed>
