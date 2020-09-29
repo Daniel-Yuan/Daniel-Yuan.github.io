@@ -173,25 +173,6 @@
       </tags>
   </entry>
   <entry>
-    <title>后缀数组学习笔记</title>
-    <url>/2020/09/26/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>老忘后缀数组咋写，写个东西记录下。</p>
-<p>算法核心：因为后缀是在同一个串内的，要充分利用其它信息。</p>
-<a id="more"></a>
-
-<p>考虑倍增，即从小到大按照长度为 $2^k$ 的串进行排序。</p>
-<p>先按照长度为 $1$ 的串排序，每个点有一个排名。</p>
-<p>然后扩展到长度为 $2$，现在可以知道每个长度为 $2$ 的串前一半相对的排名和后一半相对的排名，那么显然是要先按前一半的排，如果相等再按后一半的排，用 pair 加快排可以做到 $n\log n$，但是不够。考虑使用基数排序，就可以做到 $n$ 。</p>
-<p>再扩展到长度为 $4$ …… 总时间复杂度 $n\log n$。</p>
-<p>光求这个没啥用，考虑求一个 height，表示排名为 i 的后缀和排名为 i-1 的最长公共前缀有多长。那么任意两个后缀的 LCP 就可以直接通过 RMQ 求。</p>
-<p>考虑怎么求 height，设 h 表示第 i 串和排名恰好小于它 1 的串的最长公共前缀。那么有 $h[i]\ge h[i-1]+1$。如果 $h[i-1]\leq 1$，那么显然成立，否则 $h[i-1]\geq 2$，假设排名恰好小于第 i-1 串 1 的串是第 k 串，那么就有 $s[i-1,i-1+h[i-1])=s[k,k+h[i-1])$ 且 $s[i-1+h[i-1]]&gt;s[k+h[i-1]]$，那么 $s[i,i-1+h[i-1])=s[k+1,k+h[i-1])$，因为 $h[i-1]\geq 2$，那么这个区间不为空，又因为 $s[i-1+h[i-1]]&gt;s[k+h[i-1]]$，那么第 k+1 串的排名肯定是小于第 i 串的，而距离 i 越远 LCP 就越小，那么第 i 串和排名恰好小于它 1 的串的 LCP 至少为 $h[i-1]-1$ 。所以可以直接从小到大暴力枚举求。</p>
-]]></content>
-      <tags>
-        <tag>字符串</tag>
-        <tag>后缀数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于莫比乌斯函数的一些小技巧</title>
     <url>/2020/09/26/%E5%85%B3%E4%BA%8E%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<p>总结一些有关莫比乌斯函数的应用以及一些数论方面的东西。</p>
@@ -229,6 +210,25 @@
       <tags>
         <tag>数论</tag>
         <tag>莫比乌斯函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后缀数组学习笔记</title>
+    <url>/2020/09/26/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>老忘后缀数组咋写，写个东西记录下。</p>
+<p>算法核心：因为后缀是在同一个串内的，要充分利用其它信息。</p>
+<a id="more"></a>
+
+<p>考虑倍增，即从小到大按照长度为 $2^k$ 的串进行排序。</p>
+<p>先按照长度为 $1$ 的串排序，每个点有一个排名。</p>
+<p>然后扩展到长度为 $2$，现在可以知道每个长度为 $2$ 的串前一半相对的排名和后一半相对的排名，那么显然是要先按前一半的排，如果相等再按后一半的排，用 pair 加快排可以做到 $n\log n$，但是不够。考虑使用基数排序，就可以做到 $n$ 。</p>
+<p>再扩展到长度为 $4$ …… 总时间复杂度 $n\log n$。</p>
+<p>光求这个没啥用，考虑求一个 height，表示排名为 i 的后缀和排名为 i-1 的最长公共前缀有多长。那么任意两个后缀的 LCP 就可以直接通过 RMQ 求。</p>
+<p>考虑怎么求 height，设 h 表示第 i 串和排名恰好小于它 1 的串的最长公共前缀。那么有 $h[i]\ge h[i-1]+1$。如果 $h[i-1]\leq 1$，那么显然成立，否则 $h[i-1]\geq 2$，假设排名恰好小于第 i-1 串 1 的串是第 k 串，那么就有 $s[i-1,i-1+h[i-1])=s[k,k+h[i-1])$ 且 $s[i-1+h[i-1]]&gt;s[k+h[i-1]]$，那么 $s[i,i-1+h[i-1])=s[k+1,k+h[i-1])$，因为 $h[i-1]\geq 2$，那么这个区间不为空，又因为 $s[i-1+h[i-1]]&gt;s[k+h[i-1]]$，那么第 k+1 串的排名肯定是小于第 i 串的，而距离 i 越远 LCP 就越小，那么第 i 串和排名恰好小于它 1 的串的 LCP 至少为 $h[i-1]-1$ 。所以可以直接从小到大暴力枚举求。</p>
+]]></content>
+      <tags>
+        <tag>字符串</tag>
+        <tag>后缀数组</tag>
       </tags>
   </entry>
   <entry>
@@ -340,6 +340,54 @@
       <tags>
         <tag>数学</tag>
         <tag>斯特林数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>牛客练习赛 70 E 题解</title>
+    <url>/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p><a href="https://ac.nowcoder.com/acm/contest/7509/E">题目链接</a></p>
+<p><strong>题意简述</strong></p>
+<p>定义若二元组 $(a,b)&lt;(c,d)$，则有 $a&gt;c$ 或者 $a=c \text{ and } b&lt;d$。</p>
+<p>给你 $n$ 个数，第 $i$ 个数是 $a_i$。</p>
+<p>现在系统会生成 $n$ 个二元组，第 $i$ 个二元组是 $(a_i,i)$ 或者是 $(a_i+1,i)$，然后给每个二元组一个排名，设排名数列为 $rk$。</p>
+<p>求有多少种不同的 $rk$ 数列，两个 $rk$ 序列不同当且仅当存在至少一个位置 $x$，使得两个 $rk$ 数列的 $rk_x$ 不同。</p>
+<p>$n\leq 5\times 10^5,a_i\leq 10^6$，时空限制：2s 256M。</p>
+<a id="more"></a>
+
+<p><strong>样例</strong></p>
+<p>输入：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>解释：有以下八种二元组的搭配方式，以及其相应的 $rk$ 序列。</p>
+<p>$(1,1),(2,2),(2,3)\ \ \ \ rk:3,1,2$</p>
+<p>$(1,1),(2,2),(3,3)\ \ \ \ rk:3,2,1$</p>
+<p>$(1,1),(3,2),(2,3)\ \ \ \ rk:3,1,2$</p>
+<p>$(1,1),(3,2),(3,3)\ \ \ \ rk:3,1,2$</p>
+<p>$(2,1),(2,2),(2,3)\ \ \ \ rk:1,2,3$</p>
+<p>$(2,1),(2,2),(3,3)\ \ \ \ rk:2,3,1$</p>
+<p>$(2,1),(3,2),(2,3)\ \ \ \ rk:2,1,3$</p>
+<p>$(2,1),(3,2),(3,3)\ \ \ \ rk:3,1,2$</p>
+<p>不同的 $rk$ 序列一共有 $5$ 个。</p>
+<p><strong>题解</strong></p>
+<p>比赛的时候一直认为是一个组合数学题目，没想到是一个 DP。</p>
+<p>先下一个定义：若两个由前 $i-1$ 个二元组形成的序列，无论 $[i,n]$ 中的每个二元组是 $(a_x,x)$ 还是 $(a_x+1,x)$，这两个序列最终形成的排名序列都是相同的，那么我们把它们称作<strong>不可区分</strong>的。</p>
+<p>首先把所有二元组按照 $(a_i,i)$ 排序。为了方便，下文默认输入就已经保证了 $(a_i,i)&lt;(a_{i+1},i+1)$。</p>
+<p>考虑 DP，设 $f_i$ 表示前 $i-1$ 个二元组组成的<strong>可区分</strong>的序列个数。</p>
+<p>那么第 $i$ 个位置既可以放 $(a_i,i)$ 也可以放 $(a_i+1,i)$，所以有 $f_{i+1}=2f_i$，但是这样显然会算重，所以考虑容斥。</p>
+<p>考虑对于一个位置 $i$，找到一个极短的区间 $[l,r](l\leq i\leq r)$，它需要满足存在一种在 $[l,i-1],[i+1,r]$ 放置二元组的方案，使得第 $i$ 个位置放 $(a_i,i)$ 和放 $(a_i+1,i)$ 是<strong>不可区分</strong>的。这样的话，这种放置方法的贡献本来只有 $1$ 但是被算了两次，所以 $f_r$ 就需要减去 $f_l$。</p>
+<p>因为这个区间是极短的，所以可以恰好不重不漏地把所有的不合法的方案都减掉，最终的 $f_{n+1}$ 即为答案。</p>
+<p>不难发现，因为我们一开始排好了序，所以 $l,r$ 是单调递增的，$i$ 也是我们单调枚举的，所以 DP 的总复杂度是 $O(n)$ 的。（有趣的是，复杂度的瓶颈在于排序）。</p>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">1000000</span>], *p1 = buf, *p2 = buf;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p1 == p2) p2 = (p1 = buf) + fread(buf, <span class="number">1</span>, <span class="number">1000000</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">return</span> p1 == p2 ? EOF : *(p1++);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">n</span>) &#123;</span></span><br><span class="line">    n = <span class="number">0</span>; RI ch = gc(), f;</span><br><span class="line">    <span class="keyword">while</span> ((ch &lt; <span class="string">&#x27;0&#x27;</span> || ch &gt; <span class="string">&#x27;9&#x27;</span>) &amp;&amp; ch != <span class="string">&#x27;-&#x27;</span>) ch = gc();</span><br><span class="line">    f = (ch == <span class="string">&#x27;-&#x27;</span> ? ch = gc(), <span class="number">-1</span> : <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>) n = n * <span class="number">10</span> + (ch ^ <span class="number">48</span>), ch = gc();</span><br><span class="line">    n *= f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">char</span> Of[<span class="number">105</span>], *O1 = Of, *O2 = Of;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">n</span>, <span class="title">char</span> <span class="title">ch</span> = &#x27;\<span class="title">n</span>&#x27;) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>), n = -n;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">while</span> (n) *(O1++) = (n % <span class="number">10</span>) ^ <span class="number">48</span>, n /= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">while</span> (O1 != O2) <span class="built_in">putchar</span>(*(--O1));</span><br><span class="line">    <span class="built_in">putchar</span>(ch);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> IO :: read;</span><br><span class="line"><span class="keyword">using</span> IO :: print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">5e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> x, id;</span><br><span class="line">  Node (<span class="keyword">int</span> _x = <span class="number">0</span>, <span class="keyword">int</span> _id = <span class="number">0</span>) &#123; x = _x, id = _id; &#125;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;A) <span class="keyword">const</span> &#123; <span class="keyword">return</span> x ^ A.x ? x &gt; A.x : id &lt; A.id; &#125;;</span><br><span class="line">&#125; a[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; read(n);</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    read(a[i].x), a[i].id = i;</span><br><span class="line">  sort(a + <span class="number">1</span>, a + <span class="number">1</span> + n);</span><br><span class="line">  f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; i &amp;&amp; (Node(a[l].x, a[l].id) &lt; Node(a[i].x + <span class="number">1</span>, a[i].id))) ++l;</span><br><span class="line">    <span class="keyword">while</span> (r &lt;= n &amp;&amp; (Node(a[r].x + <span class="number">1</span>, a[r].id) &lt; Node(a[i].x, a[i].id))) ++r;</span><br><span class="line">    f[r] = (f[r] + mod - f[l]) % mod;</span><br><span class="line">    f[i + <span class="number">1</span>] = ((f[i] + f[i]) % mod + f[i + <span class="number">1</span>]) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  print(f[n + <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>容斥</tag>
+        <tag>妙题</tag>
       </tags>
   </entry>
   <entry>
