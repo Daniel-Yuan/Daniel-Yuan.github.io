@@ -246,7 +246,7 @@
 <p>特别的，复合函数也可以求导，$(F(G))’=F’(G)\times G’$。</p>
 <h5 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h5><p>积分是求导的逆运算，在求导中，有 $kx^n\rightarrow knx^{n-1}$，那么积分里面就有 $kx^n\rightarrow\frac{k}{n+1}x^{n+1}$ 。而对于多项式的积分，也是把各个单项式求导之后再加起来，即 $C_ix^i=\frac{A_{i-1}}{i}x^i$。复杂度 $O(n)$。</p>
 <h5 id="翻转"><a href="#翻转" class="headerlink" title="翻转"></a>翻转</h5><p>对于一个 $n$ 次多项式 $A(x)=\sum_{i=0}^n a_ix^i$，将它变成 $\sum_{i=0}^n a_{n-i}x^i$，就称之为翻转，记作 $A^R(x)$，不难发现本质上 $A^R(x)=A(\frac{1}{x})\times x^n$。复杂度 $O(n)$。</p>
-<h5 id="求逆"><a href="#求逆" class="headerlink" title="求逆"></a>求逆</h5><p>对于一个多项式 $A(x)$，求出一个多项式 $A^{-1}(x)$，使得 $A(x)\times A^{-1}(x)\equiv 0<del>(</del>{\rm mod}~x^{n})$。</p>
+<h5 id="求逆"><a href="#求逆" class="headerlink" title="求逆"></a>求逆</h5><p>对于一个多项式 $A(x)$，求出一个多项式 $A^{-1}(x)$，使得 $A(x)\times A^{-1}(x)\equiv 1<del>(</del>{\rm mod}~x^{n})$。</p>
 <p>考虑使用牛顿迭代，设 $B(x)=A^{-1}(x)$，那么就有 $\frac{1}{B(x)}-A(x)\equiv 0<del>(</del>{\rm mod}<del>x^{n})$ 。假设我们现在求得了在模 $x^{\frac{n}{2}}$ 意义下的解 $B_0(x)$，那么就有 $\frac{1}{B(x)}=\frac{1}{B_0(x)}+(\frac{1}{B_0(x)})’(B(x)-B_0(x))$，我们知道 $(\frac{1}{B_0(x)})’=-\frac{1}{B_0^2(x)}$，那么把 $\frac{1}{B(x)}-A(x)\equiv 0</del>(<del>{\rm mod}</del>x^{n})$ 中的 $\frac{1}{B(x)}$ 换成上面右边的那一坨，然后稍加整理一下就有 $B(x)\equiv 2B_0(x)-A(x)B_0^2(x)<del>(</del>{\rm mod}~x^n)$ 。直接这么倍增处理即可，复杂度是 $O(n\log n)$ 的。因为相对于最后一次来说，前面的若干次可以忽略不计。</p>
 <h5 id="除法和取模"><a href="#除法和取模" class="headerlink" title="除法和取模"></a>除法和取模</h5><p>$A(x)=B(x)\times C(x)+D(x)$，其中 $A(x)$ 是 $n$ 次多项式，$B(x)$ 是 $m$ 次多项式，$m&lt;n$，给出 $A(x),B(x)$，求 $C(x),D(x)$。</p>
 <p>显然，$C(x)$ 的次数是 $n-m$，$D(x)$ 的次数最大是 $m-1$，就把它看做是 $m-1$ 项，高位不足就补零。</p>
@@ -264,6 +264,7 @@
 <p>拆系数 MTT，也如它的名字，就是把每个数 $X$ 拆成 $AM+B$ 的形式，那么如果有两个多项式 $AM+B$ 和 $CM+D$ 相乘，最后的结果就是 $ACM^2 + (AD+BC)M+BD$，最后乘出来的结果是 $M^2{\rm len}$，一般情况下可以跑 FFT，用 long double 存。复杂度是 $O(n\log n)$，7 倍常数。</p>
 <h5 id="多点求值"><a href="#多点求值" class="headerlink" title="多点求值"></a>多点求值</h5><p>对于一个多项式 $F$，给出一些 $z_i$，需要求出 $F(z_i)$ 的值。</p>
 <p>对于求出 $F(z_i)$，我们可以这么做：次数从高到低扫这个多项式，然后把当前项的一个 $x$ 展开成 $z_i$（即对于 $ax^k$，把它展开成 $ax^{k-1}z_i$，然后把它累加到 $x^{k-1}$ 项中去），最后在常数项的那个值就是 $F(z_i)$。可以发现，这个过程实际上就是对 $x-z_i$ 取模。</p>
+<p>对于上述问题，有另一种理解方式：设 $F(z)=A(z)(z-z_i)+B$，那么当 $z=z_i$ 时，$F(z_i)=B$，所以本质上就是对 $x-z_i$ 取模。</p>
 <p>在自然数集中，有 $X<del>{\rm mod}</del>BC<del>{\rm mod}</del>B = X<del>{\rm mod}</del>B$，其实在多项式中也是这样。</p>
 <p>所以可以考虑分治。在分治的过程中，把 $F$ 对 $\prod_{i=l}^r (x-z_i)$ 取模，最后递归到叶子节点的时候，当前的多项式就只剩下常数项，就是需要求的 $F(z_i)$。</p>
 <p>考虑发现复杂度，一开始需要求得 $\prod_{i=l}^r (x-z_i)$ ，分治 FFT 解决。之后需要分治求解，在每一层，多项式的长度都是 $O({\rm len})$，所以每层的总长是 $O(n)$ 的，一共有 $O(\log n)$ 层。所以总复杂度是 $O(n \log^2 n)$ ，常数巨大。</p>
