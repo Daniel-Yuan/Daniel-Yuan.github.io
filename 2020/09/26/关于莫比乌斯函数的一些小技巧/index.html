@@ -234,14 +234,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -255,34 +255,38 @@
       
         <p>总结一些有关莫比乌斯函数的应用以及一些数论方面的东西。</p>
 <a id="more"></a>
-<h3 id="1-k-gcd-x-y-Leftrightarrow-k-x-text-and-k-y"><a href="#1-k-gcd-x-y-Leftrightarrow-k-x-text-and-k-y" class="headerlink" title="1. $k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y$"></a>1. $k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y$</h3><p>这个 trick 比较显然，不过还是小小的证明一下。</p>
-<p>因为 $\gcd(x,y)$ 同时整除 $x,y$，所以满足左边一定满足右边。因为 $\gcd(x,y)$ 是最大公因数，如果满足右边而不满足左边，那么一定存在一个 $z$ 使得 $\gcd(x,y)\times z$ 也是 $x,y$ 的公因数，和最大公因数的定义矛盾。</p>
-<p>因此，若有式子 $\sum_{x=1}^n\sum_{y=1}^m\sum_{k|\gcd(x,y)}\mu(k)$，后面的 $k|\gcd(x,y)$ 就可以换成 $k|x\text{ and }k|y$，这样的话就可以交换求和符号把 $k$ 提前了。</p>
-<p>这个 trick 对于 $\gcd$ 内有多个元素同样有效。</p>
-<h3 id="2-若要计算-f-gcd-x-y-，可以设-f-n-sum-d-n-g-d-来化简式子。"><a href="#2-若要计算-f-gcd-x-y-，可以设-f-n-sum-d-n-g-d-来化简式子。" class="headerlink" title="2. 若要计算 $f(\gcd(x,y))$，可以设 $f(n)=\sum_{d|n}g(d)$ 来化简式子。"></a>2. 若要计算 $f(\gcd(x,y))$，可以设 $f(n)=\sum_{d|n}g(d)$ 来化简式子。</h3><p>举个简单的例子，我们需要计算 $\sum_{x=1}^n\sum_{y=1}^m\gcd(i,j)$。</p>
-<p>当然，这个并不典型，而且大多数人都会枚举 $\gcd$ 做，不过我们现在使用当前的这个 trick 来解决这个问题。</p>
-<p>我们设 $f(n)=n$，且 $f(n)=\sum_{d|n}g(d)$，那么原式就变成了 $\sum_{x=1}^n\sum_{y=1}^m\sum_{d|\gcd(x,y)}g(d)$ 。然后就可以通过 trick 1 交换求和符号把 $d$ 提前了。而根据莫比乌斯反演，我们可以知道 $g(n)=\sum_{d|n}f(d)\mu(\frac{n}{d})$（在该例题中恰好是 $\mu*id=\varphi$），那么也可以很快地计算出 $g$。这样就通过这个 trick 达到了简化式子的效果，而且在一些情况下比直接枚举 $\gcd$ 再把式子化来化去简单。</p>
-<p>同样的，这个 trick 对于 $\gcd$ 内有多个元素同样有效。</p>
-<h3 id="3-设-d-x-为-x-的因子个数，那么-d-n-times-m-sum-x-n-sum-y-m-gcd-x-y-1-。"><a href="#3-设-d-x-为-x-的因子个数，那么-d-n-times-m-sum-x-n-sum-y-m-gcd-x-y-1-。" class="headerlink" title="3. 设 $d(x)$ 为 $x$ 的因子个数，那么 $d(n\times m)=\sum_{x|n}\sum_{y|m}[\gcd(x,y)=1]$。"></a>3. 设 $d(x)$ 为 $x$ 的因子个数，那么 $d(n\times m)=\sum_{x|n}\sum_{y|m}[\gcd(x,y)=1]$。</h3><p>可以发现，把所有合法的 $x,y$ 拿出来，然后列出所有的 $x\times \frac{m}{y}$，这就是所有 $n\times m$ 的因子。</p>
+<h3 id="kgcdxy-leftrightarrow-kx-text-and-ky">1. <span class="math inline">\(k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y\)</span></h3>
+<p>这个 trick 比较显然，不过还是小小的证明一下。</p>
+<p>因为 <span class="math inline">\(\gcd(x,y)\)</span> 同时整除 <span class="math inline">\(x,y\)</span>，所以满足左边一定满足右边。因为 <span class="math inline">\(\gcd(x,y)\)</span> 是最大公因数，如果满足右边而不满足左边，那么一定存在一个 <span class="math inline">\(z\)</span> 使得 <span class="math inline">\(\gcd(x,y)\times z\)</span> 也是 <span class="math inline">\(x,y\)</span> 的公因数，和最大公因数的定义矛盾。</p>
+<p>因此，若有式子 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\sum_{k|\gcd(x,y)}\mu(k)\)</span>，后面的 <span class="math inline">\(k|\gcd(x,y)\)</span> 就可以换成 <span class="math inline">\(k|x\text{ and }k|y\)</span>，这样的话就可以交换求和符号把 <span class="math inline">\(k\)</span> 提前了。</p>
+<p>这个 trick 对于 <span class="math inline">\(\gcd\)</span> 内有多个元素同样有效。</p>
+<h3 id="若要计算-fgcdxy可以设-fnsum_dngd-来化简式子">2. 若要计算 <span class="math inline">\(f(\gcd(x,y))\)</span>，可以设 <span class="math inline">\(f(n)=\sum_{d|n}g(d)\)</span> 来化简式子。</h3>
+<p>举个简单的例子，我们需要计算 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\gcd(i,j)\)</span>。</p>
+<p>当然，这个并不典型，而且大多数人都会枚举 <span class="math inline">\(\gcd\)</span> 做，不过我们现在使用当前的这个 trick 来解决这个问题。</p>
+<p>我们设 <span class="math inline">\(f(n)=n\)</span>，且 <span class="math inline">\(f(n)=\sum_{d|n}g(d)\)</span>，那么原式就变成了 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\sum_{d|\gcd(x,y)}g(d)\)</span> 。然后就可以通过 trick 1 交换求和符号把 <span class="math inline">\(d\)</span> 提前了。而根据莫比乌斯反演，我们可以知道 <span class="math inline">\(g(n)=\sum_{d|n}f(d)\mu(\frac{n}{d})\)</span>（在该例题中恰好是 <span class="math inline">\(\mu*id=\varphi\)</span>），那么也可以很快地计算出 <span class="math inline">\(g\)</span>。这样就通过这个 trick 达到了简化式子的效果，而且在一些情况下比直接枚举 <span class="math inline">\(\gcd\)</span> 再把式子化来化去简单。</p>
+<p>同样的，这个 trick 对于 <span class="math inline">\(\gcd\)</span> 内有多个元素同样有效。</p>
+<h3 id="设-dx-为-x-的因子个数那么-dntimes-msum_xnsum_ymgcdxy1">3. 设 <span class="math inline">\(d(x)\)</span> 为 <span class="math inline">\(x\)</span> 的因子个数，那么 <span class="math inline">\(d(n\times m)=\sum_{x|n}\sum_{y|m}[\gcd(x,y)=1]\)</span>。</h3>
+<p>可以发现，把所有合法的 <span class="math inline">\(x,y\)</span> 拿出来，然后列出所有的 <span class="math inline">\(x\times \frac{m}{y}\)</span>，这就是所有 <span class="math inline">\(n\times m\)</span> 的因子。</p>
 <p>肯定不能感性的就这么理解，考虑严谨一点点的证明。</p>
 <p><strong>先证明每个因子一定存在一种方式可以得到。</strong></p>
-<p>我们假设 $n=\prod p_i^{a_i},m=\prod p_i^{b_i}$，设某个 $n\times m$ 的因子 $d=\prod p_i^{c_i}$ 。对于 $d$ 的某个质因子及其次幂 $p_i^{c_i}$，以及对应的 $n,m$ 的质因子及其次幂 $p_i^{a_i},p_i^{b_i}$。分两种情况讨论。</p>
-<ol>
-<li>若 $c_i\leq b_i$，则使 $x$ 中 $p_i$ 的次幂为 $0$，$y$ 中 $p_i$ 的次幂为 $b_i-c_i$。这样在 $x\times \frac{m}{y}$ 中 $p_i$ 的次幂为 $(0)+(b_i-(b_i-c_i))=c_i$，且 $p_i$ 在 $\gcd$ 中的贡献为 $p_i^{\min(0,b_i-c_i)=0}=1$。</li>
-<li>若 $c_i&gt;b_i$，又因为 $c_i\leq a_i+b_i$，所以 $c_i-b_i\leq a_i$，则使 $x$ 中 $p_i$ 的次幂为 $c_i-b_i$，$y$ 中 $p_i$ 的次幂为 $0$。这样在 $x\times \frac{m}{y}$ 中 $p_i$ 的次幂为 $(c_i-b_i)+(b_i-0)=c_i$。且 $p_i$ 在 $\gcd$ 中的贡献为 $p_i^{\min(c_i-b_i,0)=0}=1$</li>
+<p>我们假设 <span class="math inline">\(n=\prod p_i^{a_i},m=\prod p_i^{b_i}\)</span>，设某个 <span class="math inline">\(n\times m\)</span> 的因子 <span class="math inline">\(d=\prod p_i^{c_i}\)</span> 。对于 <span class="math inline">\(d\)</span> 的某个质因子及其次幂 <span class="math inline">\(p_i^{c_i}\)</span>，以及对应的 <span class="math inline">\(n,m\)</span> 的质因子及其次幂 <span class="math inline">\(p_i^{a_i},p_i^{b_i}\)</span>。分两种情况讨论。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(c_i\leq b_i\)</span>，则使 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(0\)</span>，<span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(b_i-c_i\)</span>。这样在 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\((0)+(b_i-(b_i-c_i))=c_i\)</span>，且 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(p_i^{\min(0,b_i-c_i)=0}=1\)</span>。</li>
+<li>若 <span class="math inline">\(c_i&gt;b_i\)</span>，又因为 <span class="math inline">\(c_i\leq a_i+b_i\)</span>，所以 <span class="math inline">\(c_i-b_i\leq a_i\)</span>，则使 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(c_i-b_i\)</span>，<span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(0\)</span>。这样在 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\((c_i-b_i)+(b_i-0)=c_i\)</span>。且 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(p_i^{\min(c_i-b_i,0)=0}=1\)</span></li>
 </ol>
-<p>这样的话，对于因子 $d$ 的每个 $p_i$ 都这么构造一下即可。</p>
+<p>这样的话，对于因子 <span class="math inline">\(d\)</span> 的每个 <span class="math inline">\(p_i\)</span> 都这么构造一下即可。</p>
 <p><strong>再证明每个因子只能由这一种方式得到。</strong></p>
 <p>根据上一部分的证明，不能发现这个性质其实是显然的。不过还是简要说一下。</p>
-<p>对于上文的情况 1，若要使 $p_i$ 在 $\gcd$ 中的贡献为 $1$，而 $x$ 中 $p_i$ 的次幂 $\not=0$，那么 $y$ 中 $p_i$ 的次幂必须为 $0$，而此时 $x\times \frac{m}{y}$ 中 $p_i$ 的次幂最小为 $(1)+(b_i-0)=b_i+1&gt; b_i\geq c_i$，故构造不出 $c_i$。</p>
-<p>对于上文的情况 2，若要使 $p_i$ 在 $\gcd$ 中的贡献为 $1$，而 $y$ 中 $p_i$ 的次幂 $\not=0$，那么 $x$ 中 $p_i$ 的次幂必须为 $0$，而此时 $x\times \frac{m}{y}$ 中 $p_i$ 的次幂最大为 $(0)+(b_i-1)=b_i-1&lt;b_i&lt;c_i$，故构造不出 $c_i$。</p>
+<p>对于上文的情况 1，若要使 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(1\)</span>，而 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂 <span class="math inline">\(\not=0\)</span>，那么 <span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂必须为 <span class="math inline">\(0\)</span>，而此时 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂最小为 <span class="math inline">\((1)+(b_i-0)=b_i+1&gt; b_i\geq c_i\)</span>，故构造不出 <span class="math inline">\(c_i\)</span>。</p>
+<p>对于上文的情况 2，若要使 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(1\)</span>，而 <span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂 <span class="math inline">\(\not=0\)</span>，那么 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂必须为 <span class="math inline">\(0\)</span>，而此时 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂最大为 <span class="math inline">\((0)+(b_i-1)=b_i-1&lt;b_i&lt;c_i\)</span>，故构造不出 <span class="math inline">\(c_i\)</span>。</p>
 <p>综上就可以证明这个 trick。</p>
 <p>同样的，这个 trick 对于多个元素的乘积同样有效，即：</p>
-<p>$d(\prod a_i)=\sum_{b_1|a_1}\sum_{b_2|a_2}…[\gcd(b_1,b_2)=1][\gcd(b_1,b_3)=1][\gcd(b_2,b_3)=1]…$。</p>
-<h3 id="4-若求和式中出现枚举-x-y-且涉及到了-xy-时，大多数时候需要改变思路枚举-xy-。"><a href="#4-若求和式中出现枚举-x-y-且涉及到了-xy-时，大多数时候需要改变思路枚举-xy-。" class="headerlink" title="4. 若求和式中出现枚举 $x,y$ 且涉及到了 $xy$ 时，大多数时候需要改变思路枚举 $xy$。"></a>4. 若求和式中出现枚举 $x,y$ 且涉及到了 $xy$ 时，大多数时候需要改变思路枚举 $xy$。</h3><p>其实这个是一个十分普遍的小 trick。</p>
-<p>还是用那个老到不能再老的例子举例，求 $\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)$。</p>
-<p>我们来枚举 $\gcd$，然后变化一下就有 $\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}[\gcd(i,j)=1]$ 。根据常识，就有 $\sum_{d=1}^nd\sum_{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)\lfloor\frac{n}{kd}\rfloor\lfloor\frac{n}{kd}\rfloor$，直接这么做就是 $n\log n$ 的，而且对于 $n$ 很大或者是多组询问不太好优化。</p>
-<p>我们发现求和式中出现了 $d$，也出现了 $k$，同时涉及到了 $dk$，那么考虑设 $T=dk$，我们来枚举 $T$，就有 $\sum_{T=1}^n\lfloor\frac{n}{T}\rfloor\lfloor\frac{n}{T}\rfloor\sum_{k|T}\mu(k)\frac{T}{k}$。这样的话，有个求和变成了狄利克雷卷积，而一般来说卷出来的东西是积性函数。这样的话，前面的东西就可以用整数分块，而后面的东西可以线性筛预处理，或者使用亚线性筛直接求。这样大大加快了代码运行的时间。</p>
+<p><span class="math inline">\(d(\prod a_i)=\sum_{b_1|a_1}\sum_{b_2|a_2}...[\gcd(b_1,b_2)=1][\gcd(b_1,b_3)=1][\gcd(b_2,b_3)=1]...\)</span>。</p>
+<h3 id="若求和式中出现枚举-xy-且涉及到了-xy-时大多数时候需要改变思路枚举-xy">4. 若求和式中出现枚举 <span class="math inline">\(x,y\)</span> 且涉及到了 <span class="math inline">\(xy\)</span> 时，大多数时候需要改变思路枚举 <span class="math inline">\(xy\)</span>。</h3>
+<p>其实这个是一个十分普遍的小 trick。</p>
+<p>还是用那个老到不能再老的例子举例，求 <span class="math inline">\(\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)\)</span>。</p>
+<p>我们来枚举 <span class="math inline">\(\gcd\)</span>，然后变化一下就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}[\gcd(i,j)=1]\)</span> 。根据常识，就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)\lfloor\frac{n}{kd}\rfloor\lfloor\frac{n}{kd}\rfloor\)</span>，直接这么做就是 <span class="math inline">\(n\log n\)</span> 的，而且对于 <span class="math inline">\(n\)</span> 很大或者是多组询问不太好优化。</p>
+<p>我们发现求和式中出现了 <span class="math inline">\(d\)</span>，也出现了 <span class="math inline">\(k\)</span>，同时涉及到了 <span class="math inline">\(dk\)</span>，那么考虑设 <span class="math inline">\(T=dk\)</span>，我们来枚举 <span class="math inline">\(T\)</span>，就有 <span class="math inline">\(\sum_{T=1}^n\lfloor\frac{n}{T}\rfloor\lfloor\frac{n}{T}\rfloor\sum_{k|T}\mu(k)\frac{T}{k}\)</span>。这样的话，有个求和变成了狄利克雷卷积，而一般来说卷出来的东西是积性函数。这样的话，前面的东西就可以用整数分块，而后面的东西可以线性筛预处理，或者使用亚线性筛直接求。这样大大加快了代码运行的时间。</p>
 
     </div>
 
@@ -367,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-k-gcd-x-y-Leftrightarrow-k-x-text-and-k-y"><span class="nav-number">1.</span> <span class="nav-text">1. $k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8B%A5%E8%A6%81%E8%AE%A1%E7%AE%97-f-gcd-x-y-%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%AE%BE-f-n-sum-d-n-g-d-%E6%9D%A5%E5%8C%96%E7%AE%80%E5%BC%8F%E5%AD%90%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2. 若要计算 $f(\gcd(x,y))$，可以设 $f(n)&#x3D;\sum_{d|n}g(d)$ 来化简式子。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AE%BE-d-x-%E4%B8%BA-x-%E7%9A%84%E5%9B%A0%E5%AD%90%E4%B8%AA%E6%95%B0%EF%BC%8C%E9%82%A3%E4%B9%88-d-n-times-m-sum-x-n-sum-y-m-gcd-x-y-1-%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3. 设 $d(x)$ 为 $x$ 的因子个数，那么 $d(n\times m)&#x3D;\sum_{x|n}\sum_{y|m}[\gcd(x,y)&#x3D;1]$。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%8B%A5%E6%B1%82%E5%92%8C%E5%BC%8F%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%9E%9A%E4%B8%BE-x-y-%E4%B8%94%E6%B6%89%E5%8F%8A%E5%88%B0%E4%BA%86-xy-%E6%97%B6%EF%BC%8C%E5%A4%A7%E5%A4%9A%E6%95%B0%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E6%94%B9%E5%8F%98%E6%80%9D%E8%B7%AF%E6%9E%9A%E4%B8%BE-xy-%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4. 若求和式中出现枚举 $x,y$ 且涉及到了 $xy$ 时，大多数时候需要改变思路枚举 $xy$。</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kgcdxy-leftrightarrow-kx-text-and-ky"><span class="nav-number">1.</span> <span class="nav-text">1. \(k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%A5%E8%A6%81%E8%AE%A1%E7%AE%97-fgcdxy%E5%8F%AF%E4%BB%A5%E8%AE%BE-fnsum_dngd-%E6%9D%A5%E5%8C%96%E7%AE%80%E5%BC%8F%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">2. 若要计算 \(f(\gcd(x,y))\)，可以设 \(f(n)&#x3D;\sum_{d|n}g(d)\) 来化简式子。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE-dx-%E4%B8%BA-x-%E7%9A%84%E5%9B%A0%E5%AD%90%E4%B8%AA%E6%95%B0%E9%82%A3%E4%B9%88-dntimes-msum_xnsum_ymgcdxy1"><span class="nav-number">3.</span> <span class="nav-text">3. 设 \(d(x)\) 为 \(x\) 的因子个数，那么 \(d(n\times m)&#x3D;\sum_{x|n}\sum_{y|m}[\gcd(x,y)&#x3D;1]\)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%A5%E6%B1%82%E5%92%8C%E5%BC%8F%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%9E%9A%E4%B8%BE-xy-%E4%B8%94%E6%B6%89%E5%8F%8A%E5%88%B0%E4%BA%86-xy-%E6%97%B6%E5%A4%A7%E5%A4%9A%E6%95%B0%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E6%94%B9%E5%8F%98%E6%80%9D%E8%B7%AF%E6%9E%9A%E4%B8%BE-xy"><span class="nav-number">4.</span> <span class="nav-text">4. 若求和式中出现枚举 \(x,y\) 且涉及到了 \(xy\) 时，大多数时候需要改变思路枚举 \(xy\)。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,29 +394,29 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/Daniel-yuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Daniel-yuan" title="GitHub → https://github.com/Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:576311436@qq.com" title="E-Mail → mailto:576311436@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https://www.luogu.com.cn/user/71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
       </span>
       <span class="links-of-author-item">
-        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
+        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http://codeforces.com/profile/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
+        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https://atcoder.jp/users/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https://www.zhihu.com/people/daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
 
@@ -423,37 +427,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/imakf/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;imakf&#x2F;" rel="noopener" target="_blank">Imakf</a>
+          <a href="https://www.cnblogs.com/imakf/" title="https://www.cnblogs.com/imakf/" rel="noopener" target="_blank">Imakf</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/lsq147/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lsq147&#x2F;" rel="noopener" target="_blank">xiaolilsq</a>
+          <a href="https://www.cnblogs.com/lsq147/" title="https://www.cnblogs.com/lsq147/" rel="noopener" target="_blank">xiaolilsq</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/55201/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;55201&#x2F;#" rel="noopener" target="_blank">fhs_lzx</a>
+          <a href="https://www.luogu.com.cn/blog/55201/#" title="https://www.luogu.com.cn/blog/55201/#" rel="noopener" target="_blank">fhs_lzx</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lightmain-blog&#x2F;p&#x2F;" rel="noopener" target="_blank">lightmain</a>
+          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https://www.cnblogs.com/lightmain-blog/p/" rel="noopener" target="_blank">lightmain</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/pivix/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;pivix&#x2F;#" rel="noopener" target="_blank">春日野悠</a>
+          <a href="https://www.luogu.com.cn/blog/pivix/#" title="https://www.luogu.com.cn/blog/pivix/#" rel="noopener" target="_blank">春日野悠</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;emmmwelcome&#x2F;#" rel="noopener" target="_blank">TUIFEI_oier</a>
+          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https://www.luogu.com.cn/blog/emmmwelcome/#" rel="noopener" target="_blank">TUIFEI_oier</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://zzt.blog.luogu.org/#" title="https:&#x2F;&#x2F;zzt.blog.luogu.org&#x2F;#" rel="noopener" target="_blank">zzt</a>
+          <a href="https://zzt.blog.luogu.org/#" title="https://zzt.blog.luogu.org/#" rel="noopener" target="_blank">zzt</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;CYJian&#x2F;#" rel="noopener" target="_blank">CYJian</a>
+          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https://www.luogu.com.cn/blog/CYJian/#" rel="noopener" target="_blank">CYJian</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://kewth.blog.luogu.org/#" title="https:&#x2F;&#x2F;kewth.blog.luogu.org&#x2F;#" rel="noopener" target="_blank">Kewth</a>
+          <a href="https://kewth.blog.luogu.org/#" title="https://kewth.blog.luogu.org/#" rel="noopener" target="_blank">Kewth</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;hwb20030213&#x2F;#" rel="noopener" target="_blank">BoXe</a>
+          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https://www.luogu.com.cn/blog/hwb20030213/#" rel="noopener" target="_blank">BoXe</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/Soulist/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;Soulist&#x2F;#" rel="noopener" target="_blank">Soulist</a>
+          <a href="https://www.luogu.com.cn/blog/Soulist/#" title="https://www.luogu.com.cn/blog/Soulist/#" rel="noopener" target="_blank">Soulist</a>
         </li>
     </ul>
   </div>
@@ -486,14 +490,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">29k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">26 分钟</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         

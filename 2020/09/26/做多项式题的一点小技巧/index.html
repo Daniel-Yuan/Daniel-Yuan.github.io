@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,24 +257,26 @@
 <p>两个主要思想：在解多项式方程的时候，把多项式当做数看，在允许的情况下，可以等式两边同时加减乘除一个多项式；部分题目的多项式可能是无穷项的，在这种情况下，可能会出现把原多项式经过一些操作之后得到自身。</p>
 <p>两个主要套路：一个是先想出一个 DP 的做法，然后根据 DP 转移的特性，发现其卷积的性质并把卷积部分弄成多项式，之后直接卷积加速，或者通过解方程的方式求答案；另一个是直接设求解的东西为一个多项式，然后根据其性质使其可以从自己转移到自己，然后解方程。</p>
 <p>具体如何使用请看下面两个题目的题解。</p>
-<hr>
-<h4 id="集训队作业2013-城市规划-题解"><a href="#集训队作业2013-城市规划-题解" class="headerlink" title="[集训队作业2013]城市规划 题解"></a>[集训队作业2013]城市规划 题解</h4><p><strong>题意简述：</strong>求 $n$ 个点无重边无自环有标号无向连通图数目。$n\leq 10^5$。</p>
-<p><strong>题解：</strong>我们设 $f(i)$ 表示 $i$ 个节点的答案，直接求并不好求，但是我们可以很容易的得到 $n$ 个点的图的数量，即 $2^{C_n^2}$ ，考虑怎么用 $f$ 来表示它。</p>
-<p>$1$ 号节点最终一定会有一个连通块，考虑枚举这个连通块的大小，于是就有 $2^{C_n^2}=\sum_{i=1}^nC_{n-1}^{i-1}f(i)2^{C_{n-i}^2}$。也就是 $i$ 个点形成一个连通块，剩下的点随意连边。</p>
-<p>为了方便，设 $g(i)=2^{C_i^2}$，原式子就变成了 $g(n)=\sum_{i=1}^nC_{n-1}^{i-1}f(i)g(n-i)$。</p>
-<p>把组合数拆开，移项得 $\frac{g(n)}{(n-1)!}=\sum_{i=1}^n\frac{f(i)}{(i-1)!}\frac{g(n-i)}{(n-i)!}$，设 $F(i)=\frac{f(i)}{(i-1)!}$，$G(i)=\frac{g(i)}{i!}$，后面的求和就是一个卷积的形式，即 $F\times G$。</p>
-<p>把等式左边也稍加整理一下，就有 $nG(n)=(F\times G)(n)$。</p>
-<p>我们定义多项式的点乘为对应项相乘，再设 $H(i)=i$，那么就有 $(H\cdot G)(n)=(F\times G)(n)$，即 $H\cdot G=F\times G$。</p>
-<p>又因为 $G$ 的常数项为 $1$，故 $G$ 存在逆元，所以可以两边同时卷上 $G^{-1}$。于是就有 $F=(H\cdot G)\times G^{-1}$，写个多项式求逆就可以得到 $F$ 了。时间复杂度 $O(n\log n)$。</p>
-<hr>
-<h3 id="CF438E-The-Child-and-Binary-Tree-题解"><a href="#CF438E-The-Child-and-Binary-Tree-题解" class="headerlink" title="CF438E The Child and Binary Tree 题解"></a>CF438E The Child and Binary Tree 题解</h3><p><strong>题意简述：</strong> 有无数个点，每个点的权值可以是给出集合 $S$ 中的任意一个，定义一棵树的权值是所有点的权值和，求有多少棵节点数目任意的、形态不同的、权值为 $val$ 的二叉树。对于每个 $val\leq k$ 都需要求解。$k,|S|\leq 10^5$。</p>
-<p>题解：直接设多项式 $f$ 为答案多项式，其中 $f(i)$ 表示 $val=i$ 的方案数。特别的，$f(0)=1$。现在考虑 $f$ 怎么求。</p>
-<p>设 $g(i)$ 表示一个点的权值为 $i$ 的方案数，显然 $i\in S$ 则 $g(i)=1$，反之 $g(i)=0$。</p>
-<p>那么对于当前的，它左儿子的方案数是 $f$，右儿子的方案数是 $f$，它自己的方案数是 $g$，而这个问题把解集合并就相当于是一个背包，那么就有 $f=f\times f\times g+1$，这个加一是指当前这个点的子树为空。</p>
-<p>之后把 $f$ 当做未知数解方程，根据求根公式，有 $f=\frac{1\pm\sqrt{1-4g}}{2g}$，现在需要考虑正负取正还是负。</p>
-<p>我们可以这么分析，当 $g$ 趋近于 $0$ 也就是 $|S|$ 趋近于 $0$ 的时候，$f=\frac{1\pm1}{0}$，而此时方案数是为 $0$ 的，也就是 $f$ 为 $0$，那么就只能取负号，所以 $f=\frac{1-\sqrt{1-4g}}{2g}$。</p>
-<p>$g$ 常数项不是 $1$，没有逆元，考虑把分子有理化。就有 $f=\frac{2}{1+\sqrt{1-4g}}$。多项式开根加个求逆即可。复杂度 $O(n\log n)$。</p>
-<hr>
+<hr />
+<h4 id="集训队作业2013城市规划-题解">[集训队作业2013]城市规划 题解</h4>
+<p><strong>题意简述：</strong>求 <span class="math inline">\(n\)</span> 个点无重边无自环有标号无向连通图数目。<span class="math inline">\(n\leq 10^5\)</span>。</p>
+<p><strong>题解：</strong>我们设 <span class="math inline">\(f(i)\)</span> 表示 <span class="math inline">\(i\)</span> 个节点的答案，直接求并不好求，但是我们可以很容易的得到 <span class="math inline">\(n\)</span> 个点的图的数量，即 <span class="math inline">\(2^{C_n^2}\)</span> ，考虑怎么用 <span class="math inline">\(f\)</span> 来表示它。</p>
+<p><span class="math inline">\(1\)</span> 号节点最终一定会有一个连通块，考虑枚举这个连通块的大小，于是就有 <span class="math inline">\(2^{C_n^2}=\sum_{i=1}^nC_{n-1}^{i-1}f(i)2^{C_{n-i}^2}\)</span>。也就是 <span class="math inline">\(i\)</span> 个点形成一个连通块，剩下的点随意连边。</p>
+<p>为了方便，设 <span class="math inline">\(g(i)=2^{C_i^2}\)</span>，原式子就变成了 <span class="math inline">\(g(n)=\sum_{i=1}^nC_{n-1}^{i-1}f(i)g(n-i)\)</span>。</p>
+<p>把组合数拆开，移项得 <span class="math inline">\(\frac{g(n)}{(n-1)!}=\sum_{i=1}^n\frac{f(i)}{(i-1)!}\frac{g(n-i)}{(n-i)!}\)</span>，设 <span class="math inline">\(F(i)=\frac{f(i)}{(i-1)!}\)</span>，<span class="math inline">\(G(i)=\frac{g(i)}{i!}\)</span>，后面的求和就是一个卷积的形式，即 <span class="math inline">\(F\times G\)</span>。</p>
+<p>把等式左边也稍加整理一下，就有 <span class="math inline">\(nG(n)=(F\times G)(n)\)</span>。</p>
+<p>我们定义多项式的点乘为对应项相乘，再设 <span class="math inline">\(H(i)=i\)</span>，那么就有 <span class="math inline">\((H\cdot G)(n)=(F\times G)(n)\)</span>，即 <span class="math inline">\(H\cdot G=F\times G\)</span>。</p>
+<p>又因为 <span class="math inline">\(G\)</span> 的常数项为 <span class="math inline">\(1\)</span>，故 <span class="math inline">\(G\)</span> 存在逆元，所以可以两边同时卷上 <span class="math inline">\(G^{-1}\)</span>。于是就有 <span class="math inline">\(F=(H\cdot G)\times G^{-1}\)</span>，写个多项式求逆就可以得到 <span class="math inline">\(F\)</span> 了。时间复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<hr />
+<h3 id="cf438e-the-child-and-binary-tree-题解">CF438E The Child and Binary Tree 题解</h3>
+<p><strong>题意简述：</strong> 有无数个点，每个点的权值可以是给出集合 <span class="math inline">\(S\)</span> 中的任意一个，定义一棵树的权值是所有点的权值和，求有多少棵节点数目任意的、形态不同的、权值为 <span class="math inline">\(val\)</span> 的二叉树。对于每个 <span class="math inline">\(val\leq k\)</span> 都需要求解。<span class="math inline">\(k,|S|\leq 10^5\)</span>。</p>
+<p>题解：直接设多项式 <span class="math inline">\(f\)</span> 为答案多项式，其中 <span class="math inline">\(f(i)\)</span> 表示 <span class="math inline">\(val=i\)</span> 的方案数。特别的，<span class="math inline">\(f(0)=1\)</span>。现在考虑 <span class="math inline">\(f\)</span> 怎么求。</p>
+<p>设 <span class="math inline">\(g(i)\)</span> 表示一个点的权值为 <span class="math inline">\(i\)</span> 的方案数，显然 <span class="math inline">\(i\in S\)</span> 则 <span class="math inline">\(g(i)=1\)</span>，反之 <span class="math inline">\(g(i)=0\)</span>。</p>
+<p>那么对于当前的，它左儿子的方案数是 <span class="math inline">\(f\)</span>，右儿子的方案数是 <span class="math inline">\(f\)</span>，它自己的方案数是 <span class="math inline">\(g\)</span>，而这个问题把解集合并就相当于是一个背包，那么就有 <span class="math inline">\(f=f\times f\times g+1\)</span>，这个加一是指当前这个点的子树为空。</p>
+<p>之后把 <span class="math inline">\(f\)</span> 当做未知数解方程，根据求根公式，有 <span class="math inline">\(f=\frac{1\pm\sqrt{1-4g}}{2g}\)</span>，现在需要考虑正负取正还是负。</p>
+<p>我们可以这么分析，当 <span class="math inline">\(g\)</span> 趋近于 <span class="math inline">\(0\)</span> 也就是 <span class="math inline">\(|S|\)</span> 趋近于 <span class="math inline">\(0\)</span> 的时候，<span class="math inline">\(f=\frac{1\pm1}{0}\)</span>，而此时方案数是为 <span class="math inline">\(0\)</span> 的，也就是 <span class="math inline">\(f\)</span> 为 <span class="math inline">\(0\)</span>，那么就只能取负号，所以 <span class="math inline">\(f=\frac{1-\sqrt{1-4g}}{2g}\)</span>。</p>
+<p><span class="math inline">\(g\)</span> 常数项不是 <span class="math inline">\(1\)</span>，没有逆元，考虑把分子有理化。就有 <span class="math inline">\(f=\frac{2}{1+\sqrt{1-4g}}\)</span>。多项式开根加个求逆即可。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<hr />
 <p>上述题目，第一题用的是第一个 trick，第二题用的是第二个 trick，较好的体现了做多项式题目的技巧。且这两个题目十分经典，不失为练习多项式的好题。</p>
 
     </div>
@@ -359,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E8%AE%AD%E9%98%9F%E4%BD%9C%E4%B8%9A2013-%E5%9F%8E%E5%B8%82%E8%A7%84%E5%88%92-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">[集训队作业2013]城市规划 题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CF438E-The-Child-and-Binary-Tree-%E9%A2%98%E8%A7%A3"><span class="nav-number"></span> <span class="nav-text">CF438E The Child and Binary Tree 题解</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E8%AE%AD%E9%98%9F%E4%BD%9C%E4%B8%9A2013%E5%9F%8E%E5%B8%82%E8%A7%84%E5%88%92-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">[集训队作业2013]城市规划 题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cf438e-the-child-and-binary-tree-%E9%A2%98%E8%A7%A3"><span class="nav-number"></span> <span class="nav-text">CF438E The Child and Binary Tree 题解</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -382,29 +384,29 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/Daniel-yuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Daniel-yuan" title="GitHub → https://github.com/Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:576311436@qq.com" title="E-Mail → mailto:576311436@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https://www.luogu.com.cn/user/71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
       </span>
       <span class="links-of-author-item">
-        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
+        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http://codeforces.com/profile/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
+        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https://atcoder.jp/users/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https://www.zhihu.com/people/daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
 
@@ -415,37 +417,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/imakf/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;imakf&#x2F;" rel="noopener" target="_blank">Imakf</a>
+          <a href="https://www.cnblogs.com/imakf/" title="https://www.cnblogs.com/imakf/" rel="noopener" target="_blank">Imakf</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/lsq147/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lsq147&#x2F;" rel="noopener" target="_blank">xiaolilsq</a>
+          <a href="https://www.cnblogs.com/lsq147/" title="https://www.cnblogs.com/lsq147/" rel="noopener" target="_blank">xiaolilsq</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/55201/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;55201&#x2F;#" rel="noopener" target="_blank">fhs_lzx</a>
+          <a href="https://www.luogu.com.cn/blog/55201/#" title="https://www.luogu.com.cn/blog/55201/#" rel="noopener" target="_blank">fhs_lzx</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lightmain-blog&#x2F;p&#x2F;" rel="noopener" target="_blank">lightmain</a>
+          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https://www.cnblogs.com/lightmain-blog/p/" rel="noopener" target="_blank">lightmain</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/pivix/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;pivix&#x2F;#" rel="noopener" target="_blank">春日野悠</a>
+          <a href="https://www.luogu.com.cn/blog/pivix/#" title="https://www.luogu.com.cn/blog/pivix/#" rel="noopener" target="_blank">春日野悠</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;emmmwelcome&#x2F;#" rel="noopener" target="_blank">TUIFEI_oier</a>
+          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https://www.luogu.com.cn/blog/emmmwelcome/#" rel="noopener" target="_blank">TUIFEI_oier</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://zzt.blog.luogu.org/#" title="https:&#x2F;&#x2F;zzt.blog.luogu.org&#x2F;#" rel="noopener" target="_blank">zzt</a>
+          <a href="https://zzt.blog.luogu.org/#" title="https://zzt.blog.luogu.org/#" rel="noopener" target="_blank">zzt</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;CYJian&#x2F;#" rel="noopener" target="_blank">CYJian</a>
+          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https://www.luogu.com.cn/blog/CYJian/#" rel="noopener" target="_blank">CYJian</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://kewth.blog.luogu.org/#" title="https:&#x2F;&#x2F;kewth.blog.luogu.org&#x2F;#" rel="noopener" target="_blank">Kewth</a>
+          <a href="https://kewth.blog.luogu.org/#" title="https://kewth.blog.luogu.org/#" rel="noopener" target="_blank">Kewth</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;hwb20030213&#x2F;#" rel="noopener" target="_blank">BoXe</a>
+          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https://www.luogu.com.cn/blog/hwb20030213/#" rel="noopener" target="_blank">BoXe</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/Soulist/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;Soulist&#x2F;#" rel="noopener" target="_blank">Soulist</a>
+          <a href="https://www.luogu.com.cn/blog/Soulist/#" title="https://www.luogu.com.cn/blog/Soulist/#" rel="noopener" target="_blank">Soulist</a>
         </li>
     </ul>
   </div>
@@ -478,14 +480,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">29k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">26 分钟</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         

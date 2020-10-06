@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目链接 题意简述 定义若二元组 $(a,b)&lt;(c,d)$，则有 $a&gt;c$ 或者 $a&#x3D;c \text{ and } b&lt;d$。 给你 $n$ 个数，第 $i$ 个数是 $a_i$。 现在系统会生成 $n$ 个二元组，第 $i$ 个二元组是 $(a_i,i)$ 或者是 $(a_i+1,i)$，然后给每个二元组一个排名，设排名数列为 $rk$。 求有多少种不同的 $rk$ 数列">
+  <meta name="description" content="题目链接 题意简述 定义若二元组 \((a,b)&lt;(c,d)\)，则有 \(a&gt;c\) 或者 \(a&#x3D;c \text{ and } b&lt;d\)。 给你 \(n\) 个数，第 \(i\) 个数是 \(a_i\)。 现在系统会生成 \(n\) 个二元组，第 \(i\) 个二元组是 \((a_i,i)\) 或者是 \((a_i+1,i)\)，然后给每个二元组一个排名，设排名数列为 \(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="牛客练习赛 70 E 题解">
 <meta property="og:url" content="http://example.com/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Daniel_yuan&#39;s Blog">
-<meta property="og:description" content="题目链接 题意简述 定义若二元组 $(a,b)&lt;(c,d)$，则有 $a&gt;c$ 或者 $a&#x3D;c \text{ and } b&lt;d$。 给你 $n$ 个数，第 $i$ 个数是 $a_i$。 现在系统会生成 $n$ 个二元组，第 $i$ 个二元组是 $(a_i,i)$ 或者是 $(a_i+1,i)$，然后给每个二元组一个排名，设排名数列为 $rk$。 求有多少种不同的 $rk$ 数列">
+<meta property="og:description" content="题目链接 题意简述 定义若二元组 \((a,b)&lt;(c,d)\)，则有 \(a&gt;c\) 或者 \(a&#x3D;c \text{ and } b&lt;d\)。 给你 \(n\) 个数，第 \(i\) 个数是 \(a_i\)。 现在系统会生成 \(n\) 个二元组，第 \(i\) 个二元组是 \((a_i,i)\) 或者是 \((a_i+1,i)\)，然后给每个二元组一个排名，设排名数列为 \(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-29T06:59:08.000Z">
 <meta property="article:modified_time" content="2020-09-29T07:28:41.621Z">
@@ -235,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -256,36 +256,36 @@
       
         <p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/7509/E">题目链接</a></p>
 <p><strong>题意简述</strong></p>
-<p>定义若二元组 $(a,b)&lt;(c,d)$，则有 $a&gt;c$ 或者 $a=c \text{ and } b&lt;d$。</p>
-<p>给你 $n$ 个数，第 $i$ 个数是 $a_i$。</p>
-<p>现在系统会生成 $n$ 个二元组，第 $i$ 个二元组是 $(a_i,i)$ 或者是 $(a_i+1,i)$，然后给每个二元组一个排名，设排名数列为 $rk$。</p>
-<p>求有多少种不同的 $rk$ 数列，两个 $rk$ 序列不同当且仅当存在至少一个位置 $x$，使得两个 $rk$ 数列的 $rk_x$ 不同。</p>
-<p>$n\leq 5\times 10^5,a_i\leq 10^6$，时空限制：2s 256M。</p>
+<p>定义若二元组 <span class="math inline">\((a,b)&lt;(c,d)\)</span>，则有 <span class="math inline">\(a&gt;c\)</span> 或者 <span class="math inline">\(a=c \text{ and } b&lt;d\)</span>。</p>
+<p>给你 <span class="math inline">\(n\)</span> 个数，第 <span class="math inline">\(i\)</span> 个数是 <span class="math inline">\(a_i\)</span>。</p>
+<p>现在系统会生成 <span class="math inline">\(n\)</span> 个二元组，第 <span class="math inline">\(i\)</span> 个二元组是 <span class="math inline">\((a_i,i)\)</span> 或者是 <span class="math inline">\((a_i+1,i)\)</span>，然后给每个二元组一个排名，设排名数列为 <span class="math inline">\(rk\)</span>。</p>
+<p>求有多少种不同的 <span class="math inline">\(rk\)</span> 数列，两个 <span class="math inline">\(rk\)</span> 序列不同当且仅当存在至少一个位置 <span class="math inline">\(x\)</span>，使得两个 <span class="math inline">\(rk\)</span> 数列的 <span class="math inline">\(rk_x\)</span> 不同。</p>
+<p><span class="math inline">\(n\leq 5\times 10^5,a_i\leq 10^6\)</span>，时空限制：2s 256M。</p>
 <a id="more"></a>
 <p><strong>样例</strong></p>
 <p>输入：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>解释：有以下八种二元组的搭配方式，以及其相应的 $rk$ 序列。</p>
-<p>$(1,1),(2,2),(2,3)    rk:3,1,2$</p>
-<p>$(1,1),(2,2),(3,3)    rk:3,2,1$</p>
-<p>$(1,1),(3,2),(2,3)    rk:3,1,2$</p>
-<p>$(1,1),(3,2),(3,3)    rk:3,1,2$</p>
-<p>$(2,1),(2,2),(2,3)    rk:1,2,3$</p>
-<p>$(2,1),(2,2),(3,3)    rk:2,3,1$</p>
-<p>$(2,1),(3,2),(2,3)    rk:2,1,3$</p>
-<p>$(2,1),(3,2),(3,3)    rk:3,1,2$</p>
-<p>不同的 $rk$ 序列一共有 $5$ 个。</p>
+<p>解释：有以下八种二元组的搭配方式，以及其相应的 <span class="math inline">\(rk\)</span> 序列。</p>
+<p><span class="math inline">\((1,1),(2,2),(2,3)\ \ \ \ rk:3,1,2\)</span></p>
+<p><span class="math inline">\((1,1),(2,2),(3,3)\ \ \ \ rk:3,2,1\)</span></p>
+<p><span class="math inline">\((1,1),(3,2),(2,3)\ \ \ \ rk:3,1,2\)</span></p>
+<p><span class="math inline">\((1,1),(3,2),(3,3)\ \ \ \ rk:3,1,2\)</span></p>
+<p><span class="math inline">\((2,1),(2,2),(2,3)\ \ \ \ rk:1,2,3\)</span></p>
+<p><span class="math inline">\((2,1),(2,2),(3,3)\ \ \ \ rk:2,3,1\)</span></p>
+<p><span class="math inline">\((2,1),(3,2),(2,3)\ \ \ \ rk:2,1,3\)</span></p>
+<p><span class="math inline">\((2,1),(3,2),(3,3)\ \ \ \ rk:3,1,2\)</span></p>
+<p>不同的 <span class="math inline">\(rk\)</span> 序列一共有 <span class="math inline">\(5\)</span> 个。</p>
 <p><strong>题解</strong></p>
 <p>比赛的时候一直认为是一个组合数学题目，没想到是一个 DP。</p>
-<p>先下一个定义：若两个由前 $i-1$ 个二元组形成的序列，无论 $[i,n]$ 中的每个二元组是 $(a_x,x)$ 还是 $(a_x+1,x)$，这两个序列最终形成的排名序列都是相同的，那么我们把它们称作<strong>不可区分</strong>的。</p>
-<p>首先把所有二元组按照 $(a_i,i)$ 排序。为了方便，下文默认输入就已经保证了 $(a_i,i)&lt;(a_{i+1},i+1)$。</p>
-<p>考虑 DP，设 $f_i$ 表示前 $i-1$ 个二元组组成的<strong>可区分</strong>的序列个数。</p>
-<p>那么第 $i$ 个位置既可以放 $(a_i,i)$ 也可以放 $(a_i+1,i)$，所以有 $f_{i+1}=2f_i$，但是这样显然会算重，所以考虑容斥。</p>
-<p>考虑对于一个位置 $i$，找到一个极短的区间 $<a href="l\leq i\leq r">l,r</a>$，它需要满足存在一种在 $[l,i-1],[i+1,r]$ 放置二元组的方案，使得第 $i$ 个位置放 $(a_i,i)$ 和放 $(a_i+1,i)$ 是<strong>不可区分</strong>的。这样的话，这种放置方法的贡献本来只有 $1$ 但是被算了两次，所以 $f_r$ 就需要减去 $f_l$。</p>
-<p>因为这个区间是极短的，所以可以恰好不重不漏地把所有的不合法的方案都减掉，最终的 $f_{n+1}$ 即为答案。</p>
-<p>不难发现，因为我们一开始排好了序，所以 $l,r$ 是单调递增的，$i$ 也是我们单调枚举的，所以 DP 的总复杂度是 $O(n)$ 的。（有趣的是，复杂度的瓶颈在于排序）。</p>
+<p>先下一个定义：若两个由前 <span class="math inline">\(i-1\)</span> 个二元组形成的序列，无论 <span class="math inline">\([i,n]\)</span> 中的每个二元组是 <span class="math inline">\((a_x,x)\)</span> 还是 <span class="math inline">\((a_x+1,x)\)</span>，这两个序列最终形成的排名序列都是相同的，那么我们把它们称作<strong>不可区分</strong>的。</p>
+<p>首先把所有二元组按照 <span class="math inline">\((a_i,i)\)</span> 排序。为了方便，下文默认输入就已经保证了 <span class="math inline">\((a_i,i)&lt;(a_{i+1},i+1)\)</span>。</p>
+<p>考虑 DP，设 <span class="math inline">\(f_i\)</span> 表示前 <span class="math inline">\(i-1\)</span> 个二元组组成的<strong>可区分</strong>的序列个数。</p>
+<p>那么第 <span class="math inline">\(i\)</span> 个位置既可以放 <span class="math inline">\((a_i,i)\)</span> 也可以放 <span class="math inline">\((a_i+1,i)\)</span>，所以有 <span class="math inline">\(f_{i+1}=2f_i\)</span>，但是这样显然会算重，所以考虑容斥。</p>
+<p>考虑对于一个位置 <span class="math inline">\(i\)</span>，找到一个极短的区间 <span class="math inline">\([l,r](l\leq i\leq r)\)</span>，它需要满足存在一种在 <span class="math inline">\([l,i-1],[i+1,r]\)</span> 放置二元组的方案，使得第 <span class="math inline">\(i\)</span> 个位置放 <span class="math inline">\((a_i,i)\)</span> 和放 <span class="math inline">\((a_i+1,i)\)</span> 是<strong>不可区分</strong>的。这样的话，这种放置方法的贡献本来只有 <span class="math inline">\(1\)</span> 但是被算了两次，所以 <span class="math inline">\(f_r\)</span> 就需要减去 <span class="math inline">\(f_l\)</span>。</p>
+<p>因为这个区间是极短的，所以可以恰好不重不漏地把所有的不合法的方案都减掉，最终的 <span class="math inline">\(f_{n+1}\)</span> 即为答案。</p>
+<p>不难发现，因为我们一开始排好了序，所以 <span class="math inline">\(l,r\)</span> 是单调递增的，<span class="math inline">\(i\)</span> 也是我们单调枚举的，所以 DP 的总复杂度是 <span class="math inline">\(O(n)\)</span> 的。（有趣的是，复杂度的瓶颈在于排序）。</p>
 <p>代码如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">1000000</span>], *p1 = buf, *p2 = buf;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p1 == p2) p2 = (p1 = buf) + fread(buf, <span class="number">1</span>, <span class="number">1000000</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">return</span> p1 == p2 ? EOF : *(p1++);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">n</span>) &#123;</span></span><br><span class="line">    n = <span class="number">0</span>; RI ch = gc(), f;</span><br><span class="line">    <span class="keyword">while</span> ((ch &lt; <span class="string">&#x27;0&#x27;</span> || ch &gt; <span class="string">&#x27;9&#x27;</span>) &amp;&amp; ch != <span class="string">&#x27;-&#x27;</span>) ch = gc();</span><br><span class="line">    f = (ch == <span class="string">&#x27;-&#x27;</span> ? ch = gc(), <span class="number">-1</span> : <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>) n = n * <span class="number">10</span> + (ch ^ <span class="number">48</span>), ch = gc();</span><br><span class="line">    n *= f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">char</span> Of[<span class="number">105</span>], *O1 = Of, *O2 = Of;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">n</span>, <span class="title">char</span> <span class="title">ch</span> = &#x27;\<span class="title">n</span>&#x27;) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>), n = -n;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">while</span> (n) *(O1++) = (n % <span class="number">10</span>) ^ <span class="number">48</span>, n /= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">while</span> (O1 != O2) <span class="built_in">putchar</span>(*(--O1));</span><br><span class="line">    <span class="built_in">putchar</span>(ch);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> IO :: read;</span><br><span class="line"><span class="keyword">using</span> IO :: print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">5e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> x, id;</span><br><span class="line">  Node (<span class="keyword">int</span> _x = <span class="number">0</span>, <span class="keyword">int</span> _id = <span class="number">0</span>) &#123; x = _x, id = _id; &#125;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;A) <span class="keyword">const</span> &#123; <span class="keyword">return</span> x ^ A.x ? x &gt; A.x : id &lt; A.id; &#125;;</span><br><span class="line">&#125; a[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; read(n);</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    read(a[i].x), a[i].id = i;</span><br><span class="line">  sort(a + <span class="number">1</span>, a + <span class="number">1</span> + n);</span><br><span class="line">  f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; i &amp;&amp; (Node(a[l].x, a[l].id) &lt; Node(a[i].x + <span class="number">1</span>, a[i].id))) ++l;</span><br><span class="line">    <span class="keyword">while</span> (r &lt;= n &amp;&amp; (Node(a[r].x + <span class="number">1</span>, a[r].id) &lt; Node(a[i].x, a[i].id))) ++r;</span><br><span class="line">    f[r] = (f[r] + mod - f[l]) % mod;</span><br><span class="line">    f[i + <span class="number">1</span>] = ((f[i] + f[i]) % mod + f[i + <span class="number">1</span>]) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  print(f[n + <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -395,29 +395,29 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/Daniel-yuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Daniel-yuan" title="GitHub → https://github.com/Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:576311436@qq.com" title="E-Mail → mailto:576311436@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https://www.luogu.com.cn/user/71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
       </span>
       <span class="links-of-author-item">
-        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
+        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http://codeforces.com/profile/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
+        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https://atcoder.jp/users/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https://www.zhihu.com/people/daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
 
@@ -428,37 +428,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/imakf/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;imakf&#x2F;" rel="noopener" target="_blank">Imakf</a>
+          <a href="https://www.cnblogs.com/imakf/" title="https://www.cnblogs.com/imakf/" rel="noopener" target="_blank">Imakf</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/lsq147/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lsq147&#x2F;" rel="noopener" target="_blank">xiaolilsq</a>
+          <a href="https://www.cnblogs.com/lsq147/" title="https://www.cnblogs.com/lsq147/" rel="noopener" target="_blank">xiaolilsq</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/55201/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;55201&#x2F;#" rel="noopener" target="_blank">fhs_lzx</a>
+          <a href="https://www.luogu.com.cn/blog/55201/#" title="https://www.luogu.com.cn/blog/55201/#" rel="noopener" target="_blank">fhs_lzx</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lightmain-blog&#x2F;p&#x2F;" rel="noopener" target="_blank">lightmain</a>
+          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https://www.cnblogs.com/lightmain-blog/p/" rel="noopener" target="_blank">lightmain</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/pivix/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;pivix&#x2F;#" rel="noopener" target="_blank">春日野悠</a>
+          <a href="https://www.luogu.com.cn/blog/pivix/#" title="https://www.luogu.com.cn/blog/pivix/#" rel="noopener" target="_blank">春日野悠</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;emmmwelcome&#x2F;#" rel="noopener" target="_blank">TUIFEI_oier</a>
+          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https://www.luogu.com.cn/blog/emmmwelcome/#" rel="noopener" target="_blank">TUIFEI_oier</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://zzt.blog.luogu.org/#" title="https:&#x2F;&#x2F;zzt.blog.luogu.org&#x2F;#" rel="noopener" target="_blank">zzt</a>
+          <a href="https://zzt.blog.luogu.org/#" title="https://zzt.blog.luogu.org/#" rel="noopener" target="_blank">zzt</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;CYJian&#x2F;#" rel="noopener" target="_blank">CYJian</a>
+          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https://www.luogu.com.cn/blog/CYJian/#" rel="noopener" target="_blank">CYJian</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://kewth.blog.luogu.org/#" title="https:&#x2F;&#x2F;kewth.blog.luogu.org&#x2F;#" rel="noopener" target="_blank">Kewth</a>
+          <a href="https://kewth.blog.luogu.org/#" title="https://kewth.blog.luogu.org/#" rel="noopener" target="_blank">Kewth</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;hwb20030213&#x2F;#" rel="noopener" target="_blank">BoXe</a>
+          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https://www.luogu.com.cn/blog/hwb20030213/#" rel="noopener" target="_blank">BoXe</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/Soulist/#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;Soulist&#x2F;#" rel="noopener" target="_blank">Soulist</a>
+          <a href="https://www.luogu.com.cn/blog/Soulist/#" title="https://www.luogu.com.cn/blog/Soulist/#" rel="noopener" target="_blank">Soulist</a>
         </li>
     </ul>
   </div>
@@ -491,14 +491,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">29k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">26 分钟</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
