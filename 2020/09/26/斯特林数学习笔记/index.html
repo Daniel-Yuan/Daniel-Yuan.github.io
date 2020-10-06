@@ -234,14 +234,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.7k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -256,7 +256,6 @@
         <h4 id="下降幂和上升幂"><a href="#下降幂和上升幂" class="headerlink" title="下降幂和上升幂"></a>下降幂和上升幂</h4><p>$x$ 的 $k$ 次下降幂记作 $x^{\underline{k}}$，表示的是 $\prod_{i=0}^{k-1}(x-i)$ 。</p>
 <p>$x$ 的 $k$ 次上升幂记作 $x^{\overline{k}}$，表示的是 $\prod_{i=0}^{k-1}(x+i)$。</p>
 <a id="more"></a>
-
 <h4 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h4><p>$\begin{bmatrix} n \ i \end{bmatrix}$ 表示第一类斯特林数，它的意义是把 $n$ 个有标号的点放入 $i$ 个圆排列的方案数。圆排列不能为空。</p>
 <p>第一类斯特林数有一个递推式，$\begin{bmatrix} n \ i \end{bmatrix}=\begin{bmatrix} n-1 \ i \end{bmatrix}\times(n-1)+\begin{bmatrix} n-1 \ i-1 \end{bmatrix}$，即考虑最后一个点放在哪里，要么是新开一个圆排列，要么就跟在某个数的后面。</p>
 <h4 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h4><p>$\begin{Bmatrix}n \ i\end{Bmatrix}$ 表示第二类斯特林数，它的意义是把 $n$ 个有标号的点放入 $i$ 个无标号的集合的方案数。集合不能为空。</p>
@@ -264,17 +263,40 @@
 <h4 id="斯特林数和自然幂、下降幂、上升幂的关系"><a href="#斯特林数和自然幂、下降幂、上升幂的关系" class="headerlink" title="斯特林数和自然幂、下降幂、上升幂的关系"></a>斯特林数和自然幂、下降幂、上升幂的关系</h4><p>对于自然幂和下降幂，有这么一个式子。$n^m=\sum_{i=0}^m\begin{Bmatrix}m \ i\end{Bmatrix}n^{\underline{i}}$。</p>
 <p>考虑从组合意义来理解它。$n^m$ 相当于是把 $m$ 个有标号的球放入 $n$ 个有标号的盒子的方案数，考虑枚举有多少个盒子有球，假设为 $i$，那么选盒子的方案就是 $\begin{pmatrix}n \ i\end{pmatrix}$，然后把 $m$ 个球放到这 $i$ 个盒子里面去，方案是 $\begin{Bmatrix}m \ i\end{Bmatrix}$，而因为第二类斯特林数的集合是无标号的，这里是有标号的，所以最后需要乘上一个 $i!$，然后把组合数展开，就得到上面的那个式子。</p>
 <p>对于自然幂和上升幂，有这么一个式子。$n^{\overline{m}}=\sum_{i=0}^m\begin{bmatrix}m \ i\end{bmatrix}n^i$ 。</p>
-<p>考虑用数学归纳法来证明它，对于 $m=0$ 式子显然成立，假设现在已经证明对于 $m\leq k-1$ 式子成立，需要证明对于 $m=k$ 式子成立。<br>$$<br>n^{\overline{k}}=n^{\overline{k-1}}\times(n+k-1)<del>\<br>=n^{\overline{k-1}}\times n+n^{\overline{k-1}}\times(k-1)</del>\<br>=\sum_{i=0}^{k-1}\begin{bmatrix}k-1 \ i\end{bmatrix}n^{i+1}+\sum_{i=0}^{k-1}(k-1)\begin{bmatrix}k-1 \ i\end{bmatrix}n^i<del>\<br>=\sum_{i=1}^{k-1}\begin{bmatrix}k-1 \ i-1\end{bmatrix}n^{i}+\sum_{i=0}^{k-1}(k-1)\begin{bmatrix}k-1 \ i\end{bmatrix}n^i</del>\<br>=\sum_{i=0}^k\begin{bmatrix}k \ i\end{bmatrix}n^i<del>~</del><br>$$<br>故可以证明原式子成立。</p>
+<p>考虑用数学归纳法来证明它，对于 $m=0$ 式子显然成立，假设现在已经证明对于 $m\leq k-1$ 式子成立，需要证明对于 $m=k$ 式子成立。</p>
+<script type="math/tex; mode=display">
+n^{\overline{k}}=n^{\overline{k-1}}\times(n+k-1)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+=n^{\overline{k-1}}\times n+n^{\overline{k-1}}\times(k-1)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+=\sum_{i=0}^{k-1}\begin{bmatrix}k-1 \\ i\end{bmatrix}n^{i+1}+\sum_{i=0}^{k-1}(k-1)\begin{bmatrix}k-1 \\ i\end{bmatrix}n^i~~~~~~\\
+=\sum_{i=1}^{k-1}\begin{bmatrix}k-1 \\ i-1\end{bmatrix}n^{i}+\sum_{i=0}^{k-1}(k-1)\begin{bmatrix}k-1 \\ i\end{bmatrix}n^i~~~~~~~~~\\
+=\sum_{i=0}^k\begin{bmatrix}k \\ i\end{bmatrix}n^i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</script><p>故可以证明原式子成立。</p>
 <h4 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h4><h5 id="反转公式-I"><a href="#反转公式-I" class="headerlink" title="反转公式 I"></a>反转公式 I</h5><p>$x^{\overline{k}}=(-1)^k(-x)^{\underline{k}}$，$x^{\underline{k}}=(-1)^k(-x)^{\overline{k}}$。</p>
 <p>这两个式子把它们拆开就可以证明相等了。</p>
 <h5 id="反转公式-II"><a href="#反转公式-II" class="headerlink" title="反转公式 II"></a>反转公式 II</h5><p>$\sum_{i=m}^n(-1)^{n-i}\begin{bmatrix}n \ i\end{bmatrix}\begin{Bmatrix}i \ m\end{Bmatrix}=[m==n]$</p>
 <p>$\sum_{i=m}^n(-1)^{n-i}\begin{Bmatrix}n \ i\end{Bmatrix}\begin{bmatrix}i \ m\end{bmatrix}=[m==n]$</p>
-<p>对于第二个证明如下：<br>$$<br>n^m=\sum_{i=0}^m\begin{Bmatrix}m \ i\end{Bmatrix}n^{\underline{i}}<del>\<br>=\sum_{i=0}^m\begin{Bmatrix}m \ i\end{Bmatrix}(-1)^i(-n)^{\overline{i}}</del>\<br>=\sum_{i=0}^m\begin{Bmatrix}m \ i\end{Bmatrix}(-1)^i\sum_{j=0}^i\begin{bmatrix} i \ j \end{bmatrix}(-n)^j\<br>=\sum_{j=0}^mn^j\sum_{i=j}^m\begin{Bmatrix}m \ i\end{Bmatrix}\begin{bmatrix} i \ j \end{bmatrix}(-1)^{i-j}<del>~</del>\<br>$$<br>把 $n$ 看成是一个未知数时，对于一个多项式 $\sum a_in^i$，$n^m$ 可以且仅可以用 $a_mn^m$ 来表示，所以最后的式子只有 $j=m$ 的时候为 $1$，否则为 $0$。</p>
+<p>对于第二个证明如下：</p>
+<script type="math/tex; mode=display">
+n^m=\sum_{i=0}^m\begin{Bmatrix}m \\ i\end{Bmatrix}n^{\underline{i}}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+=\sum_{i=0}^m\begin{Bmatrix}m \\ i\end{Bmatrix}(-1)^i(-n)^{\overline{i}}~~~~~~~~~~~~~~~\\
+=\sum_{i=0}^m\begin{Bmatrix}m \\ i\end{Bmatrix}(-1)^i\sum_{j=0}^i\begin{bmatrix} i \\ j \end{bmatrix}(-n)^j\\
+=\sum_{j=0}^mn^j\sum_{i=j}^m\begin{Bmatrix}m \\ i\end{Bmatrix}\begin{bmatrix} i \\ j \end{bmatrix}(-1)^{i-j}~~~\\</script><p>把 $n$ 看成是一个未知数时，对于一个多项式 $\sum a_in^i$，$n^m$ 可以且仅可以用 $a_mn^m$ 来表示，所以最后的式子只有 $j=m$ 的时候为 $1$，否则为 $0$。</p>
 <p>对于第一个式子，有 $n^{\overline{m}}=\sum_{i=0}^m\begin{bmatrix}m \ i\end{bmatrix}(-1)^i(-n)^i$，把后面的自然幂展开成下降幂，然后再推一推就可以类似于上面讨论证明。</p>
 <h5 id="斯特林反演公式"><a href="#斯特林反演公式" class="headerlink" title="斯特林反演公式"></a>斯特林反演公式</h5><p>$f(n)=\sum_{i=0}^n\begin{Bmatrix}n \ i\end{Bmatrix}g(i)\Leftrightarrow g(n)=\sum_{i=0}^n(-1)^{n-i}\begin{bmatrix}n \ i\end{bmatrix}f(i)$。</p>
 <p>和二项式反演类似，只需要证明一个方向，另一个方向显然成立。</p>
-<p>正向证明如下：<br>$$<br>g(n)=\sum_{i=0}^n[i==n]g(i)<del>\<br>=\sum_{i=0}^n\sum_{j=i}^n(-1)^{n-j}\begin{bmatrix}n \ j\end{bmatrix}\begin{Bmatrix}j \ i\end{Bmatrix}g(i)\<br>=\sum_{j=0}^n(-1)^{n-j}\begin{bmatrix}n \ j\end{bmatrix}\sum_{i=0}^j\begin{Bmatrix}j \ i\end{Bmatrix}g(i)\<br>=\sum_{j=0}^n(-1)^{n-j}\begin{bmatrix}n \ j\end{bmatrix}f(j)</del><br>$$</p>
-<h4 id="第一类斯特林数求自然数幂和"><a href="#第一类斯特林数求自然数幂和" class="headerlink" title="第一类斯特林数求自然数幂和"></a>第一类斯特林数求自然数幂和</h4><p>设 $\sum_{i=1}^n i^k$ 为 $S_k(n)$。<br>$$<br>\because n^m=\sum_{i=0}^m\begin{Bmatrix}m \ i\end{Bmatrix}n^{\underline{i}}<del>\<br>\therefore n^{\underline{m}}=\sum_{i=0}^m(-1)^{m-i}\begin{bmatrix}m \ i\end{bmatrix}n^i</del>\<br>\therefore n^m=n^{\underline{m}}-\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \ i\end{bmatrix}n^i<del>\<br>\therefore \sum_{n=1}^X n^m=\sum_{n=1}^Xn^{\underline{m}}-\sum_{n=1}^X\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \ i\end{bmatrix}n^i</del>\<br>\therefore S_m(X)=m!\sum_{n=1}^X\begin{pmatrix}n \ m\end{pmatrix}-\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \ i\end{bmatrix}\sum_{n=1}^Xn^i<del>\<br>=m!\begin{pmatrix}X+1 \ m+1\end{pmatrix}\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \ i\end{bmatrix}S_i(X)\<br>=\frac{(X+1)^{\underline{m+1}}}{m+1}\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \ i\end{bmatrix}S_i(X)</del>\<br>$$<br>故 $S_m(X)$ 可以在 $m^2$ 的时间复杂度内求得，且不要求模数是质数。</p>
+<p>正向证明如下：</p>
+<script type="math/tex; mode=display">
+g(n)=\sum_{i=0}^n[i==n]g(i)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+=\sum_{i=0}^n\sum_{j=i}^n(-1)^{n-j}\begin{bmatrix}n \\ j\end{bmatrix}\begin{Bmatrix}j \\ i\end{Bmatrix}g(i)\\
+=\sum_{j=0}^n(-1)^{n-j}\begin{bmatrix}n \\ j\end{bmatrix}\sum_{i=0}^j\begin{Bmatrix}j \\ i\end{Bmatrix}g(i)\\
+=\sum_{j=0}^n(-1)^{n-j}\begin{bmatrix}n \\ j\end{bmatrix}f(j)~~~~~~~~~~~~~~~</script><h4 id="第一类斯特林数求自然数幂和"><a href="#第一类斯特林数求自然数幂和" class="headerlink" title="第一类斯特林数求自然数幂和"></a>第一类斯特林数求自然数幂和</h4><p>设 $\sum_{i=1}^n i^k$ 为 $S_k(n)$。</p>
+<script type="math/tex; mode=display">
+\because n^m=\sum_{i=0}^m\begin{Bmatrix}m \\ i\end{Bmatrix}n^{\underline{i}}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+\therefore n^{\underline{m}}=\sum_{i=0}^m(-1)^{m-i}\begin{bmatrix}m \\ i\end{bmatrix}n^i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+\therefore n^m=n^{\underline{m}}-\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \\ i\end{bmatrix}n^i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+\therefore \sum_{n=1}^X n^m=\sum_{n=1}^Xn^{\underline{m}}-\sum_{n=1}^X\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \\ i\end{bmatrix}n^i~~~~~~~~~~~~~~~~~~~~~~~~\\
+\therefore S_m(X)=m!\sum_{n=1}^X\begin{pmatrix}n \\ m\end{pmatrix}-\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \\ i\end{bmatrix}\sum_{n=1}^Xn^i~~~~~~~~~~~~~\\
+=m!\begin{pmatrix}X+1 \\ m+1\end{pmatrix}\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \\ i\end{bmatrix}S_i(X)\\
+=\frac{(X+1)^{\underline{m+1}}}{m+1}\sum_{i=0}^{m-1}(-1)^{m-i}\begin{bmatrix}m \\ i\end{bmatrix}S_i(X)~\\</script><p>故 $S_m(X)$ 可以在 $m^2$ 的时间复杂度内求得，且不要求模数是质数。</p>
 
     </div>
 
@@ -375,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -478,7 +500,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">28k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -234,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
 <p>先求出该矩阵的特征值，设其为 $\lambda$，根据定义，有 $ \det \left ( \begin{bmatrix} \lambda - 1 &amp; -1 \ -1 &amp; \lambda \ \end{bmatrix} \right)  = 0$ ，所以 $(\lambda-1)\times \lambda-1=0$，解出 $\lambda=\frac{1\pm\sqrt{5}}{2}$ 。</p>
 <p>再根据定理，列出方程 $ \begin{bmatrix} \lambda - 1 &amp; -1 \ -1 &amp; \lambda \ \end{bmatrix}  \begin{bmatrix} x_0 \ x_1 \ \end{bmatrix}=\begin{bmatrix} 0 \ 0 \ \end{bmatrix}$ 可以解出两个特征向量 $\lambda_1=\frac{1-\sqrt{5}}{2}$ 对应 $B_1=\begin{bmatrix} 1 \ \frac{-1-\sqrt{5}}{2} \ \end{bmatrix}$，$\lambda_2=\frac{1+\sqrt{5}}{2}$ 对应 $B_2=\begin{bmatrix} 1 \ \frac{-1+\sqrt{5}}{2} \ \end{bmatrix}$ 。那么根据定义，设 $C=[B_1,B_2]$，构造对角阵 $P=\begin{bmatrix} \lambda_1 &amp; 0 \ 0 &amp; \lambda_2 \ \end{bmatrix} $，就可以得到 $A\times C=C\times P$，所以有 $A=C\times P \times C^{-1}$。故 $A^m=C\times P^m \times C^{-1}$。</p>
 <p>通过手算可以求得 $C^{-1}= \begin{bmatrix} 1-\frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5} &amp; -\frac{\sqrt{5}}{5}  \ \frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5} &amp; \frac{\sqrt{5}}{5}  \ \end{bmatrix}$。</p>
-<p>对于斐波那契数列第 $m$ 项，即是 $A^m$ 的 $a_{1,1}$。显然 $P^m=\begin{bmatrix} (\frac{1-\sqrt{5}}{2})^m &amp; 0 \ 0 &amp; (\frac{1+\sqrt{5}}{2})^m \ \end{bmatrix}$ ，那么 $C\times P^m \times C^{-1}$ 的 $a_{1,1}$ 为 $(\frac{1-\sqrt{5}}{2})^m\times(1-\frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5})+(\frac{1+\sqrt{5}}{2})^m\times \frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5}$，整理之后就为 $\frac{1}{\sqrt{5}}\left((\frac{1+\sqrt{5}}{2})^{m+1}-(\frac{1-\sqrt{5}}{2})^{m+1}\right)$ ，即为斐波那契数列的通项公式。</p>
+<p>对于斐波那契数列第 $m$ 项，即是 $A^m$ 的 $a_{1,1}$。显然 $P^m=\begin{bmatrix} (\frac{1-\sqrt{5}}{2})^m &amp; 0 \ 0 &amp; (\frac{1+\sqrt{5}}{2})^m  \end{bmatrix}$ ，那么 $C\times P^m \times C^{-1}$ 的 $a_{1,1}$ 为 $(\frac{1-\sqrt{5}}{2})^m\times(1-\frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5})+(\frac{1+\sqrt{5}}{2})^m\times \frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5}$，整理之后就为 $\frac{1}{\sqrt{5}}\left((\frac{1+\sqrt{5}}{2})^{m+1}-(\frac{1-\sqrt{5}}{2})^{m+1}\right)$ ，即为斐波那契数列的通项公式。</p>
 <p>因为出现了根号，所以整个过程看似比较麻烦，不过在递推矩阵满足一些性质的时候有较快的方法求特征值和特征向量（比如在整个矩阵是一个上/下三角矩阵时，特征值就是主对角线上的值，自由元就是项数变少了某行，设它为 $1$，就可以在矩阵大小的复杂度内求得一个特征向量）。</p>
 
     </div>
@@ -369,7 +369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -472,7 +472,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">28k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
