@@ -28,7 +28,7 @@
 <meta property="og:description" content="下降幂和上升幂 \(x\) 的 \(k\) 次下降幂记作 \(x^{\underline{k}}\)，表示的是 \(\prod_{i&#x3D;0}^{k-1}(x-i)\) 。 \(x\) 的 \(k\) 次上升幂记作 \(x^{\overline{k}}\)，表示的是 \(\prod_{i&#x3D;0}^{k-1}(x+i)\)。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-26T07:18:32.000Z">
-<meta property="article:modified_time" content="2020-10-06T10:56:07.317Z">
+<meta property="article:modified_time" content="2020-10-07T01:10:47.931Z">
 <meta property="article:author" content="Daniel_yuan">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="斯特林数">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-06 18:56:07" itemprop="dateModified" datetime="2020-10-06T18:56:07+08:00">2020-10-06</time>
+                <time title="修改时间：2020-10-07 09:10:47" itemprop="dateModified" datetime="2020-10-07T09:10:47+08:00">2020-10-07</time>
               </span>
 
           
@@ -240,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -325,6 +325,43 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 \end{split}
 \end{split}
 \]</span> 故 <span class="math inline">\(S_m(X)\)</span> 可以在 <span class="math inline">\(m^2\)</span> 的时间复杂度内求得，且不要求模数是质数。</p>
+<h4 id="快速求两类斯特林数">快速求两类斯特林数</h4>
+<h5 id="第一类斯特林数行">第一类斯特林数·行</h5>
+<p>我们知道 <span class="math inline">\(x^{\overline n}=\prod \begin{bmatrix}n \\ i\end{bmatrix}x^i\)</span> ，那直接算出 <span class="math inline">\(x(x+1)(x+2)...(x+n-1)\)</span> 就行了，分治 FFT 解决，时间复杂度 <span class="math inline">\(n\log^2 n\)</span>。</p>
+<p>但是这样似乎有亿点点慢，考虑优化。</p>
+<p>设 <span class="math inline">\(F_n(x)\)</span> 表示 <span class="math inline">\(x^{\overline n}\)</span> 形成的多项式，那么 <span class="math inline">\(x^{\overline {2n} }\)</span> 的多项式是等于 <span class="math inline">\(F_n(x)\times F_n(x+n)\)</span> 的，用二项式定理把后者展开，会发现是一个减法卷积的形式，所以可以在 <span class="math inline">\(n\log n\)</span> 的时间内求得 <span class="math inline">\(F_{2n}\)</span>，倍增的处理就可以做到 <span class="math inline">\(n\log n\)</span>。</p>
+<h5 id="第一类斯特林数列">第一类斯特林数·列</h5>
+<p>考虑用生成函数解决这个问题。</p>
+<p>设由若干个数形成 <span class="math inline">\(k\)</span> 个圆排列的生成函数是 <span class="math inline">\(F_k\)</span>，这恰好是我们要求的。</p>
+<p>因为用来形成圆排列的数是可以区分的，所以这个生成函数表示的应该是排列而不是组合（或者可以这么理解，设 <span class="math inline">\(x_1\)</span> 个数形成 <span class="math inline">\(y_1\)</span> 个圆排列的方案数为 <span class="math inline">\(z_1\)</span>，<span class="math inline">\(x_2\)</span> 个数形成 <span class="math inline">\(y_2\)</span> 个圆排列的方案数为 <span class="math inline">\(z_2\)</span>，那么由 <span class="math inline">\(x_1+x_2\)</span> 个数形成 <span class="math inline">\(y_1+y_2\)</span> 个圆排列的方案数并不是 <span class="math inline">\(z_1\times z_2\)</span>，而需要额外乘上一个组合数 <span class="math inline">\(\begin{pmatrix}x_1+x_2 \\ x_1\end{pmatrix}\)</span>），故 <span class="math inline">\(F_k\)</span> 是指数型生成函数。</p>
+<p>假设我们现在已经知道了 <span class="math inline">\(F_1\)</span>，那么 <span class="math inline">\(F_k=\frac{F_1^k}{k!}\)</span>，即先生成 <span class="math inline">\(k\)</span> 个有序的圆排列，然后把序去掉。</p>
+<p><span class="math inline">\(F_1\)</span> 很容易知道，即 <span class="math inline">\(\sum_{i&gt;0}(i-1)!\frac{x^i}{i!}\)</span> 。化简一下就是 <span class="math inline">\(\sum_{i&gt;0} \frac{x^i}{i}\)</span> 。</p>
+<p>那么我们就可以通过多项式快速幂得到 <span class="math inline">\(F_k\)</span>。</p>
+<p>至此我们就已经可以得到某一列的第一类斯特林数的值，但是这个式子有那么一点点丑，考虑把它美化一下。</p>
+<p>仔细观察一下 <span class="math inline">\(\sum_{i&gt;0} \frac{x^i}{i}\)</span> 这个式子，会发现似乎这个东西有亿点点眼熟。先把它求导，得到 <span class="math inline">\(\sum_{i\geq 0}x^i=\frac{1}{1-x}\)</span>，再积分，就得到了 <span class="math inline">\(-\ln(1-x)\)</span>（实际上，博主是通过对 <span class="math inline">\(-\ln(1-x)\)</span> 求导积分得到 <span class="math inline">\(\sum_{i&gt;0} \frac{x^i}{i}\)</span> 的）。</p>
+<p>所以 <span class="math inline">\(F_k=\frac{(-\ln(1-x))^k}{k!}\)</span> 。（虽然这并不能简化运算量，甚至还加大了难度（因为需要手动展开 <span class="math inline">\(\ln\)</span>），但是它变得好看了）。</p>
+<h5 id="第二类斯特林数行">第二类斯特林数·行</h5>
+<p>第二类斯特林数有一个人尽皆知的式子 <span class="math inline">\(n^m=\sum_{i=1}^n\begin{pmatrix}n \\ i \end{pmatrix}\begin{Bmatrix}m \\ i \end{Bmatrix}i!\)</span> 。</p>
+<p>设 <span class="math inline">\(g(n)=n^m,f(i)=\begin{Bmatrix}m \\ i \end{Bmatrix}i!\)</span>，对原式使用二项式反演得到 <span class="math inline">\(\begin{Bmatrix}m \\ n \end{Bmatrix}n!=\sum_{i=1}^n(-1)^{n-i}\begin{pmatrix}n \\ i \end{pmatrix}i^m\)</span> 。把组合数展开，不难发现右边是一个卷积的形式，所以可以通过 FFT 在 <span class="math inline">\(n \log n\)</span> 的时间内求得第二类斯特林数的一行。</p>
+<h5 id="第二类斯特林数列">第二类斯特林数·列</h5>
+<p>同第一类斯特林数一样，用生成函数解决这个问题。</p>
+<p>设把若干个数分到 <span class="math inline">\(k\)</span> 个集合的生成函数是 <span class="math inline">\(F_k\)</span>，这恰好是我们要求的。</p>
+<p>同样的，用分析第一类斯特林数的方法来分析第二类斯特林数，可以发现 <span class="math inline">\(F_k\)</span> 也是指数型生成函数（可以参考上文理解）。</p>
+<p>假设我们知道了 <span class="math inline">\(F_1\)</span>，那么 <span class="math inline">\(F_k=\frac{F_1^k}{k!}\)</span>，即先形成 <span class="math inline">\(k\)</span> 个有序的集合，然后把序去掉。</p>
+<p><span class="math inline">\(F_1\)</span> 很容易知道，即 <span class="math inline">\(\sum_{i&gt;0}\frac{x^i}{i!}\)</span> ，特别的，它的第 <span class="math inline">\(0\)</span> 项为 <span class="math inline">\(0\)</span>。</p>
+<p>这样我们就可以通过多项式快速幂得到 <span class="math inline">\(F_k\)</span>。</p>
+<p>然后这个式子还不够美观，考虑把它美化一下。</p>
+<p>根据常识，<span class="math inline">\(\sum_{i&gt;0}\frac{x^i}{i!}=e^x-1\)</span>。</p>
+<p>所以 <span class="math inline">\(F_k=\frac{(e^x-1)^k}{k!}\)</span> 。</p>
+<h4 id="贝尔数">贝尔数</h4>
+<p>定义：对 <span class="math inline">\(n\)</span> 个数集合划分的数目。符号 <span class="math inline">\(B_n\)</span>。</p>
+<p>根据定义不难得到 <span class="math inline">\(B_n\)</span> 是第二类斯特林数第 <span class="math inline">\(n\)</span> 行的和。</p>
+<h5 id="递推式">递推式</h5>
+<p>枚举第 <span class="math inline">\(n\)</span> 个数所在集合大小，有 <span class="math inline">\(B_n=\sum_{i=0}^{n-1}\begin{pmatrix}n-1 \\ i \end{pmatrix}B_{n-i-1}\)</span>。因为 <span class="math inline">\(\begin{pmatrix}n \\ i \end{pmatrix}=\begin{pmatrix}n \\ n-i \end{pmatrix}\)</span>，为了美观一般把递推式写成 <span class="math inline">\(B_n=\sum_{i=0}^{n-1}\begin{pmatrix}n-1 \\ i \end{pmatrix}B_i\)</span> 。</p>
+<h5 id="生成函数">生成函数</h5>
+<p>设 <span class="math inline">\(B_n\)</span> 的生成函数为 <span class="math inline">\(G\)</span>。</p>
+<p>上文中，对于第二类斯特林数的第 <span class="math inline">\(k\)</span> 列，有 <span class="math inline">\(F_k=\frac{(e^x-1)^k}{k!}\)</span>，其中第 <span class="math inline">\(n\)</span> 项是 <span class="math inline">\(\begin{Bmatrix}n \\ k \end{Bmatrix}\)</span>。那么 <span class="math inline">\(\sum_{k\geq 0}F_k\)</span> 中第 <span class="math inline">\(n\)</span> 项就是第 <span class="math inline">\(n\)</span> 行斯特林数的和，就是 <span class="math inline">\(G\)</span>。</p>
+<p><span class="math inline">\(G=\sum_{k\geq 0}F_k=\sum_{k\geq 0}\frac{(e^x-1)^k}{k!}=e^{e^x-1}\)</span> 。</p>
 
     </div>
 
@@ -409,7 +446,7 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E9%99%8D%E5%B9%82%E5%92%8C%E4%B8%8A%E5%8D%87%E5%B9%82"><span class="nav-number">1.</span> <span class="nav-text">下降幂和上升幂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">第二类斯特林数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E5%92%8C%E8%87%AA%E7%84%B6%E5%B9%82%E4%B8%8B%E9%99%8D%E5%B9%82%E4%B8%8A%E5%8D%87%E5%B9%82%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.</span> <span class="nav-text">斯特林数和自然幂、下降幂、上升幂的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%AF%E7%89%B9%E6%9E%97%E5%8F%8D%E6%BC%94"><span class="nav-number">5.</span> <span class="nav-text">斯特林反演</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E5%85%AC%E5%BC%8F-i"><span class="nav-number">5.1.</span> <span class="nav-text">反转公式 I</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E5%85%AC%E5%BC%8F-ii"><span class="nav-number">5.2.</span> <span class="nav-text">反转公式 II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%AF%E7%89%B9%E6%9E%97%E5%8F%8D%E6%BC%94%E5%85%AC%E5%BC%8F"><span class="nav-number">5.3.</span> <span class="nav-text">斯特林反演公式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%B1%82%E8%87%AA%E7%84%B6%E6%95%B0%E5%B9%82%E5%92%8C"><span class="nav-number">6.</span> <span class="nav-text">第一类斯特林数求自然数幂和</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E9%99%8D%E5%B9%82%E5%92%8C%E4%B8%8A%E5%8D%87%E5%B9%82"><span class="nav-number">1.</span> <span class="nav-text">下降幂和上升幂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">第二类斯特林数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E5%92%8C%E8%87%AA%E7%84%B6%E5%B9%82%E4%B8%8B%E9%99%8D%E5%B9%82%E4%B8%8A%E5%8D%87%E5%B9%82%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.</span> <span class="nav-text">斯特林数和自然幂、下降幂、上升幂的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%AF%E7%89%B9%E6%9E%97%E5%8F%8D%E6%BC%94"><span class="nav-number">5.</span> <span class="nav-text">斯特林反演</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E5%85%AC%E5%BC%8F-i"><span class="nav-number">5.1.</span> <span class="nav-text">反转公式 I</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E5%85%AC%E5%BC%8F-ii"><span class="nav-number">5.2.</span> <span class="nav-text">反转公式 II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%AF%E7%89%B9%E6%9E%97%E5%8F%8D%E6%BC%94%E5%85%AC%E5%BC%8F"><span class="nav-number">5.3.</span> <span class="nav-text">斯特林反演公式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%B1%82%E8%87%AA%E7%84%B6%E6%95%B0%E5%B9%82%E5%92%8C"><span class="nav-number">6.</span> <span class="nav-text">第一类斯特林数求自然数幂和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%B1%82%E4%B8%A4%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">快速求两类斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E8%A1%8C"><span class="nav-number">7.1.</span> <span class="nav-text">第一类斯特林数·行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E5%88%97"><span class="nav-number">7.2.</span> <span class="nav-text">第一类斯特林数·列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E8%A1%8C"><span class="nav-number">7.3.</span> <span class="nav-text">第二类斯特林数·行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E5%88%97"><span class="nav-number">7.4.</span> <span class="nav-text">第二类斯特林数·列</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9D%E5%B0%94%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">贝尔数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%92%E6%8E%A8%E5%BC%8F"><span class="nav-number">8.1.</span> <span class="nav-text">递推式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0"><span class="nav-number">8.2.</span> <span class="nav-text">生成函数</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -425,14 +462,14 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -528,12 +565,12 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">37k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">34 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
