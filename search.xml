@@ -43,49 +43,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSP-S 2019 游记</title>
-    <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
-<a id="more"></a>
-<h2 id="day--1">Day -1</h2>
-<p>教练组织高二的学长出去玩去了，苦逼的我还要接着考 CSP 信(zi)心(bi)赛。/羡慕</p>
-<p>配 <code>emacs</code> 的时候突然忘记 <code>default</code> 怎么写了，一直认为最后两个字母是 <code>te</code> 。最后还是靠着 <code>switch</code> 的高亮打出来的（CSP 前犯这种错误我怕不是要爆零）</p>
-<p>晚上 U 盘坏了，捣鼓了一晚上。</p>
-<p>考前 RP 突然爆炸，感觉吃枣药丸（怕不是 CSP-S RP++ 爆负了……）</p>
-<h2 id="day-0">Day 0</h2>
-<p>上午写了一个线性基板子，一个矩阵快速幂板子，一个 <code>Miller-Rabin</code> 板子。</p>
-<p>之后就欢快地颓了一下午加一晚上。<del>（某乎：如何看待某巨佬 AK CSP-S）</del></p>
-<h2 id="day-1">Day 1</h2>
-<p>在一阵互相膜拜之后进入了考场。</p>
-<p>座位之间有隔板 <del>考试前还在讨论如何用毒瘤码风祸害周围同学</del>，键盘敲起来特别舒服，值得一提的是，<code>Emacs</code> 有配置文件！<del>好评</del>。</p>
-<p>开考后 10 分钟就把 T1 切了。</p>
-<p>T2 像极了考前的一道 <del>九条可怜</del> 的括号匹配题，几分钟码了个 <code>Trie</code> 树就过样例了，然而那个题<strong>忽略括号方向</strong> <del>我给忘了QAQ</del>。</p>
-<p>然后 T3 看上去很玄学的样子，开始手玩，结果手玩不动样例……<del>还不如暴搜</del></p>
-<p>闲的没事就给 T2 写了个对拍，一组就错……</p>
-<p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p>
-<p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p>
-<p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p>
-<p>当我百思不得其解时，已经 10:50了 QAQ。</p>
-<p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p>
-<p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p>
-<p>改完之后拍几万组都没有问题，不过这次考试也因为 T2 止步 210 了……</p>
-<p>又欢乐地颓了一下午加一晚上。</p>
-<h2 id="day-2">Day 2</h2>
-<p>昨天颓太欢乐了，今早莫名的困……</p>
-<p>感觉今天心态都不一样了……昨天想着怎么拿高分怎么 AK，今天就只想着多拿点分 <del>（还是不能给我这种蒟蒻太高的期望）</del></p>
-<p>开场就写了一个 T1 的 <span class="math inline">\(n^2m\)</span> 的做法，后来发现它假了，只能补上一维保证正确性，最后打了个 <span class="math inline">\(n^3m\)</span> 的 <code>DP</code>。</p>
-<p>然后写 T2，一开始写了一个 <span class="math inline">\(n^3\)</span> 的<code>DP</code>，并且理性分析发现可以优化到 <span class="math inline">\(n^2\)</span> 。经过人(bao)类(li)智(da)慧(biao)后，发现每个以每个点为终点的 <code>DP</code> 值有且仅有一个有用，于是可以使用单调队列优化做到 <span class="math inline">\(O(n)\)</span> ，<del>但是为啥我压 8 位高精都可以MLE，只能过 type=0</del></p>
-<p>最后写 T3，发现暴力分出奇地高，于是写完暴搜后就找特殊数据的规律，<del>还真被我找到了</del>，又骗了一大波分。</p>
-<p>一道题都没切预计都比昨天高……<del>我 ** 昨天在干嘛</del>。</p>
-<h2 id="后记">后记：</h2>
-<p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p>
-<p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSP-S1 2020 游记</title>
     <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<p>今天的状态就一个字：困。</p>
@@ -163,6 +120,49 @@
       <tags>
         <tag>字符串</tag>
         <tag>回文自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSP-S 2019 游记</title>
+    <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
+<a id="more"></a>
+<h2 id="day--1">Day -1</h2>
+<p>教练组织高二的学长出去玩去了，苦逼的我还要接着考 CSP 信(zi)心(bi)赛。/羡慕</p>
+<p>配 <code>emacs</code> 的时候突然忘记 <code>default</code> 怎么写了，一直认为最后两个字母是 <code>te</code> 。最后还是靠着 <code>switch</code> 的高亮打出来的（CSP 前犯这种错误我怕不是要爆零）</p>
+<p>晚上 U 盘坏了，捣鼓了一晚上。</p>
+<p>考前 RP 突然爆炸，感觉吃枣药丸（怕不是 CSP-S RP++ 爆负了……）</p>
+<h2 id="day-0">Day 0</h2>
+<p>上午写了一个线性基板子，一个矩阵快速幂板子，一个 <code>Miller-Rabin</code> 板子。</p>
+<p>之后就欢快地颓了一下午加一晚上。<del>（某乎：如何看待某巨佬 AK CSP-S）</del></p>
+<h2 id="day-1">Day 1</h2>
+<p>在一阵互相膜拜之后进入了考场。</p>
+<p>座位之间有隔板 <del>考试前还在讨论如何用毒瘤码风祸害周围同学</del>，键盘敲起来特别舒服，值得一提的是，<code>Emacs</code> 有配置文件！<del>好评</del>。</p>
+<p>开考后 10 分钟就把 T1 切了。</p>
+<p>T2 像极了考前的一道 <del>九条可怜</del> 的括号匹配题，几分钟码了个 <code>Trie</code> 树就过样例了，然而那个题<strong>忽略括号方向</strong> <del>我给忘了QAQ</del>。</p>
+<p>然后 T3 看上去很玄学的样子，开始手玩，结果手玩不动样例……<del>还不如暴搜</del></p>
+<p>闲的没事就给 T2 写了个对拍，一组就错……</p>
+<p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p>
+<p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p>
+<p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p>
+<p>当我百思不得其解时，已经 10:50了 QAQ。</p>
+<p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p>
+<p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p>
+<p>改完之后拍几万组都没有问题，不过这次考试也因为 T2 止步 210 了……</p>
+<p>又欢乐地颓了一下午加一晚上。</p>
+<h2 id="day-2">Day 2</h2>
+<p>昨天颓太欢乐了，今早莫名的困……</p>
+<p>感觉今天心态都不一样了……昨天想着怎么拿高分怎么 AK，今天就只想着多拿点分 <del>（还是不能给我这种蒟蒻太高的期望）</del></p>
+<p>开场就写了一个 T1 的 <span class="math inline">\(n^2m\)</span> 的做法，后来发现它假了，只能补上一维保证正确性，最后打了个 <span class="math inline">\(n^3m\)</span> 的 <code>DP</code>。</p>
+<p>然后写 T2，一开始写了一个 <span class="math inline">\(n^3\)</span> 的<code>DP</code>，并且理性分析发现可以优化到 <span class="math inline">\(n^2\)</span> 。经过人(bao)类(li)智(da)慧(biao)后，发现每个以每个点为终点的 <code>DP</code> 值有且仅有一个有用，于是可以使用单调队列优化做到 <span class="math inline">\(O(n)\)</span> ，<del>但是为啥我压 8 位高精都可以MLE，只能过 type=0</del></p>
+<p>最后写 T3，发现暴力分出奇地高，于是写完暴搜后就找特殊数据的规律，<del>还真被我找到了</del>，又骗了一大波分。</p>
+<p>一道题都没切预计都比昨天高……<del>我 ** 昨天在干嘛</del>。</p>
+<h2 id="后记">后记：</h2>
+<p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p>
+<p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
       </tags>
   </entry>
   <entry>
@@ -419,64 +419,6 @@
       </tags>
   </entry>
   <entry>
-    <title>多项式学习笔记</title>
-    <url>/2020/09/26/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="前置知识">前置知识</h4>
-<h5 id="形式幂级数">形式幂级数</h5>
-<p>对于一个多项式 <span class="math inline">\(\sum_{i=0}^{\infty}a_ix^i\)</span>，如果我们只关心它的各项系数 <span class="math inline">\(\{a_0,a_1...\}\)</span>，而并不关心 <span class="math inline">\(x\)</span> 的值以及其收敛或发散的问题，就可以说其是关于 <span class="math inline">\(x\)</span> 的形式幂级数。</p>
-<a id="more"></a>
-<h5 id="牛顿迭代">牛顿迭代</h5>
-<p>对于一个已知的多项式 <span class="math inline">\(F\)</span>，求一个多项式 <span class="math inline">\(A\)</span>，使得 <span class="math inline">\(F(A)=0\)</span> 在模 <span class="math inline">\(x^n\)</span> 意义下成立，其中 <span class="math inline">\(F,A\)</span> 都是形式幂级数。</p>
-<p>牛顿迭代是这样的，假设我们已经求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 下的解 <span class="math inline">\(A_0\)</span>，那么可以把 <span class="math inline">\(F(A)\)</span> 在 <span class="math inline">\(A_0\)</span> 处泰勒展开，再模掉 <span class="math inline">\(x^n\)</span>，就有 <span class="math inline">\(F(A)=F(A_0)+F&#39;(A_0)(A-A_0)\)</span>，然后就可以通过解方程求的在模 <span class="math inline">\(x^n\)</span> 意义下的 <span class="math inline">\(A\)</span>。</p>
-<h4 id="运算">运算</h4>
-<h5 id="加减法">加减法</h5>
-<p>就是多项式对应项相加减。即 <span class="math inline">\(C_ix^i=(A_i+B_i)x^i\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
-<h5 id="乘法卷积">乘法（卷积）</h5>
-<p>多项式的乘法本质上是求 <span class="math inline">\(C_ix^i=\sum_{j+k=i}A_jB_kx^i\)</span>。可以使用 FFT 或者 NTT 解决。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<h5 id="求导">求导</h5>
-<p>对于一个单项式 <span class="math inline">\(kx^n\)</span> 求导，其值是 <span class="math inline">\(knx^{n-1}\)</span>，而对于多项式的求导，本质上是把各个单项式求导之后再加起来。即 <span class="math inline">\(C_ix^i=(i+1)A_{i+1}x^i\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
-<p>有两个在多项式中常见的求导公式：<span class="math inline">\((\ln x)&#39;=\frac{1}{x},(e^x)&#39;=e^x\)</span>。</p>
-<p>特别的，复合函数也可以求导，<span class="math inline">\((F(G))&#39;=F&#39;(G)\times G&#39;\)</span>。</p>
-<h5 id="积分">积分</h5>
-<p>积分是求导的逆运算，在求导中，有 <span class="math inline">\(kx^n\rightarrow knx^{n-1}\)</span>，那么积分里面就有 <span class="math inline">\(kx^n\rightarrow\frac{k}{n+1}x^{n+1}\)</span> 。而对于多项式的积分，也是把各个单项式求导之后再加起来，即 <span class="math inline">\(C_ix^i=\frac{A_{i-1}}{i}x^i\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
-<h5 id="翻转">翻转</h5>
-<p>对于一个 <span class="math inline">\(n\)</span> 次多项式 <span class="math inline">\(A(x)=\sum_{i=0}^n a_ix^i\)</span>，将它变成 <span class="math inline">\(\sum_{i=0}^n a_{n-i}x^i\)</span>，就称之为翻转，记作 <span class="math inline">\(A^R(x)\)</span>，不难发现本质上 <span class="math inline">\(A^R(x)=A(\frac{1}{x})\times x^n\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
-<h5 id="求逆">求逆</h5>
-<p>对于一个多项式 <span class="math inline">\(A(x)\)</span>，求出一个多项式 <span class="math inline">\(A^{-1}(x)\)</span>，使得 <span class="math inline">\(A(x)\times A^{-1}(x)\equiv 1~(~{\rm mod}~x^{n})\)</span>。</p>
-<p>考虑使用牛顿迭代，设 <span class="math inline">\(B(x)=A^{-1}(x)\)</span>，那么就有 <span class="math inline">\(\frac{1}{B(x)}-A(x)\equiv 0~(~{\rm mod}~x^{n})\)</span> 。假设我们现在求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 意义下的解 <span class="math inline">\(B_0(x)\)</span>，那么就有 <span class="math inline">\(\frac{1}{B(x)}=\frac{1}{B_0(x)}+(\frac{1}{B_0(x)})&#39;(B(x)-B_0(x))\)</span>，我们知道 <span class="math inline">\((\frac{1}{B_0(x)})&#39;=-\frac{1}{B_0^2(x)}\)</span>，那么把 <span class="math inline">\(\frac{1}{B(x)}-A(x)\equiv 0~(~{\rm mod}~x^{n})\)</span> 中的 <span class="math inline">\(\frac{1}{B(x)}\)</span> 换成上面右边的那一坨，然后稍加整理一下就有 <span class="math inline">\(B(x)\equiv 2B_0(x)-A(x)B_0^2(x)~(~{\rm mod}~x^n)\)</span> 。直接这么倍增处理即可，复杂度是 <span class="math inline">\(O(n\log n)\)</span> 的。因为相对于最后一次来说，前面的若干次可以忽略不计。</p>
-<h5 id="除法和取模">除法和取模</h5>
-<p><span class="math inline">\(A(x)=B(x)\times C(x)+D(x)\)</span>，其中 <span class="math inline">\(A(x)\)</span> 是 <span class="math inline">\(n\)</span> 次多项式，<span class="math inline">\(B(x)\)</span> 是 <span class="math inline">\(m\)</span> 次多项式，<span class="math inline">\(m&lt;n\)</span>，给出 <span class="math inline">\(A(x),B(x)\)</span>，求 <span class="math inline">\(C(x),D(x)\)</span>。</p>
-<p>显然，<span class="math inline">\(C(x)\)</span> 的次数是 <span class="math inline">\(n-m\)</span>，<span class="math inline">\(D(x)\)</span> 的次数最大是 <span class="math inline">\(m-1\)</span>，就把它看做是 <span class="math inline">\(m-1\)</span> 项，高位不足就补零。</p>
-<p>先换元，把等式两边的 <span class="math inline">\(x\)</span> 换做 <span class="math inline">\(\frac{1}{x}\)</span>，然后再在两边同时乘上 <span class="math inline">\(x^n\)</span>，就有 <span class="math inline">\(A(\frac{1}{x})\times x^n=B(\frac{1}{x})\times x^{m}\times C(\frac{1}{x}) \times x^{n-m}+D(\frac{1}{x})\times x^{m-1}\times x^{n-m+1}\)</span>，根据上述的翻转式子，就是 <span class="math inline">\(A^R(x)=B^R(x)\times C^R(x)+D^R(x)\times x^{n-m+1}\)</span> 。前面已经说了 <span class="math inline">\(C(x)\)</span> 的次数是 <span class="math inline">\(n-m\)</span>，那么等式模去 <span class="math inline">\(x^{n-m+1}\)</span> 并不会对 <span class="math inline">\(C(x)\)</span> 有任何损失，所以就有 <span class="math inline">\(A^R(x)\equiv B^R(x)\times C^R(x)~({\rm mod}~x^{n-m+1})\)</span>，对 <span class="math inline">\(B^R(x)\)</span> 求个逆元乘上就可以得到 <span class="math inline">\(C^R(x)\)</span>，翻转一下就是 <span class="math inline">\(C(x)\)</span>，然后就可以通过 <span class="math inline">\(A(x)-B(x)\times C(x)\)</span> 得到 <span class="math inline">\(D(x)\)</span>。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<h5 id="ln-和-exp">ln 和 exp</h5>
-<p>因为积分是求导的逆运算，所以一个多项式先求导再积分，多项式不变。</p>
-<p>那么对于 ln，就可以先求导再积分来求。即 <span class="math inline">\(\ln F(x)=\int_0^n(\ln F(x))&#39;~{\rm dx}\)</span>，前面已经提到了复合函数求导，所以就有 <span class="math inline">\(\ln F(x)=\int_0^n\frac{F&#39;(x)}{F(x)}~{\rm dx}\)</span> 。复杂度 <span class="math inline">\(O(n \log n)\)</span>。</p>
-<p>对于 exp，它是 ln 的逆运算，考虑用牛顿迭代求。设 <span class="math inline">\(B(x)=e^{A(x)}\)</span>，那么就有 <span class="math inline">\(\ln B(x)-A(x)=0\)</span>，假设我们现在求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 意义下的解 <span class="math inline">\(B_0(x)\)</span>，那么就有 <span class="math inline">\(\ln B(x)=\ln B_0(x)+\ln&#39;B_0(x)(B(x)-B_0(x))\)</span>，上文已有 <span class="math inline">\(ln&#39;B_0(x)=\frac{1}{B_0(x)}\)</span>，把这个 <span class="math inline">\(\ln B(x)\)</span> 带回原式中去，整理一下就有 <span class="math inline">\(B(x)\equiv B_0(x)(A(x)+1-\ln B_0(x))~(~{\rm mod}~x^n)\)</span>。直接倍增求即可，复杂度也是 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<h5 id="开根">开根</h5>
-<p>对于一个多项式 <span class="math inline">\(A(x)\)</span>，求出一个 <span class="math inline">\(B(x)\)</span>，使得 <span class="math inline">\(B^2(x)\equiv A(x)~(~{\rm mod}~x^n)\)</span>。</p>
-<p>仍然可以使用牛顿迭代法求，假设我们现在求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 意义下的解 <span class="math inline">\(B_0(x)\)</span>，那么就有 <span class="math inline">\(B^2(x)=B_0^2(x)+(B_0^2(x))&#39;(B(x)-B_0(x))\)</span>。类似的，整理之后就有 <span class="math inline">\(B(x)\equiv \frac{A(x)}{2B_0(x)}+\frac{B_0(x)}{2}~(~{\rm mod}~x^n)\)</span> 。复杂度是 <span class="math inline">\(O(n \log n)\)</span> 的。</p>
-<h4 id="其他东西">其他东西</h4>
-<h5 id="分治-fft">分治 FFT</h5>
-<p>分治 FFT 可以用来干两种事情。</p>
-<p>一种是要把一堆多项式要乘起来，如果直接一个一个乘的话复杂度最坏是 <span class="math inline">\(O(n^2\log n)\)</span> 的，而如果每次对半分，左右分别计算然后再卷积一次，单层的复杂度就是 <span class="math inline">\(O(n\log n)\)</span> 的，一共 <span class="math inline">\(O(\log n)\)</span> 层，总复杂度 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
-<p>还有一种是需要求一个多项式的时候，前面的项对后面的项有影响，那么就可以用 CDQ 分治的思想，先算前面的，然后算前面对后面的贡献，最后再算后面的，复杂度 <span class="math inline">\(O(n \log^2 n)\)</span>。</p>
-<h5 id="任意模数-ntt">任意模数 NTT</h5>
-<p>有两种方法，三模数 NTT 和 拆系数 MTT。</p>
-<p>三模数 NTT，就如它的名字，选三个 NTT 模数，分别做一遍 NTT 最后用 CRT 合并。最后 CRT 求出来的一定是精确的值，所以需要保证最终的值在三个 NTT 模数的乘积以内。复杂度是 <span class="math inline">\(O(n \log n)\)</span>，9 倍常数。</p>
-<p>拆系数 MTT，也如它的名字，就是把每个数 <span class="math inline">\(X\)</span> 拆成 <span class="math inline">\(AM+B\)</span> 的形式，那么如果有两个多项式 <span class="math inline">\(AM+B\)</span> 和 <span class="math inline">\(CM+D\)</span> 相乘，最后的结果就是 <span class="math inline">\(ACM^2 + (AD+BC)M+BD\)</span>，最后乘出来的结果是 <span class="math inline">\(M^2{\rm len}\)</span>，一般情况下可以跑 FFT，用 long double 存。复杂度是 <span class="math inline">\(O(n\log n)\)</span>，7 倍常数。</p>
-<h5 id="多点求值">多点求值</h5>
-<p>对于一个多项式 <span class="math inline">\(F\)</span>，给出一些 <span class="math inline">\(z_i\)</span>，需要求出 <span class="math inline">\(F(z_i)\)</span> 的值。</p>
-<p>对于求出 <span class="math inline">\(F(z_i)\)</span>，我们可以这么做：次数从高到低扫这个多项式，然后把当前项的一个 <span class="math inline">\(x\)</span> 展开成 <span class="math inline">\(z_i\)</span>（即对于 <span class="math inline">\(ax^k\)</span>，把它展开成 <span class="math inline">\(ax^{k-1}z_i\)</span>，然后把它累加到 <span class="math inline">\(x^{k-1}\)</span> 项中去），最后在常数项的那个值就是 <span class="math inline">\(F(z_i)\)</span>。可以发现，这个过程实际上就是对 <span class="math inline">\(x-z_i\)</span> 取模。</p>
-<p>对于上述问题，有另一种理解方式：设 <span class="math inline">\(F(z)=A(z)(z-z_i)+B\)</span>，那么当 <span class="math inline">\(z=z_i\)</span> 时，<span class="math inline">\(F(z_i)=B\)</span>，所以本质上就是对 <span class="math inline">\(x-z_i\)</span> 取模。</p>
-<p>在自然数集中，有 <span class="math inline">\(X~{\rm mod}~BC~{\rm mod}~B = X~{\rm mod}~B\)</span>，其实在多项式中也是这样。</p>
-<p>所以可以考虑分治。在分治的过程中，把 <span class="math inline">\(F\)</span> 对 <span class="math inline">\(\prod_{i=l}^r (x-z_i)\)</span> 取模，最后递归到叶子节点的时候，当前的多项式就只剩下常数项，就是需要求的 <span class="math inline">\(F(z_i)\)</span>。</p>
-<p>考虑发现复杂度，一开始需要求得 <span class="math inline">\(\prod_{i=l}^r (x-z_i)\)</span> ，分治 FFT 解决。之后需要分治求解，在每一层，多项式的长度都是 <span class="math inline">\(O({\rm len})\)</span>，所以每层的总长是 <span class="math inline">\(O(n)\)</span> 的，一共有 <span class="math inline">\(O(\log n)\)</span> 层。所以总复杂度是 <span class="math inline">\(O(n \log^2 n)\)</span> ，常数巨大。</p>
-]]></content>
-      <tags>
-        <tag>多项式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构总结</title>
     <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>数据结构的一些小 trick。</p>
@@ -677,6 +619,64 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>数学</tag>
         <tag>斯特林数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多项式学习笔记</title>
+    <url>/2020/09/26/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="前置知识">前置知识</h4>
+<h5 id="形式幂级数">形式幂级数</h5>
+<p>对于一个多项式 <span class="math inline">\(\sum_{i=0}^{\infty}a_ix^i\)</span>，如果我们只关心它的各项系数 <span class="math inline">\(\{a_0,a_1...\}\)</span>，而并不关心 <span class="math inline">\(x\)</span> 的值以及其收敛或发散的问题，就可以说其是关于 <span class="math inline">\(x\)</span> 的形式幂级数。</p>
+<a id="more"></a>
+<h5 id="牛顿迭代">牛顿迭代</h5>
+<p>对于一个已知的多项式 <span class="math inline">\(F\)</span>，求一个多项式 <span class="math inline">\(A\)</span>，使得 <span class="math inline">\(F(A)=0\)</span> 在模 <span class="math inline">\(x^n\)</span> 意义下成立，其中 <span class="math inline">\(F,A\)</span> 都是形式幂级数。</p>
+<p>牛顿迭代是这样的，假设我们已经求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 下的解 <span class="math inline">\(A_0\)</span>，那么可以把 <span class="math inline">\(F(A)\)</span> 在 <span class="math inline">\(A_0\)</span> 处泰勒展开，再模掉 <span class="math inline">\(x^n\)</span>，就有 <span class="math inline">\(F(A)=F(A_0)+F&#39;(A_0)(A-A_0)\)</span>，然后就可以通过解方程求的在模 <span class="math inline">\(x^n\)</span> 意义下的 <span class="math inline">\(A\)</span>。</p>
+<h4 id="运算">运算</h4>
+<h5 id="加减法">加减法</h5>
+<p>就是多项式对应项相加减。即 <span class="math inline">\(C_ix^i=(A_i+B_i)x^i\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
+<h5 id="乘法卷积">乘法（卷积）</h5>
+<p>多项式的乘法本质上是求 <span class="math inline">\(C_ix^i=\sum_{j+k=i}A_jB_kx^i\)</span>。可以使用 FFT 或者 NTT 解决。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<h5 id="求导">求导</h5>
+<p>对于一个单项式 <span class="math inline">\(kx^n\)</span> 求导，其值是 <span class="math inline">\(knx^{n-1}\)</span>，而对于多项式的求导，本质上是把各个单项式求导之后再加起来。即 <span class="math inline">\(C_ix^i=(i+1)A_{i+1}x^i\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
+<p>有两个在多项式中常见的求导公式：<span class="math inline">\((\ln x)&#39;=\frac{1}{x},(e^x)&#39;=e^x\)</span>。</p>
+<p>特别的，复合函数也可以求导，<span class="math inline">\((F(G))&#39;=F&#39;(G)\times G&#39;\)</span>。</p>
+<h5 id="积分">积分</h5>
+<p>积分是求导的逆运算，在求导中，有 <span class="math inline">\(kx^n\rightarrow knx^{n-1}\)</span>，那么积分里面就有 <span class="math inline">\(kx^n\rightarrow\frac{k}{n+1}x^{n+1}\)</span> 。而对于多项式的积分，也是把各个单项式求导之后再加起来，即 <span class="math inline">\(C_ix^i=\frac{A_{i-1}}{i}x^i\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
+<h5 id="翻转">翻转</h5>
+<p>对于一个 <span class="math inline">\(n\)</span> 次多项式 <span class="math inline">\(A(x)=\sum_{i=0}^n a_ix^i\)</span>，将它变成 <span class="math inline">\(\sum_{i=0}^n a_{n-i}x^i\)</span>，就称之为翻转，记作 <span class="math inline">\(A^R(x)\)</span>，不难发现本质上 <span class="math inline">\(A^R(x)=A(\frac{1}{x})\times x^n\)</span>。复杂度 <span class="math inline">\(O(n)\)</span>。</p>
+<h5 id="求逆">求逆</h5>
+<p>对于一个多项式 <span class="math inline">\(A(x)\)</span>，求出一个多项式 <span class="math inline">\(A^{-1}(x)\)</span>，使得 <span class="math inline">\(A(x)\times A^{-1}(x)\equiv 1~(~{\rm mod}~x^{n})\)</span>。</p>
+<p>考虑使用牛顿迭代，设 <span class="math inline">\(B(x)=A^{-1}(x)\)</span>，那么就有 <span class="math inline">\(\frac{1}{B(x)}-A(x)\equiv 0~(~{\rm mod}~x^{n})\)</span> 。假设我们现在求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 意义下的解 <span class="math inline">\(B_0(x)\)</span>，那么就有 <span class="math inline">\(\frac{1}{B(x)}=\frac{1}{B_0(x)}+(\frac{1}{B_0(x)})&#39;(B(x)-B_0(x))\)</span>，我们知道 <span class="math inline">\((\frac{1}{B_0(x)})&#39;=-\frac{1}{B_0^2(x)}\)</span>，那么把 <span class="math inline">\(\frac{1}{B(x)}-A(x)\equiv 0~(~{\rm mod}~x^{n})\)</span> 中的 <span class="math inline">\(\frac{1}{B(x)}\)</span> 换成上面右边的那一坨，然后稍加整理一下就有 <span class="math inline">\(B(x)\equiv 2B_0(x)-A(x)B_0^2(x)~(~{\rm mod}~x^n)\)</span> 。直接这么倍增处理即可，复杂度是 <span class="math inline">\(O(n\log n)\)</span> 的。因为相对于最后一次来说，前面的若干次可以忽略不计。</p>
+<h5 id="除法和取模">除法和取模</h5>
+<p><span class="math inline">\(A(x)=B(x)\times C(x)+D(x)\)</span>，其中 <span class="math inline">\(A(x)\)</span> 是 <span class="math inline">\(n\)</span> 次多项式，<span class="math inline">\(B(x)\)</span> 是 <span class="math inline">\(m\)</span> 次多项式，<span class="math inline">\(m&lt;n\)</span>，给出 <span class="math inline">\(A(x),B(x)\)</span>，求 <span class="math inline">\(C(x),D(x)\)</span>。</p>
+<p>显然，<span class="math inline">\(C(x)\)</span> 的次数是 <span class="math inline">\(n-m\)</span>，<span class="math inline">\(D(x)\)</span> 的次数最大是 <span class="math inline">\(m-1\)</span>，就把它看做是 <span class="math inline">\(m-1\)</span> 项，高位不足就补零。</p>
+<p>先换元，把等式两边的 <span class="math inline">\(x\)</span> 换做 <span class="math inline">\(\frac{1}{x}\)</span>，然后再在两边同时乘上 <span class="math inline">\(x^n\)</span>，就有 <span class="math inline">\(A(\frac{1}{x})\times x^n=B(\frac{1}{x})\times x^{m}\times C(\frac{1}{x}) \times x^{n-m}+D(\frac{1}{x})\times x^{m-1}\times x^{n-m+1}\)</span>，根据上述的翻转式子，就是 <span class="math inline">\(A^R(x)=B^R(x)\times C^R(x)+D^R(x)\times x^{n-m+1}\)</span> 。前面已经说了 <span class="math inline">\(C(x)\)</span> 的次数是 <span class="math inline">\(n-m\)</span>，那么等式模去 <span class="math inline">\(x^{n-m+1}\)</span> 并不会对 <span class="math inline">\(C(x)\)</span> 有任何损失，所以就有 <span class="math inline">\(A^R(x)\equiv B^R(x)\times C^R(x)~({\rm mod}~x^{n-m+1})\)</span>，对 <span class="math inline">\(B^R(x)\)</span> 求个逆元乘上就可以得到 <span class="math inline">\(C^R(x)\)</span>，翻转一下就是 <span class="math inline">\(C(x)\)</span>，然后就可以通过 <span class="math inline">\(A(x)-B(x)\times C(x)\)</span> 得到 <span class="math inline">\(D(x)\)</span>。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<h5 id="ln-和-exp">ln 和 exp</h5>
+<p>因为积分是求导的逆运算，所以一个多项式先求导再积分，多项式不变。</p>
+<p>那么对于 ln，就可以先求导再积分来求。即 <span class="math inline">\(\ln F(x)=\int_0^n(\ln F(x))&#39;~{\rm dx}\)</span>，前面已经提到了复合函数求导，所以就有 <span class="math inline">\(\ln F(x)=\int_0^n\frac{F&#39;(x)}{F(x)}~{\rm dx}\)</span> 。复杂度 <span class="math inline">\(O(n \log n)\)</span>。</p>
+<p>对于 exp，它是 ln 的逆运算，考虑用牛顿迭代求。设 <span class="math inline">\(B(x)=e^{A(x)}\)</span>，那么就有 <span class="math inline">\(\ln B(x)-A(x)=0\)</span>，假设我们现在求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 意义下的解 <span class="math inline">\(B_0(x)\)</span>，那么就有 <span class="math inline">\(\ln B(x)=\ln B_0(x)+\ln&#39;B_0(x)(B(x)-B_0(x))\)</span>，上文已有 <span class="math inline">\(ln&#39;B_0(x)=\frac{1}{B_0(x)}\)</span>，把这个 <span class="math inline">\(\ln B(x)\)</span> 带回原式中去，整理一下就有 <span class="math inline">\(B(x)\equiv B_0(x)(A(x)+1-\ln B_0(x))~(~{\rm mod}~x^n)\)</span>。直接倍增求即可，复杂度也是 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<h5 id="开根">开根</h5>
+<p>对于一个多项式 <span class="math inline">\(A(x)\)</span>，求出一个 <span class="math inline">\(B(x)\)</span>，使得 <span class="math inline">\(B^2(x)\equiv A(x)~(~{\rm mod}~x^n)\)</span>。</p>
+<p>仍然可以使用牛顿迭代法求，假设我们现在求得了在模 <span class="math inline">\(x^{\frac{n}{2}}\)</span> 意义下的解 <span class="math inline">\(B_0(x)\)</span>，那么就有 <span class="math inline">\(B^2(x)=B_0^2(x)+(B_0^2(x))&#39;(B(x)-B_0(x))\)</span>。类似的，整理之后就有 <span class="math inline">\(B(x)\equiv \frac{A(x)}{2B_0(x)}+\frac{B_0(x)}{2}~(~{\rm mod}~x^n)\)</span> 。复杂度是 <span class="math inline">\(O(n \log n)\)</span> 的。</p>
+<h4 id="其他东西">其他东西</h4>
+<h5 id="分治-fft">分治 FFT</h5>
+<p>分治 FFT 可以用来干两种事情。</p>
+<p>一种是要把一堆多项式要乘起来，如果直接一个一个乘的话复杂度最坏是 <span class="math inline">\(O(n^2\log n)\)</span> 的，而如果每次对半分，左右分别计算然后再卷积一次，单层的复杂度就是 <span class="math inline">\(O(n\log n)\)</span> 的，一共 <span class="math inline">\(O(\log n)\)</span> 层，总复杂度 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>还有一种是需要求一个多项式的时候，前面的项对后面的项有影响，那么就可以用 CDQ 分治的思想，先算前面的，然后算前面对后面的贡献，最后再算后面的，复杂度 <span class="math inline">\(O(n \log^2 n)\)</span>。</p>
+<h5 id="任意模数-ntt">任意模数 NTT</h5>
+<p>有两种方法，三模数 NTT 和 拆系数 MTT。</p>
+<p>三模数 NTT，就如它的名字，选三个 NTT 模数，分别做一遍 NTT 最后用 CRT 合并。最后 CRT 求出来的一定是精确的值，所以需要保证最终的值在三个 NTT 模数的乘积以内。复杂度是 <span class="math inline">\(O(n \log n)\)</span>，9 倍常数。</p>
+<p>拆系数 MTT，也如它的名字，就是把每个数 <span class="math inline">\(X\)</span> 拆成 <span class="math inline">\(AM+B\)</span> 的形式，那么如果有两个多项式 <span class="math inline">\(AM+B\)</span> 和 <span class="math inline">\(CM+D\)</span> 相乘，最后的结果就是 <span class="math inline">\(ACM^2 + (AD+BC)M+BD\)</span>，最后乘出来的结果是 <span class="math inline">\(M^2{\rm len}\)</span>，一般情况下可以跑 FFT，用 long double 存。复杂度是 <span class="math inline">\(O(n\log n)\)</span>，7 倍常数。</p>
+<h5 id="多点求值">多点求值</h5>
+<p>对于一个多项式 <span class="math inline">\(F\)</span>，给出一些 <span class="math inline">\(z_i\)</span>，需要求出 <span class="math inline">\(F(z_i)\)</span> 的值。</p>
+<p>对于求出 <span class="math inline">\(F(z_i)\)</span>，我们可以这么做：次数从高到低扫这个多项式，然后把当前项的一个 <span class="math inline">\(x\)</span> 展开成 <span class="math inline">\(z_i\)</span>（即对于 <span class="math inline">\(ax^k\)</span>，把它展开成 <span class="math inline">\(ax^{k-1}z_i\)</span>，然后把它累加到 <span class="math inline">\(x^{k-1}\)</span> 项中去），最后在常数项的那个值就是 <span class="math inline">\(F(z_i)\)</span>。可以发现，这个过程实际上就是对 <span class="math inline">\(x-z_i\)</span> 取模。</p>
+<p>对于上述问题，有另一种理解方式：设 <span class="math inline">\(F(z)=A(z)(z-z_i)+B\)</span>，那么当 <span class="math inline">\(z=z_i\)</span> 时，<span class="math inline">\(F(z_i)=B\)</span>，所以本质上就是对 <span class="math inline">\(x-z_i\)</span> 取模。</p>
+<p>在自然数集中，有 <span class="math inline">\(X~{\rm mod}~BC~{\rm mod}~B = X~{\rm mod}~B\)</span>，其实在多项式中也是这样。</p>
+<p>所以可以考虑分治。在分治的过程中，把 <span class="math inline">\(F\)</span> 对 <span class="math inline">\(\prod_{i=l}^r (x-z_i)\)</span> 取模，最后递归到叶子节点的时候，当前的多项式就只剩下常数项，就是需要求的 <span class="math inline">\(F(z_i)\)</span>。</p>
+<p>考虑发现复杂度，一开始需要求得 <span class="math inline">\(\prod_{i=l}^r (x-z_i)\)</span> ，分治 FFT 解决。之后需要分治求解，在每一层，多项式的长度都是 <span class="math inline">\(O({\rm len})\)</span>，所以每层的总长是 <span class="math inline">\(O(n)\)</span> 的，一共有 <span class="math inline">\(O(\log n)\)</span> 层。所以总复杂度是 <span class="math inline">\(O(n \log^2 n)\)</span> ，常数巨大。</p>
+]]></content>
+      <tags>
+        <tag>多项式</tag>
       </tags>
   </entry>
   <entry>
