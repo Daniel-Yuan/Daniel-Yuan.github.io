@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2020/10/14/UOJ-Contests/</loc>
+    <loc>http://example.com/2020/10/17/POI2012/</loc>
     
     <lastmod>2020-10-17</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2020/10/17/POI2012/</loc>
+    <loc>http://example.com/2020/10/14/UOJ-Contests/</loc>
     
     <lastmod>2020-10-17</lastmod>
     
@@ -180,6 +180,13 @@
   
   <url>
     <loc>http://example.com/tags/%E5%9B%9E%E6%96%87%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
+    <lastmod>2020-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/POI/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
