@@ -86,6 +86,24 @@
       </tags>
   </entry>
   <entry>
+    <title>CSP-S1 2020 游记</title>
+    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<p>今天的状态就一个字：困。</p>
+<a id="more"></a>
+<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
+<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
+<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
+<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
+<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
+<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
+<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
+<p><a href="">CPS-S2 2020 游记</a></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Daniel_yuan&#39;s New Blog</title>
     <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
     <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
@@ -148,9 +166,47 @@
       </tags>
   </entry>
   <entry>
+    <title>UOJ Contests</title>
+    <url>/2020/10/14/UOJ-Contests/</url>
+    <content><![CDATA[<p><del>九条可怜老师</del>吉老师在他的博客中大力赞扬 UR 。</p>
+<p>于是博主就决定慢慢把 UR 补完。</p>
+<p>希望补完之后能有吉老师十分之一的水平。</p>
+<a id="more"></a>
+<h4 id="uoj-easy-round-1">UOJ Easy Round #1</h4>
+<h5 id="a">A</h5>
+<p>最小是 <span class="math inline">\(2\sqrt{n}\)</span>，最大是 <span class="math inline">\(g+l\)</span>。</p>
+<p>用三次根号分治分解 <span class="math inline">\(g,l\)</span>，剩下的要么相等，要么都是完全平方数。</p>
+<h5 id="c">C</h5>
+<p>离线，建操作树，用可撤销并查集求解。</p>
+<p><code>Add</code> 是加一个儿子，<code>Delete</code> 是跳到 <span class="math inline">\(k\)</span> 级父亲，<code>Return</code> 是回到上一步所在位置。</p>
+<p>求父亲类似长链剖分用个数组记录动指针。</p>
+<h4 id="uoj-round-1">UOJ Round #1</h4>
+<h5 id="a-1">A</h5>
+<p>枚举缩进量 <span class="math inline">\(x\)</span>，当前代码量就是 <span class="math inline">\(\sum_{i=1}^n\lfloor\frac{a_i}{x}\rfloor a_i\text{ mod }x\)</span>。</p>
+<p>显然的整数分块。</p>
+<h5 id="b">B</h5>
+<p>把 <span class="math inline">\(x\)</span> 模一个大于 <span class="math inline">\(x\)</span> 的数不会有任何改变。</p>
+<p>故设 <span class="math inline">\(f[i]\)</span> 表示当前的值为 <span class="math inline">\(i\)</span>，所有大于 <span class="math inline">\(i\)</span> 的数都已经放好了的方案数，枚举转移即可。</p>
+<h4 id="uoj-round-2">UOJ Round #2</h4>
+<h5 id="a-2">A</h5>
+<p>从左往右扫，遇到一个不合法的右括号，就往右找第一个左括号交换。</p>
+<p>因为是右边的第一个左括号，所以如果下一次仍然有不合法的右括号，就可以从上次的那个位置开始继续往右找左括号。</p>
+<h5 id="c-1">C</h5>
+<p>先套上简单容斥，<span class="math inline">\(f[i]\)</span> 表示 <span class="math inline">\(\gcd\)</span> 是 <span class="math inline">\(i\)</span> 的倍数的方案数。</p>
+<p>对树长链剖分，这样就只需要在链合并的时候计算对 <span class="math inline">\(f\)</span> 的贡献。</p>
+<p>朴素的想法维护深度桶，合并枚举 <span class="math inline">\(i\)</span>，直接求当前链的 <span class="math inline">\(i\)</span> 的倍数个数和合并链的 <span class="math inline">\(i\)</span> 的倍数个数。这样复杂度是 <span class="math inline">\(\sum dep\)</span> 的，不太行。</p>
+<p>故考虑根号分治，在加入当前点的时候就直接预处理深度模 <span class="math inline">\(1\sim B\)</span> 等于 <span class="math inline">\(x\)</span> 的数的个数，剩下的同上暴力。</p>
+<p>复杂度比较玄学，<span class="math inline">\(B=50\)</span> 可过。</p>
+<h4 id="uoj-round-4">UOJ Round #4</h4>
+]]></content>
+      <tags>
+        <tag>UOJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>diary</title>
     <url>/2020/10/06/diary/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="122cf7169bb9148d7bd43431027d29e853776c8cdc81ff956ab728458868e6b6">984bbfaa2a7c0bf6d0de8973694307b32a178af243fd86a248a7eca8db85e9bd77e0b6ec026a5ff119c71b5ba75a3e5438b095051af77532216bd58c0793bfd53dc4b6a851da794284e4388d90af1522f141b518d93c67626f2ab1f74e0e9a6dc3b146a6125628f75e157fdc6f0d3ea7b6388da36fc9c690b0127edb002a0ef9a4a24cf1013dd9ffa5cfaf295e3a602b9a5b603eea6deb9594fdeb05abff94aed19f6850a8d73dbca9b906b4d20600e49e01da5eda265ca5f91b3a979c5bec9e1c6e1b841904bba44eec52e209ba21a8ee2cb55887763561b600c2a087b7ffa6d592fa78423ca73b14135aca98c985d60c319a6eb648eb34d4af984569c9920632b11a4e100e14b311ca90a6629d61bbfd109e881dc648108a1db0612fa3ed8d7610c79843630c05260f09629227e9421b039b829ef3e6f4a9b38929b299b5ac9441edf6e104bab3cd72d48fe765b9f2134d2f2db873c71862e4bb845aac7d224f659a9bbe69ade79c35e74ac3bfce77c5180323cdf2c0d11722df634a1bd86df3d4ece8fa46c81d3f88ad045613a14b4abd219676a91e0b37173ed9bcfb5d752b28dba3b8176a10ca8622d5e5c1035004c57b7b36ac9bb7b6dedd43a8e7251712bad953ca05efe961776d62a5a8e892438da071f0ffa171da863a5eb97de10a3dbe936bfd6880761d6a4c8a070e45728ce0792df512ec16000acf83efa5ec493d0188d39b74911936d89f74e171603426a1aac31dd3f29ef29c9f67490491aa5cde63173849807791e56b3975f8a28e76baa1efec9f06761a396508f7d25d6001485a6a61c99cba2dd89d3531d0be1c98ef88cf6707ebee77019c3c79c4f88829b9a2297f096996eaf3fc55921dfee545f1fdb796a4afd3cbc85718a997bb8d1d41bff8365f96dc2abbc4bc5e7dc22b67af1d91d339b7dd53732ca644e5fe95e6dc29db87875af09d641c46dd3efa51cd7e41dcd3d98bcf682cbd8a5c7750eeed06e9fddfa6c5405233da3bdea66015877eb89bd28262c4f8b5f908dd293a192627b4d858d7f5fd983666118cf5002975c16a824de8fe3b1fa6b5b414c6bb93ff53ff956efd49d024e5e610268164428da2f3f54df1e8711f45944bbf9042d1edebdeda0f809a019655a9c7afeef78705f7432fe724b33702dbb8d479b0c89e345e1a28623fc21549a9f0844c3313848ba99fdd8d46265ec9c92d69408e126501c80dca507b10a0eb8df3e6e56282bd8ad4b5940abfe76f51c45288b69af4c3d5d140601dc15655f9e0a710f8ecffea3f1967fa87ed510a21b7264c121fed3b7a53be59e0ef63302ccc84f5ec8b8b33942c99409811189b4fca4a43c3df134c96ca6893eb53e07307b87e949adf174fb7d14c7a95985265774877c9b35f14dd9dee87cff9137a50cd7a548f89470c5e2181b0accf8a9792d71ba46b8aef3dd2a4205ad44f18f31fce2017813778cda343cf431164c03c994152ded1e76acf12199567d81b033e036bfc0a8adc65b1c5545287869abd7ba335931b974aa0f95d0517977a1c03bcfaf2bd39c0de7b26ac</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="2d024404119bf6b428e0c73534ab2a1df0bba319683b438b400d76d778be4aa9">984bbfaa2a7c0bf6d0de8973694307b32a178af243fd86a248a7eca8db85e9bd77e0b6ec026a5ff119c71b5ba75a3e54c9b46224856d39868812bc2c5e0386fbd6a0955ca9c23d56e576a57c9e2d1bd45be35eabc1198b3a95b08050014f02e6e4a5962d7a152c58906d7111484e7fec2d0086231344cbbb8243e141e2cc05b189b91d080ac953df6288e3df8f69b2231e40864a19694b29463253292be0746acbbfe1e853b4ff882e133dc695d20b97bdf9d476508b965f7390afcfc6b851607b914a4ee04771f5af488605554ab34286bbde00a33da89059e0fcb660db2ea97b5f091ebd6cab41ad25cf98721cfd65b91e24f7d458d98bc7e906188c8a8f35a48282a5511a25b76b07a7f5c71b7a34702351fe9b8586250241c2096eee9087bf6ca920251d2f277852105454465a296dccedac42469db9cdd2d4d59ca3715bbf7018781574ebbfff4f04b8ff9e847bf9f51bc92ca5b1043fb4a59f974973401c2516f3f6997e0f83ea10a7b8d0c0b4ce59d1ca51f9365c2d2b8bdeb84fb9d26fb84dc07c488da62cb22e42ca5ec4068045623c3678742554da4c401eef73bb11cec62f6dc5d74e748b0af5ea8b9158b8c14d5cae59eab0fed3bcee696c1471b7e7d07a2d6dde9f1736f0b3a32f98fd1fdcfab32210bc0a4c062a70e6577dc75ad7906f79dc1986010c22e14a895b8c99d1672556b214e2fe039cc7c82a7c70d2733924b1478cc716328693e23950854111aa6d35ef2bdddb0550d3fefa24f7fd65d40393240208ef1e2141f513bb7b61feefe81cd352a9af4ea6a17a8ec872b6054b2b54f594c237771368ccda01aca421cb1ee63093bfc51a4956281a6675c49231e072ccb5eefbc0c14cfe63de3b3813fbd1efb0880e1af99b6f8fed1acbb79b4746c3addba2dd37975626dbaa6d8c4904c1eda0b12c17a617859fa007105e6f4df3ff084c84e84e2f609e039a11ef1f0c1943389838320f9bcf9d5b911cac10aecb5eacaa5597188dd1e8675090b47ad269a7f737ebb6a009f06bd8934d15b8e8be8015c886aa9001eec01bef76f51304e5f7030a2cd063f9c5c7034553a5115c6ab8c75bfe8a7e53d9ae4bb5333816fa373e2ae683e9b9e39245f83d41c675b76100e6efcdbfbee72743965e03fe9ffb1dbf6bc6430d6e8c7a6b327aa509d7e2cc61bb8e296e35d35331614139e7a5d2fc9e75329de5a4ae427c0f649200a156fe648895ab2e00b0dacc26e658522be2ed9bfb12ec5e007cc6d349982187907becd6b0a7a1743a966ae28fb5f7c2034830856aa9bb6a44a05d5c0611c131d57595008f703989e47c215e305d5599f8bdf75506c7f6b044b208307c7828b21a71e40427f6fdfa45a50712933b6c637b8330952e65a4a48f1d7e9289c4fedcc8534d1a8423073d6cc86d815890cc2ebd10388be48909c63e68d6946049a502ac4813acbd2610940364a0248db1967f76ab387e90acd5fa0627be0202f8125cb28b5e2cf4e2fabc0aa1e0b4d50cf5cc4ef20348fe210dddfe8b67bf86715630ee014fffd6f5ef2e531d1cb7b859c16f4ca6f95f3677eb8e4be1a839520f2f437f4938af7b82fe77b21e9d6eeb33ed4acdca7aafea09dd956b2649103adde3849f1762707fb4a43236115460ec64e01810ec824f659db52bdb3d252968e37b73c8df293eec71aa9fe7eeeda4a46647420950927929da75a5400b3f23a2c2139357795f0975986442828cdd748ea3ef892705241cc3873111297544dfa87a43c427feeb58c6dfac00968fe0ed21aeabc3c9bfbb2195b27ae62974da53f90cfd81416571b5860869cbc1693148c0fcd554bd1e626f75d51b77ab955e1b18991c295b888f0aabf4344eed0ef287a2f812083c3f37e7e3164420a5fb0b8bec5a9fdb57ea314d2b310749539050b7750b420d6cac5e19e04fc099900f7ce3421ac78fb71769e60ab0f3d5cc20c7b5748ef1a10afe1421ea1b2e365909eb587531f13c7c9e31588e02942266387c532946e197f0460606b412bc986dd6a33a72898aa884124d9545b865ef185a9d8b7726a87236aa025815152593ea511b75575b1cba34ed9d7db4eea94182c9e4c0a1c0445a71eded0620d31e057e83c272d419cc66eed9ccd860f978a6f9c08fdc8c15af10d690838cf488f79a82a7985e351b00c2103d85aa6cc48b2e91413ddab1969028361b73f219f0d0eecece94c0615484069695ca6361c386669d3cfcc673ffc2bf91cb1398e053dbc0a35e4ae7e22624bf50bf4bba71e744b716ac883346584ca76b191838ea13b87790f5ed1d54a5672699c25ef2962db41f90bb03d4449bf8b06fbecc9308861fd761efd8eb45c26de2e20855c49adba376992841c1d3489b9076bca19974d626c97f3c442c525068fb2ac9c285b38b3c5cbf1f010d327400b3ece38ade2daf47a6c01818fbb344506c73716f5abaf238ed68e39008b65a159a11764cdc21595f5ee55b151e1a34fa443eff0d2c4a2b5fa78e4813b9ec8900de687ba1093fd37aaf5fd261e09b6d7ef36c54a466af9255b89f15021b64d1876b0ac3aff29acc2f7675ce155c01c6339d3f75bedbec2139224963e5297032e6171dc463bd261a27d8d5adeec9bbcc82a93311ab4b33ba697614a6c232ebe11220190dd54fc20dd4523d7bb98a4e15df720e4c6cac123715a575f988cb8279fd7a500fe908dab0464f9e0995ae7669cc270ca4b0fdfcf5d8818fc3c6f6d4595e18fb50f41626bef80f6c36cb4b263b479f0c438a713f1d89140cf0fe108ebfa5178b33c8de13790191af959227316b5284a310663fbb8d1e8c3369ea995f32240345d0a9f1feea61f9ae9a0d95fb9cbd61ca65813e4e62d43d05ed0e290f29f456040d3b3acfa54c8b06b3e5bba5323cfd172832cc68d653679bc30a6f0083da358ac0708b98aea3bf164caea31b900d8b8d9e3c9ae6172bd6346beae899aff63bdbfff41bce5b4158ceadcb15086ebb130a73296d884ca61c9eaa7528e3f70da121acbb5f7a1f8d27800fa88af931334dfc3ae0d27f8009fd4805913404af43322285ec0b6d9ec318834264f7f962dda8c079c68d0deaca9af5ef9d7c609c01f2dd2ff63e34cd26dd6cb3e47dc7962462769253aeee16284b274e493f56b23d7eca217ee4205089c3779f8c768333240788349ee45799eccd95c7502649492036d245ebf421925faf0bd1da7709ca1610ee8b9c5356b308336b55d1746cc94be50b204e9baf4ab671eaddb683789e7bf420d5453f21e44bd67238d2b3fbdff2febad16447428f5d4b5f4968c186b0584ed2be590d0d8534ce6bfbf9d8168c68498a4a2bf3e7218cfc037b3315b0902bc56733b3c7eb17c50be96a18a667117a9d4492572d90a7a6601123205af579025d7b4abd0c5896f2e80fa0f7988781b9f63cd1cf6d4b85990e35136c48e418be776c4a32024b3bab00055053578617e105d3a1c13ec6448a9580e3e2d25e39ec7197b9290e1cb4bc2289fa4ca3b39af20e70cac4856ac1cf3625b5a9d000350691633b8fbc9a1de7cea42bd25e8995dce97c05fcd2487536df4bbb9f9b688b8f52951acf138b3a1a547752b51c4bea1c30747761c5a7def9630dc490b7417b6746ccea4b91f7ce82969331eb23e5e57e1e2929a3d3a27e2bf78f2912cbeea70df879ccf96411d232ebe088103a2a6535c24337df9f8a931860e103c1771a22e1217c0673843223ecc686e28618796267a78b90dab3f3ee3d4c41832b3d7824f53158ba317ddeded650d270eb11de3b957930535333baec0271b45a7c45543918</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <tags>
         <tag>日常</tag>
       </tags>
@@ -428,7 +484,7 @@
 <p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
 <p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
 <p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
-<p>好像这种套路就能干这一件事情，不过了解一下它的思想总是好的。</p>
+<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
 <h4 id="栈-1">2048 栈</h4>
 <p>因为没得名字，随手取了一个。（侵删）</p>
 <p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
@@ -438,6 +494,7 @@
 <p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
 <p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
 <p>特别的，这个 trick 是可以在线维护的。</p>
+<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
 <h3 id="线段树">线段树</h3>
 <h4 id="时间和序列的对调">时间和序列的对调</h4>
 <p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
@@ -445,6 +502,7 @@
 <p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
 <p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
 <p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
+<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
 <h4 id="懒信息">懒信息</h4>
 <p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
 <p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
@@ -457,20 +515,25 @@
 <p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
 <p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
 <p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
 <h3 id="平衡树">平衡树</h3>
 <h4 id="替罪羊树">替罪羊树</h4>
 <p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
 <p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
 <p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
+<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
 <h3 id="根号算法">根号算法</h3>
 <h4 id="根号分治">根号分治</h4>
 <p>应该是一个比较普及的 trick。</p>
 <p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
 <p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
 <p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
+<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
 <h4 id="时间分块">时间分块</h4>
 <p>似乎对时间轴操作的 trick 都挺重要的。</p>
 <p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
+<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
+<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
 <h4 id="操作分块定期重构">操作分块（定期重构）</h4>
 <p>也是一个比较妙的 trick。</p>
 <p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
@@ -481,6 +544,7 @@
 <p>其实也不是什么高科技，也就标题唬人。</p>
 <p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
 <p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
+<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
 ]]></content>
       <tags>
         <tag>数据结构</tag>
