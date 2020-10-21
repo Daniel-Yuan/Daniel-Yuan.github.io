@@ -196,6 +196,14 @@
       </tags>
   </entry>
   <entry>
+    <title>diary</title>
+    <url>/2020/10/06/diary/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UOJ Contests</title>
     <url>/2020/10/14/UOJ-Contests/</url>
     <content><![CDATA[<p><del>九条可怜老师</del>吉老师在他的博客中大力赞扬 UR 。</p>
@@ -242,71 +250,6 @@
 ]]></content>
       <tags>
         <tag>UOJ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>diary</title>
-    <url>/2020/10/06/diary/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>划分数</title>
-    <url>/2020/10/09/%E5%88%92%E5%88%86%E6%95%B0/</url>
-    <content><![CDATA[<p>划分数就是把一个数 <span class="math inline">\(n\)</span> 拆分成若干个正整数的和的方案数，其中这若干个正整数是无序的，也就是 <span class="math inline">\(\{1,1,2\}\)</span> 和 <span class="math inline">\(\{1,2,1\}\)</span> 是等价的拆分。</p>
-<p>下面我们来讨论怎么求它。</p>
-<a id="more"></a>
-<h5 id="简单-dp">简单 DP</h5>
-<p>我们可以设 <span class="math inline">\(f_{i,j}\)</span> 表示把 <span class="math inline">\(i\)</span> 拆分成 <span class="math inline">\(j\)</span> 个正整数的方案数。</p>
-<p>转移有两种，要么添加一个 <span class="math inline">\(1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
-<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j-1}+f_{i-j,j}\)</span>。</p>
-<p>那么我们要求的划分数就是 <span class="math inline">\(\sum_{x=0}^n f_{n,x}\)</span>。复杂度 <span class="math inline">\(O(n^2)\)</span>。</p>
-<p>这个算法的优点是我们可以知道所有把 <span class="math inline">\(x\leq n\)</span> 拆分成 <span class="math inline">\(y\leq n\)</span> 个正整数的方案数，缺点是复杂度过高。</p>
-<h5 id="根号分治-dp">根号分治 DP</h5>
-<p>可以发现，大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多选 <span class="math inline">\(\sqrt{n}\)</span> 个，所以我们可以依靠这个来优化算法。</p>
-<p>设 <span class="math inline">\(f_{i,j}\)</span> 表示用小于等于 <span class="math inline">\(i\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
-<p>转移有两种，要么是多加一个 <span class="math inline">\(i\)</span>，要么就把 <span class="math inline">\(i\)</span> 加 <span class="math inline">\(1\)</span>。</p>
-<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j}+f_{i,j-i}\)</span>。</p>
-<p>这里的 <span class="math inline">\(i\)</span> 我们只枚举到 <span class="math inline">\(\sqrt{n}\)</span>，这样我们就可以知道用小于等于 <span class="math inline">\(\sqrt{n}\)</span> 拼成某个数的方案数。</p>
-<p>设 <span class="math inline">\(g_{i,j}\)</span> 表示用 <span class="math inline">\(i\)</span> 个数大于 <span class="math inline">\(\sqrt{n}\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
-<p>转移有两种，要么添加一个 <span class="math inline">\(\sqrt{n}+1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
-<p>即 <span class="math inline">\(g_{i,j}=g_{i-1,j-\sqrt{n}-1}+g_{i,j-i}\)</span>。</p>
-<p>因为大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多用 <span class="math inline">\(\sqrt{n}\)</span> 个，所以 <span class="math inline">\(i\)</span> 的上限也是 <span class="math inline">\(\sqrt{n}\)</span>。</p>
-<p>那么最后的答案就是 <span class="math inline">\(\sum_{x=0}^n f_{\sqrt{n},x}\times \left(\sum_{y=0}^{\sqrt{n}} g_{y,n-x}\right)\)</span> 。即枚举小于等于 <span class="math inline">\(\sqrt{n}\)</span> 的数的和。复杂度 <span class="math inline">\(O(n\sqrt{n})\)</span>。</p>
-<p>这个算法的优点是比多项式做法容易，且复杂度优于简单 DP。缺点是我们只能求得 <span class="math inline">\(n\)</span> 的划分数。</p>
-<h5 id="多项式">多项式</h5>
-<p>我们可以类似背包的来构造生成函数。</p>
-<p>设 <span class="math inline">\(P\)</span> 为划分数的生成函数，即 <span class="math inline">\(P_k\)</span> 的系数为 <span class="math inline">\(k\)</span> 的划分数。</p>
-<p>那么就有 <span class="math inline">\(P=\prod_j^\infty\left(\sum_i a_ix^{ij}\right)\)</span>。</p>
-<p>即枚举选择的数的大小 <span class="math inline">\(j\)</span>，然后乘上它的生成函数。</p>
-<p>根据常识，原式等于 <span class="math inline">\(\prod_{j=1}^\infty \frac{1}{1-x^j}\)</span>。</p>
-<p>然后通过 <span class="math inline">\(\ln\)</span> 和 <span class="math inline">\(\exp\)</span> 化乘为加，就可以求得 <span class="math inline">\(P\)</span>。</p>
-<p>我们先不看 <span class="math inline">\(\exp\)</span>，先算 <span class="math inline">\(\ln\)</span>。那么原式就是 <span class="math inline">\(-\sum_{j=1}^\infty\ln(1-x^j)\)</span>。</p>
-<p>考虑怎么计算 <span class="math inline">\(\ln(1-x^j)\)</span>，换个元设 <span class="math inline">\(u=x^j\)</span>，我们就需要求 <span class="math inline">\(\ln(1-u)\)</span>。</p>
-<p>先求导，即 <span class="math inline">\(-\frac{1}{1-u}=-\sum_{i=0}^\infty u^i\)</span>，然后积分，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{u^i}{i}\)</span> 。把元换回来，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
-<p>那么原式就成了 <span class="math inline">\(\sum_{j=1}^\infty \sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
-<p>最后把这一坨 <span class="math inline">\(\exp\)</span> 一下就得到了 <span class="math inline">\(P\)</span>。</p>
-<p>不难发现当上界为 <span class="math inline">\(n\)</span> 的时候，这个求和的复杂度是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
-<p>而求 <span class="math inline">\(\exp\)</span> 的复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的，故总复杂度为 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<p>这个算法的优点是能非常快的计算出 <span class="math inline">\(x\leq n\)</span> 的划分数，缺点是很复杂，且对模数有要求。</p>
-<hr />
-<p>至此就讨论完了三种求划分数的方法。但是如果你认为这就完了那就 <code>too young too simple, sometimes naive</code> 了，出题人怎么可能就只考裸的划分数呢。</p>
-<p>下面我们再讨论一下如果限制了划分出来的正整数个数，或者限制了划分出来的正整数的大小该怎么做。</p>
-<p>我们可以发现，上述算法的【简单 DP】是很好处理前者的，【多项式】是很好处理后者的，而【根号分治 DP】中的 <span class="math inline">\(f\)</span> 可以维护后者， <span class="math inline">\(g\)</span> 可以维护前者，合并都不好维护。但是回顾上述算法，你会发现它们在最根本的思想上是相似的，而它们在这方面的性质又不一样，这就促使了我们去探究上面两个限制的关系。</p>
-<p><strong>引理：把划分出来的正整数排序，并形成一个阶梯图，这个图在行列上具有对偶性。</strong></p>
-<p>这么说比较抽象，我也不知道表达对不对，但是看了下面的图就知道了。（只看加粗部分）</p>
-<p><img src="https://s1.ax1x.com/2020/10/09/0DFNCV.png" /></p>
-<p>这张图不管是以列划分（左），还是以行划分（右），都可以看做是一个划分数的划分，且它们一一对应。</p>
-<p>假设柱状物的个数为数的个数，柱状物的高度是数的大小。</p>
-<p>那么如果限制是划分出来的正整数个数不超过数 <span class="math inline">\(x\)</span> ，在左图相当于是柱状物的个数不超过 <span class="math inline">\(x\)</span>，那么在右图就是柱状物的高度不超过 <span class="math inline">\(x\)</span>。</p>
-<p>也就是说，限制划分出来的正整数个数不超过 <span class="math inline">\(x\)</span>，和限制划分出来的正整数的大小不大于 <span class="math inline">\(x\)</span> 在本质上是相同的。我们可以对它们进行等价的转化。</p>
-<p>这样就可以解释为何上述三个同根的算法性质不同了。</p>
-]]></content>
-      <tags>
-        <tag>DP</tag>
-        <tag>多项式</tag>
       </tags>
   </entry>
   <entry>
@@ -384,6 +327,63 @@
       <tags>
         <tag>数论</tag>
         <tag>莫比乌斯函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>划分数</title>
+    <url>/2020/10/09/%E5%88%92%E5%88%86%E6%95%B0/</url>
+    <content><![CDATA[<p>划分数就是把一个数 <span class="math inline">\(n\)</span> 拆分成若干个正整数的和的方案数，其中这若干个正整数是无序的，也就是 <span class="math inline">\(\{1,1,2\}\)</span> 和 <span class="math inline">\(\{1,2,1\}\)</span> 是等价的拆分。</p>
+<p>下面我们来讨论怎么求它。</p>
+<a id="more"></a>
+<h5 id="简单-dp">简单 DP</h5>
+<p>我们可以设 <span class="math inline">\(f_{i,j}\)</span> 表示把 <span class="math inline">\(i\)</span> 拆分成 <span class="math inline">\(j\)</span> 个正整数的方案数。</p>
+<p>转移有两种，要么添加一个 <span class="math inline">\(1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
+<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j-1}+f_{i-j,j}\)</span>。</p>
+<p>那么我们要求的划分数就是 <span class="math inline">\(\sum_{x=0}^n f_{n,x}\)</span>。复杂度 <span class="math inline">\(O(n^2)\)</span>。</p>
+<p>这个算法的优点是我们可以知道所有把 <span class="math inline">\(x\leq n\)</span> 拆分成 <span class="math inline">\(y\leq n\)</span> 个正整数的方案数，缺点是复杂度过高。</p>
+<h5 id="根号分治-dp">根号分治 DP</h5>
+<p>可以发现，大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多选 <span class="math inline">\(\sqrt{n}\)</span> 个，所以我们可以依靠这个来优化算法。</p>
+<p>设 <span class="math inline">\(f_{i,j}\)</span> 表示用小于等于 <span class="math inline">\(i\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
+<p>转移有两种，要么是多加一个 <span class="math inline">\(i\)</span>，要么就把 <span class="math inline">\(i\)</span> 加 <span class="math inline">\(1\)</span>。</p>
+<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j}+f_{i,j-i}\)</span>。</p>
+<p>这里的 <span class="math inline">\(i\)</span> 我们只枚举到 <span class="math inline">\(\sqrt{n}\)</span>，这样我们就可以知道用小于等于 <span class="math inline">\(\sqrt{n}\)</span> 拼成某个数的方案数。</p>
+<p>设 <span class="math inline">\(g_{i,j}\)</span> 表示用 <span class="math inline">\(i\)</span> 个数大于 <span class="math inline">\(\sqrt{n}\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
+<p>转移有两种，要么添加一个 <span class="math inline">\(\sqrt{n}+1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
+<p>即 <span class="math inline">\(g_{i,j}=g_{i-1,j-\sqrt{n}-1}+g_{i,j-i}\)</span>。</p>
+<p>因为大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多用 <span class="math inline">\(\sqrt{n}\)</span> 个，所以 <span class="math inline">\(i\)</span> 的上限也是 <span class="math inline">\(\sqrt{n}\)</span>。</p>
+<p>那么最后的答案就是 <span class="math inline">\(\sum_{x=0}^n f_{\sqrt{n},x}\times \left(\sum_{y=0}^{\sqrt{n}} g_{y,n-x}\right)\)</span> 。即枚举小于等于 <span class="math inline">\(\sqrt{n}\)</span> 的数的和。复杂度 <span class="math inline">\(O(n\sqrt{n})\)</span>。</p>
+<p>这个算法的优点是比多项式做法容易，且复杂度优于简单 DP。缺点是我们只能求得 <span class="math inline">\(n\)</span> 的划分数。</p>
+<h5 id="多项式">多项式</h5>
+<p>我们可以类似背包的来构造生成函数。</p>
+<p>设 <span class="math inline">\(P\)</span> 为划分数的生成函数，即 <span class="math inline">\(P_k\)</span> 的系数为 <span class="math inline">\(k\)</span> 的划分数。</p>
+<p>那么就有 <span class="math inline">\(P=\prod_j^\infty\left(\sum_i a_ix^{ij}\right)\)</span>。</p>
+<p>即枚举选择的数的大小 <span class="math inline">\(j\)</span>，然后乘上它的生成函数。</p>
+<p>根据常识，原式等于 <span class="math inline">\(\prod_{j=1}^\infty \frac{1}{1-x^j}\)</span>。</p>
+<p>然后通过 <span class="math inline">\(\ln\)</span> 和 <span class="math inline">\(\exp\)</span> 化乘为加，就可以求得 <span class="math inline">\(P\)</span>。</p>
+<p>我们先不看 <span class="math inline">\(\exp\)</span>，先算 <span class="math inline">\(\ln\)</span>。那么原式就是 <span class="math inline">\(-\sum_{j=1}^\infty\ln(1-x^j)\)</span>。</p>
+<p>考虑怎么计算 <span class="math inline">\(\ln(1-x^j)\)</span>，换个元设 <span class="math inline">\(u=x^j\)</span>，我们就需要求 <span class="math inline">\(\ln(1-u)\)</span>。</p>
+<p>先求导，即 <span class="math inline">\(-\frac{1}{1-u}=-\sum_{i=0}^\infty u^i\)</span>，然后积分，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{u^i}{i}\)</span> 。把元换回来，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
+<p>那么原式就成了 <span class="math inline">\(\sum_{j=1}^\infty \sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
+<p>最后把这一坨 <span class="math inline">\(\exp\)</span> 一下就得到了 <span class="math inline">\(P\)</span>。</p>
+<p>不难发现当上界为 <span class="math inline">\(n\)</span> 的时候，这个求和的复杂度是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
+<p>而求 <span class="math inline">\(\exp\)</span> 的复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的，故总复杂度为 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<p>这个算法的优点是能非常快的计算出 <span class="math inline">\(x\leq n\)</span> 的划分数，缺点是很复杂，且对模数有要求。</p>
+<hr />
+<p>至此就讨论完了三种求划分数的方法。但是如果你认为这就完了那就 <code>too young too simple, sometimes naive</code> 了，出题人怎么可能就只考裸的划分数呢。</p>
+<p>下面我们再讨论一下如果限制了划分出来的正整数个数，或者限制了划分出来的正整数的大小该怎么做。</p>
+<p>我们可以发现，上述算法的【简单 DP】是很好处理前者的，【多项式】是很好处理后者的，而【根号分治 DP】中的 <span class="math inline">\(f\)</span> 可以维护后者， <span class="math inline">\(g\)</span> 可以维护前者，合并都不好维护。但是回顾上述算法，你会发现它们在最根本的思想上是相似的，而它们在这方面的性质又不一样，这就促使了我们去探究上面两个限制的关系。</p>
+<p><strong>引理：把划分出来的正整数排序，并形成一个阶梯图，这个图在行列上具有对偶性。</strong></p>
+<p>这么说比较抽象，我也不知道表达对不对，但是看了下面的图就知道了。（只看加粗部分）</p>
+<p><img src="https://s1.ax1x.com/2020/10/09/0DFNCV.png" /></p>
+<p>这张图不管是以列划分（左），还是以行划分（右），都可以看做是一个划分数的划分，且它们一一对应。</p>
+<p>假设柱状物的个数为数的个数，柱状物的高度是数的大小。</p>
+<p>那么如果限制是划分出来的正整数个数不超过数 <span class="math inline">\(x\)</span> ，在左图相当于是柱状物的个数不超过 <span class="math inline">\(x\)</span>，那么在右图就是柱状物的高度不超过 <span class="math inline">\(x\)</span>。</p>
+<p>也就是说，限制划分出来的正整数个数不超过 <span class="math inline">\(x\)</span>，和限制划分出来的正整数的大小不大于 <span class="math inline">\(x\)</span> 在本质上是相同的。我们可以对它们进行等价的转化。</p>
+<p>这样就可以解释为何上述三个同根的算法性质不同了。</p>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>多项式</tag>
       </tags>
   </entry>
   <entry>
