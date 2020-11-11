@@ -207,7 +207,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/UOJ/</loc>
+    <loc>http://example.com/tags/POI/</loc>
     <lastmod>2020-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -221,7 +221,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/POI/</loc>
+    <loc>http://example.com/tags/UOJ/</loc>
     <lastmod>2020-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
