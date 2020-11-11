@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-11-11T03:48:02.212Z</updated>
+  <updated>2020-11-11T08:15:24.563Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,21 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>线性基的瞎操作</title>
+    <link href="http://example.com/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/"/>
+    <id>http://example.com/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/</id>
+    <published>2020-11-11T08:03:04.000Z</published>
+    <updated>2020-11-11T08:15:24.563Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="查找某个数可以被给出基底如何异或得到">1. 查找某个数可以被给出基底如何异或得到</h4><p>把基底做线性基，并且在线性基的同时维护线性基中每个元素是由哪些基底中的元素异或得到的，那么在查询的时候，把对应线性基的元素集合也一起异或，就可以得到最终所求。</p><h4 id="把基底的一个数与另一个数交换保证交换后基底仍然是基底">2. 把基底的一个数与另一个数交换，保证交换后基底仍然是基底</h4><p>同上，在线性基的同时维护线性基中每个元素是由哪些基底中的元素异或得到的。先查询交换的这个数怎么被基底表示，因为交换后基底仍然是基底，那么基底中被交换的数一定会被用来表示交换的这个数。所以被交换的数可以用基底中的数和交换的数一起表示，然后就直接去更新线性基中元素维护的集合即可。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;查找某个数可以被给出基底如何异或得到&quot;&gt;1. 查找某个数可以被给出基底如何异或得到&lt;/h4&gt;
+&lt;p&gt;把基底做线性基，并且在线性基的同时维护线性基中每个元素是由哪些基底中的元素异或得到的，那么在查询的时候，把对应线性基的元素集合也一起异或，就可以得到最终所求。&lt;/p</summary>
+      
+    
+    
+    
+    
+    <category term="数位" scheme="http://example.com/tags/%E6%95%B0%E4%BD%8D/"/>
+    
+    <category term="线性代数" scheme="http://example.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>用二进制模拟 K 进制</title>
     <link href="http://example.com/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/"/>
     <id>http://example.com/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</id>
     <published>2020-11-11T03:39:21.000Z</published>
-    <updated>2020-11-11T03:48:02.212Z</updated>
+    <updated>2020-11-11T08:03:46.096Z</updated>
     
-    <content type="html"><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p><p>先考虑怎么用二进制模拟三进制。</p><p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p><p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p><p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p><p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p><p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p><p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>]]></content>
+    <content type="html"><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p><a id="more"></a><p>先考虑怎么用二进制模拟三进制。</p><p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p><p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p><p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p><p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p><p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p><p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。&lt;/p&gt;
-&lt;p&gt;先考虑怎么用二进制模拟三进制。&lt;/p&gt;
-&lt;p&gt;用 &lt;span class=&quot;math inline&quot;&gt;\(01\)&lt;/span&gt; 串 &lt;span class=&quot;math inli</summary>
-      
+    <summary type="html">&lt;p&gt;被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。&lt;/p&gt;</summary>
     
     
     
@@ -423,25 +443,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>CSP-S 2019 游记</title>
-    <link href="http://example.com/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/"/>
-    <id>http://example.com/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</id>
-    <published>2019-11-16T10:48:53.000Z</published>
-    <updated>2020-10-06T02:22:16.568Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p><a id="more"></a><h2 id="day--1">Day -1</h2><p>教练组织高二的学长出去玩去了，苦逼的我还要接着考 CSP 信(zi)心(bi)赛。/羡慕</p><p>配 <code>emacs</code> 的时候突然忘记 <code>default</code> 怎么写了，一直认为最后两个字母是 <code>te</code> 。最后还是靠着 <code>switch</code> 的高亮打出来的（CSP 前犯这种错误我怕不是要爆零）</p><p>晚上 U 盘坏了，捣鼓了一晚上。</p><p>考前 RP 突然爆炸，感觉吃枣药丸（怕不是 CSP-S RP++ 爆负了……）</p><h2 id="day-0">Day 0</h2><p>上午写了一个线性基板子，一个矩阵快速幂板子，一个 <code>Miller-Rabin</code> 板子。</p><p>之后就欢快地颓了一下午加一晚上。<del>（某乎：如何看待某巨佬 AK CSP-S）</del></p><h2 id="day-1">Day 1</h2><p>在一阵互相膜拜之后进入了考场。</p><p>座位之间有隔板 <del>考试前还在讨论如何用毒瘤码风祸害周围同学</del>，键盘敲起来特别舒服，值得一提的是，<code>Emacs</code> 有配置文件！<del>好评</del>。</p><p>开考后 10 分钟就把 T1 切了。</p><p>T2 像极了考前的一道 <del>九条可怜</del> 的括号匹配题，几分钟码了个 <code>Trie</code> 树就过样例了，然而那个题<strong>忽略括号方向</strong> <del>我给忘了QAQ</del>。</p><p>然后 T3 看上去很玄学的样子，开始手玩，结果手玩不动样例……<del>还不如暴搜</del></p><p>闲的没事就给 T2 写了个对拍，一组就错……</p><p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p><p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p><p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p><p>当我百思不得其解时，已经 10:50了 QAQ。</p><p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p><p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p><p>改完之后拍几万组都没有问题，不过这次考试也因为 T2 止步 210 了……</p><p>又欢乐地颓了一下午加一晚上。</p><h2 id="day-2">Day 2</h2><p>昨天颓太欢乐了，今早莫名的困……</p><p>感觉今天心态都不一样了……昨天想着怎么拿高分怎么 AK，今天就只想着多拿点分 <del>（还是不能给我这种蒟蒻太高的期望）</del></p><p>开场就写了一个 T1 的 <span class="math inline">\(n^2m\)</span> 的做法，后来发现它假了，只能补上一维保证正确性，最后打了个 <span class="math inline">\(n^3m\)</span> 的 <code>DP</code>。</p><p>然后写 T2，一开始写了一个 <span class="math inline">\(n^3\)</span> 的<code>DP</code>，并且理性分析发现可以优化到 <span class="math inline">\(n^2\)</span> 。经过人(bao)类(li)智(da)慧(biao)后，发现每个以每个点为终点的 <code>DP</code> 值有且仅有一个有用，于是可以使用单调队列优化做到 <span class="math inline">\(O(n)\)</span> ，<del>但是为啥我压 8 位高精都可以MLE，只能过 type=0</del></p><p>最后写 T3，发现暴力分出奇地高，于是写完暴搜后就找特殊数据的规律，<del>还真被我找到了</del>，又骗了一大波分。</p><p>一道题都没切预计都比昨天高……<del>我 ** 昨天在干嘛</del>。</p><h2 id="后记">后记：</h2><p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p><p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="游记" scheme="http://example.com/tags/%E6%B8%B8%E8%AE%B0/"/>
     
   </entry>
   
