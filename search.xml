@@ -225,6 +225,36 @@
       </tags>
   </entry>
   <entry>
+    <title>POI2012</title>
+    <url>/2020/10/17/POI2012/</url>
+    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
+<a id="more"></a>
+<h5 id="distance">Distance</h5>
+<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
+<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
+<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
+<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
+<h5 id="cloakroom">Cloakroom</h5>
+<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
+<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
+<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
+<h5 id="a-horrible-poem">A Horrible Poem</h5>
+<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
+<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
+<p>画图就可以很显然的看出这个性质。</p>
+<p>判断字符串相等直接用哈希。</p>
+<p>需要卡常。</p>
+<h5 id="fibonacci-representation">Fibonacci Representation</h5>
+<p>先把这个数用斐波那契数拆分。</p>
+<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
+<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
+<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>POI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UOJ Contests</title>
     <url>/2020/10/14/UOJ-Contests/</url>
     <content><![CDATA[<p><del>九条可怜老师</del>吉老师在他的博客中大力赞扬 UR 。</p>
@@ -271,36 +301,6 @@
 ]]></content>
       <tags>
         <tag>UOJ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>POI2012</title>
-    <url>/2020/10/17/POI2012/</url>
-    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
-<a id="more"></a>
-<h5 id="distance">Distance</h5>
-<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
-<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
-<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
-<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
-<h5 id="cloakroom">Cloakroom</h5>
-<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
-<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
-<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
-<h5 id="a-horrible-poem">A Horrible Poem</h5>
-<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
-<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
-<p>画图就可以很显然的看出这个性质。</p>
-<p>判断字符串相等直接用哈希。</p>
-<p>需要卡常。</p>
-<h5 id="fibonacci-representation">Fibonacci Representation</h5>
-<p>先把这个数用斐波那契数拆分。</p>
-<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
-<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
-<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>POI</tag>
       </tags>
   </entry>
   <entry>
@@ -804,6 +804,23 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
         <tag>DP</tag>
         <tag>容斥</tag>
         <tag>妙题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用二进制模拟 K 进制</title>
+    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
+    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
+<p>先考虑怎么用二进制模拟三进制。</p>
+<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
+<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
+<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
+<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
+<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
+<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
+]]></content>
+      <tags>
+        <tag>数位</tag>
+        <tag>进制</tag>
       </tags>
   </entry>
   <entry>
