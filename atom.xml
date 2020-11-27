@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-11-11T08:15:24.563Z</updated>
+  <updated>2020-11-27T12:57:02.762Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>斐波那契数列相关</title>
+    <link href="http://example.com/2020/11/27/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9B%B8%E5%85%B3/"/>
+    <id>http://example.com/2020/11/27/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9B%B8%E5%85%B3/</id>
+    <published>2020-11-27T12:36:56.000Z</published>
+    <updated>2020-11-27T12:57:02.762Z</updated>
+    
+    <content type="html"><![CDATA[<p>设 <span class="math inline">\(F\)</span> 是斐波那契数列，其定义是对于 <span class="math inline">\(x\leq 2\)</span>，<span class="math inline">\(F(x)=1\)</span>；对于 <span class="math inline">\(x\geq 3\)</span>，<span class="math inline">\(F(x)=F(x-1)+F(x-2)\)</span>。</p><a id="more"></a><h4 id="gcdfxfyfgcdxy">1. <span class="math inline">\(\gcd(F(x),F(y))=F(gcd(x,y))\)</span> 。</h4><p>一个非常实用的结论。下面考虑证明。</p><h5 id="引理-1fxfytimes-fx-y1fy-1times-fx-y">引理 1：<span class="math inline">\(F(x)=F(y)\times F(x-y+1)+F(y-1)\times F(x-y)\)</span>。</h5><p>        把递推式逐级展开就可以得到这个式子。</p><p>        即 <span class="math inline">\(F(x)=F(x-1)+F(x-2)\Rightarrow F(x)=2F(x-2)+F(x-3)\Rightarrow F(x)=3F(x-3)+2F(x-4)...\)</span></p><h5 id="引理-2gcdfxfx-11">引理 2：<span class="math inline">\(\gcd(F(x),F(x-1))=1\)</span>。</h5><p>        仍然是把递推式展开迭代。</p><p>        即 <span class="math inline">\(\gcd(F(x),F(x-1))=\gcd(F(x-2)+F(x-1), F(x-1))=\gcd(F(x-2),F(x-1))...\)</span>。最后就可以得到 <span class="math inline">\(\gcd(F(2),F(1))\)</span>，这时结果显然是 <span class="math inline">\(1\)</span>。</p><p>有了这两个引理就可以证明上述结论了。</p><p>先假设 <span class="math inline">\(x&gt;y\)</span>，那么 <span class="math inline">\(\gcd(F(x),F(y))=\gcd(F(y)\times F(x-y+1)+F(y-1)\times F(x-y),F(y))\)</span>。把这个式子套用上述两个引理，就有 <span class="math inline">\(\gcd(F(x),F(y))=\gcd(F(x-y),F(y))\)</span>。可以发现这就是一个辗转相减的形式，直接套用欧几里得就有 <span class="math inline">\(\gcd(F(x),F(y))=F(\gcd(x,y))\)</span>。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;设 &lt;span class=&quot;math inline&quot;&gt;\(F\)&lt;/span&gt; 是斐波那契数列，其定义是对于 &lt;span class=&quot;math inline&quot;&gt;\(x\leq 2\)&lt;/span&gt;，&lt;span class=&quot;math inline&quot;&gt;\(F(x)=1\)&lt;/span&gt;；对于 &lt;span class=&quot;math inline&quot;&gt;\(x\geq 3\)&lt;/span&gt;，&lt;span class=&quot;math inline&quot;&gt;\(F(x)=F(x-1)+F(x-2)\)&lt;/span&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="数学" scheme="http://example.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="数列" scheme="http://example.com/tags/%E6%95%B0%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>线性基的瞎操作</title>
@@ -422,27 +443,6 @@
     <category term="DP" scheme="http://example.com/tags/DP/"/>
     
     <category term="自动机" scheme="http://example.com/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Daniel_yuan&#39;s New Blog</title>
-    <link href="http://example.com/2020/09/15/Daniel-yuan-s-New-Blog/"/>
-    <id>http://example.com/2020/09/15/Daniel-yuan-s-New-Blog/</id>
-    <published>2020-09-15T11:04:27.000Z</published>
-    <updated>2020-09-15T11:05:00.308Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这是 Daniel_yuan 的新博客。&lt;/p&gt;
-</summary>
-      
-    
-    
-    
     
   </entry>
   
