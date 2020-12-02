@@ -173,6 +173,46 @@
 ]]></content>
   </entry>
   <entry>
+    <title>NOIP 2020 游记</title>
+    <url>/2020/12/02/NOIP-2020-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="day--inf">Day -INF</h4>
+<p>已经记不清什么时候的事情了。</p>
+<p>组内进行了分小组出题互测。</p>
+<p>Clamee 出了一道让队爷都拍手称赞的题，还给丢 T3 了。</p>
+<p>自从那一天被 T3 搞自闭开始，T3 就再也没有切过了 <img src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0/img/qq/%E6%B5%81%E6%B3%AA.gif" style="zoom:50%;" />。</p>
+<h4 id="day--5">Day -5</h4>
+<p>我说 Codeforces 它不讲武德，当时它一个 Div1A，一个 Div1B，一个 Div1C，我全部都切掉了啊。</p>
+<p>切掉之后自然是点到为止，Pretest passed 后就不管了，因为这时按照传统规矩它已经被切了。</p>
+<p>它也承认我是先切了它，但它突然就是一个数据怼上来，我大意了啊，没有特判，直接就给 FST 了。</p>
+<p>它偷袭一个 2000 多分的蒟蒻这好吗？这不好。OI 界要以和为贵，加强 pretest。</p>
+<p>最后掉分了。（</p>
+<h4 id="day--4">Day -4</h4>
+<p>Kewth 给我们出模拟赛了！！！</p>
+<p>开局四个 <span class="math inline">\(998244353\)</span> 当场自闭。</p>
+<p>数学蒟蒻在线惊恐 <img src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0/img/qq/%E6%83%8A%E6%81%90.gif" style="zoom:50%;" />。</p>
+<p>又被 T3 卡了，T4 比 T3 难多了还给切了，我真就 &amp;@#$&amp;%#&amp;。</p>
+<p>又刷了好久知乎，感觉颓死了。</p>
+<p>好羡慕那些 win 啊。</p>
+<h4 id="day--3">Day -3</h4>
+<p>CYJian 给我们出模拟赛了！！！</p>
+<p>感觉一开始状态挺好的，前三题一下就做完了（虽然 T3 假了）。</p>
+<p>结果 T4 不知道抽了什么筋，想到一个换根+树剖+带修主席树的做法，还开始写了。</p>
+<p>写到后面越陷越深，最后 10k 都没写完惨变暴力分。</p>
+<p>在 CYJian 这届，切了 T4 就有 0.667 的概率进国家集训队，而没有切进的概率为 0。</p>
+<p><strong>在此提前恭喜 xiaolilsqs 进队！！！</strong></p>
+<p>Clamee 又改了它出的神仙 T3，不过还好有前车之鉴没有被踩。</p>
+<h4 id="day--2">Day -2</h4>
+<p>Ysu 给组内开了个会。</p>
+<p>自然是考前给大家加信心。</p>
+<p>他说他在高考之前和喜欢的妹子一起刷了一周题，然后就考上了北航。</p>
+<p>要是我 NOIP 前可以和喜欢的妹子一起刷一周题，那 400 分不手到擒来？！（因为前提无法实现，所以后面的结果就写得奇怪一点）</p>
+<p>又双叒叕开始颓了……还似乎被 Ysu 看到了。</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PAM 学习笔记</title>
     <url>/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="定义">定义</h4>
