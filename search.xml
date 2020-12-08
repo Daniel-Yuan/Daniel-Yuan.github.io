@@ -204,10 +204,47 @@
 <p>Clamee 又改了它出的神仙 T3，不过还好有前车之鉴没有被踩。</p>
 <h4 id="day--2">Day -2</h4>
 <p>Ysu 给组内开了个会。</p>
-<p>自然是考前给大家加信心。</p>
+<p>自然是考前给大家加信心。（然而考前就要求写退役记）</p>
 <p>他说他在高考之前和喜欢的妹子一起刷了一周题，然后就考上了北航。</p>
 <p>要是我 NOIP 前可以和喜欢的妹子一起刷一周题，那 400 分不手到擒来？！（因为前提无法实现，所以后面的结果就写得奇怪一点）</p>
 <p>又双叒叕开始颓了……还似乎被 Ysu 看到了。</p>
+<p>神游了一段时间之后决定开始搞学。</p>
+<p>写退役记的时候想到了很多往事，下午加晚上就这么过去了。</p>
+<h4 id="day--1">Day -1</h4>
+<p>NOIP 前的最后一次模拟赛。</p>
+<p>tiger0132 会出题的消息不胫而走，在赛前引起了很多人的恐慌。</p>
+<p>最终是 tiger 的两道题拼上另外两题，有一说一，tiger 的题目还是很良心的。毒瘤还是毒瘤在拼的题目上。</p>
+<p>最后 3h AK 了。</p>
+<p>Ysu 说要把这次当 NOIP，NOIP 当考后放松赛（要是 NOIP 能像今天一样就好了）。</p>
+<p>又颓了好一会……后面觉得这样不太行就开始捣鼓 Linux。</p>
+<h4 id="day-0">Day 0</h4>
+<p>被叫出去<strong>爬</strong>（山）了。</p>
+<p>回来之后搞了一次机房团建（雾。</p>
+<p>晚上开了场 Div.2 VP，卡 E 了，感觉药丸。</p>
+<h4 id="day1">Day1</h4>
+<p>Ysu 喝奶茶导致喉咙发炎了（听说被珍珠呛到？？？），心疼 30s。</p>
+<p>早上 5:30 惊醒，看了下表一时间不能确定是五点还是六点，调了一下表盘，看数字表盘发现才 5:30，就躺下打算继续睡。</p>
+<p>结果每 7-8 min 就惊醒一次，浑浑噩噩熬到 6:10 就起床了。</p>
+<p>随便买了些东西当早餐，顺便捎了个薄荷糖防睡觉。</p>
+<p>7:30 到制定地点，7:40+ 就进考场了，下完题目和配置就开始发呆。</p>
+<p>解压密码 <code>1Xuan2Shou0Jia5You</code>，太谢谢 CCF 的祝福了（雾。</p>
+<p>T1 送分，T2 字符串……？想了会发现不是太难。T3 构造，T4 计数。</p>
+<p>似乎又没有数据结构和树据结构……又组些什么阴间题啊……</p>
+<p>1h rush 完 T1,T2，发现 T2 <span class="math inline">\(O(T(27n+n\log n))\)</span> 有亿点点卡常，花了 30min 优化常数后发现还是有点点慢，但是感觉卡下去没有什么意义，就放弃了。</p>
+<p>回头看了一下 T1，突然一下没看到 <span class="math inline">\(d\leq 5\)</span>，然后就 NT 地构造了一种 <span class="math inline">\(10000^{10}\)</span> 的图就卡没了。</p>
+<p>一万头草泥马奔腾而过……后来猛然发现 <span class="math inline">\(d\leq 5\)</span>，再加上之前一直不相信 NOIP 会出这种恶心的高精度 <span class="math inline">\(\gcd\)</span>，然后就直接肝 T3 了。</p>
+<p>想到一种似乎有点优秀的算法，就上手了，中途修修补补了很多下，差不多 12:00 过大样例，写了个随机 generator 就放后台和 SPJ 拍了。</p>
+<p>T4 也直接没管正解，想到一个 <span class="math inline">\(O(\sum_i^kw_i(\log w_i+k))\)</span> 就直接上手了，没有注意一些边界，卡了好久，最后在 12:50 过了大样例，可惜有亿点点慢。</p>
+<p>然后就下考了，感觉考试很匆忙过得及其不真实，下考之后脑子就一片空白了。</p>
+<p>出考场之后感觉大家都说题目难，似乎我的预计得分还比较可观。</p>
+<p>和好基友一起吃了中饭，回学校看洛谷发现 T1 似乎真的要写高精？？？我可 $#%^#&amp;@。</p>
+<p>当然这点点小插曲还是不能挡住我颓的，回家直接上号开干了。</p>
+<h4 id="day3">Day3</h4>
+<p>回归文化课的第一天，文化课还是那么拉胯。</p>
+<p>晚上搞到了自己的程序，测了一下民间数据，90+96+100+60，似乎挺高，好像本省 rk2……？反正还是要被文化课踩。</p>
+<h4 id="day4">Day4</h4>
+<p>真·CCF·成绩出来了，60+92+100+65，这波 T1 是真的阴间了。</p>
+<p>有亿点点怀念停课的时光，被文化课踩得有亿点点难受啊……</p>
 ]]></content>
       <tags>
         <tag>游记</tag>
@@ -917,19 +954,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
-    <title>线性基的瞎操作</title>
-    <url>/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h4 id="查找某个数-x-可以被给出基底-a-如何异或得到">1. 查找某个数 <span class="math inline">\(x\)</span> 可以被给出基底 <span class="math inline">\(A\)</span> 如何异或得到</h4>
-<p>把基底 <span class="math inline">\(A\)</span> 做线性基，并且在线性基的同时维护线性基中每个元素是由基底中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>，那么在查询的时候，把对应位置的 <span class="math inline">\(S\)</span> 也一起异或，就可以得到最终所求。</p>
-<h4 id="把基底-a-的一个数-a_i-与另一个数-x-交换保证交换后基底-a-仍然满足基底的性质">2. 把基底 <span class="math inline">\(A\)</span> 的一个数 <span class="math inline">\(A_i\)</span> 与另一个数 <span class="math inline">\(x\)</span> 交换，保证交换后基底 <span class="math inline">\(A&#39;\)</span> 仍然满足基底的性质</h4>
-<p>同上，在线性基的同时维护线性基中每个元素是由 <span class="math inline">\(A\)</span> 中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>。先查询 <span class="math inline">\(x\)</span> 怎么被 <span class="math inline">\(A\)</span> 表示，因为 <span class="math inline">\(A&#39;\)</span> 依旧满足基底的性质，那么如果用 <span class="math inline">\(A\)</span> 来表示 <span class="math inline">\(x\)</span>，那么 <span class="math inline">\(A_i\)</span> 一定会被用到。所以 <span class="math inline">\(A_i\)</span> 也可以用 <span class="math inline">\(A\)</span> 中的数和 <span class="math inline">\(x\)</span> 一起表示，那么就可以直接交换 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(A_i\)</span>，然后去更新线性基中的每个位置的 <span class="math inline">\(S\)</span> 即可。</p>
-]]></content>
-      <tags>
-        <tag>数位</tag>
-        <tag>线性代数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>莫队的奇技淫巧</title>
     <url>/2020/12/02/%E8%8E%AB%E9%98%9F%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
     <content><![CDATA[<p>莫队算法是一个很妙的算法，它可以通过对查询离线分块来降低算法复杂度。</p>
@@ -948,6 +972,19 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>莫队</tag>
         <tag>分块</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性基的瞎操作</title>
+    <url>/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h4 id="查找某个数-x-可以被给出基底-a-如何异或得到">1. 查找某个数 <span class="math inline">\(x\)</span> 可以被给出基底 <span class="math inline">\(A\)</span> 如何异或得到</h4>
+<p>把基底 <span class="math inline">\(A\)</span> 做线性基，并且在线性基的同时维护线性基中每个元素是由基底中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>，那么在查询的时候，把对应位置的 <span class="math inline">\(S\)</span> 也一起异或，就可以得到最终所求。</p>
+<h4 id="把基底-a-的一个数-a_i-与另一个数-x-交换保证交换后基底-a-仍然满足基底的性质">2. 把基底 <span class="math inline">\(A\)</span> 的一个数 <span class="math inline">\(A_i\)</span> 与另一个数 <span class="math inline">\(x\)</span> 交换，保证交换后基底 <span class="math inline">\(A&#39;\)</span> 仍然满足基底的性质</h4>
+<p>同上，在线性基的同时维护线性基中每个元素是由 <span class="math inline">\(A\)</span> 中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>。先查询 <span class="math inline">\(x\)</span> 怎么被 <span class="math inline">\(A\)</span> 表示，因为 <span class="math inline">\(A&#39;\)</span> 依旧满足基底的性质，那么如果用 <span class="math inline">\(A\)</span> 来表示 <span class="math inline">\(x\)</span>，那么 <span class="math inline">\(A_i\)</span> 一定会被用到。所以 <span class="math inline">\(A_i\)</span> 也可以用 <span class="math inline">\(A\)</span> 中的数和 <span class="math inline">\(x\)</span> 一起表示，那么就可以直接交换 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(A_i\)</span>，然后去更新线性基中的每个位置的 <span class="math inline">\(S\)</span> 即可。</p>
+]]></content>
+      <tags>
+        <tag>数位</tag>
+        <tag>线性代数</tag>
       </tags>
   </entry>
 </search>
