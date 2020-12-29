@@ -43,6 +43,29 @@
       </tags>
   </entry>
   <entry>
+    <title>CSP-S1 2020 游记</title>
+    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="day-1">Day 1</h4>
+<a id="more"></a>
+<p>今天的状态就一个字：困。</p>
+<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
+<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
+<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
+<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
+<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
+<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
+<h4 id="day-inf">Day INF</h4>
+<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
+<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
+<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
+<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
+<p><a href="">CPS-S2 2020 游记</a></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSP-S 2019 游记</title>
     <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
@@ -80,29 +103,6 @@
 <h2 id="后记">后记：</h2>
 <p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p>
 <p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSP-S1 2020 游记</title>
-    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="day-1">Day 1</h4>
-<a id="more"></a>
-<p>今天的状态就一个字：困。</p>
-<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
-<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
-<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
-<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
-<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
-<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
-<h4 id="day-inf">Day INF</h4>
-<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
-<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
-<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
-<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
-<p><a href="">CPS-S2 2020 游记</a></p>
 ]]></content>
       <tags>
         <tag>游记</tag>
@@ -171,6 +171,31 @@
     <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
     <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>[HNOI2019]JOJO 题解</title>
+    <url>/2020/12/29/HNOI2019-JOJO-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>这个题目的 <span class="math inline">\(2\)</span> 操作代表着需要维护一个可持久化的东西。</p>
+<p>但是因为它没有强制在线，根据常识，可以离线生成一个操作树来降低思考难度。</p>
+<p>不难发现最终的字符串的长度可能会非常长，可以达到 <span class="math inline">\(n\cdot x=10^9\)</span> 级别，这提示我们不能从字符串本身入手。</p>
+<p>考虑一个后缀是 Border 需要满足什么条件，假设现在有字符串 <span class="math inline">\(aa|c|bb|aaa|c|b\)</span>，其中的一个 Border 就是 <span class="math inline">\(aacb\)</span>。我们把它的对应段拿出来，即 <span class="math inline">\((a,2)(c,1)(b,2)\)</span> 和 <span class="math inline">\((a,3)(c,1)(b,1)\)</span>，可以发现的是，它的第一段的长度必须大于等于整个字符串的第一段的长度，它的最后一段的长度必须要小于等于对应段的长度，而中间部分必须完全相同。</p>
+<p>所以我们可以考虑把每个操作看成是 <span class="math inline">\((c_i,x_i)\)</span> ，并且用 KMP 维护这个过程。</p>
+<p>首先考虑怎么维护 <span class="math inline">\(fail\)</span> 数组。需要特别注意的是，因为我们现在使用增量法求答案（树结构的性质使然），所以这里的 <span class="math inline">\(fail\)</span> 定义为一个最长的后缀，使得该后缀的第一段的长度大于等于整个字符串的第一段的长度，且剩下部分和整个字符串后面部分<strong>完全相同</strong>。这和一般的 <span class="math inline">\(fail\)</span> 略微有点区别。</p>
+<p>我们现在的操作是一个<strong>树结构</strong>，而 KMP <strong>暴力</strong>找 <span class="math inline">\(fail\)</span> 的复杂度是<strong>均摊</strong>的，所以我们在加入一个段的时候并不能直接暴力跳 <span class="math inline">\(fail\)</span> 指针。考虑设 <span class="math inline">\(nxt_{now,c,x}\)</span> 表示在节点 <span class="math inline">\(now\)</span>，加上 <span class="math inline">\(x\)</span> 的字符 <span class="math inline">\(c\)</span> 会跳到哪里，可以用主席树维护这个东西，即把 <span class="math inline">\(nxt_{now,c}\)</span> 看成是一个线段树，每次把 <span class="math inline">\(nxt_{now,c}\)</span> 从父亲那里继承，假设它到父亲的边是 <span class="math inline">\((C,X)\)</span>，那么直接把 <span class="math inline">\(nxt_{now,C}\)</span> 中的 <span class="math inline">\(X\)</span> 赋值成 <span class="math inline">\(now\)</span> 即可。</p>
+<p>需要特别注意的是，我们前面有【Border 的第一段的长度必须大于等于整个串的第一段的长度】，也就是说对于一个串，如果它的 <span class="math inline">\(fail\)</span> 需要考虑整个串的第一段的时候稍微有点特殊，直接把整个串的第一段看成是 <span class="math inline">\((c,x\sim 10000)\)</span> 的段即可。</p>
+<p>这样我们就动态维护出了 <span class="math inline">\(fail\)</span> 数组，考虑通过这个来维护答案。</p>
+<p>假设现在加入的段是 <span class="math inline">\((c,x)\)</span>。</p>
+<p>把它的 <span class="math inline">\(fail\)</span> 树上到根的链拿出来，假设是一个这样的结构。其中 <span class="math inline">\((c,x_i)\)</span> 表示这个点下面有一个 <span class="math inline">\((c,x_i)\)</span> 的操作。<span class="math inline">\(length\)</span> 表示整个字符串到它这里的长度。</p>
+<p><img src="https://s3.ax1x.com/2020/12/29/rbk5Mq.png" /></p>
+<p>可以发现对于长度为 <span class="math inline">\([1,x1]\)</span> 的部分，第 <span class="math inline">\(i\)</span> 个的 <span class="math inline">\(nxt\)</span> 长度是 <span class="math inline">\(length_{fail1}+i\)</span>。对于 <span class="math inline">\([x1+1,x2]\)</span> 的部分，第 <span class="math inline">\(i\)</span> 个的<span class="math inline">\(nxt\)</span> 的长度是 <span class="math inline">\(length_{fail2}+i\)</span>，以此类推。我们把这个长度给拆开，那么一部分是 <span class="math inline">\(length\)</span> 的和，一部分是 <span class="math inline">\(i\)</span> 的和。对于后者，只要求出其 <span class="math inline">\(fail\)</span> 链上最长的一个 <span class="math inline">\(x\)</span>，总和就是 <span class="math inline">\(\frac{x(x+1)}{2}\)</span>。对于前者，可以发现如果一个地方有多个选择，一定选择 <span class="math inline">\(length\)</span> 最长的一个，而我们整个过程是在树上遍历，每次往下走 <span class="math inline">\(length\)</span> 是单调不减的，所以可以类似于维护 <span class="math inline">\(fail\)</span>，用 <span class="math inline">\(len_{now,c,x}\)</span> 表示这个点 <span class="math inline">\(now\)</span> 一直往上跳 <span class="math inline">\(fail\)</span> 树，往下加 <span class="math inline">\(x\)</span> 的最大 <span class="math inline">\(length\)</span>，用主席树维护 <span class="math inline">\(len_{now,c}\)</span>，每次把 <span class="math inline">\(len_{now,c}\)</span> 从父亲那里继承，假设它到父亲的边是 <span class="math inline">\((C,X)\)</span>，那么直接把 <span class="math inline">\(len_{now,c}\)</span> 中的 <span class="math inline">\(1\sim X\)</span> 赋值成 <span class="math inline">\(length_{now}\)</span>。</p>
+<p>需要注意的是，如果这个加入的段可以匹配整个串的第一段，如 <span class="math inline">\(abaa\)</span>，最后的那个 <span class="math inline">\(a\)</span> 就需要特判。稍加讨论即可。</p>
+<p>这样就可以直接做了。时空复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>字符串</tag>
+        <tag>可持久化数据结构</tag>
+        <tag>KMP</tag>
+      </tags>
   </entry>
   <entry>
     <title>NOIP 2020 游记</title>
@@ -928,6 +953,20 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
+    <title>简单模拟费用流</title>
+    <url>/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
+    <content><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p>
+<p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p>
+<p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p>
+<a id="more"></a>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>费用流</tag>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>线性代数优化矩阵快速幂</title>
     <url>/2020/09/26/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%BC%98%E5%8C%96%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/</url>
     <content><![CDATA[<p>如果我们需要求维度为 <span class="math inline">\(c\)</span> 的矩阵 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(m\)</span> 次幂，那么一个显然的方法是用快速幂，复杂度为 <span class="math inline">\(c^3 \log m\)</span>。不过当需要用到高精度的时候，该算法速度会大大下降。</p>
@@ -954,6 +993,19 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
+    <title>线性基的瞎操作</title>
+    <url>/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h4 id="查找某个数-x-可以被给出基底-a-如何异或得到">1. 查找某个数 <span class="math inline">\(x\)</span> 可以被给出基底 <span class="math inline">\(A\)</span> 如何异或得到</h4>
+<p>把基底 <span class="math inline">\(A\)</span> 做线性基，并且在线性基的同时维护线性基中每个元素是由基底中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>，那么在查询的时候，把对应位置的 <span class="math inline">\(S\)</span> 也一起异或，就可以得到最终所求。</p>
+<h4 id="把基底-a-的一个数-a_i-与另一个数-x-交换保证交换后基底-a-仍然满足基底的性质">2. 把基底 <span class="math inline">\(A\)</span> 的一个数 <span class="math inline">\(A_i\)</span> 与另一个数 <span class="math inline">\(x\)</span> 交换，保证交换后基底 <span class="math inline">\(A&#39;\)</span> 仍然满足基底的性质</h4>
+<p>同上，在线性基的同时维护线性基中每个元素是由 <span class="math inline">\(A\)</span> 中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>。先查询 <span class="math inline">\(x\)</span> 怎么被 <span class="math inline">\(A\)</span> 表示，因为 <span class="math inline">\(A&#39;\)</span> 依旧满足基底的性质，那么如果用 <span class="math inline">\(A\)</span> 来表示 <span class="math inline">\(x\)</span>，那么 <span class="math inline">\(A_i\)</span> 一定会被用到。所以 <span class="math inline">\(A_i\)</span> 也可以用 <span class="math inline">\(A\)</span> 中的数和 <span class="math inline">\(x\)</span> 一起表示，那么就可以直接交换 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(A_i\)</span>，然后去更新线性基中的每个位置的 <span class="math inline">\(S\)</span> 即可。</p>
+]]></content>
+      <tags>
+        <tag>数位</tag>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>莫队的奇技淫巧</title>
     <url>/2020/12/02/%E8%8E%AB%E9%98%9F%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
     <content><![CDATA[<p>莫队算法是一个很妙的算法，它可以通过对查询离线分块来降低算法复杂度。</p>
@@ -972,19 +1024,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>莫队</tag>
         <tag>分块</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>线性基的瞎操作</title>
-    <url>/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h4 id="查找某个数-x-可以被给出基底-a-如何异或得到">1. 查找某个数 <span class="math inline">\(x\)</span> 可以被给出基底 <span class="math inline">\(A\)</span> 如何异或得到</h4>
-<p>把基底 <span class="math inline">\(A\)</span> 做线性基，并且在线性基的同时维护线性基中每个元素是由基底中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>，那么在查询的时候，把对应位置的 <span class="math inline">\(S\)</span> 也一起异或，就可以得到最终所求。</p>
-<h4 id="把基底-a-的一个数-a_i-与另一个数-x-交换保证交换后基底-a-仍然满足基底的性质">2. 把基底 <span class="math inline">\(A\)</span> 的一个数 <span class="math inline">\(A_i\)</span> 与另一个数 <span class="math inline">\(x\)</span> 交换，保证交换后基底 <span class="math inline">\(A&#39;\)</span> 仍然满足基底的性质</h4>
-<p>同上，在线性基的同时维护线性基中每个元素是由 <span class="math inline">\(A\)</span> 中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>。先查询 <span class="math inline">\(x\)</span> 怎么被 <span class="math inline">\(A\)</span> 表示，因为 <span class="math inline">\(A&#39;\)</span> 依旧满足基底的性质，那么如果用 <span class="math inline">\(A\)</span> 来表示 <span class="math inline">\(x\)</span>，那么 <span class="math inline">\(A_i\)</span> 一定会被用到。所以 <span class="math inline">\(A_i\)</span> 也可以用 <span class="math inline">\(A\)</span> 中的数和 <span class="math inline">\(x\)</span> 一起表示，那么就可以直接交换 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(A_i\)</span>，然后去更新线性基中的每个位置的 <span class="math inline">\(S\)</span> 即可。</p>
-]]></content>
-      <tags>
-        <tag>数位</tag>
-        <tag>线性代数</tag>
       </tags>
   </entry>
 </search>
