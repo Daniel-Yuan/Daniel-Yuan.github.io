@@ -182,7 +182,7 @@
 <p>考虑一个后缀是 Border 需要满足什么条件，假设现在有字符串 <span class="math inline">\(aa|c|bb|aaa|c|b\)</span>，其中的一个 Border 就是 <span class="math inline">\(aacb\)</span>。我们把它的对应段拿出来，即 <span class="math inline">\((a,2)(c,1)(b,2)\)</span> 和 <span class="math inline">\((a,3)(c,1)(b,1)\)</span>，可以发现的是，它的第一段的长度必须大于等于整个字符串的第一段的长度，它的最后一段的长度必须要小于等于对应段的长度，而中间部分必须完全相同。</p>
 <p>所以我们可以考虑把每个操作看成是 <span class="math inline">\((c_i,x_i)\)</span> ，并且用 KMP 维护这个过程。</p>
 <p>首先考虑怎么维护 <span class="math inline">\(fail\)</span> 数组。需要特别注意的是，因为我们现在使用增量法求答案（树结构的性质使然），所以这里的 <span class="math inline">\(fail\)</span> 定义为一个最长的后缀，使得该后缀的第一段的长度大于等于整个字符串的第一段的长度，且剩下部分和整个字符串后面部分<strong>完全相同</strong>。这和一般的 <span class="math inline">\(fail\)</span> 略微有点区别。</p>
-<p>我们现在的操作是一个<strong>树结构</strong>，而 KMP <strong>暴力</strong>找 <span class="math inline">\(fail\)</span> 的复杂度是<strong>均摊</strong>的，所以我们在加入一个段的时候并不能直接暴力跳 <span class="math inline">\(fail\)</span> 指针。考虑设 <span class="math inline">\(nxt_{now,c,x}\)</span> 表示在节点 <span class="math inline">\(now\)</span>，加上 <span class="math inline">\(x\)</span> 的字符 <span class="math inline">\(c\)</span> 会跳到哪里，可以用主席树维护这个东西，即把 <span class="math inline">\(nxt_{now,c}\)</span> 看成是一个线段树，每次扫到一个儿子时把 <span class="math inline">\(nxt_{now,c}\)</span> 从 <span class="math inline">\(fail_{now}\)</span> 那里继承，假设它到该儿子的边是 <span class="math inline">\((C,X)\)</span>，那么直接把 <span class="math inline">\(nxt_{now,C}\)</span> 中的 <span class="math inline">\(X\)</span> 赋值成 <span class="math inline">\(now\)</span> 即可。</p>
+<p>我们现在的操作是一个<strong>树结构</strong>，而 KMP <strong>暴力</strong>找 <span class="math inline">\(fail\)</span> 的复杂度是<strong>均摊</strong>的，所以我们在加入一个段的时候并不能直接暴力跳 <span class="math inline">\(fail\)</span> 指针。考虑设 <span class="math inline">\(nxt_{now,c,x}\)</span> 表示在节点 <span class="math inline">\(now\)</span>，加上 <span class="math inline">\(x\)</span> 的字符 <span class="math inline">\(c\)</span> 会跳到哪里，可以用主席树维护这个东西，即把 <span class="math inline">\(nxt_{now,c}\)</span> 看成是一个线段树，每次扫到一个儿子时把 <span class="math inline">\(nxt_{now,c}\)</span> 从 <span class="math inline">\(fail_{now}\)</span> 那里继承，假设它到该儿子的边是 <span class="math inline">\((C,X)\)</span>，那么直接把 <span class="math inline">\(nxt_{now,C}\)</span> 中的 <span class="math inline">\(X\)</span> 赋值成这个儿子即可。</p>
 <p>需要特别注意的是，我们前面有【Border 的第一段的长度必须大于等于整个串的第一段的长度】，也就是说对于一个串，如果它的 <span class="math inline">\(fail\)</span> 需要考虑整个串的第一段的时候稍微有点特殊，直接把整个串的第一段看成是 <span class="math inline">\((c,x\sim 10000)\)</span> 的段即可。</p>
 <p>这样我们就动态维护出了 <span class="math inline">\(fail\)</span> 数组，考虑通过这个来维护答案。</p>
 <p>假设现在加入的段是 <span class="math inline">\((c,x)\)</span>。</p>
@@ -196,6 +196,69 @@
         <tag>字符串</tag>
         <tag>可持久化数据结构</tag>
         <tag>KMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hall 定理学习笔记</title>
+    <url>/2021/01/04/Hall-%E5%AE%9A%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>在网上学习了 Hall 定理后决定写这么个东西。</p>
+<p>如有雷同或涉及侵权，请联系博主。</p>
+<a id="more"></a>
+<h3 id="定理内容">定理内容</h3>
+<p>对于一个二分图，假设其左边节点个数小于等于右边节点个数，并设左边节点个数为 <span class="math inline">\(X\)</span>，右边为 <span class="math inline">\(Y\)</span>。</p>
+<p>若从左边选出任意 <span class="math inline">\(k\)</span> 个节点，右边都有至少 <span class="math inline">\(k\)</span> 个节点与之相连，那么该二分图的最大匹配个数恰好为 <span class="math inline">\(X\)</span>。我们称满足这个条件的匹配为完美匹配。</p>
+<p>为了方便，在下文中默认左边的节点数小于等于右边的节点数。</p>
+<h3 id="证明">证明</h3>
+<p>考虑从必要和充分两方面证明这个定理。</p>
+<h4 id="必要性">1. 必要性</h4>
+<p>如果一个二分图有完美匹配，且其不满足 Hall 定理。</p>
+<p>那么对于左边某 <span class="math inline">\(k\)</span> 个节点，右边与之相连的点数小于 <span class="math inline">\(k\)</span>。</p>
+<p>而根据假设，左边这 <span class="math inline">\(k\)</span> 个节点都匹配了右边 <span class="math inline">\(k\)</span> 个不同的节点，那么右边与之相连的点数至少为 <span class="math inline">\(k\)</span>。</p>
+<p>前后两者是矛盾的，所以该假设不成立，故必要性得证。</p>
+<h4 id="充分性">2. 充分性</h4>
+<p>如果一个二分图满足 Hall 定理，且其没有完美匹配。</p>
+<p>考虑分两个部分来证明它。</p>
+<h5 id="part1.-若左边每个点的度数都大于等于-2">Part1. 若左边每个点的度数都大于等于 <span class="math inline">\(2\)</span>。</h5>
+<p>我们在左边可以找到一个没有匹配的点 <span class="math inline">\(l_1\)</span>。它一定会连接到一个右边的节点 <span class="math inline">\(r_1\)</span>。</p>
+<p>如果 <span class="math inline">\(r_1\)</span> 没有被匹配，那么就找到了一条增广路，与假设矛盾。</p>
+<p>否则 <span class="math inline">\(r_1\)</span> 会匹配到一个左边的节点 <span class="math inline">\(l_2\)</span>。那么 <span class="math inline">\(l_2\)</span> 一定会连接到另一个右边的节点 <span class="math inline">\(r_2\)</span>。</p>
+<p>如果 <span class="math inline">\(r_2\)</span> 没有被匹配，那么就找到了一条增广路，与假设矛盾。</p>
+<p>否则……</p>
+<p>这样会一直循环下去，而点数有限，那么必然终止，所以整体与假设矛盾。</p>
+<h5 id="part2.-若左边有点的度数等于-1">Part2. 若左边有点的度数等于 <span class="math inline">\(1\)</span></h5>
+<p>有点的度数为 <span class="math inline">\(1\)</span> 就可能出现一个问题，就是上述证明的 <span class="math inline">\(l_2\)</span> 若度数为 <span class="math inline">\(1\)</span>，则不会连接到另一个右边的节点 <span class="math inline">\(r_2\)</span>。</p>
+<p>但其实这样也是可以证明的。假设 <span class="math inline">\(l_1\)</span> 的度数为 <span class="math inline">\(1\)</span>，那么若 <span class="math inline">\(l_2\)</span> 的度数也为 <span class="math inline">\(1\)</span>，就会因为它们连接着同一个点 <span class="math inline">\(r_1\)</span> 而不满足 Hall 定理矛盾（如果左边选择这两个点，右边只有一个点与之相连）</p>
+<p>假设 <span class="math inline">\(l_1\)</span> 的度数大于等于 <span class="math inline">\(2\)</span>，而 <span class="math inline">\(l_2\)</span> 的度数为 <span class="math inline">\(1\)</span>。那么我们可以把这条增广路反向，这样 <span class="math inline">\(l_2\)</span> 就变成了 <span class="math inline">\(l_1\)</span>，再用上面的证明即可。</p>
+<hr />
+<h3 id="引申">引申</h3>
+<p>定义二分图的 K-完美匹配 为二分图有 <span class="math inline">\(K\)</span> 个完全不相交的完美匹配。</p>
+<p>现在考虑该图要满足什么条件才有 K-完美匹配。</p>
+<p>这个题是一个经典问题，有一个很经典的网络流做法，博主根据这个做法以及一些分析归纳出了下列定理：（可能是个经典定理，但是博主找不到）</p>
+<p>对于一个二分图，如果可以通过删边的操作，使得左边的每个点的度数都为 <span class="math inline">\(K\)</span>，且右边的每个点的度数都小于等于 <span class="math inline">\(K\)</span>，那么一定存在 K-完美匹配。</p>
+<h3 id="证明-1">证明</h3>
+<p>还是从必要和充分两方面证明这个引理。</p>
+<h4 id="充分性-1">1. 充分性</h4>
+<p>考虑用归纳法证明。</p>
+<h5 id="先证明-k1-成立">1. 先证明 <span class="math inline">\(K=1\)</span> 成立。</h5>
+<p>从左边任选一个点，然后找到它相连的点，匹配。</p>
+<p>根据前提条件，这条边是这两个点连出的唯一一条边。</p>
+<p>这样这个问题就变成了一个条件不变规模更小的问题。</p>
+<p>一直这么下去就可以得到一个完美匹配。</p>
+<h5 id="假设证明了-kleq-x-1-成立再证明-kx-成立">2. 假设证明了 <span class="math inline">\(K\leq x-1\)</span> 成立，再证明 <span class="math inline">\(K=x\)</span> 成立。</h5>
+<p>首先这个图满足 Hall 定理。因为对于左边任意 <span class="math inline">\(k\)</span> 个点，其有的边的数目是 <span class="math inline">\(k\times x\)</span> 条，而右边的点的度数的上限是 <span class="math inline">\(x\)</span>，那么右边至少会有 <span class="math inline">\(k\)</span> 个点与其相连。</p>
+<p>把左边所有点和右边所有的度数恰好为 <span class="math inline">\(x\)</span> 的点及它们之间的边拿出来构成一个新图，此时的这张图是<strong>右边的点数小于等于左边的点数的</strong>，那么对于右边任意 <span class="math inline">\(k\)</span> 个点，其有的边的数目是 <span class="math inline">\(k\times x\)</span> 条，而左边的点的度数上限是 <span class="math inline">\(x\)</span>，那么至少左边会有 <span class="math inline">\(k\)</span> 个点与其相连。</p>
+<p>这样的话对于这个新图，就存在一个完美匹配。构造出这个完美匹配后，回到原图，保留新图的匹配，再用匈牙利算法形成一个原图的完美匹配。然后把这个完美匹配删掉，剩下的图恰好满足 <span class="math inline">\(K=x-1\)</span> 的性质，而通过归纳，<span class="math inline">\(K=x-1\)</span> 已经被证明，故充分性得证。</p>
+<h4 id="必要性-1">2. 必要性</h4>
+<p>若左边存在一个点的度数小于 <span class="math inline">\(K\)</span>，那么显然不存在一个 K-完美匹配。不然一定存在一种删边方式使得左边的度数等于 <span class="math inline">\(K\)</span>。</p>
+<p>如果删边之后左边存在一个点的度数大于 <span class="math inline">\(K\)</span>，那么 K-完美匹配 后一定会剩下一些边，那么把这些便删掉也不影响判断。</p>
+<p>那么现在可能使得该定理必要性不存在的就只有：左边的所有点的度数为 <span class="math inline">\(K\)</span>，且右边存在一个点的度数大于 <span class="math inline">\(K\)</span>，且该二分图存在 K-完美匹配。</p>
+<p>但是你会发现上述情况是不可能存在的，因为在删除 K-完美匹配 的边后，左边的点的度数就都变成了 <span class="math inline">\(0\)</span>，而右边此时会存在至少一个点的度数大于 <span class="math inline">\(0\)</span>（因为每一个匹配最多让一个点的度数减一），这是矛盾的。</p>
+<p>故必要性得证。</p>
+<p>这就能解释对于二分图的 K-完美匹配 的判定，为何可以用【 <span class="math inline">\(S\)</span> 向左边的点连流量为 <span class="math inline">\(K\)</span> 的边，在每个二分图上的边中左边的点向右边的点连流量为 <span class="math inline">\(1\)</span> 的边，右边的点向 <span class="math inline">\(T\)</span> 连流量为 <span class="math inline">\(K\)</span> 的边，看网络流的结果中左边的点是否都满流】来判断了。</p>
+]]></content>
+      <tags>
+        <tag>网络流</tag>
+        <tag>二分图</tag>
       </tags>
   </entry>
   <entry>
@@ -630,27 +693,6 @@
       </tags>
   </entry>
   <entry>
-    <title>斐波那契数列相关</title>
-    <url>/2020/11/27/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<p>设 <span class="math inline">\(F\)</span> 是斐波那契数列，其定义是对于 <span class="math inline">\(x\leq 2\)</span>，<span class="math inline">\(F(x)=1\)</span>；对于 <span class="math inline">\(x\geq 3\)</span>，<span class="math inline">\(F(x)=F(x-1)+F(x-2)\)</span>。</p>
-<a id="more"></a>
-<h4 id="gcdfxfyfgcdxy">1. <span class="math inline">\(\gcd(F(x),F(y))=F(gcd(x,y))\)</span> 。</h4>
-<p>一个非常实用的结论。下面考虑证明。</p>
-<h5 id="引理-1fxfytimes-fx-y1fy-1times-fx-y">引理 1：<span class="math inline">\(F(x)=F(y)\times F(x-y+1)+F(y-1)\times F(x-y)\)</span>。</h5>
-<p>        把递推式逐级展开就可以得到这个式子。</p>
-<p>        即 <span class="math inline">\(F(x)=F(x-1)+F(x-2)\Rightarrow F(x)=2F(x-2)+F(x-3)\Rightarrow F(x)=3F(x-3)+2F(x-4)...\)</span></p>
-<h5 id="引理-2gcdfxfx-11">引理 2：<span class="math inline">\(\gcd(F(x),F(x-1))=1\)</span>。</h5>
-<p>        仍然是把递推式展开迭代。</p>
-<p>        即 <span class="math inline">\(\gcd(F(x),F(x-1))=\gcd(F(x-2)+F(x-1), F(x-1))=\gcd(F(x-2),F(x-1))...\)</span>。最后就可以得到 <span class="math inline">\(\gcd(F(2),F(1))\)</span>，这时结果显然是 <span class="math inline">\(1\)</span>。</p>
-<p>有了这两个引理就可以证明上述结论了。</p>
-<p>先假设 <span class="math inline">\(x&gt;y\)</span>，那么 <span class="math inline">\(\gcd(F(x),F(y))=\gcd(F(y)\times F(x-y+1)+F(y-1)\times F(x-y),F(y))\)</span>。把这个式子套用上述两个引理，就有 <span class="math inline">\(\gcd(F(x),F(y))=\gcd(F(x-y),F(y))\)</span>。可以发现这就是一个辗转相减的形式，直接套用欧几里得就有 <span class="math inline">\(\gcd(F(x),F(y))=F(\gcd(x,y))\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>数学</tag>
-        <tag>数列</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>广义二项式定理</title>
     <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
     <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
@@ -686,6 +728,118 @@
       <tags>
         <tag>数学</tag>
         <tag>组合数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构总结</title>
+    <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>数据结构的一些小 trick。</p>
+<a id="more"></a>
+<h3 id="并查集">并查集</h3>
+<h4 id="支持撤销">支持撤销</h4>
+<p>每次合并的时候按照集合的大小进行启发式合并，并且用一个操作栈记录本次操作。</p>
+<p>在撤销一次操作的时候，只需要按照记录还原并查集即可。</p>
+<p>合并查询操作单次 <span class="math inline">\(O(\log n)\)</span>，撤销操作单次 <span class="math inline">\(O(1)\)</span>。这种并查集在一些离线算法下有大用处。</p>
+<h4 id="维护不可逆的覆盖操作">维护不可逆的覆盖操作</h4>
+<p>考虑这么一道题目：给一棵 <span class="math inline">\(n\)</span> 个点的树，有 <span class="math inline">\(m\)</span> 次操作，每次操作会把一条路径上的点染色，且颜色会覆盖之前染的颜色，求最后每个点的颜色，不强制在线。<span class="math inline">\(n\leq 10^6,m\leq 5\times 10^6\)</span>。</p>
+<p>一种 naive 的思想是用树链剖分和线段树维护颜色，但是这样是 <span class="math inline">\(m\log^2 n\)</span> 的。</p>
+<p>考虑把操作倒序，那么每次执行的是不可逆的染色操作。</p>
+<p>对每个点维护并查集，表示它到根路径上第一个需要被染色的点是什么，一开始显然指向自己。</p>
+<p>如果一个点被染色了，那么就把它的边连向它父亲。每次染色就直接按照并查集的链接暴力跳，然后染色即可。</p>
+<p>因为每个点最多被染色一次，在并查集使用 <span class="math inline">\(n\alpha(n)\)</span> 复杂度的版本下，总复杂度仅为 <span class="math inline">\(O(n\alpha(n))\)</span>。</p>
+<p>这个 trick 虽然可能不会单独成题，但是可能会被穿插到一些题目中。它对复杂度的优化还是挺大的。</p>
+<h3 id="栈">栈</h3>
+<h4 id="对顶栈">对顶栈</h4>
+<p>例题：你需要动态维护一个长度为 <span class="math inline">\(n\)</span> 序列，有 <span class="math inline">\(q\)</span> 个操作，每个操作为头尾加删元素或查询一些信息。</p>
+<p>假设只能从尾部加删，那么我们就可以维护一个类似于栈的东西，每次加进来一个就把它压入栈，并更新一些信息，删掉一个就把它从栈弹掉，并把信息复原。</p>
+<p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
+<p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
+<p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
+<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
+<h4 id="栈-1">2048 栈</h4>
+<p>因为没得名字，随手取了一个。（侵删）</p>
+<p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
+<p>这里就用 AC 自动机举例。</p>
+<p>维护一个栈，每个栈内的元素都是一个 AC 自动机，并且记录下 AC 自动机内的字符串数目。</p>
+<p>对于一次加入，就在栈顶加入一个新的 AC 自动机，内部保存这一次加入的这一个字符串。</p>
+<p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
+<p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
+<p>特别的，这个 trick 是可以在线维护的。</p>
+<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
+<h3 id="线段树">线段树</h3>
+<h4 id="时间和序列的对调">时间和序列的对调</h4>
+<p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
+<p>但是在某些问题中，它的操作是区间修改，查询是单点查询，这时候就有一个对调时间和序列的 trick 。</p>
+<p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
+<p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
+<p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
+<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
+<h4 id="懒信息">懒信息</h4>
+<p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
+<p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
+<p>在一些题目中，对于查询操作，如果各个区间的信息是独立的（也就是说并不需要把区间信息合并就可以得到答案），且合并区间信息的复杂度远大于通过单个区间的信息得到答案的复杂度，就可以把信息懒化。</p>
+<p>例题：维护一个序列，支持两个操作：往后面加一个数，查询 <span class="math inline">\(x\)</span> 在区间 <span class="math inline">\([l,r]\)</span> 的排名，操作数 <span class="math inline">\(\leq 10^5\)</span>，保证查询的时候序列长度大于等于 <span class="math inline">\(r\)</span>，强制在线。</p>
+<p>先设操作数为 <span class="math inline">\(n\)</span>，序列可能有 <span class="math inline">\(n\)</span> 这么长，所以先开一个长度为 <span class="math inline">\(n\)</span> 的线段树。</p>
+<p>每个点维护一个有序的序列，表示它控制区间内的数排序之后的结果。</p>
+<p>不难发现每层最多 <span class="math inline">\(n\)</span> 个数，一共 <span class="math inline">\(\log n\)</span> 层，所以空间复杂度 <span class="math inline">\(n \log n\)</span>。</p>
+<p>对于每次往后面加数，就把对应位置的数进行更改，并且往上更新，更新的规则是这样的：如果一个点的儿子是满的，那么就更新它，否则就不更新它。</p>
+<p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
+<p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
+<p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
+<h3 id="平衡树">平衡树</h3>
+<h4 id="替罪羊树">替罪羊树</h4>
+<p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
+<p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
+<p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
+<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
+<h3 id="根号算法">根号算法</h3>
+<h4 id="根号分治">根号分治</h4>
+<p>应该是一个比较普及的 trick。</p>
+<p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
+<p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
+<p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
+<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
+<h4 id="时间分块">时间分块</h4>
+<p>似乎对时间轴操作的 trick 都挺重要的。</p>
+<p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
+<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
+<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
+<h4 id="操作分块定期重构">操作分块（定期重构）</h4>
+<p>也是一个比较妙的 trick。</p>
+<p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
+<p>这个 trick 的意思是先把所有的操作屯着，查询的时候可以先在原序列查，然后再去屯着的操作里面查。当屯着的操作达到一个上限的时候，就把它们一起放出来，把整个序列翻新一次。</p>
+<p>这个 trick 也不常见，不过其思想也十分有意义。</p>
+<h3 id="其它">其它</h3>
+<h4 id="树的坐标表示">树的坐标表示</h4>
+<p>其实也不是什么高科技，也就标题唬人。</p>
+<p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
+<p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
+<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
+]]></content>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>斐波那契数列相关</title>
+    <url>/2020/11/27/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p>设 <span class="math inline">\(F\)</span> 是斐波那契数列，其定义是对于 <span class="math inline">\(x\leq 2\)</span>，<span class="math inline">\(F(x)=1\)</span>；对于 <span class="math inline">\(x\geq 3\)</span>，<span class="math inline">\(F(x)=F(x-1)+F(x-2)\)</span>。</p>
+<a id="more"></a>
+<h4 id="gcdfxfyfgcdxy">1. <span class="math inline">\(\gcd(F(x),F(y))=F(gcd(x,y))\)</span> 。</h4>
+<p>一个非常实用的结论。下面考虑证明。</p>
+<h5 id="引理-1fxfytimes-fx-y1fy-1times-fx-y">引理 1：<span class="math inline">\(F(x)=F(y)\times F(x-y+1)+F(y-1)\times F(x-y)\)</span>。</h5>
+<p>        把递推式逐级展开就可以得到这个式子。</p>
+<p>        即 <span class="math inline">\(F(x)=F(x-1)+F(x-2)\Rightarrow F(x)=2F(x-2)+F(x-3)\Rightarrow F(x)=3F(x-3)+2F(x-4)...\)</span></p>
+<h5 id="引理-2gcdfxfx-11">引理 2：<span class="math inline">\(\gcd(F(x),F(x-1))=1\)</span>。</h5>
+<p>        仍然是把递推式展开迭代。</p>
+<p>        即 <span class="math inline">\(\gcd(F(x),F(x-1))=\gcd(F(x-2)+F(x-1), F(x-1))=\gcd(F(x-2),F(x-1))...\)</span>。最后就可以得到 <span class="math inline">\(\gcd(F(2),F(1))\)</span>，这时结果显然是 <span class="math inline">\(1\)</span>。</p>
+<p>有了这两个引理就可以证明上述结论了。</p>
+<p>先假设 <span class="math inline">\(x&gt;y\)</span>，那么 <span class="math inline">\(\gcd(F(x),F(y))=\gcd(F(y)\times F(x-y+1)+F(y-1)\times F(x-y),F(y))\)</span>。把这个式子套用上述两个引理，就有 <span class="math inline">\(\gcd(F(x),F(y))=\gcd(F(x-y),F(y))\)</span>。可以发现这就是一个辗转相减的形式，直接套用欧几里得就有 <span class="math inline">\(\gcd(F(x),F(y))=F(\gcd(x,y))\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>数学</tag>
+        <tag>数列</tag>
       </tags>
   </entry>
   <entry>
@@ -798,97 +952,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>数学</tag>
         <tag>斯特林数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构总结</title>
-    <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>数据结构的一些小 trick。</p>
-<a id="more"></a>
-<h3 id="并查集">并查集</h3>
-<h4 id="支持撤销">支持撤销</h4>
-<p>每次合并的时候按照集合的大小进行启发式合并，并且用一个操作栈记录本次操作。</p>
-<p>在撤销一次操作的时候，只需要按照记录还原并查集即可。</p>
-<p>合并查询操作单次 <span class="math inline">\(O(\log n)\)</span>，撤销操作单次 <span class="math inline">\(O(1)\)</span>。这种并查集在一些离线算法下有大用处。</p>
-<h4 id="维护不可逆的覆盖操作">维护不可逆的覆盖操作</h4>
-<p>考虑这么一道题目：给一棵 <span class="math inline">\(n\)</span> 个点的树，有 <span class="math inline">\(m\)</span> 次操作，每次操作会把一条路径上的点染色，且颜色会覆盖之前染的颜色，求最后每个点的颜色，不强制在线。<span class="math inline">\(n\leq 10^6,m\leq 5\times 10^6\)</span>。</p>
-<p>一种 naive 的思想是用树链剖分和线段树维护颜色，但是这样是 <span class="math inline">\(m\log^2 n\)</span> 的。</p>
-<p>考虑把操作倒序，那么每次执行的是不可逆的染色操作。</p>
-<p>对每个点维护并查集，表示它到根路径上第一个需要被染色的点是什么，一开始显然指向自己。</p>
-<p>如果一个点被染色了，那么就把它的边连向它父亲。每次染色就直接按照并查集的链接暴力跳，然后染色即可。</p>
-<p>因为每个点最多被染色一次，在并查集使用 <span class="math inline">\(n\alpha(n)\)</span> 复杂度的版本下，总复杂度仅为 <span class="math inline">\(O(n\alpha(n))\)</span>。</p>
-<p>这个 trick 虽然可能不会单独成题，但是可能会被穿插到一些题目中。它对复杂度的优化还是挺大的。</p>
-<h3 id="栈">栈</h3>
-<h4 id="对顶栈">对顶栈</h4>
-<p>例题：你需要动态维护一个长度为 <span class="math inline">\(n\)</span> 序列，有 <span class="math inline">\(q\)</span> 个操作，每个操作为头尾加删元素或查询一些信息。</p>
-<p>假设只能从尾部加删，那么我们就可以维护一个类似于栈的东西，每次加进来一个就把它压入栈，并更新一些信息，删掉一个就把它从栈弹掉，并把信息复原。</p>
-<p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
-<p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
-<p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
-<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
-<h4 id="栈-1">2048 栈</h4>
-<p>因为没得名字，随手取了一个。（侵删）</p>
-<p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
-<p>这里就用 AC 自动机举例。</p>
-<p>维护一个栈，每个栈内的元素都是一个 AC 自动机，并且记录下 AC 自动机内的字符串数目。</p>
-<p>对于一次加入，就在栈顶加入一个新的 AC 自动机，内部保存这一次加入的这一个字符串。</p>
-<p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
-<p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
-<p>特别的，这个 trick 是可以在线维护的。</p>
-<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
-<h3 id="线段树">线段树</h3>
-<h4 id="时间和序列的对调">时间和序列的对调</h4>
-<p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
-<p>但是在某些问题中，它的操作是区间修改，查询是单点查询，这时候就有一个对调时间和序列的 trick 。</p>
-<p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
-<p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
-<p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
-<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
-<h4 id="懒信息">懒信息</h4>
-<p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
-<p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
-<p>在一些题目中，对于查询操作，如果各个区间的信息是独立的（也就是说并不需要把区间信息合并就可以得到答案），且合并区间信息的复杂度远大于通过单个区间的信息得到答案的复杂度，就可以把信息懒化。</p>
-<p>例题：维护一个序列，支持两个操作：往后面加一个数，查询 <span class="math inline">\(x\)</span> 在区间 <span class="math inline">\([l,r]\)</span> 的排名，操作数 <span class="math inline">\(\leq 10^5\)</span>，保证查询的时候序列长度大于等于 <span class="math inline">\(r\)</span>，强制在线。</p>
-<p>先设操作数为 <span class="math inline">\(n\)</span>，序列可能有 <span class="math inline">\(n\)</span> 这么长，所以先开一个长度为 <span class="math inline">\(n\)</span> 的线段树。</p>
-<p>每个点维护一个有序的序列，表示它控制区间内的数排序之后的结果。</p>
-<p>不难发现每层最多 <span class="math inline">\(n\)</span> 个数，一共 <span class="math inline">\(\log n\)</span> 层，所以空间复杂度 <span class="math inline">\(n \log n\)</span>。</p>
-<p>对于每次往后面加数，就把对应位置的数进行更改，并且往上更新，更新的规则是这样的：如果一个点的儿子是满的，那么就更新它，否则就不更新它。</p>
-<p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
-<p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
-<p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
-<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
-<h3 id="平衡树">平衡树</h3>
-<h4 id="替罪羊树">替罪羊树</h4>
-<p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
-<p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
-<p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
-<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
-<h3 id="根号算法">根号算法</h3>
-<h4 id="根号分治">根号分治</h4>
-<p>应该是一个比较普及的 trick。</p>
-<p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
-<p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
-<p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
-<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
-<h4 id="时间分块">时间分块</h4>
-<p>似乎对时间轴操作的 trick 都挺重要的。</p>
-<p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
-<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
-<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
-<h4 id="操作分块定期重构">操作分块（定期重构）</h4>
-<p>也是一个比较妙的 trick。</p>
-<p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
-<p>这个 trick 的意思是先把所有的操作屯着，查询的时候可以先在原序列查，然后再去屯着的操作里面查。当屯着的操作达到一个上限的时候，就把它们一起放出来，把整个序列翻新一次。</p>
-<p>这个 trick 也不常见，不过其思想也十分有意义。</p>
-<h3 id="其它">其它</h3>
-<h4 id="树的坐标表示">树的坐标表示</h4>
-<p>其实也不是什么高科技，也就标题唬人。</p>
-<p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
-<p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
-<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
-]]></content>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
