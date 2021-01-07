@@ -340,6 +340,36 @@
       </tags>
   </entry>
   <entry>
+    <title>POI2012</title>
+    <url>/2020/10/17/POI2012/</url>
+    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
+<a id="more"></a>
+<h5 id="distance">Distance</h5>
+<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
+<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
+<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
+<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
+<h5 id="cloakroom">Cloakroom</h5>
+<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
+<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
+<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
+<h5 id="a-horrible-poem">A Horrible Poem</h5>
+<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
+<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
+<p>画图就可以很显然的看出这个性质。</p>
+<p>判断字符串相等直接用哈希。</p>
+<p>需要卡常。</p>
+<h5 id="fibonacci-representation">Fibonacci Representation</h5>
+<p>先把这个数用斐波那契数拆分。</p>
+<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
+<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
+<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>POI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PAM 学习笔记</title>
     <url>/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="定义">定义</h4>
@@ -393,36 +423,6 @@
       <tags>
         <tag>字符串</tag>
         <tag>回文自动机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>POI2012</title>
-    <url>/2020/10/17/POI2012/</url>
-    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
-<a id="more"></a>
-<h5 id="distance">Distance</h5>
-<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
-<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
-<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
-<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
-<h5 id="cloakroom">Cloakroom</h5>
-<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
-<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
-<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
-<h5 id="a-horrible-poem">A Horrible Poem</h5>
-<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
-<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
-<p>画图就可以很显然的看出这个性质。</p>
-<p>判断字符串相等直接用哈希。</p>
-<p>需要卡常。</p>
-<h5 id="fibonacci-representation">Fibonacci Representation</h5>
-<p>先把这个数用斐波那契数拆分。</p>
-<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
-<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
-<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>POI</tag>
       </tags>
   </entry>
   <entry>
@@ -690,6 +690,49 @@
 ]]></content>
       <tags>
         <tag>多项式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串的回文划分</title>
+    <url>/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/</url>
+    <content><![CDATA[<p>定义一个串 <span class="math inline">\(S\)</span> 的划分 <span class="math inline">\(s_1,s_2...s_k\)</span> 为回文划分当且仅当 <span class="math inline">\(s_1,s_2...s_k\)</span> 都是回文串。</p>
+<p>现在考虑求一个串 <span class="math inline">\(S\)</span> 的回文划分数。<span class="math inline">\(1\leq |S| \leq 10^6\)</span>。</p>
+<hr />
+<p>为了方便，我们定义字符串下标从 <span class="math inline">\(1\)</span> 开始，且 <span class="math inline">\(S[l:r]\)</span> 为字符串 <span class="math inline">\(S\)</span> 中 <span class="math inline">\(s[l],s[l+1]...s[r]\)</span> 这个子串。</p>
+<p>考虑设 <span class="math inline">\(f[i]\)</span> 表示 <span class="math inline">\(i\)</span> 结尾的这个前缀的回文划分方案数。</p>
+<p>转移显然，即 <span class="math inline">\(f[i]=\sum f[i-L]~(S[i-L+1:i] \text{是回文串})\)</span>。</p>
+<p>如果枚举 <span class="math inline">\(i,L\)</span> 再暴力判断，复杂度会达到严格 <span class="math inline">\(O(|S|^3)\)</span>，如果用一些方法预处理快速判断一个串是不是回文串，可以做到严格 <span class="math inline">\(O(|S|^2)\)</span>。</p>
+<p>考虑优化，对于快速找到回文 Border，可以使用回文自动机，这样每次在当前节点跳 <span class="math inline">\(parent\)</span> 边跳到的都是回文后缀，这样就可以直接转移。复杂度是 <span class="math inline">\(O(\sum_i \text{以 i 结尾的回文后缀个数})\)</span>，在随机数据下跑得很快。但是这样显然可以被 <span class="math inline">\(aa...aa\)</span> 卡到 <span class="math inline">\(O(|S|^2)\)</span>。故考虑进一步优化。</p>
+<blockquote>
+<p>引理 <span class="math inline">\(1\)</span> : 对于一个串 <span class="math inline">\(S\)</span> 的所有长度大于 <span class="math inline">\(\frac{|S|}{2}\)</span> 的回文 Border，它们的长度形成一个等差数列。</p>
+</blockquote>
+<p>证明：拿出最长的回文 Border <span class="math inline">\(T\)</span>，那么 <span class="math inline">\(S\)</span> 就存在周期 <span class="math inline">\(|S|-|T|\)</span>，所以长度为 <span class="math inline">\(|S|-2(|S|-|T|)\)</span> 的这个后缀也是一个回文 Border，长度为 <span class="math inline">\(|S|-3(|S|-|T|)\)</span> 的这个后缀也是一个回文 Border……把这一组 Border 去掉之后，剩下的回文 Border 长度一定小于等于 <span class="math inline">\(\frac{|S|}{2}\)</span>，不然的话 <span class="math inline">\(T\)</span> 就不会是最长的回文 Border。</p>
+<p>这样在 DP 中可以转移的点也可以被分成 <span class="math inline">\(\log_2|S|\)</span> 个等差数列。我们就可以这么做：预处理 <span class="math inline">\(F[i][j]\)</span> 表示 <span class="math inline">\(f[i]+f[i-j]+...\)</span>，那么对于一个等差数列，如果其公差小于一个阈值，就直接查表，否则暴力跳。这样复杂度上限可以被优化到 <span class="math inline">\(O(|S|\sqrt{|S|\log_2|S|})\)</span>，实际效率未知。</p>
+<p>我们把某个等差数列拿出来，看看它有什么性质。</p>
+<p><img src="https://s3.ax1x.com/2021/01/07/smA5qg.png" /></p>
+<p>这是 <span class="math inline">\(4\)</span> 个形成等差数列的 Border。</p>
+<p>我们把每个 Border 按照比恰好比它长的 Border 的回文中心对称过去，可以发现它的开头是恰好比它长的 Border 的开头，结尾都在同一个位置。</p>
+<p>如果设 <span class="math inline">\(g[x]\)</span> 为在回文自动机上以 <span class="math inline">\(x\)</span> 为末项的回文 Border 的 <span class="math inline">\(\sum f\)</span>，把上图的串从上到下依次编号成 <span class="math inline">\(1,2,3,4\)</span>，那么我们可以发现，对于现在要求的 <span class="math inline">\(g[4]\)</span>，有很大一部分已经被 <span class="math inline">\(g[3]\)</span> 算过了（<span class="math inline">\(g[3]\)</span> 即红色条纹部分，<span class="math inline">\(g[4]\)</span> 即黑色条纹部分），因为我们到现在这个位置计算 <span class="math inline">\(g[4]\)</span> 时，一定会先走过计算 <span class="math inline">\(g[3]\)</span> 的位置。所以就只需要使 <span class="math inline">\(g[4]=g[3]\)</span> 且把 <span class="math inline">\(g[4]\)</span> 额外加上【除掉当前等差数列最小的 Border 的那个 <span class="math inline">\(f\)</span> 】即可。</p>
+<p>这样就可以在 <span class="math inline">\(O(n\log_2 n)\)</span> 的时间内解决该题。</p>
+<a id="more"></a>
+<p>直接讨论回文划分太抽象了，举个具体例子。</p>
+<h5 id="cf932g-palindrome-partition">CF932G Palindrome Partition</h5>
+<p>给定一个串 <span class="math inline">\(S\)</span>，把串分为偶数段。</p>
+<p>假设分为了 <span class="math inline">\(s_1,s_2,s_3....s_k\)</span>。</p>
+<p>求，满足 <span class="math inline">\(s_1=s_k,s_2=s_{k−1}.....\)</span> 的方案数。</p>
+<p><span class="math inline">\(2\leq |S| \leq 10^6\)</span>，方案数对 <span class="math inline">\(10^9+7\)</span> 取模。</p>
+<hr />
+<h5 id="solution">Solution:</h5>
+<p>乍一看这个题和回文划分没有什么关系，但是我们不妨分析一手。</p>
+<p>为了方便，我们定义字符串下标从 <span class="math inline">\(1\)</span> 开始。</p>
+<p>考虑逐个考虑 <span class="math inline">\(s_1\)</span> 和 <span class="math inline">\(s_k\)</span>，<span class="math inline">\(s_2\)</span> 和 <span class="math inline">\(s_{k-1}\)</span> 这样的匹配对。我们发现当剩余串的长度固定的时候，留下的是中间某一个固定的段，这样就不是很好，因为我们很难得到中间某个串的信息。所以尝试把这个串修改一下使得每次分段都是一个连续的区间，即改成 <span class="math inline">\(s[1]s[n]s[2][n-1]...\)</span>，这样我们就可以发现，对于一个分段，它都是一个长度为偶数的连续区间，且该串为回文串。</p>
+<p>这样问题就转化成了：把一个串 <span class="math inline">\(S\)</span> 分解成若干个长度为偶数的回文串的方案数。直接用上面的算法做即可。</p>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">char</span> s[MAXN], t[MAXN];</span><br><span class="line"><span class="keyword">int</span> child[MAXN &lt;&lt; <span class="number">1</span>][<span class="number">26</span>], parent[MAXN &lt;&lt; <span class="number">1</span>], mxlen[MAXN &lt;&lt; <span class="number">1</span>], cnt = <span class="number">2</span>, last = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> d[MAXN &lt;&lt; <span class="number">1</span>], bot[MAXN &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> f[MAXN], g[MAXN &lt;&lt; <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetFail</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (now &amp;&amp; s[pos] != s[pos - mxlen[now] - <span class="number">1</span>])</span><br><span class="line">    now = parent[now];</span><br><span class="line">  <span class="keyword">return</span> now;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">cin</span> &gt;&gt; (t + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">int</span> n = <span class="built_in">strlen</span>(t + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    s[i] = (i &amp; <span class="number">1</span>) ? t[i / <span class="number">2</span> + <span class="number">1</span>] : t[n - i / <span class="number">2</span> + <span class="number">1</span>];</span><br><span class="line">  <span class="comment">//  cerr &lt;&lt; (s + 1) &lt;&lt; endl;</span></span><br><span class="line">  parent[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">  mxlen[<span class="number">1</span>] = <span class="number">0</span>, mxlen[<span class="number">2</span>] = <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">    child[<span class="number">0</span>][i] = <span class="number">1</span>;</span><br><span class="line">  f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> ch = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    last = GetFail(last, i);</span><br><span class="line">    <span class="keyword">if</span> (child[last][ch])</span><br><span class="line">      last = child[last][ch];</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      ++cnt;</span><br><span class="line">      child[last][ch] = cnt;</span><br><span class="line">      mxlen[cnt] = mxlen[last] + <span class="number">2</span>;</span><br><span class="line">      parent[cnt] = child[GetFail(parent[last], i)][ch];</span><br><span class="line">      last = cnt;</span><br><span class="line">      <span class="keyword">if</span> (mxlen[parent[cnt]] * <span class="number">2</span> &gt; mxlen[cnt] &amp;&amp; (!d[parent[cnt]] || mxlen[cnt] - mxlen[parent[cnt]] == d[parent[cnt]])) &#123;</span><br><span class="line">        d[cnt] = mxlen[cnt] - mxlen[parent[cnt]], bot[cnt] = bot[parent[cnt]];</span><br><span class="line">        d[parent[cnt]] = mxlen[cnt] - mxlen[parent[cnt]];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        d[cnt] = <span class="number">0</span>, bot[cnt] = cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI cur = last; cur; cur = parent[bot[cur]]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (bot[cur] != cur)</span><br><span class="line">        g[cur] = g[parent[cur]];</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        g[cur] = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">if</span> (mxlen[bot[cur]] % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; mxlen[bot[cur]])</span><br><span class="line">        g[cur] = (g[cur] + f[i - mxlen[bot[cur]]]) % mod;</span><br><span class="line">      <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">        f[i] = (f[i] + g[cur]) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, f[n]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>字符串</tag>
+        <tag>PAM</tag>
       </tags>
   </entry>
   <entry>

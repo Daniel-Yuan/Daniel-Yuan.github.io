@@ -190,6 +190,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/duck.jpg">
+      <meta itemprop="name" content="Daniel_yuan">
+      <meta itemprop="description" content="Fkami is our sun !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel_yuan's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/" class="post-title-link" itemprop="url">字符串的回文划分</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-07 15:44:43 / 修改时间：22:16:25" itemprop="dateCreated datePublished" datetime="2021-01-07T15:44:43+08:00">2021-01-07</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>定义一个串 <span class="math inline">\(S\)</span> 的划分 <span class="math inline">\(s_1,s_2...s_k\)</span> 为回文划分当且仅当 <span class="math inline">\(s_1,s_2...s_k\)</span> 都是回文串。</p>
+<p>现在考虑求一个串 <span class="math inline">\(S\)</span> 的回文划分数。<span class="math inline">\(1\leq |S| \leq 10^6\)</span>。</p>
+<hr />
+<p>为了方便，我们定义字符串下标从 <span class="math inline">\(1\)</span> 开始，且 <span class="math inline">\(S[l:r]\)</span> 为字符串 <span class="math inline">\(S\)</span> 中 <span class="math inline">\(s[l],s[l+1]...s[r]\)</span> 这个子串。</p>
+<p>考虑设 <span class="math inline">\(f[i]\)</span> 表示 <span class="math inline">\(i\)</span> 结尾的这个前缀的回文划分方案数。</p>
+<p>转移显然，即 <span class="math inline">\(f[i]=\sum f[i-L]~(S[i-L+1:i] \text{是回文串})\)</span>。</p>
+<p>如果枚举 <span class="math inline">\(i,L\)</span> 再暴力判断，复杂度会达到严格 <span class="math inline">\(O(|S|^3)\)</span>，如果用一些方法预处理快速判断一个串是不是回文串，可以做到严格 <span class="math inline">\(O(|S|^2)\)</span>。</p>
+<p>考虑优化，对于快速找到回文 Border，可以使用回文自动机，这样每次在当前节点跳 <span class="math inline">\(parent\)</span> 边跳到的都是回文后缀，这样就可以直接转移。复杂度是 <span class="math inline">\(O(\sum_i \text{以 i 结尾的回文后缀个数})\)</span>，在随机数据下跑得很快。但是这样显然可以被 <span class="math inline">\(aa...aa\)</span> 卡到 <span class="math inline">\(O(|S|^2)\)</span>。故考虑进一步优化。</p>
+<blockquote>
+<p>引理 <span class="math inline">\(1\)</span> : 对于一个串 <span class="math inline">\(S\)</span> 的所有长度大于 <span class="math inline">\(\frac{|S|}{2}\)</span> 的回文 Border，它们的长度形成一个等差数列。</p>
+</blockquote>
+<p>证明：拿出最长的回文 Border <span class="math inline">\(T\)</span>，那么 <span class="math inline">\(S\)</span> 就存在周期 <span class="math inline">\(|S|-|T|\)</span>，所以长度为 <span class="math inline">\(|S|-2(|S|-|T|)\)</span> 的这个后缀也是一个回文 Border，长度为 <span class="math inline">\(|S|-3(|S|-|T|)\)</span> 的这个后缀也是一个回文 Border……把这一组 Border 去掉之后，剩下的回文 Border 长度一定小于等于 <span class="math inline">\(\frac{|S|}{2}\)</span>，不然的话 <span class="math inline">\(T\)</span> 就不会是最长的回文 Border。</p>
+<p>这样在 DP 中可以转移的点也可以被分成 <span class="math inline">\(\log_2|S|\)</span> 个等差数列。我们就可以这么做：预处理 <span class="math inline">\(F[i][j]\)</span> 表示 <span class="math inline">\(f[i]+f[i-j]+...\)</span>，那么对于一个等差数列，如果其公差小于一个阈值，就直接查表，否则暴力跳。这样复杂度上限可以被优化到 <span class="math inline">\(O(|S|\sqrt{|S|\log_2|S|})\)</span>，实际效率未知。</p>
+<p>我们把某个等差数列拿出来，看看它有什么性质。</p>
+<p><img src="https://s3.ax1x.com/2021/01/07/smA5qg.png" /></p>
+<p>这是 <span class="math inline">\(4\)</span> 个形成等差数列的 Border。</p>
+<p>我们把每个 Border 按照比恰好比它长的 Border 的回文中心对称过去，可以发现它的开头是恰好比它长的 Border 的开头，结尾都在同一个位置。</p>
+<p>如果设 <span class="math inline">\(g[x]\)</span> 为在回文自动机上以 <span class="math inline">\(x\)</span> 为末项的回文 Border 的 <span class="math inline">\(\sum f\)</span>，把上图的串从上到下依次编号成 <span class="math inline">\(1,2,3,4\)</span>，那么我们可以发现，对于现在要求的 <span class="math inline">\(g[4]\)</span>，有很大一部分已经被 <span class="math inline">\(g[3]\)</span> 算过了（<span class="math inline">\(g[3]\)</span> 即红色条纹部分，<span class="math inline">\(g[4]\)</span> 即黑色条纹部分），因为我们到现在这个位置计算 <span class="math inline">\(g[4]\)</span> 时，一定会先走过计算 <span class="math inline">\(g[3]\)</span> 的位置。所以就只需要使 <span class="math inline">\(g[4]=g[3]\)</span> 且把 <span class="math inline">\(g[4]\)</span> 额外加上【除掉当前等差数列最小的 Border 的那个 <span class="math inline">\(f\)</span> 】即可。</p>
+<p>这样就可以在 <span class="math inline">\(O(n\log_2 n)\)</span> 的时间内解决该题。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/04/Hall-%E5%AE%9A%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -939,86 +1037,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/17/POI2012/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/duck.jpg">
-      <meta itemprop="name" content="Daniel_yuan">
-      <meta itemprop="description" content="Fkami is our sun !">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Daniel_yuan's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/17/POI2012/" class="post-title-link" itemprop="url">POI2012</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-17 09:34:46 / 修改时间：17:24:56" itemprop="dateCreated datePublished" datetime="2020-10-17T09:34:46+08:00">2020-10-17</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>702</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/17/POI2012/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1090,14 +1108,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1202,12 +1220,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">48k</span>
+    <span title="站点总字数">52k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">44 分钟</span>
+    <span title="站点阅读时长">47 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
