@@ -109,59 +109,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Daniel_yuan&#39;s New Blog</title>
-    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
-    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Extra 网络流</title>
-    <url>/2021/01/08/Extra-%E7%BD%91%E7%BB%9C%E6%B5%81/</url>
-    <content><![CDATA[<p>Extra 网络流。主要是有上下界的各种网络流或费用流以及几个消负环的方法。</p>
-<p>在看这个 Blog 之前你最好已经熟练掌握了 Dinic 网络流和 EK 费用流。</p>
-<a id="more"></a>
-<h4 id="无源汇有上下界的循环流">1. 无源汇有上下界的循环流</h4>
-<p>这是最简单的一种有上下界的网络流，也是所有有上下界的网络流的基础。</p>
-<p>其所求大意如下：对于一张网络流的图，每条边有一个流量限制 <span class="math inline">\([l,r]\)</span>，现在需要给每条边分配一个流量，使得每个点的流量平衡（即流入等于流出），且每条边的流量满足限制。</p>
-<p>考虑先把每条边的流量设为其下界，设置完之后我们得到了一个初始流，这个流的流量都满足边的限制，但是不一定满足流量平衡。</p>
-<p>考虑构造一个附加流，使得初始流加上附加流在满足边的限制的情况下满足流量平衡。</p>
-<p>因为这个附加流仍需要满足边的限制，所以原来的一条边 <span class="math inline">\((u,v,l,r)\)</span>，可以看成是一条 <span class="math inline">\(u\)</span> 连向 <span class="math inline">\(v\)</span> 的流量为 <span class="math inline">\(r-l\)</span> 的边，这样在附加流中这条边的流量就只能是 <span class="math inline">\([0,r-l]\)</span>，一定会满足边的限制。</p>
-<p>然后就只需要考虑流量平衡。对于一个点 <span class="math inline">\(x\)</span>，如果其流入大于流出，那么它就仍然需要流出一些流量。考虑新增一个虚拟起点 <span class="math inline">\(S&#39;\)</span>，连一条 <span class="math inline">\(S&#39;\)</span> 到 <span class="math inline">\(x\)</span> 流量为流入和流出的差值的边。这条边每有 <span class="math inline">\(1\)</span> 个流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流出增加了 <span class="math inline">\(1\)</span>。类似的，如果点 <span class="math inline">\(x\)</span> 的流出大于流入，那么它就仍然需要流入一些流量，就新增一个虚拟终点 <span class="math inline">\(T&#39;&#39;\)</span>，连条 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(T&#39;\)</span> 流量为流出和流入的差值的边。这条边每有 <span class="math inline">\(1\)</span> 流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流入增加了 <span class="math inline">\(1\)</span>。</p>
-<p>最后对新图 <span class="math inline">\(S&#39;-T&#39;\)</span> 跑一遍最大流，由前文的构造附加流的过程可知，可以使得其流量平衡当且仅当该图的最大流使得所有 <span class="math inline">\(S&#39;\)</span> 连出的边都满流（<span class="math inline">\(S&#39;\)</span> 连出的边都满流等价于 <span class="math inline">\(T&#39;\)</span> 连入的边都满流），否则的话无解。</p>
-<p>最后每条边的流量就是下界加上附加流中该边的流量。</p>
-<h4 id="有源汇有上下界的可行流">2. 有源汇有上下界的可行流</h4>
-<p>有源汇和无源汇的最大的区别就是源点 <span class="math inline">\(S\)</span> 和汇点 <span class="math inline">\(T\)</span> 的流量不平衡。</p>
-<p>考虑连一条 <span class="math inline">\(T\)</span> 连向 <span class="math inline">\(S\)</span> 流量下界为 <span class="math inline">\(0\)</span> 上界为 <span class="math inline">\(+\infty\)</span> 的边，这样 <span class="math inline">\(S\)</span> 的流出和 <span class="math inline">\(T\)</span> 的流入就都可以靠这条边来弥补，使得其流量平衡。</p>
-<p>这时候就只需要求循环流了，即 1.。</p>
-<p>不难发现，<span class="math inline">\(T\rightarrow S\)</span> 的流只可能走我们新加的边，所以附加流的总流量就是新加边的流量。</p>
-<p>而可行流的流量就是 <span class="math inline">\(S\)</span> 的流出量（也就是 <span class="math inline">\(T\)</span> 的流入量），也等于新加边的流量。故可行流的流量等于附加流的流量。</p>
-<h4 id="有源汇有上下界的最大流">3. 有源汇有上下界的最大流</h4>
-<p>和 2. 类似的，我们可以先求出一个可行流。</p>
-<p>此时对原图的残量网络再跑一次 <span class="math inline">\(S-T\)</span> 的最大流即可。</p>
-<p>需要注意的是，这里跑最大流的是原图的 <span class="math inline">\(S-T\)</span>，而不是构造出来求附加流的虚拟节点 <span class="math inline">\(S&#39;-T&#39;\)</span>。</p>
-<p>如果你在跑 <span class="math inline">\(S-T\)</span> 最大流的时候，去掉了前面所加的 <span class="math inline">\(T\)</span> 到 <span class="math inline">\(S\)</span> 的边，那么最大流就是残量网络上求出的最大流加上附加流的流量。否则，根据网络流的性质，此时可以通过所加的 <span class="math inline">\(T\)</span> 到 <span class="math inline">\(S\)</span> 的边的反向边，直接从 <span class="math inline">\(S\)</span> 到 <span class="math inline">\(T\)</span> 流附加流的流量，所以最大流就是残量网络上求出的最大流流量 。</p>
-<h4 id="有源汇有上下界的最小流">4. 有源汇有上下界的最小流</h4>
-<p>和 2. 类似的，我们可以先求出一个可行流。</p>
-<p>然后考虑从 <span class="math inline">\(T\)</span> 向 <span class="math inline">\(S\)</span> 退流，这样就可以使得流量尽可能小。</p>
-<p>即在残量网络上跑一遍 <span class="math inline">\(T-S\)</span> 的最大流。用附加流流量减去这个最大流的流量即最小流。</p>
-<p>需要注意的是，这里跑最大流的是原图的 <span class="math inline">\(T-S\)</span>，而不是构造出来求附加流的虚拟节点 <span class="math inline">\(T&#39;-S&#39;\)</span>。</p>
-<p>此时前面所加的 <span class="math inline">\(T\)</span> 到 <span class="math inline">\(S\)</span> 的边必须要去掉，不然会通过这条边退 <span class="math inline">\(+\infty\)</span> 的流导致求不到答案。</p>
-<h4 id="有源汇有上下界的最小费用可行流最大流最小流">5. 有源汇有上下界的最小费用可行流/最大流/最小流</h4>
-<p>为了方便，暂时不考虑负环，后面会提到两个消负环的算法。</p>
-<p>最大费用和最小费用等价，所以暂且不考虑最大费用。</p>
-<p>其实本质上就是在 2.3.4. 的基础上，加上一个最小费用。</p>
-<p>即在一开始每条边强行流 <span class="math inline">\(l\)</span> 的流量的时候，把总费用加上 <span class="math inline">\(l\times cost\)</span>。</p>
-<p>所有辅助边的费用都设为 <span class="math inline">\(0\)</span>。</p>
-<p>在求附加流的时候是跑的最小费用最大流。最大流不满流仍然无解。</p>
-<p>最后在残量网络上面跑的时候，如果是 <span class="math inline">\(S-T\)</span>，跑的是最小费用最大流，如果是 <span class="math inline">\(T-S\)</span>，跑的是最大费用最大流。</p>
-<h4 id="有上下界的另一种连边方法">6. 有上下界的另一种连边方法</h4>
-<h4 id="消负环算法">7. 消负环算法</h4>
-]]></content>
-      <tags>
-        <tag>网络流</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSP-S2 2020 游记</title>
     <url>/2020/11/08/CSP-S2-2020-%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="day--1">Day -1</h4>
@@ -217,6 +164,64 @@
 ]]></content>
       <tags>
         <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Daniel_yuan&#39;s New Blog</title>
+    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
+    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Extra 网络流</title>
+    <url>/2021/01/08/Extra-%E7%BD%91%E7%BB%9C%E6%B5%81/</url>
+    <content><![CDATA[<p>Extra 网络流。主要是有上下界的各种网络流或费用流以及几个消负环的方法。</p>
+<p>在看这个 Blog 之前你最好已经熟练掌握了 Dinic 网络流和 EK 费用流。</p>
+<a id="more"></a>
+<h4 id="无源汇有上下界的循环流">1. 无源汇有上下界的循环流</h4>
+<p>这是最简单的一种有上下界的网络流，也是所有有上下界的网络流的基础。</p>
+<p>其所求大意如下：对于一张网络流的图，每条边有一个流量限制 <span class="math inline">\([l,r]\)</span>，现在需要给每条边分配一个流量，使得每个点的流量平衡（即流入等于流出），且每条边的流量满足限制。</p>
+<p>考虑先把每条边的流量设为其下界，设置完之后我们得到了一个初始流，这个流的流量都满足边的限制，但是不一定满足流量平衡。</p>
+<p>考虑构造一个附加流，使得初始流加上附加流在满足边的限制的情况下满足流量平衡。</p>
+<p>因为这个附加流仍需要满足边的限制，所以原来的一条边 <span class="math inline">\((u,v,l,r)\)</span>，可以看成是一条 <span class="math inline">\(u\)</span> 连向 <span class="math inline">\(v\)</span> 的流量为 <span class="math inline">\(r-l\)</span> 的边，这样在附加流中这条边的流量就只能是 <span class="math inline">\([0,r-l]\)</span>，一定会满足边的限制。</p>
+<p>然后就只需要考虑流量平衡。对于一个点 <span class="math inline">\(x\)</span>，如果其流入大于流出，那么它就仍然需要流出一些流量。考虑新增一个虚拟起点 <span class="math inline">\(S&#39;\)</span>，连一条 <span class="math inline">\(S&#39;\)</span> 到 <span class="math inline">\(x\)</span> 流量为流入和流出的差值的边。这条边每有 <span class="math inline">\(1\)</span> 个流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流出增加了 <span class="math inline">\(1\)</span>。类似的，如果点 <span class="math inline">\(x\)</span> 的流出大于流入，那么它就仍然需要流入一些流量，就新增一个虚拟终点 <span class="math inline">\(T&#39;&#39;\)</span>，连条 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(T&#39;\)</span> 流量为流出和流入的差值的边。这条边每有 <span class="math inline">\(1\)</span> 流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流入增加了 <span class="math inline">\(1\)</span>。</p>
+<p>最后对新图 <span class="math inline">\(S&#39;-T&#39;\)</span> 跑一遍最大流，由前文的构造附加流的过程可知，可以使得其流量平衡当且仅当该图的最大流使得所有 <span class="math inline">\(S&#39;\)</span> 连出的边都满流（<span class="math inline">\(S&#39;\)</span> 连出的边都满流等价于 <span class="math inline">\(T&#39;\)</span> 连入的边都满流），否则的话无解。</p>
+<p>最后每条边的流量就是下界加上附加流中该边的流量。</p>
+<h4 id="有源汇有上下界的可行流">2. 有源汇有上下界的可行流</h4>
+<p>有源汇和无源汇的最大的区别就是源点 <span class="math inline">\(S\)</span> 和汇点 <span class="math inline">\(T\)</span> 的流量不平衡。</p>
+<p>考虑连一条 <span class="math inline">\(T\)</span> 连向 <span class="math inline">\(S\)</span> 流量下界为 <span class="math inline">\(0\)</span> 上界为 <span class="math inline">\(+\infty\)</span> 的边，这样 <span class="math inline">\(S\)</span> 的流出和 <span class="math inline">\(T\)</span> 的流入就都可以靠这条边来弥补，使得其流量平衡。</p>
+<p>这时候就只需要求循环流了，即 1.。</p>
+<p>不难发现，<span class="math inline">\(T\rightarrow S\)</span> 的流只可能走我们新加的边，所以附加流的总流量就是新加边的流量。</p>
+<p>而可行流的流量就是 <span class="math inline">\(S\)</span> 的流出量（也就是 <span class="math inline">\(T\)</span> 的流入量），也等于新加边的流量。故可行流的流量等于附加流的流量。</p>
+<h4 id="有源汇有上下界的最大流">3. 有源汇有上下界的最大流</h4>
+<p>和 2. 类似的，我们可以先求出一个可行流。</p>
+<p>此时对原图的残量网络再跑一次 <span class="math inline">\(S-T\)</span> 的最大流即可。</p>
+<p>需要注意的是，这里跑最大流的是原图的 <span class="math inline">\(S-T\)</span>，而不是构造出来求附加流的虚拟节点 <span class="math inline">\(S&#39;-T&#39;\)</span>。</p>
+<p>如果你在跑 <span class="math inline">\(S-T\)</span> 最大流的时候，去掉了前面所加的 <span class="math inline">\(T\)</span> 到 <span class="math inline">\(S\)</span> 的边，那么最大流就是残量网络上求出的最大流加上附加流的流量。否则，根据网络流的性质，此时可以通过所加的 <span class="math inline">\(T\)</span> 到 <span class="math inline">\(S\)</span> 的边的反向边，直接从 <span class="math inline">\(S\)</span> 到 <span class="math inline">\(T\)</span> 流附加流的流量，所以最大流就是残量网络上求出的最大流流量 。</p>
+<h4 id="有源汇有上下界的最小流">4. 有源汇有上下界的最小流</h4>
+<p>和 2. 类似的，我们可以先求出一个可行流。</p>
+<p>然后考虑从 <span class="math inline">\(T\)</span> 向 <span class="math inline">\(S\)</span> 退流，这样就可以使得流量尽可能小。</p>
+<p>即在残量网络上跑一遍 <span class="math inline">\(T-S\)</span> 的最大流。用附加流流量减去这个最大流的流量即最小流。</p>
+<p>需要注意的是，这里跑最大流的是原图的 <span class="math inline">\(T-S\)</span>，而不是构造出来求附加流的虚拟节点 <span class="math inline">\(T&#39;-S&#39;\)</span>。</p>
+<p>此时前面所加的 <span class="math inline">\(T\)</span> 到 <span class="math inline">\(S\)</span> 的边必须要去掉，不然会通过这条边退 <span class="math inline">\(+\infty\)</span> 的流导致求不到答案。</p>
+<h4 id="有源汇有上下界的最小费用可行流最大流最小流">5. 有源汇有上下界的最小费用可行流/最大流/最小流</h4>
+<p>为了方便，暂时不考虑负环，后面会提到两个消负环的算法。</p>
+<p>最大费用和最小费用等价，所以暂且不考虑最大费用。</p>
+<p>其实本质上就是在 2.3.4. 的基础上，加上一个最小费用。</p>
+<p>即在一开始每条边强行流 <span class="math inline">\(l\)</span> 的流量的时候，把总费用加上 <span class="math inline">\(l\times cost\)</span>。</p>
+<p>所有辅助边的费用都设为 <span class="math inline">\(0\)</span>。</p>
+<p>在求附加流的时候是跑的最小费用最大流。最大流不满流仍然无解。</p>
+<p>最后在残量网络上面跑的时候，如果是 <span class="math inline">\(S-T\)</span>，跑的是最小费用最大流，如果是 <span class="math inline">\(T-S\)</span>，跑的是最大费用最大流（正着流费用最小就是退的流费用最大）。</p>
+<h4 id="有上下界的另一种连边方法">6. 有上下界的另一种连边方法</h4>
+<p>为了省事，可以把边 <span class="math inline">\((u,v,l,r,c)\)</span> 拆成三条边。一条 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 流量为 <span class="math inline">\(r-l\)</span> 费用为 <span class="math inline">\(c\)</span>，一条虚拟起点 <span class="math inline">\(S&#39;\)</span> 到 <span class="math inline">\(v\)</span> 流量为 <span class="math inline">\(l\)</span> 费用为 <span class="math inline">\(0\)</span>，一条 <span class="math inline">\(u\)</span> 到虚拟终点 <span class="math inline">\(T&#39;\)</span> 流量为 <span class="math inline">\(l\)</span> 费用为 <span class="math inline">\(0\)</span>。并把总费用加上 <span class="math inline">\(l\times c\)</span>。</p>
+<p>不难发现这种连边方法和 1. 的连边方法本质相同。只是把之前所考虑的一个点总流入和总流出的差分解成了若干个部分，或者说可以看成是之前直接把所有形如 <span class="math inline">\(S&#39;\rightarrow x \rightarrow T&#39;\)</span> 的流全部流完了。</p>
+<h4 id="消负环算法">7. 消负环算法</h4>
+<p>对于一条负权边 <span class="math inline">\((u,v,l,r,c)\)</span>，我们可以先强行把这条负权边流满，并获得 <span class="math inline">\(r\times c\)</span> 的总费用，然后这条边就变成了从 <span class="math inline">\(v\)</span> 连向 <span class="math inline">\(u\)</span> 的流量为 <span class="math inline">\(r-l\)</span> 的费用为 <span class="math inline">\(-c\)</span> 的边。这样强制流之后显然不满足流量平衡，所以需要用上述的附加流的方法使其流量平衡。</p>
+<p>因为在整个图中一开始没有出现负环，所以在整个过程中也不会产生负环（可能比较糊……暂时还没有证明，或许显然？）。</p>
+<p>另外还有一种很神的消负环算法，可见<a href="https://www.luogu.com.cn/blog/230249/wang-lao-liu-xue-xi-zong-jie">这位神仙的博客</a>。</p>
+]]></content>
+      <tags>
+        <tag>网络流</tag>
       </tags>
   </entry>
   <entry>
@@ -306,6 +311,36 @@
       <tags>
         <tag>网络流</tag>
         <tag>二分图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>POI2012</title>
+    <url>/2020/10/17/POI2012/</url>
+    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
+<a id="more"></a>
+<h5 id="distance">Distance</h5>
+<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
+<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
+<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
+<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
+<h5 id="cloakroom">Cloakroom</h5>
+<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
+<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
+<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
+<h5 id="a-horrible-poem">A Horrible Poem</h5>
+<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
+<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
+<p>画图就可以很显然的看出这个性质。</p>
+<p>判断字符串相等直接用哈希。</p>
+<p>需要卡常。</p>
+<h5 id="fibonacci-representation">Fibonacci Representation</h5>
+<p>先把这个数用斐波那契数拆分。</p>
+<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
+<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
+<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>POI</tag>
       </tags>
   </entry>
   <entry>
@@ -443,36 +478,6 @@
       </tags>
   </entry>
   <entry>
-    <title>POI2012</title>
-    <url>/2020/10/17/POI2012/</url>
-    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
-<a id="more"></a>
-<h5 id="distance">Distance</h5>
-<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
-<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
-<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
-<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
-<h5 id="cloakroom">Cloakroom</h5>
-<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
-<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
-<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
-<h5 id="a-horrible-poem">A Horrible Poem</h5>
-<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
-<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
-<p>画图就可以很显然的看出这个性质。</p>
-<p>判断字符串相等直接用哈希。</p>
-<p>需要卡常。</p>
-<h5 id="fibonacci-representation">Fibonacci Representation</h5>
-<p>先把这个数用斐波那契数拆分。</p>
-<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
-<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
-<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>POI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UOJ Contests</title>
     <url>/2020/10/14/UOJ-Contests/</url>
     <content><![CDATA[<p><del>九条可怜老师</del>吉老师在他的博客中大力赞扬 UR 。</p>
@@ -519,6 +524,14 @@
 ]]></content>
       <tags>
         <tag>UOJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>diary</title>
+    <url>/2020/10/06/diary/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>日常</tag>
       </tags>
   </entry>
   <entry>
@@ -596,14 +609,6 @@
       <tags>
         <tag>数论</tag>
         <tag>莫比乌斯函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>diary</title>
-    <url>/2020/10/06/diary/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>日常</tag>
       </tags>
   </entry>
   <entry>
@@ -1046,38 +1051,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
-    <title>用二进制模拟 K 进制</title>
-    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
-    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
-<a id="more"></a>
-<p>先考虑怎么用二进制模拟三进制。</p>
-<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
-<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
-<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
-<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
-<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
-<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
-]]></content>
-      <tags>
-        <tag>数位</tag>
-        <tag>进制</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>简单模拟费用流</title>
-    <url>/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
-    <content><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p>
-<p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p>
-<p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p>
-<a id="more"></a>
-]]></content>
-      <tags>
-        <tag>DP</tag>
-        <tag>费用流</tag>
-        <tag>贪心</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>牛客练习赛 70 E 题解</title>
     <url>/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p><a href="https://ac.nowcoder.com/acm/contest/7509/E">题目链接</a></p>
@@ -1119,6 +1092,38 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
         <tag>DP</tag>
         <tag>容斥</tag>
         <tag>妙题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用二进制模拟 K 进制</title>
+    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
+    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
+<a id="more"></a>
+<p>先考虑怎么用二进制模拟三进制。</p>
+<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
+<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
+<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
+<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
+<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
+<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
+]]></content>
+      <tags>
+        <tag>数位</tag>
+        <tag>进制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单模拟费用流</title>
+    <url>/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
+    <content><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p>
+<p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p>
+<p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p>
+<a id="more"></a>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>费用流</tag>
+        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
