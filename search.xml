@@ -1125,7 +1125,7 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 <p>考虑先把每条边的流量设为其下界，设置完之后我们得到了一个初始流，这个流的流量都满足边的限制，但是不一定满足流量平衡。</p>
 <p>考虑构造一个附加流，使得初始流加上附加流在满足边的限制的情况下满足流量平衡。</p>
 <p>因为这个附加流仍需要满足边的限制，所以原来的一条边 <span class="math inline">\((u,v,l,r)\)</span>，可以看成是一条 <span class="math inline">\(u\)</span> 连向 <span class="math inline">\(v\)</span> 的流量为 <span class="math inline">\(r-l\)</span> 的边，这样在附加流中这条边的流量就只能是 <span class="math inline">\([0,r-l]\)</span>，一定会满足边的限制。</p>
-<p>然后就只需要考虑流量平衡。对于一个点 <span class="math inline">\(x\)</span>，如果其流入大于流出，那么它就仍然需要流出一些流量。考虑新增一个虚拟起点 <span class="math inline">\(S&#39;\)</span>，连一条 <span class="math inline">\(S&#39;\)</span> 到 <span class="math inline">\(x\)</span> 流量为流入和流出的差值的边。这条边每有 <span class="math inline">\(1\)</span> 个流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流出增加了 <span class="math inline">\(1\)</span>。类似的，如果点 <span class="math inline">\(x\)</span> 的流出大于流入，那么它就仍然需要流入一些流量，就新增一个虚拟终点 <span class="math inline">\(T&#39;&#39;\)</span>，连条 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(T&#39;\)</span> 流量为流出和流入的差值的边。这条边每有 <span class="math inline">\(1\)</span> 流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流入增加了 <span class="math inline">\(1\)</span>。</p>
+<p>然后就只需要考虑流量平衡。对于一个点 <span class="math inline">\(x\)</span>，如果其流入大于流出，那么它就仍然需要流出一些流量。考虑新增一个虚拟起点 <span class="math inline">\(S&#39;\)</span>，连一条 <span class="math inline">\(S&#39;\)</span> 到 <span class="math inline">\(x\)</span> 流量为流入和流出的差值的边。这条边每有 <span class="math inline">\(1\)</span> 个流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流出增加了 <span class="math inline">\(1\)</span>。类似的，如果点 <span class="math inline">\(x\)</span> 的流出大于流入，那么它就仍然需要流入一些流量，就新增一个虚拟终点 <span class="math inline">\(T&#39;\)</span>，连条 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(T&#39;\)</span> 流量为流出和流入的差值的边。这条边每有 <span class="math inline">\(1\)</span> 流量，就代表在附加流中 <span class="math inline">\(x\)</span> 点的流入增加了 <span class="math inline">\(1\)</span>。</p>
 <p>最后对新图 <span class="math inline">\(S&#39;-T&#39;\)</span> 跑一遍最大流，由前文的构造附加流的过程可知，可以使得其流量平衡当且仅当该图的最大流使得所有 <span class="math inline">\(S&#39;\)</span> 连出的边都满流（<span class="math inline">\(S&#39;\)</span> 连出的边都满流等价于 <span class="math inline">\(T&#39;\)</span> 连入的边都满流），否则的话无解。</p>
 <p>最后每条边的流量就是下界加上附加流中该边的流量。</p>
 <h4 id="有源汇有上下界的可行流">2. 有源汇有上下界的可行流</h4>
@@ -1159,7 +1159,7 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 <h4 id="消负环算法">7. 消负环算法</h4>
 <p>对于一条负权边 <span class="math inline">\((u,v,l,r,c)\)</span>，我们可以先强行把这条负权边流满，并获得 <span class="math inline">\(r\times c\)</span> 的总费用，然后这条边就变成了从 <span class="math inline">\(v\)</span> 连向 <span class="math inline">\(u\)</span> 的流量为 <span class="math inline">\(r-l\)</span> 的费用为 <span class="math inline">\(-c\)</span> 的边。这样强制流之后显然不一定满足流量平衡，所以需要用上述的附加流的方法使其流量平衡。</p>
 <p>因为在整个图中一开始没有出现负环，所以在整个过程中也不会产生负环（可能比较糊……暂时还没有证明，或许显然？）。</p>
-<p>另外还有一种很神的消负环算法，可见<a href="https://www.luogu.com.cn/blog/230249/wang-lao-liu-xue-xi-zong-jie">这位神仙的博客</a>。</p>
+<p>另外还有一种很神的消负环算法，可见<a href="https://www.cnblogs.com/lsq147/p/14232399.html">这位神仙的博客</a>。</p>
 ]]></content>
       <tags>
         <tag>网络流</tag>
