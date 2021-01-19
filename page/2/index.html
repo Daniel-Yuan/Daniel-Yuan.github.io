@@ -190,6 +190,168 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/duck.jpg">
+      <meta itemprop="name" content="Daniel_yuan">
+      <meta itemprop="description" content="Fkami is our sun !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel_yuan's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">线性基的瞎操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-11 16:03:04" itemprop="dateCreated datePublished" datetime="2020-11-11T16:03:04+08:00">2020-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-02 14:14:41" itemprop="dateModified" datetime="2020-12-02T14:14:41+08:00">2020-12-02</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>383</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="查找某个数-x-可以被给出基底-a-如何异或得到">1. 查找某个数 <span class="math inline">\(x\)</span> 可以被给出基底 <span class="math inline">\(A\)</span> 如何异或得到</h4>
+<p>把基底 <span class="math inline">\(A\)</span> 做线性基，并且在线性基的同时维护线性基中每个元素是由基底中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>，那么在查询的时候，把对应位置的 <span class="math inline">\(S\)</span> 也一起异或，就可以得到最终所求。</p>
+<h4 id="把基底-a-的一个数-a_i-与另一个数-x-交换保证交换后基底-a-仍然满足基底的性质">2. 把基底 <span class="math inline">\(A\)</span> 的一个数 <span class="math inline">\(A_i\)</span> 与另一个数 <span class="math inline">\(x\)</span> 交换，保证交换后基底 <span class="math inline">\(A&#39;\)</span> 仍然满足基底的性质</h4>
+<p>同上，在线性基的同时维护线性基中每个元素是由 <span class="math inline">\(A\)</span> 中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>。先查询 <span class="math inline">\(x\)</span> 怎么被 <span class="math inline">\(A\)</span> 表示，因为 <span class="math inline">\(A&#39;\)</span> 依旧满足基底的性质，那么如果用 <span class="math inline">\(A\)</span> 来表示 <span class="math inline">\(x\)</span>，那么 <span class="math inline">\(A_i\)</span> 一定会被用到。所以 <span class="math inline">\(A_i\)</span> 也可以用 <span class="math inline">\(A\)</span> 中的数和 <span class="math inline">\(x\)</span> 一起表示，那么就可以直接交换 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(A_i\)</span>，然后去更新线性基中的每个位置的 <span class="math inline">\(S\)</span> 即可。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/duck.jpg">
+      <meta itemprop="name" content="Daniel_yuan">
+      <meta itemprop="description" content="Fkami is our sun !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel_yuan's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/" class="post-title-link" itemprop="url">用二进制模拟 K 进制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 11:39:21 / 修改时间：16:03:46" itemprop="dateCreated datePublished" datetime="2020-11-11T11:39:21+08:00">2020-11-11</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>328</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/08/CSP-S2-2020-%E6%B8%B8%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -871,179 +1033,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%BC%98%E5%8C%96%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/duck.jpg">
-      <meta itemprop="name" content="Daniel_yuan">
-      <meta itemprop="description" content="Fkami is our sun !">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Daniel_yuan's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%BC%98%E5%8C%96%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" class="post-title-link" itemprop="url">线性代数优化矩阵快速幂</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-26 15:23:28" itemprop="dateCreated datePublished" datetime="2020-09-26T15:23:28+08:00">2020-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-06 18:49:19" itemprop="dateModified" datetime="2020-10-06T18:49:19+08:00">2020-10-06</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>如果我们需要求维度为 <span class="math inline">\(c\)</span> 的矩阵 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(m\)</span> 次幂，那么一个显然的方法是用快速幂，复杂度为 <span class="math inline">\(c^3 \log m\)</span>。不过当需要用到高精度的时候，该算法速度会大大下降。</p>
-<p>考虑这么一个事情，
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%BC%98%E5%8C%96%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/duck.jpg">
-      <meta itemprop="name" content="Daniel_yuan">
-      <meta itemprop="description" content="Fkami is our sun !">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Daniel_yuan's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">PAM 学习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-26 15:20:06 / 修改时间：15:20:37" itemprop="dateCreated datePublished" datetime="2020-09-26T15:20:06+08:00">2020-09-26</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="定义">定义</h4>
-<p>PAM (Palindrome Automaton) 是一种处理回文串的、针对某个串的自动机，它保存了该串所有回文串的信息。</p>
-<p>PAM 需要维护三个基础的东西：点、转移边、fail 边。PAM 和 AC 自动机类似，所以我们可以借鉴 AC 自动机来理解这些东西。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1111,14 +1104,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1223,12 +1216,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">54k</span>
+    <span title="站点总字数">56k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">49 分钟</span>
+    <span title="站点阅读时长">51 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
