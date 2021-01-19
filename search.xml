@@ -43,6 +43,29 @@
       </tags>
   </entry>
   <entry>
+    <title>CSP-S1 2020 游记</title>
+    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="day-1">Day 1</h4>
+<a id="more"></a>
+<p>今天的状态就一个字：困。</p>
+<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
+<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
+<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
+<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
+<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
+<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
+<h4 id="day-inf">Day INF</h4>
+<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
+<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
+<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
+<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
+<p><a href="">CPS-S2 2020 游记</a></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSP-S 2019 游记</title>
     <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
@@ -144,64 +167,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSP-S1 2020 游记</title>
-    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="day-1">Day 1</h4>
-<a id="more"></a>
-<p>今天的状态就一个字：困。</p>
-<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
-<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
-<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
-<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
-<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
-<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
-<h4 id="day-inf">Day INF</h4>
-<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
-<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
-<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
-<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
-<p><a href="">CPS-S2 2020 游记</a></p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Daniel_yuan&#39;s New Blog</title>
-    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
-    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>FWT 小结</title>
-    <url>/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/</url>
-    <content><![CDATA[<p>FWT 是快速求形如 <span class="math inline">\(C(x)=\sum_{i?j=x}A(i)B(j)\)</span> 的算法，其中 <span class="math inline">\(?\)</span> 表示一种二进制的位运算。</p>
-<a id="more"></a>
-<h4 id="原理">原理</h4>
-<p>其实 FWT 背板挺容易的，但是因为考试趋向越来越本质化，所以我们要逐渐开始了解一些原来背板算法的原理。</p>
-<p>类似于 FFT，我们考虑从最本源的地方来了解 FWT——构造一种线性变换 <span class="math inline">\(A\rightarrow A&#39;\)</span>，使得 <span class="math inline">\(C&#39;(x)=A&#39;(x)B&#39;(x)\)</span>，这样去掉线性变换的复杂度，总复杂度是 <span class="math inline">\(O(len)\)</span> 的。需要注意的是，这里的 <span class="math inline">\(A,B,C\)</span> 需要做同一种线性变换。</p>
-<p>因为我们所做的是线性变换（即只存在加减），那么在 <span class="math inline">\(A&#39;\)</span> 中，我们可以把 <span class="math inline">\(A\)</span> 中每个数对它的贡献用一个系数表示，即 <span class="math inline">\(A&#39;(x)=\sum_i f(x,i)A(i)\)</span>。</p>
-<p>那么 <span class="math inline">\(C&#39;(x)=\sum_i f(x,i)C(i)=\sum_if(x,i)\sum_{j?k=i}A(j)B(k)\)</span>，<span class="math inline">\(A&#39;(x)B&#39;(x)=\sum_if(x,i)A(i)\sum_jf(x,j)B(j)\)</span>。整理得 <span class="math inline">\(\sum_i\sum_jf(x,i?j)A(i)B(j)=\sum_i\sum_jf(x,i)f(x,j)A(i)B(j)\)</span>。故有 <span class="math inline">\(f(x,i?j)=f(x,i)f(x,j)\)</span>。</p>
-<p>也就是说我们需要构造 <span class="math inline">\(f(x,i)\)</span>，使得它满足上述需求。</p>
-<p>对于或操作，有 <span class="math inline">\(f(x,i \text{ or }j)=f(x,i)f(x,j)\)</span>，不难发现 <span class="math inline">\(i\text{ or }j\in x\Leftrightarrow i\in x\and j\in x\)</span>，那么设 <span class="math inline">\(f(x,i)=[i\in x]\)</span> 即可。</p>
-<p>对于与操作，有 <span class="math inline">\(f(x,i\text{ and }j)=f(x,i)f(x,j)\)</span>，和或相似的，<span class="math inline">\(x\in i\text{ and }j\Leftrightarrow x\in i\and x\in j\)</span>。<span class="math inline">\(f(x,i)=[x\in i]\)</span>。</p>
-<p>对于异或操作，这可能就有些麻烦。我们需要挖掘一些异或的性质。对于两个数 <span class="math inline">\(x,y\)</span>，显然 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(y\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\(x \text{ xor } y\)</span> 的相同。而与和异或有恒等式 <span class="math inline">\((x\text{ xor } y)\text{ and } z=(x\text{ and }z)\text{ xor }(y\text{ and }z)\)</span>（不难证明），所以 <span class="math inline">\(i\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(j\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\((i\text{ and }x)\text{ xor }(j\text{ and }x)=(i\text{ xor } j)\text{ and } x\)</span> 的相同，而奇偶性的区分加减我们一般用 <span class="math inline">\((-1)^k\)</span> ，所以设 <span class="math inline">\(f(x,i)=(-1)^{|x \text { and }i|}\)</span> 即可。</p>
-<h4 id="实现">实现</h4>
-<p>下午只讨论 FWT，对于 IFWT，其就是 FWT 的逆向过程。</p>
-<p>考虑按位计算贡献。</p>
-<p>设 <span class="math inline">\(f_k(S)\)</span> 表示对于 <span class="math inline">\(S\)</span>，已经计算了前 <span class="math inline">\(k\)</span> 位任意，后面位数严格和 <span class="math inline">\(S\)</span> 相等且暂未考虑其对贡献的影响的贡献。考虑从 <span class="math inline">\(f_k(S)\)</span> 推到 <span class="math inline">\(f_{k+1}(S)\)</span>。</p>
-<p>考虑每个数对 <span class="math inline">\(u,v\)</span> 互相的贡献，其中 <span class="math inline">\(u,v\)</span> 仅在第 <span class="math inline">\(k+1\)</span> 位不同，为了方便，设 <span class="math inline">\(u&lt;v\)</span>。</p>
-<p>对于或，<span class="math inline">\(f_k(u)\)</span> 中存的是后面位数和 <span class="math inline">\(u\)</span> 相等，<span class="math inline">\(1\sim k\)</span> 位是 <span class="math inline">\(u\)</span> 子集的数的贡献，<span class="math inline">\(f_k(v)\)</span> 同理，那么显然考虑了第 <span class="math inline">\(k+1\)</span> 位后，<span class="math inline">\(f_{k+1}(u)=f_k(u)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(u)+f_k(v)\)</span>。</p>
-<p>类似的，对于与，<span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(v)\)</span>。</p>
-<p>对于异或，<span class="math inline">\(u\)</span> 在 <span class="math inline">\(k+1\)</span> 位对数的符号没有影响，而 <span class="math inline">\(v\)</span> 在 <span class="math inline">\(k+1\)</span> 位对 <span class="math inline">\(k+1\)</span> 位为 <span class="math inline">\(1\)</span> 的数的符号有一个 <span class="math inline">\(-1\)</span> 的影响（因为之前没有考虑这一位对答案贡献的影响），所以 <span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span>，<span class="math inline">\(f_{k+1}(v)=f_k(u)-f_k(v)\)</span>。</p>
-<p>这样就能在 <span class="math inline">\(O(len\log len)\)</span> 的时间内对于 <span class="math inline">\(A\)</span> 求得 <span class="math inline">\(A&#39;\)</span>。而逆变化就是正变化的相反操作，在此就不再赘述。</p>
-]]></content>
-      <tags>
-        <tag>FWT</tag>
-        <tag>多项式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[HNOI2019]JOJO 题解</title>
     <url>/2020/12/29/HNOI2019-JOJO-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p>这个题目的 <span class="math inline">\(2\)</span> 操作代表着需要维护一个可持久化的东西。</p>
@@ -226,6 +191,12 @@
         <tag>可持久化数据结构</tag>
         <tag>KMP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Daniel_yuan&#39;s New Blog</title>
+    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
+    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
+]]></content>
   </entry>
   <entry>
     <title>Hall 定理学习笔记</title>
@@ -369,6 +340,36 @@
       </tags>
   </entry>
   <entry>
+    <title>POI2012</title>
+    <url>/2020/10/17/POI2012/</url>
+    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
+<a id="more"></a>
+<h5 id="distance">Distance</h5>
+<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
+<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
+<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
+<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
+<h5 id="cloakroom">Cloakroom</h5>
+<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
+<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
+<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
+<h5 id="a-horrible-poem">A Horrible Poem</h5>
+<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
+<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
+<p>画图就可以很显然的看出这个性质。</p>
+<p>判断字符串相等直接用哈希。</p>
+<p>需要卡常。</p>
+<h5 id="fibonacci-representation">Fibonacci Representation</h5>
+<p>先把这个数用斐波那契数拆分。</p>
+<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
+<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
+<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>POI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PAM 学习笔记</title>
     <url>/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="定义">定义</h4>
@@ -425,33 +426,32 @@
       </tags>
   </entry>
   <entry>
-    <title>POI2012</title>
-    <url>/2020/10/17/POI2012/</url>
-    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
+    <title>FWT 小结</title>
+    <url>/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/</url>
+    <content><![CDATA[<p>FWT 是快速求形如 <span class="math inline">\(C(x)=\sum_{i?j=x}A(i)B(j)\)</span> 的算法，其中 <span class="math inline">\(?\)</span> 表示一种二进制的位运算。</p>
 <a id="more"></a>
-<h5 id="distance">Distance</h5>
-<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
-<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
-<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
-<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
-<h5 id="cloakroom">Cloakroom</h5>
-<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
-<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
-<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
-<h5 id="a-horrible-poem">A Horrible Poem</h5>
-<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
-<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
-<p>画图就可以很显然的看出这个性质。</p>
-<p>判断字符串相等直接用哈希。</p>
-<p>需要卡常。</p>
-<h5 id="fibonacci-representation">Fibonacci Representation</h5>
-<p>先把这个数用斐波那契数拆分。</p>
-<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
-<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
-<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
+<h4 id="原理">原理</h4>
+<p>其实 FWT 背板挺容易的，但是因为考试趋向越来越本质化，所以我们要逐渐开始了解一些原来背板算法的原理。</p>
+<p>类似于 FFT，我们考虑从最本源的地方来了解 FWT——构造一种线性变换 <span class="math inline">\(A\rightarrow A&#39;\)</span>，使得 <span class="math inline">\(C&#39;(x)=A&#39;(x)B&#39;(x)\)</span>，这样去掉线性变换的复杂度，总复杂度是 <span class="math inline">\(O(len)\)</span> 的。需要注意的是，这里的 <span class="math inline">\(A,B,C\)</span> 需要做同一种线性变换。</p>
+<p>因为我们所做的是线性变换（即只存在加减），那么在 <span class="math inline">\(A&#39;\)</span> 中，我们可以把 <span class="math inline">\(A\)</span> 中每个数对它的贡献用一个系数表示，即 <span class="math inline">\(A&#39;(x)=\sum_i f(x,i)A(i)\)</span>。</p>
+<p>那么 <span class="math inline">\(C&#39;(x)=\sum_i f(x,i)C(i)=\sum_if(x,i)\sum_{j?k=i}A(j)B(k)\)</span>，<span class="math inline">\(A&#39;(x)B&#39;(x)=\sum_if(x,i)A(i)\sum_jf(x,j)B(j)\)</span>。整理得 <span class="math inline">\(\sum_i\sum_jf(x,i?j)A(i)B(j)=\sum_i\sum_jf(x,i)f(x,j)A(i)B(j)\)</span>。故有 <span class="math inline">\(f(x,i?j)=f(x,i)f(x,j)\)</span>。</p>
+<p>也就是说我们需要构造 <span class="math inline">\(f(x,i)\)</span>，使得它满足上述需求。</p>
+<p>对于或操作，有 <span class="math inline">\(f(x,i \text{ or }j)=f(x,i)f(x,j)\)</span>，不难发现 <span class="math inline">\(i\text{ or }j\in x\Leftrightarrow i\in x\and j\in x\)</span>，那么设 <span class="math inline">\(f(x,i)=[i\in x]\)</span> 即可。</p>
+<p>对于与操作，有 <span class="math inline">\(f(x,i\text{ and }j)=f(x,i)f(x,j)\)</span>，和或相似的，<span class="math inline">\(x\in i\text{ and }j\Leftrightarrow x\in i\and x\in j\)</span>。<span class="math inline">\(f(x,i)=[x\in i]\)</span>。</p>
+<p>对于异或操作，这可能就有些麻烦。我们需要挖掘一些异或的性质。对于两个数 <span class="math inline">\(x,y\)</span>，显然 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(y\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\(x \text{ xor } y\)</span> 的相同。而与和异或有恒等式 <span class="math inline">\((x\text{ xor } y)\text{ and } z=(x\text{ and }z)\text{ xor }(y\text{ and }z)\)</span>（不难证明），所以 <span class="math inline">\(i\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(j\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\((i\text{ and }x)\text{ xor }(j\text{ and }x)=(i\text{ xor } j)\text{ and } x\)</span> 的相同，而奇偶性的区分加减我们一般用 <span class="math inline">\((-1)^k\)</span> ，所以设 <span class="math inline">\(f(x,i)=(-1)^{|x \text { and }i|}\)</span> 即可。</p>
+<h4 id="实现">实现</h4>
+<p>下面只讨论 FWT，对于 IFWT，其就是 FWT 的逆向过程。</p>
+<p>考虑按位计算贡献。</p>
+<p>设 <span class="math inline">\(f_k(S)\)</span> 表示对于 <span class="math inline">\(S\)</span>，已经计算了前 <span class="math inline">\(k\)</span> 位任意，后面位数严格和 <span class="math inline">\(S\)</span> 相等且暂未考虑其对贡献的影响的贡献。考虑从 <span class="math inline">\(f_k(S)\)</span> 推到 <span class="math inline">\(f_{k+1}(S)\)</span>。</p>
+<p>考虑每个数对 <span class="math inline">\(u,v\)</span> 互相的贡献，其中 <span class="math inline">\(u,v\)</span> 仅在第 <span class="math inline">\(k+1\)</span> 位不同，为了方便，设 <span class="math inline">\(u&lt;v\)</span>。</p>
+<p>对于或，<span class="math inline">\(f_k(u)\)</span> 中存的是后面位数和 <span class="math inline">\(u\)</span> 相等，<span class="math inline">\(1\sim k\)</span> 位是 <span class="math inline">\(u\)</span> 子集的数的贡献，<span class="math inline">\(f_k(v)\)</span> 同理，那么显然考虑了第 <span class="math inline">\(k+1\)</span> 位后，<span class="math inline">\(f_{k+1}(u)=f_k(u)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(u)+f_k(v)\)</span>。</p>
+<p>类似的，对于与，<span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(v)\)</span>。</p>
+<p>对于异或，<span class="math inline">\(u\)</span> 在 <span class="math inline">\(k+1\)</span> 位对数的符号没有影响，而 <span class="math inline">\(v\)</span> 在 <span class="math inline">\(k+1\)</span> 位对 <span class="math inline">\(k+1\)</span> 位为 <span class="math inline">\(1\)</span> 的数的符号有一个 <span class="math inline">\(-1\)</span> 的影响（因为之前没有考虑这一位对答案贡献的影响），所以 <span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span>，<span class="math inline">\(f_{k+1}(v)=f_k(u)-f_k(v)\)</span>。</p>
+<p>这样就能在 <span class="math inline">\(O(len\log len)\)</span> 的时间内对于 <span class="math inline">\(A\)</span> 求得 <span class="math inline">\(A&#39;\)</span>。而逆变化就是正变化的相反操作，在此就不再赘述。</p>
 ]]></content>
       <tags>
-        <tag>POI</tag>
+        <tag>FWT</tag>
+        <tag>多项式</tag>
       </tags>
   </entry>
   <entry>
@@ -504,24 +504,40 @@
       </tags>
   </entry>
   <entry>
-    <title>[ZJOI2019]开关 题解</title>
-    <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
-<p>设 <span class="math inline">\(f(S)\)</span> 表示从初始状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p>
-<p>那么显然有 <span class="math inline">\(f(S)=\begin{cases}0\\\sum dfsfd\end{cases}\)</span></p>
-]]></content>
-      <tags>
-        <tag>FWT</tag>
-        <tag>多项式</tag>
-        <tag>期望概率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>diary</title>
     <url>/2020/10/06/diary/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <tags>
         <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ZJOI2019]开关 题解</title>
+    <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
+<p>为了方便，设 <span class="math inline">\(p_i\)</span> 为 <span class="math inline">\(i\)</span> 被选的概率，对应到输入即 <span class="math inline">\(\frac{p_i}{\sum_{j=1}^n p_j}\)</span> 。</p>
+<p>设 <span class="math inline">\(f(S)\)</span> 表示从 <span class="math inline">\(S\)</span> 状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p>
+<p>那么显然有<a id="more"></a> <span class="math inline">\(f(S)=\begin{cases}0&amp;S=\varnothing\\1+\sum p_if_{S \text{ xor } i}&amp;S\not=\varnothing\end{cases}\)</span>。</p>
+<p>如果把 <span class="math inline">\(f(S)\)</span> 看做是集合幂级数 <span class="math inline">\(F=\sum_S f(S)x^S\)</span>，下半部分的 <span class="math inline">\(\sum\)</span> 可以看做是一个异或卷积（更多有关位运算的卷积，可以参考<a href="https://daniel-yuan.github.io/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/#more">我的另一篇博客</a>），那么我们设另一个集合幂级数 <span class="math inline">\(G=\sum_S g(S)x^S\)</span>，其中 <span class="math inline">\(g(S)\)</span> 在 <span class="math inline">\(S\)</span> 中仅含一个元素 <span class="math inline">\(k\)</span> 的时候为 <span class="math inline">\(p_k\)</span>，否则为 <span class="math inline">\(0\)</span>。那么下半部分的 <span class="math inline">\(\sum\)</span> 就可以看做是 <span class="math inline">\(F*G\)</span>。</p>
+<p>不看 <span class="math inline">\(\varnothing\)</span>，我们有 <span class="math inline">\(F*G+1=F\)</span>，即 <span class="math inline">\(F*(G-1)=-1\)</span>，为了方便，把 <span class="math inline">\(g(S)\)</span> 做一个微调，即 <span class="math inline">\(g(S)=\begin{cases}-1&amp;S=\varnothing\\p_i&amp;|S|=1,S\text{ 中的元素为 }i\\0&amp;|S|&gt;1\end{cases}\)</span>。这样在不考虑 <span class="math inline">\(\varnothing\)</span> 的时候，<span class="math inline">\(F*G=-1\)</span>。</p>
+<p>考虑 <span class="math inline">\(F*G\)</span> 的 <span class="math inline">\(\varnothing\)</span> 项是什么，我们可以知道 <span class="math inline">\(\sum_i(F*G)(i)=\sum_{i,j} F(i)G(j)\)</span>，因为 <span class="math inline">\(\sum_iG(i)=0\)</span>，所以右边为 <span class="math inline">\(0\)</span>，所以 <span class="math inline">\(\sum_i(F*G)(i)=0\)</span>，所以可以推出 <span class="math inline">\((F*G)(\varnothing)=2^n-1\)</span>。</p>
+<p>设 <span class="math inline">\(H=F*G\)</span>，那么就有 <span class="math inline">\(h(S)=\begin{cases}2^n-1&amp;S=\varnothing\\-1&amp;S\not=\varnothing\end{cases}\)</span>。</p>
+<p><span class="math inline">\(G,H\)</span> 我们都知道，考虑反推 <span class="math inline">\(F\)</span>。</p>
+<p>设 <span class="math inline">\(FWTX\)</span> 为集合幂级数 <span class="math inline">\(X\)</span> 在 <span class="math inline">\(FWT\)</span> 之后的结果。根据异或卷积 <span class="math inline">\(FWT\)</span> 的公式（在上面给出的博客有详细介绍）<span class="math inline">\(F(i)=\sum_j(-1)^{|i\text{ and }j|}F(j)\)</span>，不难得到 <span class="math inline">\(FWTG(S)=\begin{cases}0&amp;S=\varnothing\\\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1&amp;S\not=\varnothing\end{cases}\)</span>，<span class="math inline">\(FWTH(S)=\begin{cases}0&amp;S=\varnothing\\2^n&amp;S\not=\varnothing\end{cases}\)</span>。对于前者，就是照搬式子，然后在 <span class="math inline">\(S=\varnothing\)</span> 处特别展开一下。对于后者，<span class="math inline">\(S=\varnothing\)</span> 的部分是 <span class="math inline">\(H(S)\)</span> 全部相加显然为 <span class="math inline">\(0\)</span>，而其它位置，对 <span class="math inline">\(FWTH(S)\)</span> 贡献为正的 <span class="math inline">\(H(S)\)</span> 和负的 <span class="math inline">\(H(S)\)</span> 应该各占一半，而 <span class="math inline">\(H(\varnothing)\)</span> 的贡献为正，那么剩下的部分相加就应该是 <span class="math inline">\((-1)\times(-1)\)</span>，再加上 <span class="math inline">\(H(\varnothing)\)</span> 就为 <span class="math inline">\(2^n\)</span>。</p>
+<p>那么我们可以很轻易的得到，在 <span class="math inline">\(S\not=\varnothing\)</span> 时， <span class="math inline">\(FWTF(S)=\frac{2^n}{\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1}\)</span>，而当 <span class="math inline">\(S=\varnothing\)</span> 的时候，<span class="math inline">\(FWTF(S)\)</span> 用除法求就 <span class="math inline">\(\text{nan}\)</span> 了，所以需要特别处理。</p>
+<p>考虑在 <span class="math inline">\(\sum_SFWTF(S)\)</span> 中每个 <span class="math inline">\(F(S)\)</span> 的贡献，假设 <span class="math inline">\(|S|=X\)</span>，枚举 <span class="math inline">\(|S \text{ and } T|\)</span>，那么就有 <span class="math inline">\(\sum_k(-1)^kC_X^k2^{n-X}=2^{n-X}[X=0]\)</span>，其中 <span class="math inline">\(C_x^y\)</span> 表示组合数（后同）。所以 <span class="math inline">\(\sum_S FWTF(S)=2^nF(\varnothing)\)</span>，而上文有 <span class="math inline">\(F(\varnothing)=0\)</span>，所以 <span class="math inline">\(\sum_S FWTF(S)=0\)</span>。所以 <span class="math inline">\(FWTF(\varnothing)\)</span> 就是 <span class="math inline">\(-\sum_{S\not=\varnothing}FWTF(S)\)</span>。</p>
+<p>根据上面推导，我们也可以知道 <span class="math inline">\(F(S)=\frac{1}{2^n}\sum_T(-1)^{|S\text{ and }T|}FWTF(T)\)</span>。（原理也是 <span class="math inline">\(\sum_k(-1)^kC_X^k=[X=0]\)</span>）。</p>
+<p>把 <span class="math inline">\(\varnothing\)</span> 单独考虑，那么就有 <span class="math inline">\(F(S)=\sum_{T\not=\varnothing}(\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p}-(-1)^{|S\text{ and }T|}\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p})\)</span>。</p>
+<p>把左右相抵的去掉，稍加整理，有 <span class="math inline">\(F(S)=\sum_{(-1)^{T\text{ and } S}=-1}\frac{2}{2\sum_{|U|=1}p[|U\text{ and }T|=1]}\)</span>。</p>
+<p>最后就是一个简单 DP 了<del>（不会吧不会吧，推到这里还不会 DP？）</del>。</p>
+<p>设 <span class="math inline">\(dp_{i,j,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 个开关，分子总和为 <span class="math inline">\(j\)</span>，交的奇偶性为 <span class="math inline">\(0/1\)</span> 的方案数。转移显然，总复杂度 <span class="math inline">\(O(n\sum p)\)</span>。</p>
+<p>贴个代码。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> p[MAXN], s[MAXN], sum[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">50005</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y - mod; x += (x &gt;&gt; <span class="number">31</span>) &amp; mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> re = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = <span class="number">1l</span>l * a * a % mod)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = <span class="number">1l</span>l * re * a % mod;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; p[i], sum[i] = sum[i - <span class="number">1</span>] + p[i];</span><br><span class="line">  f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (RI j = p[i]; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">0</span> ^ s[i]]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">1</span> ^ s[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">0</span>; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j][<span class="number">0</span>]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j][<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt;= sum[n]; ++i)</span><br><span class="line">    Add(ans, <span class="number">1l</span>l * sum[n] * f[n][i][<span class="number">1</span>] % mod * qpow(i, mod - <span class="number">2</span>) % mod);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>FWT</tag>
+        <tag>多项式</tag>
+        <tag>期望概率</tag>
       </tags>
   </entry>
   <entry>
@@ -556,49 +572,6 @@
 ]]></content>
       <tags>
         <tag>多项式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于莫比乌斯函数的一些小技巧</title>
-    <url>/2020/09/26/%E5%85%B3%E4%BA%8E%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<p>总结一些有关莫比乌斯函数的应用以及一些数论方面的东西。</p>
-<a id="more"></a>
-<h3 id="kgcdxy-leftrightarrow-kx-text-and-ky">1. <span class="math inline">\(k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y\)</span></h3>
-<p>这个 trick 比较显然，不过还是小小的证明一下。</p>
-<p>因为 <span class="math inline">\(\gcd(x,y)\)</span> 同时整除 <span class="math inline">\(x,y\)</span>，所以满足左边一定满足右边。因为 <span class="math inline">\(\gcd(x,y)\)</span> 是最大公因数，如果满足右边而不满足左边，那么一定存在一个 <span class="math inline">\(z\)</span> 使得 <span class="math inline">\(\gcd(x,y)\times z\)</span> 也是 <span class="math inline">\(x,y\)</span> 的公因数，和最大公因数的定义矛盾。</p>
-<p>因此，若有式子 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\sum_{k|\gcd(x,y)}\mu(k)\)</span>，后面的 <span class="math inline">\(k|\gcd(x,y)\)</span> 就可以换成 <span class="math inline">\(k|x\text{ and }k|y\)</span>，这样的话就可以交换求和符号把 <span class="math inline">\(k\)</span> 提前了。</p>
-<p>这个 trick 对于 <span class="math inline">\(\gcd\)</span> 内有多个元素同样有效。</p>
-<h3 id="若要计算-fgcdxy可以设-fnsum_dngd-来化简式子">2. 若要计算 <span class="math inline">\(f(\gcd(x,y))\)</span>，可以设 <span class="math inline">\(f(n)=\sum_{d|n}g(d)\)</span> 来化简式子。</h3>
-<p>举个简单的例子，我们需要计算 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\gcd(i,j)\)</span>。</p>
-<p>当然，这个并不典型，而且大多数人都会枚举 <span class="math inline">\(\gcd\)</span> 做，不过我们现在使用当前的这个 trick 来解决这个问题。</p>
-<p>我们设 <span class="math inline">\(f(n)=n\)</span>，且 <span class="math inline">\(f(n)=\sum_{d|n}g(d)\)</span>，那么原式就变成了 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\sum_{d|\gcd(x,y)}g(d)\)</span> 。然后就可以通过 trick 1 交换求和符号把 <span class="math inline">\(d\)</span> 提前了。而根据莫比乌斯反演，我们可以知道 <span class="math inline">\(g(n)=\sum_{d|n}f(d)\mu(\frac{n}{d})\)</span>（在该例题中恰好是 <span class="math inline">\(\mu*id=\varphi\)</span>），那么也可以很快地计算出 <span class="math inline">\(g\)</span>。这样就通过这个 trick 达到了简化式子的效果，而且在一些情况下比直接枚举 <span class="math inline">\(\gcd\)</span> 再把式子化来化去简单。</p>
-<p>同样的，这个 trick 对于 <span class="math inline">\(\gcd\)</span> 内有多个元素同样有效。</p>
-<h3 id="设-dx-为-x-的因子个数那么-dntimes-msum_xnsum_ymgcdxy1">3. 设 <span class="math inline">\(d(x)\)</span> 为 <span class="math inline">\(x\)</span> 的因子个数，那么 <span class="math inline">\(d(n\times m)=\sum_{x|n}\sum_{y|m}[\gcd(x,y)=1]\)</span>。</h3>
-<p>可以发现，把所有合法的 <span class="math inline">\(x,y\)</span> 拿出来，然后列出所有的 <span class="math inline">\(x\times \frac{m}{y}\)</span>，这就是所有 <span class="math inline">\(n\times m\)</span> 的因子。</p>
-<p>肯定不能感性的就这么理解，考虑严谨一点点的证明。</p>
-<p><strong>先证明每个因子一定存在一种方式可以得到。</strong></p>
-<p>我们假设 <span class="math inline">\(n=\prod p_i^{a_i},m=\prod p_i^{b_i}\)</span>，设某个 <span class="math inline">\(n\times m\)</span> 的因子 <span class="math inline">\(d=\prod p_i^{c_i}\)</span> 。对于 <span class="math inline">\(d\)</span> 的某个质因子及其次幂 <span class="math inline">\(p_i^{c_i}\)</span>，以及对应的 <span class="math inline">\(n,m\)</span> 的质因子及其次幂 <span class="math inline">\(p_i^{a_i},p_i^{b_i}\)</span>。分两种情况讨论。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(c_i\leq b_i\)</span>，则使 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(0\)</span>，<span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(b_i-c_i\)</span>。这样在 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\((0)+(b_i-(b_i-c_i))=c_i\)</span>，且 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(p_i^{\min(0,b_i-c_i)=0}=1\)</span>。</li>
-<li>若 <span class="math inline">\(c_i&gt;b_i\)</span>，又因为 <span class="math inline">\(c_i\leq a_i+b_i\)</span>，所以 <span class="math inline">\(c_i-b_i\leq a_i\)</span>，则使 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(c_i-b_i\)</span>，<span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(0\)</span>。这样在 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\((c_i-b_i)+(b_i-0)=c_i\)</span>。且 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(p_i^{\min(c_i-b_i,0)=0}=1\)</span></li>
-</ol>
-<p>这样的话，对于因子 <span class="math inline">\(d\)</span> 的每个 <span class="math inline">\(p_i\)</span> 都这么构造一下即可。</p>
-<p><strong>再证明每个因子只能由这一种方式得到。</strong></p>
-<p>根据上一部分的证明，不能发现这个性质其实是显然的。不过还是简要说一下。</p>
-<p>对于上文的情况 1，若要使 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(1\)</span>，而 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂 <span class="math inline">\(\not=0\)</span>，那么 <span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂必须为 <span class="math inline">\(0\)</span>，而此时 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂最小为 <span class="math inline">\((1)+(b_i-0)=b_i+1&gt; b_i\geq c_i\)</span>，故构造不出 <span class="math inline">\(c_i\)</span>。</p>
-<p>对于上文的情况 2，若要使 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(1\)</span>，而 <span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂 <span class="math inline">\(\not=0\)</span>，那么 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂必须为 <span class="math inline">\(0\)</span>，而此时 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂最大为 <span class="math inline">\((0)+(b_i-1)=b_i-1&lt;b_i&lt;c_i\)</span>，故构造不出 <span class="math inline">\(c_i\)</span>。</p>
-<p>综上就可以证明这个 trick。</p>
-<p>同样的，这个 trick 对于多个元素的乘积同样有效，即：</p>
-<p><span class="math inline">\(d(\prod a_i)=\sum_{b_1|a_1}\sum_{b_2|a_2}...[\gcd(b_1,b_2)=1][\gcd(b_1,b_3)=1][\gcd(b_2,b_3)=1]...\)</span>。</p>
-<h3 id="若求和式中出现枚举-xy-且涉及到了-xy-时大多数时候需要改变思路枚举-xy">4. 若求和式中出现枚举 <span class="math inline">\(x,y\)</span> 且涉及到了 <span class="math inline">\(xy\)</span> 时，大多数时候需要改变思路枚举 <span class="math inline">\(xy\)</span>。</h3>
-<p>其实这个是一个十分普遍的小 trick。</p>
-<p>还是用那个老到不能再老的例子举例，求 <span class="math inline">\(\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)\)</span>。</p>
-<p>我们来枚举 <span class="math inline">\(\gcd\)</span>，然后变化一下就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}[\gcd(i,j)=1]\)</span> 。根据常识，就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)\lfloor\frac{n}{kd}\rfloor\lfloor\frac{n}{kd}\rfloor\)</span>，直接这么做就是 <span class="math inline">\(n\log n\)</span> 的，而且对于 <span class="math inline">\(n\)</span> 很大或者是多组询问不太好优化。</p>
-<p>我们发现求和式中出现了 <span class="math inline">\(d\)</span>，也出现了 <span class="math inline">\(k\)</span>，同时涉及到了 <span class="math inline">\(dk\)</span>，那么考虑设 <span class="math inline">\(T=dk\)</span>，我们来枚举 <span class="math inline">\(T\)</span>，就有 <span class="math inline">\(\sum_{T=1}^n\lfloor\frac{n}{T}\rfloor\lfloor\frac{n}{T}\rfloor\sum_{k|T}\mu(k)\frac{T}{k}\)</span>。这样的话，有个求和变成了狄利克雷卷积，而一般来说卷出来的东西是积性函数。这样的话，前面的东西就可以用整数分块，而后面的东西可以线性筛预处理，或者使用亚线性筛直接求。这样大大加快了代码运行的时间。</p>
-]]></content>
-      <tags>
-        <tag>数论</tag>
-        <tag>莫比乌斯函数</tag>
       </tags>
   </entry>
   <entry>
@@ -656,6 +629,49 @@
       <tags>
         <tag>DP</tag>
         <tag>多项式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于莫比乌斯函数的一些小技巧</title>
+    <url>/2020/09/26/%E5%85%B3%E4%BA%8E%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<p>总结一些有关莫比乌斯函数的应用以及一些数论方面的东西。</p>
+<a id="more"></a>
+<h3 id="kgcdxy-leftrightarrow-kx-text-and-ky">1. <span class="math inline">\(k|\gcd(x,y) \Leftrightarrow k|x \text{ and } k|y\)</span></h3>
+<p>这个 trick 比较显然，不过还是小小的证明一下。</p>
+<p>因为 <span class="math inline">\(\gcd(x,y)\)</span> 同时整除 <span class="math inline">\(x,y\)</span>，所以满足左边一定满足右边。因为 <span class="math inline">\(\gcd(x,y)\)</span> 是最大公因数，如果满足右边而不满足左边，那么一定存在一个 <span class="math inline">\(z\)</span> 使得 <span class="math inline">\(\gcd(x,y)\times z\)</span> 也是 <span class="math inline">\(x,y\)</span> 的公因数，和最大公因数的定义矛盾。</p>
+<p>因此，若有式子 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\sum_{k|\gcd(x,y)}\mu(k)\)</span>，后面的 <span class="math inline">\(k|\gcd(x,y)\)</span> 就可以换成 <span class="math inline">\(k|x\text{ and }k|y\)</span>，这样的话就可以交换求和符号把 <span class="math inline">\(k\)</span> 提前了。</p>
+<p>这个 trick 对于 <span class="math inline">\(\gcd\)</span> 内有多个元素同样有效。</p>
+<h3 id="若要计算-fgcdxy可以设-fnsum_dngd-来化简式子">2. 若要计算 <span class="math inline">\(f(\gcd(x,y))\)</span>，可以设 <span class="math inline">\(f(n)=\sum_{d|n}g(d)\)</span> 来化简式子。</h3>
+<p>举个简单的例子，我们需要计算 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\gcd(i,j)\)</span>。</p>
+<p>当然，这个并不典型，而且大多数人都会枚举 <span class="math inline">\(\gcd\)</span> 做，不过我们现在使用当前的这个 trick 来解决这个问题。</p>
+<p>我们设 <span class="math inline">\(f(n)=n\)</span>，且 <span class="math inline">\(f(n)=\sum_{d|n}g(d)\)</span>，那么原式就变成了 <span class="math inline">\(\sum_{x=1}^n\sum_{y=1}^m\sum_{d|\gcd(x,y)}g(d)\)</span> 。然后就可以通过 trick 1 交换求和符号把 <span class="math inline">\(d\)</span> 提前了。而根据莫比乌斯反演，我们可以知道 <span class="math inline">\(g(n)=\sum_{d|n}f(d)\mu(\frac{n}{d})\)</span>（在该例题中恰好是 <span class="math inline">\(\mu*id=\varphi\)</span>），那么也可以很快地计算出 <span class="math inline">\(g\)</span>。这样就通过这个 trick 达到了简化式子的效果，而且在一些情况下比直接枚举 <span class="math inline">\(\gcd\)</span> 再把式子化来化去简单。</p>
+<p>同样的，这个 trick 对于 <span class="math inline">\(\gcd\)</span> 内有多个元素同样有效。</p>
+<h3 id="设-dx-为-x-的因子个数那么-dntimes-msum_xnsum_ymgcdxy1">3. 设 <span class="math inline">\(d(x)\)</span> 为 <span class="math inline">\(x\)</span> 的因子个数，那么 <span class="math inline">\(d(n\times m)=\sum_{x|n}\sum_{y|m}[\gcd(x,y)=1]\)</span>。</h3>
+<p>可以发现，把所有合法的 <span class="math inline">\(x,y\)</span> 拿出来，然后列出所有的 <span class="math inline">\(x\times \frac{m}{y}\)</span>，这就是所有 <span class="math inline">\(n\times m\)</span> 的因子。</p>
+<p>肯定不能感性的就这么理解，考虑严谨一点点的证明。</p>
+<p><strong>先证明每个因子一定存在一种方式可以得到。</strong></p>
+<p>我们假设 <span class="math inline">\(n=\prod p_i^{a_i},m=\prod p_i^{b_i}\)</span>，设某个 <span class="math inline">\(n\times m\)</span> 的因子 <span class="math inline">\(d=\prod p_i^{c_i}\)</span> 。对于 <span class="math inline">\(d\)</span> 的某个质因子及其次幂 <span class="math inline">\(p_i^{c_i}\)</span>，以及对应的 <span class="math inline">\(n,m\)</span> 的质因子及其次幂 <span class="math inline">\(p_i^{a_i},p_i^{b_i}\)</span>。分两种情况讨论。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(c_i\leq b_i\)</span>，则使 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(0\)</span>，<span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(b_i-c_i\)</span>。这样在 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\((0)+(b_i-(b_i-c_i))=c_i\)</span>，且 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(p_i^{\min(0,b_i-c_i)=0}=1\)</span>。</li>
+<li>若 <span class="math inline">\(c_i&gt;b_i\)</span>，又因为 <span class="math inline">\(c_i\leq a_i+b_i\)</span>，所以 <span class="math inline">\(c_i-b_i\leq a_i\)</span>，则使 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(c_i-b_i\)</span>，<span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\(0\)</span>。这样在 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂为 <span class="math inline">\((c_i-b_i)+(b_i-0)=c_i\)</span>。且 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(p_i^{\min(c_i-b_i,0)=0}=1\)</span></li>
+</ol>
+<p>这样的话，对于因子 <span class="math inline">\(d\)</span> 的每个 <span class="math inline">\(p_i\)</span> 都这么构造一下即可。</p>
+<p><strong>再证明每个因子只能由这一种方式得到。</strong></p>
+<p>根据上一部分的证明，不能发现这个性质其实是显然的。不过还是简要说一下。</p>
+<p>对于上文的情况 1，若要使 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(1\)</span>，而 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂 <span class="math inline">\(\not=0\)</span>，那么 <span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂必须为 <span class="math inline">\(0\)</span>，而此时 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂最小为 <span class="math inline">\((1)+(b_i-0)=b_i+1&gt; b_i\geq c_i\)</span>，故构造不出 <span class="math inline">\(c_i\)</span>。</p>
+<p>对于上文的情况 2，若要使 <span class="math inline">\(p_i\)</span> 在 <span class="math inline">\(\gcd\)</span> 中的贡献为 <span class="math inline">\(1\)</span>，而 <span class="math inline">\(y\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂 <span class="math inline">\(\not=0\)</span>，那么 <span class="math inline">\(x\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂必须为 <span class="math inline">\(0\)</span>，而此时 <span class="math inline">\(x\times \frac{m}{y}\)</span> 中 <span class="math inline">\(p_i\)</span> 的次幂最大为 <span class="math inline">\((0)+(b_i-1)=b_i-1&lt;b_i&lt;c_i\)</span>，故构造不出 <span class="math inline">\(c_i\)</span>。</p>
+<p>综上就可以证明这个 trick。</p>
+<p>同样的，这个 trick 对于多个元素的乘积同样有效，即：</p>
+<p><span class="math inline">\(d(\prod a_i)=\sum_{b_1|a_1}\sum_{b_2|a_2}...[\gcd(b_1,b_2)=1][\gcd(b_1,b_3)=1][\gcd(b_2,b_3)=1]...\)</span>。</p>
+<h3 id="若求和式中出现枚举-xy-且涉及到了-xy-时大多数时候需要改变思路枚举-xy">4. 若求和式中出现枚举 <span class="math inline">\(x,y\)</span> 且涉及到了 <span class="math inline">\(xy\)</span> 时，大多数时候需要改变思路枚举 <span class="math inline">\(xy\)</span>。</h3>
+<p>其实这个是一个十分普遍的小 trick。</p>
+<p>还是用那个老到不能再老的例子举例，求 <span class="math inline">\(\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)\)</span>。</p>
+<p>我们来枚举 <span class="math inline">\(\gcd\)</span>，然后变化一下就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}[\gcd(i,j)=1]\)</span> 。根据常识，就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)\lfloor\frac{n}{kd}\rfloor\lfloor\frac{n}{kd}\rfloor\)</span>，直接这么做就是 <span class="math inline">\(n\log n\)</span> 的，而且对于 <span class="math inline">\(n\)</span> 很大或者是多组询问不太好优化。</p>
+<p>我们发现求和式中出现了 <span class="math inline">\(d\)</span>，也出现了 <span class="math inline">\(k\)</span>，同时涉及到了 <span class="math inline">\(dk\)</span>，那么考虑设 <span class="math inline">\(T=dk\)</span>，我们来枚举 <span class="math inline">\(T\)</span>，就有 <span class="math inline">\(\sum_{T=1}^n\lfloor\frac{n}{T}\rfloor\lfloor\frac{n}{T}\rfloor\sum_{k|T}\mu(k)\frac{T}{k}\)</span>。这样的话，有个求和变成了狄利克雷卷积，而一般来说卷出来的东西是积性函数。这样的话，前面的东西就可以用整数分块，而后面的东西可以线性筛预处理，或者使用亚线性筛直接求。这样大大加快了代码运行的时间。</p>
+]]></content>
+      <tags>
+        <tag>数论</tag>
+        <tag>莫比乌斯函数</tag>
       </tags>
   </entry>
   <entry>
@@ -817,97 +833,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据结构总结</title>
-    <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>数据结构的一些小 trick。</p>
-<a id="more"></a>
-<h3 id="并查集">并查集</h3>
-<h4 id="支持撤销">支持撤销</h4>
-<p>每次合并的时候按照集合的大小进行启发式合并，并且用一个操作栈记录本次操作。</p>
-<p>在撤销一次操作的时候，只需要按照记录还原并查集即可。</p>
-<p>合并查询操作单次 <span class="math inline">\(O(\log n)\)</span>，撤销操作单次 <span class="math inline">\(O(1)\)</span>。这种并查集在一些离线算法下有大用处。</p>
-<h4 id="维护不可逆的覆盖操作">维护不可逆的覆盖操作</h4>
-<p>考虑这么一道题目：给一棵 <span class="math inline">\(n\)</span> 个点的树，有 <span class="math inline">\(m\)</span> 次操作，每次操作会把一条路径上的点染色，且颜色会覆盖之前染的颜色，求最后每个点的颜色，不强制在线。<span class="math inline">\(n\leq 10^6,m\leq 5\times 10^6\)</span>。</p>
-<p>一种 naive 的思想是用树链剖分和线段树维护颜色，但是这样是 <span class="math inline">\(m\log^2 n\)</span> 的。</p>
-<p>考虑把操作倒序，那么每次执行的是不可逆的染色操作。</p>
-<p>对每个点维护并查集，表示它到根路径上第一个需要被染色的点是什么，一开始显然指向自己。</p>
-<p>如果一个点被染色了，那么就把它的边连向它父亲。每次染色就直接按照并查集的链接暴力跳，然后染色即可。</p>
-<p>因为每个点最多被染色一次，在并查集使用 <span class="math inline">\(n\alpha(n)\)</span> 复杂度的版本下，总复杂度仅为 <span class="math inline">\(O(n\alpha(n))\)</span>。</p>
-<p>这个 trick 虽然可能不会单独成题，但是可能会被穿插到一些题目中。它对复杂度的优化还是挺大的。</p>
-<h3 id="栈">栈</h3>
-<h4 id="对顶栈">对顶栈</h4>
-<p>例题：你需要动态维护一个长度为 <span class="math inline">\(n\)</span> 序列，有 <span class="math inline">\(q\)</span> 个操作，每个操作为头尾加删元素或查询一些信息。</p>
-<p>假设只能从尾部加删，那么我们就可以维护一个类似于栈的东西，每次加进来一个就把它压入栈，并更新一些信息，删掉一个就把它从栈弹掉，并把信息复原。</p>
-<p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
-<p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
-<p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
-<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
-<h4 id="栈-1">2048 栈</h4>
-<p>因为没得名字，随手取了一个。（侵删）</p>
-<p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
-<p>这里就用 AC 自动机举例。</p>
-<p>维护一个栈，每个栈内的元素都是一个 AC 自动机，并且记录下 AC 自动机内的字符串数目。</p>
-<p>对于一次加入，就在栈顶加入一个新的 AC 自动机，内部保存这一次加入的这一个字符串。</p>
-<p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
-<p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
-<p>特别的，这个 trick 是可以在线维护的。</p>
-<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
-<h3 id="线段树">线段树</h3>
-<h4 id="时间和序列的对调">时间和序列的对调</h4>
-<p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
-<p>但是在某些问题中，它的操作是区间修改，查询是单点查询，这时候就有一个对调时间和序列的 trick 。</p>
-<p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
-<p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
-<p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
-<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
-<h4 id="懒信息">懒信息</h4>
-<p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
-<p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
-<p>在一些题目中，对于查询操作，如果各个区间的信息是独立的（也就是说并不需要把区间信息合并就可以得到答案），且合并区间信息的复杂度远大于通过单个区间的信息得到答案的复杂度，就可以把信息懒化。</p>
-<p>例题：维护一个序列，支持两个操作：往后面加一个数，查询 <span class="math inline">\(x\)</span> 在区间 <span class="math inline">\([l,r]\)</span> 的排名，操作数 <span class="math inline">\(\leq 10^5\)</span>，保证查询的时候序列长度大于等于 <span class="math inline">\(r\)</span>，强制在线。</p>
-<p>先设操作数为 <span class="math inline">\(n\)</span>，序列可能有 <span class="math inline">\(n\)</span> 这么长，所以先开一个长度为 <span class="math inline">\(n\)</span> 的线段树。</p>
-<p>每个点维护一个有序的序列，表示它控制区间内的数排序之后的结果。</p>
-<p>不难发现每层最多 <span class="math inline">\(n\)</span> 个数，一共 <span class="math inline">\(\log n\)</span> 层，所以空间复杂度 <span class="math inline">\(n \log n\)</span>。</p>
-<p>对于每次往后面加数，就把对应位置的数进行更改，并且往上更新，更新的规则是这样的：如果一个点的儿子是满的，那么就更新它，否则就不更新它。</p>
-<p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
-<p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
-<p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
-<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
-<h3 id="平衡树">平衡树</h3>
-<h4 id="替罪羊树">替罪羊树</h4>
-<p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
-<p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
-<p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
-<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
-<h3 id="根号算法">根号算法</h3>
-<h4 id="根号分治">根号分治</h4>
-<p>应该是一个比较普及的 trick。</p>
-<p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
-<p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
-<p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
-<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
-<h4 id="时间分块">时间分块</h4>
-<p>似乎对时间轴操作的 trick 都挺重要的。</p>
-<p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
-<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
-<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
-<h4 id="操作分块定期重构">操作分块（定期重构）</h4>
-<p>也是一个比较妙的 trick。</p>
-<p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
-<p>这个 trick 的意思是先把所有的操作屯着，查询的时候可以先在原序列查，然后再去屯着的操作里面查。当屯着的操作达到一个上限的时候，就把它们一起放出来，把整个序列翻新一次。</p>
-<p>这个 trick 也不常见，不过其思想也十分有意义。</p>
-<h3 id="其它">其它</h3>
-<h4 id="树的坐标表示">树的坐标表示</h4>
-<p>其实也不是什么高科技，也就标题唬人。</p>
-<p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
-<p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
-<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
-]]></content>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>斐波那契数列相关</title>
     <url>/2020/11/27/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<p>设 <span class="math inline">\(F\)</span> 是斐波那契数列，其定义是对于 <span class="math inline">\(x\leq 2\)</span>，<span class="math inline">\(F(x)=1\)</span>；对于 <span class="math inline">\(x\geq 3\)</span>，<span class="math inline">\(F(x)=F(x-1)+F(x-2)\)</span>。</p>
@@ -1041,6 +966,115 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
+    <title>数据结构总结</title>
+    <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>数据结构的一些小 trick。</p>
+<a id="more"></a>
+<h3 id="并查集">并查集</h3>
+<h4 id="支持撤销">支持撤销</h4>
+<p>每次合并的时候按照集合的大小进行启发式合并，并且用一个操作栈记录本次操作。</p>
+<p>在撤销一次操作的时候，只需要按照记录还原并查集即可。</p>
+<p>合并查询操作单次 <span class="math inline">\(O(\log n)\)</span>，撤销操作单次 <span class="math inline">\(O(1)\)</span>。这种并查集在一些离线算法下有大用处。</p>
+<h4 id="维护不可逆的覆盖操作">维护不可逆的覆盖操作</h4>
+<p>考虑这么一道题目：给一棵 <span class="math inline">\(n\)</span> 个点的树，有 <span class="math inline">\(m\)</span> 次操作，每次操作会把一条路径上的点染色，且颜色会覆盖之前染的颜色，求最后每个点的颜色，不强制在线。<span class="math inline">\(n\leq 10^6,m\leq 5\times 10^6\)</span>。</p>
+<p>一种 naive 的思想是用树链剖分和线段树维护颜色，但是这样是 <span class="math inline">\(m\log^2 n\)</span> 的。</p>
+<p>考虑把操作倒序，那么每次执行的是不可逆的染色操作。</p>
+<p>对每个点维护并查集，表示它到根路径上第一个需要被染色的点是什么，一开始显然指向自己。</p>
+<p>如果一个点被染色了，那么就把它的边连向它父亲。每次染色就直接按照并查集的链接暴力跳，然后染色即可。</p>
+<p>因为每个点最多被染色一次，在并查集使用 <span class="math inline">\(n\alpha(n)\)</span> 复杂度的版本下，总复杂度仅为 <span class="math inline">\(O(n\alpha(n))\)</span>。</p>
+<p>这个 trick 虽然可能不会单独成题，但是可能会被穿插到一些题目中。它对复杂度的优化还是挺大的。</p>
+<h3 id="栈">栈</h3>
+<h4 id="对顶栈">对顶栈</h4>
+<p>例题：你需要动态维护一个长度为 <span class="math inline">\(n\)</span> 序列，有 <span class="math inline">\(q\)</span> 个操作，每个操作为头尾加删元素或查询一些信息。</p>
+<p>假设只能从尾部加删，那么我们就可以维护一个类似于栈的东西，每次加进来一个就把它压入栈，并更新一些信息，删掉一个就把它从栈弹掉，并把信息复原。</p>
+<p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
+<p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
+<p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
+<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
+<h4 id="栈-1">2048 栈</h4>
+<p>因为没得名字，随手取了一个。（侵删）</p>
+<p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
+<p>这里就用 AC 自动机举例。</p>
+<p>维护一个栈，每个栈内的元素都是一个 AC 自动机，并且记录下 AC 自动机内的字符串数目。</p>
+<p>对于一次加入，就在栈顶加入一个新的 AC 自动机，内部保存这一次加入的这一个字符串。</p>
+<p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
+<p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
+<p>特别的，这个 trick 是可以在线维护的。</p>
+<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
+<h3 id="线段树">线段树</h3>
+<h4 id="时间和序列的对调">时间和序列的对调</h4>
+<p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
+<p>但是在某些问题中，它的操作是区间修改，查询是单点查询，这时候就有一个对调时间和序列的 trick 。</p>
+<p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
+<p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
+<p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
+<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
+<h4 id="懒信息">懒信息</h4>
+<p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
+<p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
+<p>在一些题目中，对于查询操作，如果各个区间的信息是独立的（也就是说并不需要把区间信息合并就可以得到答案），且合并区间信息的复杂度远大于通过单个区间的信息得到答案的复杂度，就可以把信息懒化。</p>
+<p>例题：维护一个序列，支持两个操作：往后面加一个数，查询 <span class="math inline">\(x\)</span> 在区间 <span class="math inline">\([l,r]\)</span> 的排名，操作数 <span class="math inline">\(\leq 10^5\)</span>，保证查询的时候序列长度大于等于 <span class="math inline">\(r\)</span>，强制在线。</p>
+<p>先设操作数为 <span class="math inline">\(n\)</span>，序列可能有 <span class="math inline">\(n\)</span> 这么长，所以先开一个长度为 <span class="math inline">\(n\)</span> 的线段树。</p>
+<p>每个点维护一个有序的序列，表示它控制区间内的数排序之后的结果。</p>
+<p>不难发现每层最多 <span class="math inline">\(n\)</span> 个数，一共 <span class="math inline">\(\log n\)</span> 层，所以空间复杂度 <span class="math inline">\(n \log n\)</span>。</p>
+<p>对于每次往后面加数，就把对应位置的数进行更改，并且往上更新，更新的规则是这样的：如果一个点的儿子是满的，那么就更新它，否则就不更新它。</p>
+<p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
+<p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
+<p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
+<h3 id="平衡树">平衡树</h3>
+<h4 id="替罪羊树">替罪羊树</h4>
+<p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
+<p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
+<p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
+<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
+<h3 id="根号算法">根号算法</h3>
+<h4 id="根号分治">根号分治</h4>
+<p>应该是一个比较普及的 trick。</p>
+<p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
+<p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
+<p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
+<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
+<h4 id="时间分块">时间分块</h4>
+<p>似乎对时间轴操作的 trick 都挺重要的。</p>
+<p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
+<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
+<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
+<h4 id="操作分块定期重构">操作分块（定期重构）</h4>
+<p>也是一个比较妙的 trick。</p>
+<p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
+<p>这个 trick 的意思是先把所有的操作屯着，查询的时候可以先在原序列查，然后再去屯着的操作里面查。当屯着的操作达到一个上限的时候，就把它们一起放出来，把整个序列翻新一次。</p>
+<p>这个 trick 也不常见，不过其思想也十分有意义。</p>
+<h3 id="其它">其它</h3>
+<h4 id="树的坐标表示">树的坐标表示</h4>
+<p>其实也不是什么高科技，也就标题唬人。</p>
+<p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
+<p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
+<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
+]]></content>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用二进制模拟 K 进制</title>
+    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
+    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
+<a id="more"></a>
+<p>先考虑怎么用二进制模拟三进制。</p>
+<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
+<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
+<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
+<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
+<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
+<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
+]]></content>
+      <tags>
+        <tag>数位</tag>
+        <tag>进制</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>牛客练习赛 70 E 题解</title>
     <url>/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p><a href="https://ac.nowcoder.com/acm/contest/7509/E">题目链接</a></p>
@@ -1085,24 +1119,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
-    <title>用二进制模拟 K 进制</title>
-    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
-    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
-<a id="more"></a>
-<p>先考虑怎么用二进制模拟三进制。</p>
-<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
-<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
-<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
-<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
-<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
-<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
-]]></content>
-      <tags>
-        <tag>数位</tag>
-        <tag>进制</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>简单模拟费用流</title>
     <url>/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
     <content><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p>
@@ -1140,6 +1156,27 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>数学</tag>
         <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>莫队的奇技淫巧</title>
+    <url>/2020/12/02/%E8%8E%AB%E9%98%9F%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
+    <content><![CDATA[<p>莫队算法是一个很妙的算法，它可以通过对查询离线分块来降低算法复杂度。</p>
+<p>但是仔细分析你会发现，莫队所有的复杂度都是修改左右端点造成的，而查询是 <span class="math inline">\(O(1)\)</span> 的。</p>
+<p>也就是说我们可以在莫队中套一个修改 <span class="math inline">\(O(1)\)</span>，查询 <span class="math inline">\(O(1\sim \sqrt{n})\)</span> 的数据结构，这样总复杂度依旧是 <span class="math inline">\(O(n \sqrt{n})\)</span> 的，但是它却可以做更多的事情。</p>
+<a id="more"></a>
+<blockquote>
+<p>例：有一个长度为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(\{a_1,a_2...a_n\}\)</span>。<span class="math inline">\(m\)</span> 次询问，每次询问一个区间内最小没有出现过的自然数。</p>
+</blockquote>
+<p>这个题目是洛谷的 P4137。</p>
+<p>这个题的经典做法是主席树或者回滚莫队，我们现在考虑另一种做法。</p>
+<p>先直接上莫队，这样我们是不好维护删除数的操作的。</p>
+<p>考虑在莫队里面套上一个值域分块，修改的时候 <span class="math inline">\(O(1)\)</span> 修改，查询的时候 <span class="math inline">\(O(\sqrt{n})\)</span> 一个块一个块的跳。</p>
+<p>虽然套了一个分块，但是复杂度是加在查询上面的 ，总复杂度仍然是 <span class="math inline">\(O(n\sqrt{n})\)</span> 的。</p>
+]]></content>
+      <tags>
+        <tag>莫队</tag>
+        <tag>分块</tag>
       </tags>
   </entry>
   <entry>
@@ -1205,27 +1242,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 ]]></content>
       <tags>
         <tag>网络流</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>莫队的奇技淫巧</title>
-    <url>/2020/12/02/%E8%8E%AB%E9%98%9F%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
-    <content><![CDATA[<p>莫队算法是一个很妙的算法，它可以通过对查询离线分块来降低算法复杂度。</p>
-<p>但是仔细分析你会发现，莫队所有的复杂度都是修改左右端点造成的，而查询是 <span class="math inline">\(O(1)\)</span> 的。</p>
-<p>也就是说我们可以在莫队中套一个修改 <span class="math inline">\(O(1)\)</span>，查询 <span class="math inline">\(O(1\sim \sqrt{n})\)</span> 的数据结构，这样总复杂度依旧是 <span class="math inline">\(O(n \sqrt{n})\)</span> 的，但是它却可以做更多的事情。</p>
-<a id="more"></a>
-<blockquote>
-<p>例：有一个长度为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(\{a_1,a_2...a_n\}\)</span>。<span class="math inline">\(m\)</span> 次询问，每次询问一个区间内最小没有出现过的自然数。</p>
-</blockquote>
-<p>这个题目是洛谷的 P4137。</p>
-<p>这个题的经典做法是主席树或者回滚莫队，我们现在考虑另一种做法。</p>
-<p>先直接上莫队，这样我们是不好维护删除数的操作的。</p>
-<p>考虑在莫队里面套上一个值域分块，修改的时候 <span class="math inline">\(O(1)\)</span> 修改，查询的时候 <span class="math inline">\(O(\sqrt{n})\)</span> 一个块一个块的跳。</p>
-<p>虽然套了一个分块，但是复杂度是加在查询上面的 ，总复杂度仍然是 <span class="math inline">\(O(n\sqrt{n})\)</span> 的。</p>
-]]></content>
-      <tags>
-        <tag>莫队</tag>
-        <tag>分块</tag>
       </tags>
   </entry>
 </search>
