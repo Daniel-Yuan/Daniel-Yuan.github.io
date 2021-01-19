@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-19T03:57:46.819Z</updated>
+  <updated>2021-01-19T04:05:32.111Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://example.com/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/"/>
     <id>http://example.com/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</id>
     <published>2021-01-19T03:43:46.000Z</published>
-    <updated>2021-01-19T03:57:46.819Z</updated>
+    <updated>2021-01-19T04:05:32.111Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p><p>设 <span class="math inline">\(f(S)\)</span> 表示从初始状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p><p>那么显然有 <span class="math inline">\(f(S)=\begin{cases}0\\\sum dfsfd\end{cases}\)</span></p>]]></content>
     
     
       
       
-    <summary type="html">
-</summary>
+    <summary type="html">&lt;p&gt;把初始状态和目标状态交换，题目不变。&lt;/p&gt;
+&lt;p&gt;设 &lt;span class=&quot;math inline&quot;&gt;\(f(S)\)&lt;/span&gt; 表示从初始状态开始，期望走 &lt;span class=&quot;math inline&quot;&gt;\(f(S)\)&lt;/span&gt; 步到达全零状态。为了方</summary>
       
     
     
