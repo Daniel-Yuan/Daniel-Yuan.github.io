@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-19T08:50:34.645Z</updated>
+  <updated>2021-01-21T00:35:06.786Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[ZJOI2019] 麻将 题解</title>
+    <link href="http://example.com/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/"/>
+    <id>http://example.com/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/</id>
+    <published>2021-01-21T00:33:52.000Z</published>
+    <updated>2021-01-21T00:35:06.786Z</updated>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+      
+      
+    <summary type="html">
+</summary>
+      
+    
+    
+    
+    
+    <category term="DP" scheme="http://example.com/tags/DP/"/>
+    
+    <category term="自动机" scheme="http://example.com/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+    <category term="DP of DP" scheme="http://example.com/tags/DP-of-DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>麻将相关</title>
+    <link href="http://example.com/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/"/>
+    <id>http://example.com/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/</id>
+    <published>2021-01-19T13:39:20.000Z</published>
+    <updated>2021-01-21T00:31:44.002Z</updated>
+    
+    <content type="html"><![CDATA[<p><del>不会打麻将的 OIer 不是好 ACMer。</del></p><p>虽然看完这篇博客你可能并不会变成雀神，但是你可能看到和麻将有关的题目就不会那么慌了。</p><a id="more"></a><p>麻将的一般规则本文就不再赘述，啥搜索引擎上都有。<del>实在不行下个雀魂玩玩也是可以的。</del></p><p>麻将题一般有两种做法：搜索和 DP。</p><h4 id="搜索">搜索：</h4><p>大多数时候是给出一副牌，看至少需要再摸几张牌才能胡。</p><p>考虑枚举合法终态，然后用牌数的差更新答案。</p><p>因为刻子和雀头都是多张同一个牌，所以这一块可以贪心，即从四张相同到一张相同的牌依次去匹配刻子和雀头，为了方便，可以设 <span class="math inline">\(dp_{i,j,k,l}\)</span> 表示有 <span class="math inline">\(i\)</span> 个四张，<span class="math inline">\(j\)</span> 个三张，<span class="math inline">\(k\)</span> 个二张拼成 <span class="math inline">\(l\)</span> 个面子加上一个雀头最少需要多少张牌，在搜索顺子的同时维护一下 <span class="math inline">\(i,j,k,l\)</span> 的值，然后直接更新答案即可。</p><p>然后考虑怎么搜索顺子，我们事先把所有的顺子预处理出来，共 <span class="math inline">\(27\)</span> 个，然后按层搜索枚举每个顺子有没有。这样复杂度是 <span class="math inline">\(O(27^4)\)</span>，显然不好。实际上，我们枚举的顺子在此刻至少要有两张牌存在于手牌中，因为如果只有一张，那么对额外牌数的贡献为 <span class="math inline">\(2\)</span>，而这张牌形成的刻子贡献的额外牌数也是 <span class="math inline">\(2\)</span>，这样可以把它算到刻子里面。</p><p>实际上这样优化下来判定是十分快的，博主认为其复杂度不会超过 <span class="math inline">\(10^4\)</span>。</p><h4 id="dp">DP：</h4><p>搜索写起来比较方便，但是搜索毕竟复杂度是指数级别的，它的速度还是慢了点，所以再介绍一种 DP 的做法。</p><p>依旧是考虑给出一副牌，看至少需要再摸几张牌才能胡。</p><p>设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1/2/3/4,0/1}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，以 <span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，以 <span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，面子一共有 <span class="math inline">\(0/1/2/3/4\)</span> 个，有 <span class="math inline">\(0/1\)</span> 个雀头的最小花费。转移的时候枚举下一种牌有几张即可。后面一堆东西看似有 <span class="math inline">\(90\)</span> 个，但是实际上仅有 <span class="math inline">\(50+\)</span> 个，且转移的时候转移边数不会很多。如果在这个上面再用上【搜索中的优化】，效率会更加高。（似乎这里不太严谨，但是跑得很快就对了）</p><p>从这也可以衍生出判定一个牌的集合中存不存在一个胡牌子集的方法，即设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，以 <span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，以 <span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，有 <span class="math inline">\(0/1\)</span> 个雀头的最大面子数。如果有一个有雀头的状态的面子数到了 <span class="math inline">\(4\)</span>，那么就可行。</p><hr /><p>想必看完之后你就已经会打麻将了，<a href="https://www.luogu.com.cn/problem/P5279">[ZJOI2019] 麻将</a>和<a href="https://www.luogu.com.cn/problem/P5301">[GXOI/GZOI2019]宝牌一大堆</a>自然不在话下（其实后者真心就是只考了上述内容）。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;del&gt;不会打麻将的 OIer 不是好 ACMer。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;虽然看完这篇博客你可能并不会变成雀神，但是你可能看到和麻将有关的题目就不会那么慌了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="DP" scheme="http://example.com/tags/DP/"/>
+    
+    <category term="搜索" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>[ZJOI2019]开关 题解</title>
@@ -401,54 +450,6 @@
     
     
     <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>diary</title>
-    <link href="http://example.com/2020/10/06/diary/"/>
-    <id>http://example.com/2020/10/06/diary/</id>
-    <published>2020-10-06T07:34:39.000Z</published>
-    <updated>2020-10-21T08:28:57.874Z</updated>
-    
-    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">这篇博客被邪恶的博主用魔法封住了。</summary>
-    
-    
-    
-    
-    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>牛客练习赛 70 E 题解</title>
-    <link href="http://example.com/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/"/>
-    <id>http://example.com/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/</id>
-    <published>2020-09-29T06:59:08.000Z</published>
-    <updated>2020-09-29T07:28:41.621Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://ac.nowcoder.com/acm/contest/7509/E">题目链接</a></p><p><strong>题意简述</strong></p><p>定义若二元组 <span class="math inline">\((a,b)&lt;(c,d)\)</span>，则有 <span class="math inline">\(a&gt;c\)</span> 或者 <span class="math inline">\(a=c \text{ and } b&lt;d\)</span>。</p><p>给你 <span class="math inline">\(n\)</span> 个数，第 <span class="math inline">\(i\)</span> 个数是 <span class="math inline">\(a_i\)</span>。</p><p>现在系统会生成 <span class="math inline">\(n\)</span> 个二元组，第 <span class="math inline">\(i\)</span> 个二元组是 <span class="math inline">\((a_i,i)\)</span> 或者是 <span class="math inline">\((a_i+1,i)\)</span>，然后给每个二元组一个排名，设排名数列为 <span class="math inline">\(rk\)</span>。</p><p>求有多少种不同的 <span class="math inline">\(rk\)</span> 数列，两个 <span class="math inline">\(rk\)</span> 序列不同当且仅当存在至少一个位置 <span class="math inline">\(x\)</span>，使得两个 <span class="math inline">\(rk\)</span> 数列的 <span class="math inline">\(rk_x\)</span> 不同。</p><p><span class="math inline">\(n\leq 5\times 10^5,a_i\leq 10^6\)</span>，时空限制：2s 256M。</p><a id="more"></a><p><strong>样例</strong></p><p>输入：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure><p>解释：有以下八种二元组的搭配方式，以及其相应的 <span class="math inline">\(rk\)</span> 序列。</p><p><span class="math inline">\((1,1),(2,2),(2,3)\ \ \ \ rk:3,1,2\)</span></p><p><span class="math inline">\((1,1),(2,2),(3,3)\ \ \ \ rk:3,2,1\)</span></p><p><span class="math inline">\((1,1),(3,2),(2,3)\ \ \ \ rk:3,1,2\)</span></p><p><span class="math inline">\((1,1),(3,2),(3,3)\ \ \ \ rk:3,1,2\)</span></p><p><span class="math inline">\((2,1),(2,2),(2,3)\ \ \ \ rk:1,2,3\)</span></p><p><span class="math inline">\((2,1),(2,2),(3,3)\ \ \ \ rk:2,3,1\)</span></p><p><span class="math inline">\((2,1),(3,2),(2,3)\ \ \ \ rk:2,1,3\)</span></p><p><span class="math inline">\((2,1),(3,2),(3,3)\ \ \ \ rk:3,1,2\)</span></p><p>不同的 <span class="math inline">\(rk\)</span> 序列一共有 <span class="math inline">\(5\)</span> 个。</p><p><strong>题解</strong></p><p>比赛的时候一直认为是一个组合数学题目，没想到是一个 DP。</p><p>先下一个定义：若两个由前 <span class="math inline">\(i-1\)</span> 个二元组形成的序列，无论 <span class="math inline">\([i,n]\)</span> 中的每个二元组是 <span class="math inline">\((a_x,x)\)</span> 还是 <span class="math inline">\((a_x+1,x)\)</span>，这两个序列最终形成的排名序列都是相同的，那么我们把它们称作<strong>不可区分</strong>的。</p><p>首先把所有二元组按照 <span class="math inline">\((a_i,i)\)</span> 排序。为了方便，下文默认输入就已经保证了 <span class="math inline">\((a_i,i)&lt;(a_{i+1},i+1)\)</span>。</p><p>考虑 DP，设 <span class="math inline">\(f_i\)</span> 表示前 <span class="math inline">\(i-1\)</span> 个二元组组成的<strong>可区分</strong>的序列个数。</p><p>那么第 <span class="math inline">\(i\)</span> 个位置既可以放 <span class="math inline">\((a_i,i)\)</span> 也可以放 <span class="math inline">\((a_i+1,i)\)</span>，所以有 <span class="math inline">\(f_{i+1}=2f_i\)</span>，但是这样显然会算重，所以考虑容斥。</p><p>考虑对于一个位置 <span class="math inline">\(i\)</span>，找到一个极短的区间 <span class="math inline">\([l,r](l\leq i\leq r)\)</span>，它需要满足存在一种在 <span class="math inline">\([l,i-1],[i+1,r]\)</span> 放置二元组的方案，使得第 <span class="math inline">\(i\)</span> 个位置放 <span class="math inline">\((a_i,i)\)</span> 和放 <span class="math inline">\((a_i+1,i)\)</span> 是<strong>不可区分</strong>的。这样的话，这种放置方法的贡献本来只有 <span class="math inline">\(1\)</span> 但是被算了两次，所以 <span class="math inline">\(f_r\)</span> 就需要减去 <span class="math inline">\(f_l\)</span>。</p><p>因为这个区间是极短的，所以可以恰好不重不漏地把所有的不合法的方案都减掉，最终的 <span class="math inline">\(f_{n+1}\)</span> 即为答案。</p><p>不难发现，因为我们一开始排好了序，所以 <span class="math inline">\(l,r\)</span> 是单调递增的，<span class="math inline">\(i\)</span> 也是我们单调枚举的，所以 DP 的总复杂度是 <span class="math inline">\(O(n)\)</span> 的。（有趣的是，复杂度的瓶颈在于排序）。</p><p>代码如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">1000000</span>], *p1 = buf, *p2 = buf;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p1 == p2) p2 = (p1 = buf) + fread(buf, <span class="number">1</span>, <span class="number">1000000</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">return</span> p1 == p2 ? EOF : *(p1++);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">n</span>) &#123;</span></span><br><span class="line">    n = <span class="number">0</span>; RI ch = gc(), f;</span><br><span class="line">    <span class="keyword">while</span> ((ch &lt; <span class="string">&#x27;0&#x27;</span> || ch &gt; <span class="string">&#x27;9&#x27;</span>) &amp;&amp; ch != <span class="string">&#x27;-&#x27;</span>) ch = gc();</span><br><span class="line">    f = (ch == <span class="string">&#x27;-&#x27;</span> ? ch = gc(), <span class="number">-1</span> : <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>) n = n * <span class="number">10</span> + (ch ^ <span class="number">48</span>), ch = gc();</span><br><span class="line">    n *= f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">char</span> Of[<span class="number">105</span>], *O1 = Of, *O2 = Of;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">n</span>, <span class="title">char</span> <span class="title">ch</span> = &#x27;\<span class="title">n</span>&#x27;) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>), n = -n;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">while</span> (n) *(O1++) = (n % <span class="number">10</span>) ^ <span class="number">48</span>, n /= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">while</span> (O1 != O2) <span class="built_in">putchar</span>(*(--O1));</span><br><span class="line">    <span class="built_in">putchar</span>(ch);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> IO :: read;</span><br><span class="line"><span class="keyword">using</span> IO :: print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">5e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> x, id;</span><br><span class="line">  Node (<span class="keyword">int</span> _x = <span class="number">0</span>, <span class="keyword">int</span> _id = <span class="number">0</span>) &#123; x = _x, id = _id; &#125;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;A) <span class="keyword">const</span> &#123; <span class="keyword">return</span> x ^ A.x ? x &gt; A.x : id &lt; A.id; &#125;;</span><br><span class="line">&#125; a[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; read(n);</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    read(a[i].x), a[i].id = i;</span><br><span class="line">  sort(a + <span class="number">1</span>, a + <span class="number">1</span> + n);</span><br><span class="line">  f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; i &amp;&amp; (Node(a[l].x, a[l].id) &lt; Node(a[i].x + <span class="number">1</span>, a[i].id))) ++l;</span><br><span class="line">    <span class="keyword">while</span> (r &lt;= n &amp;&amp; (Node(a[r].x + <span class="number">1</span>, a[r].id) &lt; Node(a[i].x, a[i].id))) ++r;</span><br><span class="line">    f[r] = (f[r] + mod - f[l]) % mod;</span><br><span class="line">    f[i + <span class="number">1</span>] = ((f[i] + f[i]) % mod + f[i + <span class="number">1</span>]) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  print(f[n + <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/7509/E&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;题意简述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;定义若二元组 &lt;span class=&quot;math inline&quot;&gt;\((a,b)&amp;lt;(c,d)\)&lt;/span&gt;，则有 &lt;span class=&quot;math inline&quot;&gt;\(a&amp;gt;c\)&lt;/span&gt; 或者 &lt;span class=&quot;math inline&quot;&gt;\(a=c \text{ and } b&amp;lt;d\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;给你 &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt; 个数，第 &lt;span class=&quot;math inline&quot;&gt;\(i\)&lt;/span&gt; 个数是 &lt;span class=&quot;math inline&quot;&gt;\(a_i\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;现在系统会生成 &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt; 个二元组，第 &lt;span class=&quot;math inline&quot;&gt;\(i\)&lt;/span&gt; 个二元组是 &lt;span class=&quot;math inline&quot;&gt;\((a_i,i)\)&lt;/span&gt; 或者是 &lt;span class=&quot;math inline&quot;&gt;\((a_i+1,i)\)&lt;/span&gt;，然后给每个二元组一个排名，设排名数列为 &lt;span class=&quot;math inline&quot;&gt;\(rk\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;求有多少种不同的 &lt;span class=&quot;math inline&quot;&gt;\(rk\)&lt;/span&gt; 数列，两个 &lt;span class=&quot;math inline&quot;&gt;\(rk\)&lt;/span&gt; 序列不同当且仅当存在至少一个位置 &lt;span class=&quot;math inline&quot;&gt;\(x\)&lt;/span&gt;，使得两个 &lt;span class=&quot;math inline&quot;&gt;\(rk\)&lt;/span&gt; 数列的 &lt;span class=&quot;math inline&quot;&gt;\(rk_x\)&lt;/span&gt; 不同。&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math inline&quot;&gt;\(n\leq 5\times 10^5,a_i\leq 10^6\)&lt;/span&gt;，时空限制：2s 256M。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="DP" scheme="http://example.com/tags/DP/"/>
-    
-    <category term="容斥" scheme="http://example.com/tags/%E5%AE%B9%E6%96%A5/"/>
-    
-    <category term="妙题" scheme="http://example.com/tags/%E5%A6%99%E9%A2%98/"/>
     
   </entry>
   

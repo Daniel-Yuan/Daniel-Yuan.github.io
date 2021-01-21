@@ -43,29 +43,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSP-S1 2020 游记</title>
-    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="day-1">Day 1</h4>
-<a id="more"></a>
-<p>今天的状态就一个字：困。</p>
-<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
-<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
-<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
-<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
-<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
-<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
-<h4 id="day-inf">Day INF</h4>
-<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
-<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
-<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
-<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
-<p><a href="">CPS-S2 2020 游记</a></p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSP-S 2019 游记</title>
     <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
@@ -103,6 +80,29 @@
 <h2 id="后记">后记：</h2>
 <p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p>
 <p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSP-S1 2020 游记</title>
+    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="day-1">Day 1</h4>
+<a id="more"></a>
+<p>今天的状态就一个字：困。</p>
+<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
+<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
+<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
+<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
+<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
+<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
+<h4 id="day-inf">Day INF</h4>
+<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
+<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
+<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
+<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
+<p><a href="">CPS-S2 2020 游记</a></p>
 ]]></content>
       <tags>
         <tag>游记</tag>
@@ -167,6 +167,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Daniel_yuan&#39;s New Blog</title>
+    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
+    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>FWT 小结</title>
+    <url>/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/</url>
+    <content><![CDATA[<p>FWT 是快速求形如 <span class="math inline">\(C(x)=\sum_{i?j=x}A(i)B(j)\)</span> 的算法，其中 <span class="math inline">\(?\)</span> 表示一种二进制的位运算。</p>
+<a id="more"></a>
+<h4 id="原理">原理</h4>
+<p>其实 FWT 背板挺容易的，但是因为考试趋向越来越本质化，所以我们要逐渐开始了解一些原来背板算法的原理。</p>
+<p>类似于 FFT，我们考虑从最本源的地方来了解 FWT——构造一种线性变换 <span class="math inline">\(A\rightarrow A&#39;\)</span>，使得 <span class="math inline">\(C&#39;(x)=A&#39;(x)B&#39;(x)\)</span>，这样去掉线性变换的复杂度，总复杂度是 <span class="math inline">\(O(len)\)</span> 的。需要注意的是，这里的 <span class="math inline">\(A,B,C\)</span> 需要做同一种线性变换。</p>
+<p>因为我们所做的是线性变换（即只存在加减），那么在 <span class="math inline">\(A&#39;\)</span> 中，我们可以把 <span class="math inline">\(A\)</span> 中每个数对它的贡献用一个系数表示，即 <span class="math inline">\(A&#39;(x)=\sum_i f(x,i)A(i)\)</span>。</p>
+<p>那么 <span class="math inline">\(C&#39;(x)=\sum_i f(x,i)C(i)=\sum_if(x,i)\sum_{j?k=i}A(j)B(k)\)</span>，<span class="math inline">\(A&#39;(x)B&#39;(x)=\sum_if(x,i)A(i)\sum_jf(x,j)B(j)\)</span>。整理得 <span class="math inline">\(\sum_i\sum_jf(x,i?j)A(i)B(j)=\sum_i\sum_jf(x,i)f(x,j)A(i)B(j)\)</span>。故有 <span class="math inline">\(f(x,i?j)=f(x,i)f(x,j)\)</span>。</p>
+<p>也就是说我们需要构造 <span class="math inline">\(f(x,i)\)</span>，使得它满足上述需求。</p>
+<p>对于或操作，有 <span class="math inline">\(f(x,i \text{ or }j)=f(x,i)f(x,j)\)</span>，不难发现 <span class="math inline">\(i\text{ or }j\in x\Leftrightarrow i\in x\and j\in x\)</span>，那么设 <span class="math inline">\(f(x,i)=[i\in x]\)</span> 即可。</p>
+<p>对于与操作，有 <span class="math inline">\(f(x,i\text{ and }j)=f(x,i)f(x,j)\)</span>，和或相似的，<span class="math inline">\(x\in i\text{ and }j\Leftrightarrow x\in i\and x\in j\)</span>。<span class="math inline">\(f(x,i)=[x\in i]\)</span>。</p>
+<p>对于异或操作，这可能就有些麻烦。我们需要挖掘一些异或的性质。对于两个数 <span class="math inline">\(x,y\)</span>，显然 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(y\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\(x \text{ xor } y\)</span> 的相同。而与和异或有恒等式 <span class="math inline">\((x\text{ xor } y)\text{ and } z=(x\text{ and }z)\text{ xor }(y\text{ and }z)\)</span>（不难证明），所以 <span class="math inline">\(i\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(j\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\((i\text{ and }x)\text{ xor }(j\text{ and }x)=(i\text{ xor } j)\text{ and } x\)</span> 的相同，而奇偶性的区分加减我们一般用 <span class="math inline">\((-1)^k\)</span> ，所以设 <span class="math inline">\(f(x,i)=(-1)^{|x \text { and }i|}\)</span> 即可。</p>
+<h4 id="实现">实现</h4>
+<p>下面只讨论 FWT，对于 IFWT，其就是 FWT 的逆向过程。</p>
+<p>考虑按位计算贡献。</p>
+<p>设 <span class="math inline">\(f_k(S)\)</span> 表示对于 <span class="math inline">\(S\)</span>，已经计算了前 <span class="math inline">\(k\)</span> 位任意，后面位数严格和 <span class="math inline">\(S\)</span> 相等且暂未考虑其对贡献的影响的贡献。考虑从 <span class="math inline">\(f_k(S)\)</span> 推到 <span class="math inline">\(f_{k+1}(S)\)</span>。</p>
+<p>考虑每个数对 <span class="math inline">\(u,v\)</span> 互相的贡献，其中 <span class="math inline">\(u,v\)</span> 仅在第 <span class="math inline">\(k+1\)</span> 位不同，为了方便，设 <span class="math inline">\(u&lt;v\)</span>。</p>
+<p>对于或，<span class="math inline">\(f_k(u)\)</span> 中存的是后面位数和 <span class="math inline">\(u\)</span> 相等，<span class="math inline">\(1\sim k\)</span> 位是 <span class="math inline">\(u\)</span> 子集的数的贡献，<span class="math inline">\(f_k(v)\)</span> 同理，那么显然考虑了第 <span class="math inline">\(k+1\)</span> 位后，<span class="math inline">\(f_{k+1}(u)=f_k(u)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(u)+f_k(v)\)</span>。</p>
+<p>类似的，对于与，<span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(v)\)</span>。</p>
+<p>对于异或，<span class="math inline">\(u\)</span> 在 <span class="math inline">\(k+1\)</span> 位对数的符号没有影响，而 <span class="math inline">\(v\)</span> 在 <span class="math inline">\(k+1\)</span> 位对 <span class="math inline">\(k+1\)</span> 位为 <span class="math inline">\(1\)</span> 的数的符号有一个 <span class="math inline">\(-1\)</span> 的影响（因为之前没有考虑这一位对答案贡献的影响），所以 <span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span>，<span class="math inline">\(f_{k+1}(v)=f_k(u)-f_k(v)\)</span>。</p>
+<p>这样就能在 <span class="math inline">\(O(len\log len)\)</span> 的时间内对于 <span class="math inline">\(A\)</span> 求得 <span class="math inline">\(A&#39;\)</span>。而逆变化就是正变化的相反操作，在此就不再赘述。</p>
+]]></content>
+      <tags>
+        <tag>FWT</tag>
+        <tag>多项式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[HNOI2019]JOJO 题解</title>
     <url>/2020/12/29/HNOI2019-JOJO-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p>这个题目的 <span class="math inline">\(2\)</span> 操作代表着需要维护一个可持久化的东西。</p>
@@ -191,12 +226,6 @@
         <tag>可持久化数据结构</tag>
         <tag>KMP</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Daniel_yuan&#39;s New Blog</title>
-    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
-    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
-]]></content>
   </entry>
   <entry>
     <title>Hall 定理学习笔记</title>
@@ -340,36 +369,6 @@
       </tags>
   </entry>
   <entry>
-    <title>POI2012</title>
-    <url>/2020/10/17/POI2012/</url>
-    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
-<a id="more"></a>
-<h5 id="distance">Distance</h5>
-<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
-<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
-<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
-<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
-<h5 id="cloakroom">Cloakroom</h5>
-<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
-<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
-<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
-<h5 id="a-horrible-poem">A Horrible Poem</h5>
-<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
-<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
-<p>画图就可以很显然的看出这个性质。</p>
-<p>判断字符串相等直接用哈希。</p>
-<p>需要卡常。</p>
-<h5 id="fibonacci-representation">Fibonacci Representation</h5>
-<p>先把这个数用斐波那契数拆分。</p>
-<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
-<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
-<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>POI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PAM 学习笔记</title>
     <url>/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="定义">定义</h4>
@@ -426,32 +425,33 @@
       </tags>
   </entry>
   <entry>
-    <title>FWT 小结</title>
-    <url>/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/</url>
-    <content><![CDATA[<p>FWT 是快速求形如 <span class="math inline">\(C(x)=\sum_{i?j=x}A(i)B(j)\)</span> 的算法，其中 <span class="math inline">\(?\)</span> 表示一种二进制的位运算。</p>
+    <title>POI2012</title>
+    <url>/2020/10/17/POI2012/</url>
+    <content><![CDATA[<p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
 <a id="more"></a>
-<h4 id="原理">原理</h4>
-<p>其实 FWT 背板挺容易的，但是因为考试趋向越来越本质化，所以我们要逐渐开始了解一些原来背板算法的原理。</p>
-<p>类似于 FFT，我们考虑从最本源的地方来了解 FWT——构造一种线性变换 <span class="math inline">\(A\rightarrow A&#39;\)</span>，使得 <span class="math inline">\(C&#39;(x)=A&#39;(x)B&#39;(x)\)</span>，这样去掉线性变换的复杂度，总复杂度是 <span class="math inline">\(O(len)\)</span> 的。需要注意的是，这里的 <span class="math inline">\(A,B,C\)</span> 需要做同一种线性变换。</p>
-<p>因为我们所做的是线性变换（即只存在加减），那么在 <span class="math inline">\(A&#39;\)</span> 中，我们可以把 <span class="math inline">\(A\)</span> 中每个数对它的贡献用一个系数表示，即 <span class="math inline">\(A&#39;(x)=\sum_i f(x,i)A(i)\)</span>。</p>
-<p>那么 <span class="math inline">\(C&#39;(x)=\sum_i f(x,i)C(i)=\sum_if(x,i)\sum_{j?k=i}A(j)B(k)\)</span>，<span class="math inline">\(A&#39;(x)B&#39;(x)=\sum_if(x,i)A(i)\sum_jf(x,j)B(j)\)</span>。整理得 <span class="math inline">\(\sum_i\sum_jf(x,i?j)A(i)B(j)=\sum_i\sum_jf(x,i)f(x,j)A(i)B(j)\)</span>。故有 <span class="math inline">\(f(x,i?j)=f(x,i)f(x,j)\)</span>。</p>
-<p>也就是说我们需要构造 <span class="math inline">\(f(x,i)\)</span>，使得它满足上述需求。</p>
-<p>对于或操作，有 <span class="math inline">\(f(x,i \text{ or }j)=f(x,i)f(x,j)\)</span>，不难发现 <span class="math inline">\(i\text{ or }j\in x\Leftrightarrow i\in x\and j\in x\)</span>，那么设 <span class="math inline">\(f(x,i)=[i\in x]\)</span> 即可。</p>
-<p>对于与操作，有 <span class="math inline">\(f(x,i\text{ and }j)=f(x,i)f(x,j)\)</span>，和或相似的，<span class="math inline">\(x\in i\text{ and }j\Leftrightarrow x\in i\and x\in j\)</span>。<span class="math inline">\(f(x,i)=[x\in i]\)</span>。</p>
-<p>对于异或操作，这可能就有些麻烦。我们需要挖掘一些异或的性质。对于两个数 <span class="math inline">\(x,y\)</span>，显然 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(y\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\(x \text{ xor } y\)</span> 的相同。而与和异或有恒等式 <span class="math inline">\((x\text{ xor } y)\text{ and } z=(x\text{ and }z)\text{ xor }(y\text{ and }z)\)</span>（不难证明），所以 <span class="math inline">\(i\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(j\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\((i\text{ and }x)\text{ xor }(j\text{ and }x)=(i\text{ xor } j)\text{ and } x\)</span> 的相同，而奇偶性的区分加减我们一般用 <span class="math inline">\((-1)^k\)</span> ，所以设 <span class="math inline">\(f(x,i)=(-1)^{|x \text { and }i|}\)</span> 即可。</p>
-<h4 id="实现">实现</h4>
-<p>下面只讨论 FWT，对于 IFWT，其就是 FWT 的逆向过程。</p>
-<p>考虑按位计算贡献。</p>
-<p>设 <span class="math inline">\(f_k(S)\)</span> 表示对于 <span class="math inline">\(S\)</span>，已经计算了前 <span class="math inline">\(k\)</span> 位任意，后面位数严格和 <span class="math inline">\(S\)</span> 相等且暂未考虑其对贡献的影响的贡献。考虑从 <span class="math inline">\(f_k(S)\)</span> 推到 <span class="math inline">\(f_{k+1}(S)\)</span>。</p>
-<p>考虑每个数对 <span class="math inline">\(u,v\)</span> 互相的贡献，其中 <span class="math inline">\(u,v\)</span> 仅在第 <span class="math inline">\(k+1\)</span> 位不同，为了方便，设 <span class="math inline">\(u&lt;v\)</span>。</p>
-<p>对于或，<span class="math inline">\(f_k(u)\)</span> 中存的是后面位数和 <span class="math inline">\(u\)</span> 相等，<span class="math inline">\(1\sim k\)</span> 位是 <span class="math inline">\(u\)</span> 子集的数的贡献，<span class="math inline">\(f_k(v)\)</span> 同理，那么显然考虑了第 <span class="math inline">\(k+1\)</span> 位后，<span class="math inline">\(f_{k+1}(u)=f_k(u)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(u)+f_k(v)\)</span>。</p>
-<p>类似的，对于与，<span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(v)\)</span>。</p>
-<p>对于异或，<span class="math inline">\(u\)</span> 在 <span class="math inline">\(k+1\)</span> 位对数的符号没有影响，而 <span class="math inline">\(v\)</span> 在 <span class="math inline">\(k+1\)</span> 位对 <span class="math inline">\(k+1\)</span> 位为 <span class="math inline">\(1\)</span> 的数的符号有一个 <span class="math inline">\(-1\)</span> 的影响（因为之前没有考虑这一位对答案贡献的影响），所以 <span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span>，<span class="math inline">\(f_{k+1}(v)=f_k(u)-f_k(v)\)</span>。</p>
-<p>这样就能在 <span class="math inline">\(O(len\log len)\)</span> 的时间内对于 <span class="math inline">\(A\)</span> 求得 <span class="math inline">\(A&#39;\)</span>。而逆变化就是正变化的相反操作，在此就不再赘述。</p>
+<h5 id="distance">Distance</h5>
+<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
+<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
+<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
+<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
+<h5 id="cloakroom">Cloakroom</h5>
+<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
+<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
+<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
+<h5 id="a-horrible-poem">A Horrible Poem</h5>
+<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
+<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
+<p>画图就可以很显然的看出这个性质。</p>
+<p>判断字符串相等直接用哈希。</p>
+<p>需要卡常。</p>
+<h5 id="fibonacci-representation">Fibonacci Representation</h5>
+<p>先把这个数用斐波那契数拆分。</p>
+<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
+<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
+<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
 ]]></content>
       <tags>
-        <tag>FWT</tag>
-        <tag>多项式</tag>
+        <tag>POI</tag>
       </tags>
   </entry>
   <entry>
@@ -504,14 +504,6 @@
       </tags>
   </entry>
   <entry>
-    <title>diary</title>
-    <url>/2020/10/06/diary/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ZJOI2019]开关 题解</title>
     <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
@@ -541,37 +533,22 @@
       </tags>
   </entry>
   <entry>
-    <title>做多项式题的一点小技巧</title>
-    <url>/2020/09/26/%E5%81%9A%E5%A4%9A%E9%A1%B9%E5%BC%8F%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<p>有一类多项式题，十分考验选手的推式子能力，真正的代码部分仅仅只是几个模板拼凑在一起。这类题目如果出现，往往会造成比较大的分差，所以在此略微归纳一下这类题目的做法。大致如下：</p>
-<a id="more"></a>
-<p>两个主要思想：在解多项式方程的时候，把多项式当做数看，在允许的情况下，可以等式两边同时加减乘除一个多项式；部分题目的多项式可能是无穷项的，在这种情况下，可能会出现把原多项式经过一些操作之后得到自身。</p>
-<p>两个主要套路：一个是先想出一个 DP 的做法，然后根据 DP 转移的特性，发现其卷积的性质并把卷积部分弄成多项式，之后直接卷积加速，或者通过解方程的方式求答案；另一个是直接设求解的东西为一个多项式，然后根据其性质使其可以从自己转移到自己，然后解方程。</p>
-<p>具体如何使用请看下面两个题目的题解。</p>
-<hr />
-<h4 id="集训队作业2013城市规划-题解">[集训队作业2013]城市规划 题解</h4>
-<p><strong>题意简述：</strong>求 <span class="math inline">\(n\)</span> 个点无重边无自环有标号无向连通图数目。<span class="math inline">\(n\leq 10^5\)</span>。</p>
-<p><strong>题解：</strong>我们设 <span class="math inline">\(f(i)\)</span> 表示 <span class="math inline">\(i\)</span> 个节点的答案，直接求并不好求，但是我们可以很容易的得到 <span class="math inline">\(n\)</span> 个点的图的数量，即 <span class="math inline">\(2^{C_n^2}\)</span> ，考虑怎么用 <span class="math inline">\(f\)</span> 来表示它。</p>
-<p><span class="math inline">\(1\)</span> 号节点最终一定会有一个连通块，考虑枚举这个连通块的大小，于是就有 <span class="math inline">\(2^{C_n^2}=\sum_{i=1}^nC_{n-1}^{i-1}f(i)2^{C_{n-i}^2}\)</span>。也就是 <span class="math inline">\(i\)</span> 个点形成一个连通块，剩下的点随意连边。</p>
-<p>为了方便，设 <span class="math inline">\(g(i)=2^{C_i^2}\)</span>，原式子就变成了 <span class="math inline">\(g(n)=\sum_{i=1}^nC_{n-1}^{i-1}f(i)g(n-i)\)</span>。</p>
-<p>把组合数拆开，移项得 <span class="math inline">\(\frac{g(n)}{(n-1)!}=\sum_{i=1}^n\frac{f(i)}{(i-1)!}\frac{g(n-i)}{(n-i)!}\)</span>，设 <span class="math inline">\(F(i)=\frac{f(i)}{(i-1)!}\)</span>，<span class="math inline">\(G(i)=\frac{g(i)}{i!}\)</span>，后面的求和就是一个卷积的形式，即 <span class="math inline">\(F\times G\)</span>。</p>
-<p>把等式左边也稍加整理一下，就有 <span class="math inline">\(nG(n)=(F\times G)(n)\)</span>。</p>
-<p>我们定义多项式的点乘为对应项相乘，再设 <span class="math inline">\(H(i)=i\)</span>，那么就有 <span class="math inline">\((H\cdot G)(n)=(F\times G)(n)\)</span>，即 <span class="math inline">\(H\cdot G=F\times G\)</span>。</p>
-<p>又因为 <span class="math inline">\(G\)</span> 的常数项为 <span class="math inline">\(1\)</span>，故 <span class="math inline">\(G\)</span> 存在逆元，所以可以两边同时卷上 <span class="math inline">\(G^{-1}\)</span>。于是就有 <span class="math inline">\(F=(H\cdot G)\times G^{-1}\)</span>，写个多项式求逆就可以得到 <span class="math inline">\(F\)</span> 了。时间复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<hr />
-<h3 id="cf438e-the-child-and-binary-tree-题解">CF438E The Child and Binary Tree 题解</h3>
-<p><strong>题意简述：</strong> 有无数个点，每个点的权值可以是给出集合 <span class="math inline">\(S\)</span> 中的任意一个，定义一棵树的权值是所有点的权值和，求有多少棵节点数目任意的、形态不同的、权值为 <span class="math inline">\(val\)</span> 的二叉树。对于每个 <span class="math inline">\(val\leq k\)</span> 都需要求解。<span class="math inline">\(k,|S|\leq 10^5\)</span>。</p>
-<p>题解：直接设多项式 <span class="math inline">\(f\)</span> 为答案多项式，其中 <span class="math inline">\(f(i)\)</span> 表示 <span class="math inline">\(val=i\)</span> 的方案数。特别的，<span class="math inline">\(f(0)=1\)</span>。现在考虑 <span class="math inline">\(f\)</span> 怎么求。</p>
-<p>设 <span class="math inline">\(g(i)\)</span> 表示一个点的权值为 <span class="math inline">\(i\)</span> 的方案数，显然 <span class="math inline">\(i\in S\)</span> 则 <span class="math inline">\(g(i)=1\)</span>，反之 <span class="math inline">\(g(i)=0\)</span>。</p>
-<p>那么对于当前的，它左儿子的方案数是 <span class="math inline">\(f\)</span>，右儿子的方案数是 <span class="math inline">\(f\)</span>，它自己的方案数是 <span class="math inline">\(g\)</span>，而这个问题把解集合并就相当于是一个背包，那么就有 <span class="math inline">\(f=f\times f\times g+1\)</span>，这个加一是指当前这个点的子树为空。</p>
-<p>之后把 <span class="math inline">\(f\)</span> 当做未知数解方程，根据求根公式，有 <span class="math inline">\(f=\frac{1\pm\sqrt{1-4g}}{2g}\)</span>，现在需要考虑正负取正还是负。</p>
-<p>我们可以这么分析，当 <span class="math inline">\(g\)</span> 趋近于 <span class="math inline">\(0\)</span> 也就是 <span class="math inline">\(|S|\)</span> 趋近于 <span class="math inline">\(0\)</span> 的时候，<span class="math inline">\(f=\frac{1\pm1}{0}\)</span>，而此时方案数是为 <span class="math inline">\(0\)</span> 的，也就是 <span class="math inline">\(f\)</span> 为 <span class="math inline">\(0\)</span>，那么就只能取负号，所以 <span class="math inline">\(f=\frac{1-\sqrt{1-4g}}{2g}\)</span>。</p>
-<p><span class="math inline">\(g\)</span> 常数项不是 <span class="math inline">\(1\)</span>，没有逆元，考虑把分子有理化。就有 <span class="math inline">\(f=\frac{2}{1+\sqrt{1-4g}}\)</span>。多项式开根加个求逆即可。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<hr />
-<p>上述题目，第一题用的是第一个 trick，第二题用的是第二个 trick，较好的体现了做多项式题目的技巧。且这两个题目十分经典，不失为练习多项式的好题。</p>
+    <title>[ZJOI2019] 麻将 题解</title>
+    <url>/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[
 ]]></content>
       <tags>
-        <tag>多项式</tag>
+        <tag>DP</tag>
+        <tag>自动机</tag>
+        <tag>DP of DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>diary</title>
+    <url>/2020/10/06/diary/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>日常</tag>
       </tags>
   </entry>
   <entry>
@@ -628,6 +605,40 @@
 ]]></content>
       <tags>
         <tag>DP</tag>
+        <tag>多项式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>做多项式题的一点小技巧</title>
+    <url>/2020/09/26/%E5%81%9A%E5%A4%9A%E9%A1%B9%E5%BC%8F%E9%A2%98%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<p>有一类多项式题，十分考验选手的推式子能力，真正的代码部分仅仅只是几个模板拼凑在一起。这类题目如果出现，往往会造成比较大的分差，所以在此略微归纳一下这类题目的做法。大致如下：</p>
+<a id="more"></a>
+<p>两个主要思想：在解多项式方程的时候，把多项式当做数看，在允许的情况下，可以等式两边同时加减乘除一个多项式；部分题目的多项式可能是无穷项的，在这种情况下，可能会出现把原多项式经过一些操作之后得到自身。</p>
+<p>两个主要套路：一个是先想出一个 DP 的做法，然后根据 DP 转移的特性，发现其卷积的性质并把卷积部分弄成多项式，之后直接卷积加速，或者通过解方程的方式求答案；另一个是直接设求解的东西为一个多项式，然后根据其性质使其可以从自己转移到自己，然后解方程。</p>
+<p>具体如何使用请看下面两个题目的题解。</p>
+<hr />
+<h4 id="集训队作业2013城市规划-题解">[集训队作业2013]城市规划 题解</h4>
+<p><strong>题意简述：</strong>求 <span class="math inline">\(n\)</span> 个点无重边无自环有标号无向连通图数目。<span class="math inline">\(n\leq 10^5\)</span>。</p>
+<p><strong>题解：</strong>我们设 <span class="math inline">\(f(i)\)</span> 表示 <span class="math inline">\(i\)</span> 个节点的答案，直接求并不好求，但是我们可以很容易的得到 <span class="math inline">\(n\)</span> 个点的图的数量，即 <span class="math inline">\(2^{C_n^2}\)</span> ，考虑怎么用 <span class="math inline">\(f\)</span> 来表示它。</p>
+<p><span class="math inline">\(1\)</span> 号节点最终一定会有一个连通块，考虑枚举这个连通块的大小，于是就有 <span class="math inline">\(2^{C_n^2}=\sum_{i=1}^nC_{n-1}^{i-1}f(i)2^{C_{n-i}^2}\)</span>。也就是 <span class="math inline">\(i\)</span> 个点形成一个连通块，剩下的点随意连边。</p>
+<p>为了方便，设 <span class="math inline">\(g(i)=2^{C_i^2}\)</span>，原式子就变成了 <span class="math inline">\(g(n)=\sum_{i=1}^nC_{n-1}^{i-1}f(i)g(n-i)\)</span>。</p>
+<p>把组合数拆开，移项得 <span class="math inline">\(\frac{g(n)}{(n-1)!}=\sum_{i=1}^n\frac{f(i)}{(i-1)!}\frac{g(n-i)}{(n-i)!}\)</span>，设 <span class="math inline">\(F(i)=\frac{f(i)}{(i-1)!}\)</span>，<span class="math inline">\(G(i)=\frac{g(i)}{i!}\)</span>，后面的求和就是一个卷积的形式，即 <span class="math inline">\(F\times G\)</span>。</p>
+<p>把等式左边也稍加整理一下，就有 <span class="math inline">\(nG(n)=(F\times G)(n)\)</span>。</p>
+<p>我们定义多项式的点乘为对应项相乘，再设 <span class="math inline">\(H(i)=i\)</span>，那么就有 <span class="math inline">\((H\cdot G)(n)=(F\times G)(n)\)</span>，即 <span class="math inline">\(H\cdot G=F\times G\)</span>。</p>
+<p>又因为 <span class="math inline">\(G\)</span> 的常数项为 <span class="math inline">\(1\)</span>，故 <span class="math inline">\(G\)</span> 存在逆元，所以可以两边同时卷上 <span class="math inline">\(G^{-1}\)</span>。于是就有 <span class="math inline">\(F=(H\cdot G)\times G^{-1}\)</span>，写个多项式求逆就可以得到 <span class="math inline">\(F\)</span> 了。时间复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<hr />
+<h3 id="cf438e-the-child-and-binary-tree-题解">CF438E The Child and Binary Tree 题解</h3>
+<p><strong>题意简述：</strong> 有无数个点，每个点的权值可以是给出集合 <span class="math inline">\(S\)</span> 中的任意一个，定义一棵树的权值是所有点的权值和，求有多少棵节点数目任意的、形态不同的、权值为 <span class="math inline">\(val\)</span> 的二叉树。对于每个 <span class="math inline">\(val\leq k\)</span> 都需要求解。<span class="math inline">\(k,|S|\leq 10^5\)</span>。</p>
+<p>题解：直接设多项式 <span class="math inline">\(f\)</span> 为答案多项式，其中 <span class="math inline">\(f(i)\)</span> 表示 <span class="math inline">\(val=i\)</span> 的方案数。特别的，<span class="math inline">\(f(0)=1\)</span>。现在考虑 <span class="math inline">\(f\)</span> 怎么求。</p>
+<p>设 <span class="math inline">\(g(i)\)</span> 表示一个点的权值为 <span class="math inline">\(i\)</span> 的方案数，显然 <span class="math inline">\(i\in S\)</span> 则 <span class="math inline">\(g(i)=1\)</span>，反之 <span class="math inline">\(g(i)=0\)</span>。</p>
+<p>那么对于当前的，它左儿子的方案数是 <span class="math inline">\(f\)</span>，右儿子的方案数是 <span class="math inline">\(f\)</span>，它自己的方案数是 <span class="math inline">\(g\)</span>，而这个问题把解集合并就相当于是一个背包，那么就有 <span class="math inline">\(f=f\times f\times g+1\)</span>，这个加一是指当前这个点的子树为空。</p>
+<p>之后把 <span class="math inline">\(f\)</span> 当做未知数解方程，根据求根公式，有 <span class="math inline">\(f=\frac{1\pm\sqrt{1-4g}}{2g}\)</span>，现在需要考虑正负取正还是负。</p>
+<p>我们可以这么分析，当 <span class="math inline">\(g\)</span> 趋近于 <span class="math inline">\(0\)</span> 也就是 <span class="math inline">\(|S|\)</span> 趋近于 <span class="math inline">\(0\)</span> 的时候，<span class="math inline">\(f=\frac{1\pm1}{0}\)</span>，而此时方案数是为 <span class="math inline">\(0\)</span> 的，也就是 <span class="math inline">\(f\)</span> 为 <span class="math inline">\(0\)</span>，那么就只能取负号，所以 <span class="math inline">\(f=\frac{1-\sqrt{1-4g}}{2g}\)</span>。</p>
+<p><span class="math inline">\(g\)</span> 常数项不是 <span class="math inline">\(1\)</span>，没有逆元，考虑把分子有理化。就有 <span class="math inline">\(f=\frac{2}{1+\sqrt{1-4g}}\)</span>。多项式开根加个求逆即可。复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<hr />
+<p>上述题目，第一题用的是第一个 trick，第二题用的是第二个 trick，较好的体现了做多项式题目的技巧。且这两个题目十分经典，不失为练习多项式的好题。</p>
+]]></content>
+      <tags>
         <tag>多项式</tag>
       </tags>
   </entry>
@@ -833,6 +844,97 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构总结</title>
+    <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>数据结构的一些小 trick。</p>
+<a id="more"></a>
+<h3 id="并查集">并查集</h3>
+<h4 id="支持撤销">支持撤销</h4>
+<p>每次合并的时候按照集合的大小进行启发式合并，并且用一个操作栈记录本次操作。</p>
+<p>在撤销一次操作的时候，只需要按照记录还原并查集即可。</p>
+<p>合并查询操作单次 <span class="math inline">\(O(\log n)\)</span>，撤销操作单次 <span class="math inline">\(O(1)\)</span>。这种并查集在一些离线算法下有大用处。</p>
+<h4 id="维护不可逆的覆盖操作">维护不可逆的覆盖操作</h4>
+<p>考虑这么一道题目：给一棵 <span class="math inline">\(n\)</span> 个点的树，有 <span class="math inline">\(m\)</span> 次操作，每次操作会把一条路径上的点染色，且颜色会覆盖之前染的颜色，求最后每个点的颜色，不强制在线。<span class="math inline">\(n\leq 10^6,m\leq 5\times 10^6\)</span>。</p>
+<p>一种 naive 的思想是用树链剖分和线段树维护颜色，但是这样是 <span class="math inline">\(m\log^2 n\)</span> 的。</p>
+<p>考虑把操作倒序，那么每次执行的是不可逆的染色操作。</p>
+<p>对每个点维护并查集，表示它到根路径上第一个需要被染色的点是什么，一开始显然指向自己。</p>
+<p>如果一个点被染色了，那么就把它的边连向它父亲。每次染色就直接按照并查集的链接暴力跳，然后染色即可。</p>
+<p>因为每个点最多被染色一次，在并查集使用 <span class="math inline">\(n\alpha(n)\)</span> 复杂度的版本下，总复杂度仅为 <span class="math inline">\(O(n\alpha(n))\)</span>。</p>
+<p>这个 trick 虽然可能不会单独成题，但是可能会被穿插到一些题目中。它对复杂度的优化还是挺大的。</p>
+<h3 id="栈">栈</h3>
+<h4 id="对顶栈">对顶栈</h4>
+<p>例题：你需要动态维护一个长度为 <span class="math inline">\(n\)</span> 序列，有 <span class="math inline">\(q\)</span> 个操作，每个操作为头尾加删元素或查询一些信息。</p>
+<p>假设只能从尾部加删，那么我们就可以维护一个类似于栈的东西，每次加进来一个就把它压入栈，并更新一些信息，删掉一个就把它从栈弹掉，并把信息复原。</p>
+<p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
+<p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
+<p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
+<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
+<h4 id="栈-1">2048 栈</h4>
+<p>因为没得名字，随手取了一个。（侵删）</p>
+<p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
+<p>这里就用 AC 自动机举例。</p>
+<p>维护一个栈，每个栈内的元素都是一个 AC 自动机，并且记录下 AC 自动机内的字符串数目。</p>
+<p>对于一次加入，就在栈顶加入一个新的 AC 自动机，内部保存这一次加入的这一个字符串。</p>
+<p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
+<p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
+<p>特别的，这个 trick 是可以在线维护的。</p>
+<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
+<h3 id="线段树">线段树</h3>
+<h4 id="时间和序列的对调">时间和序列的对调</h4>
+<p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
+<p>但是在某些问题中，它的操作是区间修改，查询是单点查询，这时候就有一个对调时间和序列的 trick 。</p>
+<p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
+<p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
+<p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
+<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
+<h4 id="懒信息">懒信息</h4>
+<p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
+<p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
+<p>在一些题目中，对于查询操作，如果各个区间的信息是独立的（也就是说并不需要把区间信息合并就可以得到答案），且合并区间信息的复杂度远大于通过单个区间的信息得到答案的复杂度，就可以把信息懒化。</p>
+<p>例题：维护一个序列，支持两个操作：往后面加一个数，查询 <span class="math inline">\(x\)</span> 在区间 <span class="math inline">\([l,r]\)</span> 的排名，操作数 <span class="math inline">\(\leq 10^5\)</span>，保证查询的时候序列长度大于等于 <span class="math inline">\(r\)</span>，强制在线。</p>
+<p>先设操作数为 <span class="math inline">\(n\)</span>，序列可能有 <span class="math inline">\(n\)</span> 这么长，所以先开一个长度为 <span class="math inline">\(n\)</span> 的线段树。</p>
+<p>每个点维护一个有序的序列，表示它控制区间内的数排序之后的结果。</p>
+<p>不难发现每层最多 <span class="math inline">\(n\)</span> 个数，一共 <span class="math inline">\(\log n\)</span> 层，所以空间复杂度 <span class="math inline">\(n \log n\)</span>。</p>
+<p>对于每次往后面加数，就把对应位置的数进行更改，并且往上更新，更新的规则是这样的：如果一个点的儿子是满的，那么就更新它，否则就不更新它。</p>
+<p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
+<p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
+<p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
+<h3 id="平衡树">平衡树</h3>
+<h4 id="替罪羊树">替罪羊树</h4>
+<p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
+<p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
+<p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
+<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
+<h3 id="根号算法">根号算法</h3>
+<h4 id="根号分治">根号分治</h4>
+<p>应该是一个比较普及的 trick。</p>
+<p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
+<p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
+<p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
+<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
+<h4 id="时间分块">时间分块</h4>
+<p>似乎对时间轴操作的 trick 都挺重要的。</p>
+<p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
+<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
+<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
+<h4 id="操作分块定期重构">操作分块（定期重构）</h4>
+<p>也是一个比较妙的 trick。</p>
+<p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
+<p>这个 trick 的意思是先把所有的操作屯着，查询的时候可以先在原序列查，然后再去屯着的操作里面查。当屯着的操作达到一个上限的时候，就把它们一起放出来，把整个序列翻新一次。</p>
+<p>这个 trick 也不常见，不过其思想也十分有意义。</p>
+<h3 id="其它">其它</h3>
+<h4 id="树的坐标表示">树的坐标表示</h4>
+<p>其实也不是什么高科技，也就标题唬人。</p>
+<p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
+<p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
+<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
+]]></content>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>斐波那契数列相关</title>
     <url>/2020/11/27/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<p>设 <span class="math inline">\(F\)</span> 是斐波那契数列，其定义是对于 <span class="math inline">\(x\leq 2\)</span>，<span class="math inline">\(F(x)=1\)</span>；对于 <span class="math inline">\(x\geq 3\)</span>，<span class="math inline">\(F(x)=F(x-1)+F(x-2)\)</span>。</p>
@@ -966,97 +1068,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
-    <title>数据结构总结</title>
-    <url>/2020/10/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>数据结构的一些小 trick。</p>
-<a id="more"></a>
-<h3 id="并查集">并查集</h3>
-<h4 id="支持撤销">支持撤销</h4>
-<p>每次合并的时候按照集合的大小进行启发式合并，并且用一个操作栈记录本次操作。</p>
-<p>在撤销一次操作的时候，只需要按照记录还原并查集即可。</p>
-<p>合并查询操作单次 <span class="math inline">\(O(\log n)\)</span>，撤销操作单次 <span class="math inline">\(O(1)\)</span>。这种并查集在一些离线算法下有大用处。</p>
-<h4 id="维护不可逆的覆盖操作">维护不可逆的覆盖操作</h4>
-<p>考虑这么一道题目：给一棵 <span class="math inline">\(n\)</span> 个点的树，有 <span class="math inline">\(m\)</span> 次操作，每次操作会把一条路径上的点染色，且颜色会覆盖之前染的颜色，求最后每个点的颜色，不强制在线。<span class="math inline">\(n\leq 10^6,m\leq 5\times 10^6\)</span>。</p>
-<p>一种 naive 的思想是用树链剖分和线段树维护颜色，但是这样是 <span class="math inline">\(m\log^2 n\)</span> 的。</p>
-<p>考虑把操作倒序，那么每次执行的是不可逆的染色操作。</p>
-<p>对每个点维护并查集，表示它到根路径上第一个需要被染色的点是什么，一开始显然指向自己。</p>
-<p>如果一个点被染色了，那么就把它的边连向它父亲。每次染色就直接按照并查集的链接暴力跳，然后染色即可。</p>
-<p>因为每个点最多被染色一次，在并查集使用 <span class="math inline">\(n\alpha(n)\)</span> 复杂度的版本下，总复杂度仅为 <span class="math inline">\(O(n\alpha(n))\)</span>。</p>
-<p>这个 trick 虽然可能不会单独成题，但是可能会被穿插到一些题目中。它对复杂度的优化还是挺大的。</p>
-<h3 id="栈">栈</h3>
-<h4 id="对顶栈">对顶栈</h4>
-<p>例题：你需要动态维护一个长度为 <span class="math inline">\(n\)</span> 序列，有 <span class="math inline">\(q\)</span> 个操作，每个操作为头尾加删元素或查询一些信息。</p>
-<p>假设只能从尾部加删，那么我们就可以维护一个类似于栈的东西，每次加进来一个就把它压入栈，并更新一些信息，删掉一个就把它从栈弹掉，并把信息复原。</p>
-<p>现在我们两头都要支持加删，一种直接的想法是维护两个栈，并且把它们的栈底顶到一起，这样头尾加删和普通的加删就没有什么区别，只有查询的时候需要额外计算跨过两个栈的贡献。</p>
-<p>但是这样会出现一个问题，可能有一次删除会把一个栈的栈底给删了，这样原先的结构就被破坏了，这是很麻烦的。但实际上只需要再从序列中间开始，重新构造两个栈就可以了，这样总的重新构造的点的数目的上限是 <span class="math inline">\(\max(n,q)\)</span> 的。</p>
-<p>因为维护了这两个栈的顶着的，所以我们称它为对顶栈。</p>
-<p>好像这种套路就能干这一件事情，博主也就在某次考试中遇到了一次，不过了解一下它的思想总是好的。</p>
-<h4 id="栈-1">2048 栈</h4>
-<p>因为没得名字，随手取了一个。（侵删）</p>
-<p>当你需要动态维护一个不好加入元素的东西的时候（如 AC 自动机、凸包等），你就可以用这个 trick，花费额外的一个 <span class="math inline">\(\log\)</span> 的代价去较为方便的维护它。</p>
-<p>这里就用 AC 自动机举例。</p>
-<p>维护一个栈，每个栈内的元素都是一个 AC 自动机，并且记录下 AC 自动机内的字符串数目。</p>
-<p>对于一次加入，就在栈顶加入一个新的 AC 自动机，内部保存这一次加入的这一个字符串。</p>
-<p>如果此时栈顶的两个 AC 自动机内的字符串数目相同，就把这两个 AC 自动机合并，并且建出一个新的 AC 自动机，一直这样直到栈顶的两个 AC 自动机不满足这个条件。</p>
-<p>不难发现，每次更新栈的时候，AC 自动机的大小就像 2048 一样，相同即合并，且都是 <span class="math inline">\(2\)</span> 的倍数。故每个字符串只会在它所在的 AC 自动机的大小为 <span class="math inline">\(2^k\)</span> 的时候有一个贡献，所以总复杂度是总长度乘上 <span class="math inline">\(\log\)</span> 字符串个数的。</p>
-<p>特别的，这个 trick 是可以在线维护的。</p>
-<p>boshi 提供了一个题目 <a href="https://www.luogu.com.cn/problem/CF710F">CF710F</a> 。</p>
-<h3 id="线段树">线段树</h3>
-<h4 id="时间和序列的对调">时间和序列的对调</h4>
-<p>一般线段树都是维护的序列信息，如区间和，区间积。</p>
-<p>但是在某些问题中，它的操作是区间修改，查询是单点查询，这时候就有一个对调时间和序列的 trick 。</p>
-<p>正如 trick 的名字，我们把时间和序列对调，每次一步一步地在序列上面走，同时对时间维护线段树。</p>
-<p>那么对于对调前的区间修改，现在就变成了两个单点的修改，对于对调前的查询，现在就变成了一个前缀的查询。</p>
-<p>在某些方便不维护前者，而较方便维护后者的题目中，这个 trick 是非常实用的。</p>
-<p>比如说 <a href="http://172.16.11.217:5283/problem/170">某场公开的考试题</a>。</p>
-<h4 id="懒信息">懒信息</h4>
-<p>也是随手取的名字，其实这个 trick 挺常见的。（侵删）</p>
-<p>懒标记是不下传的标记，懒信息就是查询的时候不合并的信息。</p>
-<p>在一些题目中，对于查询操作，如果各个区间的信息是独立的（也就是说并不需要把区间信息合并就可以得到答案），且合并区间信息的复杂度远大于通过单个区间的信息得到答案的复杂度，就可以把信息懒化。</p>
-<p>例题：维护一个序列，支持两个操作：往后面加一个数，查询 <span class="math inline">\(x\)</span> 在区间 <span class="math inline">\([l,r]\)</span> 的排名，操作数 <span class="math inline">\(\leq 10^5\)</span>，保证查询的时候序列长度大于等于 <span class="math inline">\(r\)</span>，强制在线。</p>
-<p>先设操作数为 <span class="math inline">\(n\)</span>，序列可能有 <span class="math inline">\(n\)</span> 这么长，所以先开一个长度为 <span class="math inline">\(n\)</span> 的线段树。</p>
-<p>每个点维护一个有序的序列，表示它控制区间内的数排序之后的结果。</p>
-<p>不难发现每层最多 <span class="math inline">\(n\)</span> 个数，一共 <span class="math inline">\(\log n\)</span> 层，所以空间复杂度 <span class="math inline">\(n \log n\)</span>。</p>
-<p>对于每次往后面加数，就把对应位置的数进行更改，并且往上更新，更新的规则是这样的：如果一个点的儿子是满的，那么就更新它，否则就不更新它。</p>
-<p>更新的时候可以使用归并排序，复杂度是 <span class="math inline">\(O(len)\)</span> 的，因为更新的规则，每个点只会被更新一次，复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
-<p>对于查询，naive 的方法是把查询定位到的区间归并，然后看 <span class="math inline">\(x\)</span> 的排名，这样复杂度又回去了。</p>
-<p>因为 <span class="math inline">\(x\)</span> 的排名就是 <span class="math inline">\(x\)</span> 前面有多少个数，所以我们没必要把查询定位到的区间合并，直接在每个定位到的区间内查询有多少个数小于 <span class="math inline">\(x\)</span> 即可。使用二分复杂度就是 <span class="math inline">\(O(n\log^2 n)\)</span>。</p>
-<p>更加复杂一点的还有 <a href="https://uoj.ac/problem/46">UOJ #46</a>。</p>
-<h3 id="平衡树">平衡树</h3>
-<h4 id="替罪羊树">替罪羊树</h4>
-<p>trick 不是这个数据结构，而是它拍扁重构的思想。</p>
-<p>如果你要动态维护一棵树，而且想要让它尽量的平衡（树高在 <span class="math inline">\(O(\log)\)</span> 级别），那么就可以通过控制平衡因子拍扁重构。</p>
-<p>比较经典的是动态加点，动态维护点分树。因为点分树如果要保证复杂度，需要树高在 <span class="math inline">\(O(\log)\)</span> 级别，而动态加点并不好维护。那么我们就干脆在每次加点的时候，就把这个点看做一个子分治中心，并连向父亲。然后像替罪羊一样，如果某个子树太难看了，就直接拍扁重建。</p>
-<p>比较经典的莫过于 <a href="https://www.luogu.com.cn/problem/P3920">[WC2014]紫荆花之恋</a> 了。</p>
-<h3 id="根号算法">根号算法</h3>
-<h4 id="根号分治">根号分治</h4>
-<p>应该是一个比较普及的 trick。</p>
-<p>差不多就是小于根号的暴力也无所谓，大于根号的也就根号个东西。</p>
-<p>比如出现次数大于根号的数不超过根号个，图中度数大于根号的点不超过根号个等。</p>
-<p>这个 trick 比较简单，但是也容易被忽视，注意一下就可以了。</p>
-<p>这方面的话可能比较简单，<a href="https://www.luogu.com.cn/problem/P3396">哈希冲突</a> 是一个比较好的例子。</p>
-<h4 id="时间分块">时间分块</h4>
-<p>似乎对时间轴操作的 trick 都挺重要的。</p>
-<p>如标题所说，就是把所有的操作按照时间分块，那么在块的内部就有一个很好的性质：时间线的变动量不超过块大小。所以就可以在块内按照其它东西排序，对于询问就只需要动时间线，可能会更加方便。</p>
-<p>比如说 <a href="https://www.luogu.com.cn/problem/P5443">[APIO2019]桥梁</a>。</p>
-<p>当然，一些其它的题目也可以用这个思想，可以把时间线的变动看做是别的东西的变动，比如 <a href="https://www.luogu.com.cn/problem/P3247">[HNOI2016]最小公倍数</a>。</p>
-<h4 id="操作分块定期重构">操作分块（定期重构）</h4>
-<p>也是一个比较妙的 trick。</p>
-<p>在一些题目中，如果操作不好应用于序列，且很多个操作可以放一起修改序列，且操作对查询的影响比较好求，就可以用这个 trick。</p>
-<p>这个 trick 的意思是先把所有的操作屯着，查询的时候可以先在原序列查，然后再去屯着的操作里面查。当屯着的操作达到一个上限的时候，就把它们一起放出来，把整个序列翻新一次。</p>
-<p>这个 trick 也不常见，不过其思想也十分有意义。</p>
-<h3 id="其它">其它</h3>
-<h4 id="树的坐标表示">树的坐标表示</h4>
-<p>其实也不是什么高科技，也就标题唬人。</p>
-<p>把树上每个点的坐标看做是 <span class="math inline">\((dfn,dep)\)</span>。</p>
-<p>这样的话，一个子树就代表着一个只有左右边界上下无界的矩形，子树内离当前点距离为某个范围内的点就对应着一个矩形，我们就可以把树上问题转化成二维平面上问题。</p>
-<p><a href="https://ac.nowcoder.com/acm/contest/6944/C">这道题</a> 是个不错的例子。</p>
-]]></content>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用二进制模拟 K 进制</title>
     <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
     <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
@@ -1159,27 +1170,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
-    <title>莫队的奇技淫巧</title>
-    <url>/2020/12/02/%E8%8E%AB%E9%98%9F%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
-    <content><![CDATA[<p>莫队算法是一个很妙的算法，它可以通过对查询离线分块来降低算法复杂度。</p>
-<p>但是仔细分析你会发现，莫队所有的复杂度都是修改左右端点造成的，而查询是 <span class="math inline">\(O(1)\)</span> 的。</p>
-<p>也就是说我们可以在莫队中套一个修改 <span class="math inline">\(O(1)\)</span>，查询 <span class="math inline">\(O(1\sim \sqrt{n})\)</span> 的数据结构，这样总复杂度依旧是 <span class="math inline">\(O(n \sqrt{n})\)</span> 的，但是它却可以做更多的事情。</p>
-<a id="more"></a>
-<blockquote>
-<p>例：有一个长度为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(\{a_1,a_2...a_n\}\)</span>。<span class="math inline">\(m\)</span> 次询问，每次询问一个区间内最小没有出现过的自然数。</p>
-</blockquote>
-<p>这个题目是洛谷的 P4137。</p>
-<p>这个题的经典做法是主席树或者回滚莫队，我们现在考虑另一种做法。</p>
-<p>先直接上莫队，这样我们是不好维护删除数的操作的。</p>
-<p>考虑在莫队里面套上一个值域分块，修改的时候 <span class="math inline">\(O(1)\)</span> 修改，查询的时候 <span class="math inline">\(O(\sqrt{n})\)</span> 一个块一个块的跳。</p>
-<p>虽然套了一个分块，但是复杂度是加在查询上面的 ，总复杂度仍然是 <span class="math inline">\(O(n\sqrt{n})\)</span> 的。</p>
-]]></content>
-      <tags>
-        <tag>莫队</tag>
-        <tag>分块</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>线性基的瞎操作</title>
     <url>/2020/11/11/%E7%BA%BF%E6%80%A7%E5%9F%BA%E7%9A%84%E7%9E%8E%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h4 id="查找某个数-x-可以被给出基底-a-如何异或得到">1. 查找某个数 <span class="math inline">\(x\)</span> 可以被给出基底 <span class="math inline">\(A\)</span> 如何异或得到</h4>
@@ -1242,6 +1232,54 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 ]]></content>
       <tags>
         <tag>网络流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>莫队的奇技淫巧</title>
+    <url>/2020/12/02/%E8%8E%AB%E9%98%9F%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
+    <content><![CDATA[<p>莫队算法是一个很妙的算法，它可以通过对查询离线分块来降低算法复杂度。</p>
+<p>但是仔细分析你会发现，莫队所有的复杂度都是修改左右端点造成的，而查询是 <span class="math inline">\(O(1)\)</span> 的。</p>
+<p>也就是说我们可以在莫队中套一个修改 <span class="math inline">\(O(1)\)</span>，查询 <span class="math inline">\(O(1\sim \sqrt{n})\)</span> 的数据结构，这样总复杂度依旧是 <span class="math inline">\(O(n \sqrt{n})\)</span> 的，但是它却可以做更多的事情。</p>
+<a id="more"></a>
+<blockquote>
+<p>例：有一个长度为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(\{a_1,a_2...a_n\}\)</span>。<span class="math inline">\(m\)</span> 次询问，每次询问一个区间内最小没有出现过的自然数。</p>
+</blockquote>
+<p>这个题目是洛谷的 P4137。</p>
+<p>这个题的经典做法是主席树或者回滚莫队，我们现在考虑另一种做法。</p>
+<p>先直接上莫队，这样我们是不好维护删除数的操作的。</p>
+<p>考虑在莫队里面套上一个值域分块，修改的时候 <span class="math inline">\(O(1)\)</span> 修改，查询的时候 <span class="math inline">\(O(\sqrt{n})\)</span> 一个块一个块的跳。</p>
+<p>虽然套了一个分块，但是复杂度是加在查询上面的 ，总复杂度仍然是 <span class="math inline">\(O(n\sqrt{n})\)</span> 的。</p>
+]]></content>
+      <tags>
+        <tag>莫队</tag>
+        <tag>分块</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>麻将相关</title>
+    <url>/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p><del>不会打麻将的 OIer 不是好 ACMer。</del></p>
+<p>虽然看完这篇博客你可能并不会变成雀神，但是你可能看到和麻将有关的题目就不会那么慌了。</p>
+<a id="more"></a>
+<p>麻将的一般规则本文就不再赘述，啥搜索引擎上都有。<del>实在不行下个雀魂玩玩也是可以的。</del></p>
+<p>麻将题一般有两种做法：搜索和 DP。</p>
+<h4 id="搜索">搜索：</h4>
+<p>大多数时候是给出一副牌，看至少需要再摸几张牌才能胡。</p>
+<p>考虑枚举合法终态，然后用牌数的差更新答案。</p>
+<p>因为刻子和雀头都是多张同一个牌，所以这一块可以贪心，即从四张相同到一张相同的牌依次去匹配刻子和雀头，为了方便，可以设 <span class="math inline">\(dp_{i,j,k,l}\)</span> 表示有 <span class="math inline">\(i\)</span> 个四张，<span class="math inline">\(j\)</span> 个三张，<span class="math inline">\(k\)</span> 个二张拼成 <span class="math inline">\(l\)</span> 个面子加上一个雀头最少需要多少张牌，在搜索顺子的同时维护一下 <span class="math inline">\(i,j,k,l\)</span> 的值，然后直接更新答案即可。</p>
+<p>然后考虑怎么搜索顺子，我们事先把所有的顺子预处理出来，共 <span class="math inline">\(27\)</span> 个，然后按层搜索枚举每个顺子有没有。这样复杂度是 <span class="math inline">\(O(27^4)\)</span>，显然不好。实际上，我们枚举的顺子在此刻至少要有两张牌存在于手牌中，因为如果只有一张，那么对额外牌数的贡献为 <span class="math inline">\(2\)</span>，而这张牌形成的刻子贡献的额外牌数也是 <span class="math inline">\(2\)</span>，这样可以把它算到刻子里面。</p>
+<p>实际上这样优化下来判定是十分快的，博主认为其复杂度不会超过 <span class="math inline">\(10^4\)</span>。</p>
+<h4 id="dp">DP：</h4>
+<p>搜索写起来比较方便，但是搜索毕竟复杂度是指数级别的，它的速度还是慢了点，所以再介绍一种 DP 的做法。</p>
+<p>依旧是考虑给出一副牌，看至少需要再摸几张牌才能胡。</p>
+<p>设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1/2/3/4,0/1}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，以 <span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，以 <span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，面子一共有 <span class="math inline">\(0/1/2/3/4\)</span> 个，有 <span class="math inline">\(0/1\)</span> 个雀头的最小花费。转移的时候枚举下一种牌有几张即可。后面一堆东西看似有 <span class="math inline">\(90\)</span> 个，但是实际上仅有 <span class="math inline">\(50+\)</span> 个，且转移的时候转移边数不会很多。如果在这个上面再用上【搜索中的优化】，效率会更加高。（似乎这里不太严谨，但是跑得很快就对了）</p>
+<p>从这也可以衍生出判定一个牌的集合中存不存在一个胡牌子集的方法，即设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，以 <span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，以 <span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，有 <span class="math inline">\(0/1\)</span> 个雀头的最大面子数。如果有一个有雀头的状态的面子数到了 <span class="math inline">\(4\)</span>，那么就可行。</p>
+<hr />
+<p>想必看完之后你就已经会打麻将了，<a href="https://www.luogu.com.cn/problem/P5279">[ZJOI2019] 麻将</a>和<a href="https://www.luogu.com.cn/problem/P5301">[GXOI/GZOI2019]宝牌一大堆</a>自然不在话下（其实后者真心就是只考了上述内容）。</p>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>搜索</tag>
       </tags>
   </entry>
 </search>
