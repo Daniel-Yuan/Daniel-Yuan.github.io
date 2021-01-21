@@ -1,120 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CF506E 题解</title>
-    <url>/2020/09/17/CF506E-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>一道极 (e) 妙 (xin) 的自动机优化 DP 的题目。</p>
-<p>先假设最后得到的字符串为 <span class="math inline">\(T\)</span>，由题意易知 <span class="math inline">\(T\)</span> 合法当且仅当 <span class="math inline">\(T\)</span> 是回文串且 <span class="math inline">\(S\)</span> 是 <span class="math inline">\(T\)</span> 的一个子序列。</p>
-<p><span class="math inline">\(T\)</span> 是回文串的这个性质我们可以通过从外向内一个一个填字符来实现，所以我们需要 DP 的是 <span class="math inline">\(S\)</span> 相对于 <span class="math inline">\(T\)</span> 而言被匹配了多少个字符。</p>
-<p>特别的，因为当 <span class="math inline">\(T\)</span> 的长度为奇数的时候，最后一次填的字符本质上是一个字符，需要特别处理，所以下面我们先讨论 <span class="math inline">\(T\)</span> 的长度为偶数的情况。</p>
-<a id="more"></a>
-<p>因为 <span class="math inline">\(T\)</span> 这个字符串是从外向内确定的，所以 <span class="math inline">\(S\)</span> 的匹配也是从外向内的，故可以设 <span class="math inline">\(f_{i,l,r}\)</span> 表示考虑 <span class="math inline">\(T\)</span> 的前后 <span class="math inline">\(i\)</span> 个字符，当前 <span class="math inline">\(S\)</span> 还剩下 <span class="math inline">\([l,r]\)</span> 没有匹配到的方案数。</p>
-<p>考虑转移，假设当前有 <span class="math inline">\(s[l] = s[r]\)</span>，那么如果当前填的字符是 <span class="math inline">\(s[l]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l+1,r-1}\)</span>，如果当前填的字符不是 <span class="math inline">\(s[l]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l,r}\)</span>，转移系数为 <span class="math inline">\(25\)</span>。</p>
-<p>假设当前 <span class="math inline">\(s[l] \not= s[r]\)</span>，那么如果当前填的字符是 <span class="math inline">\(s[l]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l+1,r}\)</span>，如果当前填的字符是 <span class="math inline">\(s[r]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l,r-1}\)</span>，如果当前填的字符不是两者，就可以转移到 <span class="math inline">\(f_{i+1,l,r}\)</span>，转移系数为 <span class="math inline">\(24\)</span>。</p>
-<p>需要注意的是，对于所有的 <span class="math inline">\(f_{i,l,r}(l&gt;r)\)</span>，因为 <span class="math inline">\((l&gt;r)\)</span>，也就是说 <span class="math inline">\(S\)</span> 已经被匹配完，所以无论填什么字符都没关系，那么它们就可以转移到 <span class="math inline">\(f_{i+1,l,r}\)</span>，转移系数为 <span class="math inline">\(26\)</span>。</p>
-<p>这样我们便有了一个 <span class="math inline">\(n\times |S|^2\)</span> 的 DP，如果把后面的状态强行剥离就可以做到 <span class="math inline">\(|S|^6\log n\)</span>，似乎并没有什么用。</p>
-<p>考虑优化这个 DP，我们把这个 DP 的转移用一张图来表示，对于 <span class="math inline">\(S=abab\)</span>，转移图是这样的：</p>
-<figure>
-<img src="https://s1.ax1x.com/2020/09/17/wftvp6.png" alt="wftvp6.png" /><figcaption>wftvp6.png</figcaption>
-</figure>
-<p>其中下划线是已经匹配的部分，在 <span class="math inline">\(i\)</span> 行 <span class="math inline">\(j\)</span> 列的椭圆表示 <span class="math inline">\(f_{x,i,j}\)</span>，我们把所有的 <span class="math inline">\(l&gt;r\)</span> 的状态归到一个状态里面去，就有了如上的转移图。一个合法的方案本质上就是从 <span class="math inline">\(abab\)</span> 走 <span class="math inline">\(n+|S|\)</span> 步到 ____​ 的一条路径。</p>
-<p>我们把某条路径上面的所有节点拿出来，并且按照 <span class="math inline">\(s[l]\)</span> 是否等于 <span class="math inline">\(s[r]\)</span> 分类成两种点，可以发现，无论这两种点的排列如何，当这两种点的数量确定的时候，答案已经确定了。</p>
-<p>设 <span class="math inline">\(s[l]=s[r]\)</span> 的点为 <span class="math inline">\(0\)</span> 类点，<span class="math inline">\(s[l]\not=s[r]\)</span> 的点为 <span class="math inline">\(1\)</span> 类点，不难发现在某条路径上确定了 <span class="math inline">\(1\)</span> 类点的数目后，可以直接计算得到一个唯一的 <span class="math inline">\(0\)</span> 类点的数目，而 <span class="math inline">\(1\)</span> 类点的数目的取值范围为 <span class="math inline">\([0,len-1]\)</span>，所以总共不同的路径数最多只有 <span class="math inline">\(|S|\)</span> 条。</p>
-<p>考虑有多少种方案经过某条路径，设 <span class="math inline">\(g_{x,l,r}\)</span> 表示在区间 <span class="math inline">\([l,r]\)</span> 的这段转移中，总共经过 <span class="math inline">\(x\)</span> 个 <span class="math inline">\(1\)</span> 类点的方案数，用记忆化搜索即可求得，我们需要的就是 <span class="math inline">\(g_{x,1,|S|}\)</span>。这部分复杂度 <span class="math inline">\(|S|^3\)</span>。</p>
-<p>在一条路径上面 DP 的复杂度是 <span class="math inline">\(|S|\times n\)</span>，通过矩阵优化可以优化到 <span class="math inline">\(|S|^3\times \log n\)</span>，总复杂度即 <span class="math inline">\(|S|^4\log n\)</span>，虽然仍然过不了，但是优化了很多。</p>
-<p>我们设起点为 <span class="math inline">\(S\)</span>， <span class="math inline">\(0\)</span> 类点为黑色，<span class="math inline">\(1\)</span> 类点为白色，终点为 <span class="math inline">\(T\)</span>，上述过程中的转移图差不多是这样：</p>
-<figure>
-<img src="https://s1.ax1x.com/2020/09/18/w4aqtH.png" alt="w4aqtH.png" /><figcaption>w4aqtH.png</figcaption>
-</figure>
-<p>考虑继续优化，上述算法问题就出在我们对每种路径都跑了一次 DP，考虑把它们合并成一次。先规定所有的路径<span class="math inline">\(0\)</span> 类点都在前面，<span class="math inline">\(1\)</span> 类点都在后面。然后在新的转移图上把第一行放上 <span class="math inline">\(0\)</span> 类点，第二行放上 <span class="math inline">\(1\)</span> 类点，在第一行的点之间连边，第二行的点之间连边，现在就考虑怎么在第一行的点和第二行的点之间连边，不难发现，这种连边实质上代表了一种路径，因为这种边只能走一次，且走这种边就可以确定经过的 <span class="math inline">\(0\)</span> 类点和 <span class="math inline">\(1\)</span> 类点的数目，这样的话复杂度就优化到了 <span class="math inline">\(|S|^3\log n\)</span>。</p>
-<p>把上图按照这种优化连边之后的图就是这样：</p>
-<figure>
-<img src="https://s1.ax1x.com/2020/09/18/w4d83R.png" alt="w4d83R.png" /><figcaption>w4d83R.png</figcaption>
-</figure>
-<p>其中从第一行的点到第二行的点的转移系数为有多少种方案经过这种路径，即 <span class="math inline">\(g_{x,l,r}\)</span>。可以发现这样转化之后只有 <span class="math inline">\(\frac{3}{2}|S|\)</span> 个点，且因为转移图是 DAG 图，所以可以通过编号使得转移都是从编号小的点转移到编号大的点，这样可以得到一个比较优秀的常数优化。复杂度 <span class="math inline">\(|S|^3\log n\)</span>。</p>
-<p>最后还需要考虑一下 <span class="math inline">\(|T|\)</span> 为奇数。我们先把 <span class="math inline">\(|T|\)</span> 的长度看做 <span class="math inline">\(|T|+1\)</span> ，这样就可以得到一个答案。考虑有多少种方案不合法，可以发现是所有最后一步是放两个字符，且恰好在最后一次转移的时候放的方案，我们把这种方案算出来减掉即可。具体的，把所有最后一步是放两个字符的路径拿出来，然后去掉终点的自环再跑一遍上述 DP，这次求出来的答案就是要减掉的方案。</p>
-<p>至此便可完美解决此题。</p>
-<p>代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">1e4</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">205</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">205</span>][<span class="number">205</span>][<span class="number">205</span>];</span><br><span class="line"><span class="keyword">int</span> lim;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> a[<span class="number">305</span>][<span class="number">305</span>];</span><br><span class="line">  Matrix <span class="keyword">operator</span> * (<span class="keyword">const</span> Matrix &amp;A) &#123;</span><br><span class="line">    Matrix re;</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= lim; ++i)</span><br><span class="line">      <span class="keyword">for</span> (RI j = i; j &lt;= lim; ++j) &#123;</span><br><span class="line">        re.a[i][j] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (RI k = i; k &lt;= j; ++k)</span><br><span class="line">          re.a[i][j] = (re.a[i][j] + a[i][k] * A.a[k][j]) % mod;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> re;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; F;</span><br><span class="line"></span><br><span class="line"><span class="function">Matrix <span class="title">Matpow</span><span class="params">(Matrix a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  Matrix re;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= lim; ++i)</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">1</span>; j &lt;= lim; ++j)</span><br><span class="line">      re.a[i][j] = (i == j);</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = a * a)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = re * a;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DP</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span> x == <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (f[x][l][r] != <span class="number">-1</span>) <span class="keyword">return</span> f[x][l][r];</span><br><span class="line">  <span class="keyword">if</span> (s[l] == s[r])</span><br><span class="line">    f[x][l][r] = DP(x, l + <span class="number">1</span>, r - <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    f[x][l][r] = (DP(x - <span class="number">1</span>, l + <span class="number">1</span>, r) + DP(x - <span class="number">1</span>, l, r - <span class="number">1</span>)) % mod;</span><br><span class="line">  <span class="keyword">return</span> f[x][l][r];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">  <span class="keyword">int</span> n, len;</span><br><span class="line">  <span class="built_in">cin</span> &gt;&gt; (s + <span class="number">1</span>) &gt;&gt; n;</span><br><span class="line">  len = <span class="built_in">strlen</span>(s + <span class="number">1</span>);</span><br><span class="line">  lim = len + (len + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= len - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">    F.a[i][i] = <span class="number">24</span>;</span><br><span class="line">    F.a[i][i + <span class="number">1</span>] = (i != len - <span class="number">1</span>);</span><br><span class="line">    F.a[i][lim - (len - i + <span class="number">1</span>) / <span class="number">2</span>] = DP(i, <span class="number">1</span>, len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (RI i = len; i &lt; lim; ++i) &#123;</span><br><span class="line">    F.a[i][i] = <span class="number">25</span>;</span><br><span class="line">    F.a[i][i + <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  F.a[lim][lim] = <span class="number">26</span>;</span><br><span class="line">  F = Matpow(F, (n + len + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (len != <span class="number">1</span>)</span><br><span class="line">    ans = F.a[<span class="number">1</span>][lim];</span><br><span class="line">  ans = (ans + F.a[len][lim] * DP(<span class="number">0</span>, <span class="number">1</span>, len) % mod) % mod;</span><br><span class="line">  <span class="keyword">if</span> ((n + len) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">memset</span>(F.a, <span class="number">0</span>, <span class="keyword">sizeof</span>(F.a));</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= len - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">      F.a[i][i] = <span class="number">24</span>;</span><br><span class="line">      F.a[i][i + <span class="number">1</span>] = (i != len - <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span> (!((len - i) &amp; <span class="number">1</span>))</span><br><span class="line">        F.a[i][lim - (len - i + <span class="number">1</span>) / <span class="number">2</span>] = DP(i, <span class="number">1</span>, len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI i = len; i &lt; lim; ++i) &#123;</span><br><span class="line">      F.a[i][i] = <span class="number">25</span>;</span><br><span class="line">      F.a[i][i + <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    F = Matpow(F, (n + len + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (len != <span class="number">1</span>)</span><br><span class="line">      ans = (ans - F.a[<span class="number">1</span>][lim] + mod) % mod;</span><br><span class="line">    <span class="keyword">if</span> (!(len &amp; <span class="number">1</span>))</span><br><span class="line">      ans = (ans - F.a[len][lim] * DP(<span class="number">0</span>, <span class="number">1</span>, len) % mod + mod) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>DP</tag>
-        <tag>自动机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSP-S 2019 游记</title>
-    <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
-<a id="more"></a>
-<h2 id="day--1">Day -1</h2>
-<p>教练组织高二的学长出去玩去了，苦逼的我还要接着考 CSP 信(zi)心(bi)赛。/羡慕</p>
-<p>配 <code>emacs</code> 的时候突然忘记 <code>default</code> 怎么写了，一直认为最后两个字母是 <code>te</code> 。最后还是靠着 <code>switch</code> 的高亮打出来的（CSP 前犯这种错误我怕不是要爆零）</p>
-<p>晚上 U 盘坏了，捣鼓了一晚上。</p>
-<p>考前 RP 突然爆炸，感觉吃枣药丸（怕不是 CSP-S RP++ 爆负了……）</p>
-<h2 id="day-0">Day 0</h2>
-<p>上午写了一个线性基板子，一个矩阵快速幂板子，一个 <code>Miller-Rabin</code> 板子。</p>
-<p>之后就欢快地颓了一下午加一晚上。<del>（某乎：如何看待某巨佬 AK CSP-S）</del></p>
-<h2 id="day-1">Day 1</h2>
-<p>在一阵互相膜拜之后进入了考场。</p>
-<p>座位之间有隔板 <del>考试前还在讨论如何用毒瘤码风祸害周围同学</del>，键盘敲起来特别舒服，值得一提的是，<code>Emacs</code> 有配置文件！<del>好评</del>。</p>
-<p>开考后 10 分钟就把 T1 切了。</p>
-<p>T2 像极了考前的一道 <del>九条可怜</del> 的括号匹配题，几分钟码了个 <code>Trie</code> 树就过样例了，然而那个题<strong>忽略括号方向</strong> <del>我给忘了QAQ</del>。</p>
-<p>然后 T3 看上去很玄学的样子，开始手玩，结果手玩不动样例……<del>还不如暴搜</del></p>
-<p>闲的没事就给 T2 写了个对拍，一组就错……</p>
-<p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p>
-<p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p>
-<p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p>
-<p>当我百思不得其解时，已经 10:50了 QAQ。</p>
-<p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p>
-<p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p>
-<p>改完之后拍几万组都没有问题，不过这次考试也因为 T2 止步 210 了……</p>
-<p>又欢乐地颓了一下午加一晚上。</p>
-<h2 id="day-2">Day 2</h2>
-<p>昨天颓太欢乐了，今早莫名的困……</p>
-<p>感觉今天心态都不一样了……昨天想着怎么拿高分怎么 AK，今天就只想着多拿点分 <del>（还是不能给我这种蒟蒻太高的期望）</del></p>
-<p>开场就写了一个 T1 的 <span class="math inline">\(n^2m\)</span> 的做法，后来发现它假了，只能补上一维保证正确性，最后打了个 <span class="math inline">\(n^3m\)</span> 的 <code>DP</code>。</p>
-<p>然后写 T2，一开始写了一个 <span class="math inline">\(n^3\)</span> 的<code>DP</code>，并且理性分析发现可以优化到 <span class="math inline">\(n^2\)</span> 。经过人(bao)类(li)智(da)慧(biao)后，发现每个以每个点为终点的 <code>DP</code> 值有且仅有一个有用，于是可以使用单调队列优化做到 <span class="math inline">\(O(n)\)</span> ，<del>但是为啥我压 8 位高精都可以MLE，只能过 type=0</del></p>
-<p>最后写 T3，发现暴力分出奇地高，于是写完暴搜后就找特殊数据的规律，<del>还真被我找到了</del>，又骗了一大波分。</p>
-<p>一道题都没切预计都比昨天高……<del>我 ** 昨天在干嘛</del>。</p>
-<h2 id="后记">后记：</h2>
-<p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p>
-<p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSP-S1 2020 游记</title>
-    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="day-1">Day 1</h4>
-<a id="more"></a>
-<p>今天的状态就一个字：困。</p>
-<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
-<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
-<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
-<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
-<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
-<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
-<h4 id="day-inf">Day INF</h4>
-<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
-<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
-<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
-<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
-<p><a href="">CPS-S2 2020 游记</a></p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Daniel_yuan&#39;s New Blog</title>
-    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
-    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>CSP-S2 2020 游记</title>
     <url>/2020/11/08/CSP-S2-2020-%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="day--1">Day -1</h4>
@@ -170,6 +56,55 @@
 ]]></content>
       <tags>
         <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSP-S1 2020 游记</title>
+    <url>/2020/10/11/CSP-S1-2020-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="day-1">Day 1</h4>
+<a id="more"></a>
+<p>今天的状态就一个字：困。</p>
+<p>平时周末这么早还沉醉在<del>温柔乡</del>梦乡的我，坐着校车晃晃悠悠地去了考场。</p>
+<p>天空很蓝，阳光很暖，和兄弟们看着来往的<del>妹子</del>人群，感觉生活无比惬意。</p>
+<p>在见到如此多的小学生、初中生后，感觉自己真的老了<del>教练真就不当人</del>。</p>
+<p>一坐下就想睡觉，越考越想睡，rush 到第三个阅读的时候就感觉整个人都要没了，天人交战了好一会之后才又重新开始从后往前 rush，最后好不容易 rush 完了，结果却睡不着了。<del>（强烈抗议 CSP-S1 耽误我睡觉）</del></p>
+<p>中午众人决定去吃大餐，在兜兜转转之下，选择了某 M 开头的快餐店。</p>
+<p>虽然状态不太好，但是这波还是很稳的，祝愿 CSP-S2 2020 RP++。</p>
+<h4 id="day-inf">Day INF</h4>
+<p>成绩出来了，比预计的高一点点 96pts <code>O(∩_∩)O</code>。</p>
+<p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
+<p>不过还是祝愿 CSP-S2 2020 RP++。</p>
+<p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
+<p><a href="">CPS-S2 2020 游记</a></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DP of DP</title>
+    <url>/2021/01/21/DP-of-DP/</url>
+    <content><![CDATA[<p>做过不少 DP of DP 题，但是考试还是想不到，很气，写个总结记录下。</p>
+<a id="more"></a>
+<p>对于一个题目，如果它要求的是在某个限制下计数，并且在看一个状态有没有满足限制的时候也需要 DP，这时候往往就要用到 DP of DP。</p>
+<p>一般的流程是这样的，我们先考虑对于一个已知状态，怎么判定其是否满足性质。这时候我们一般都会有一个 DP，且这个 DP 是用增量法填表的，即类似于 <span class="math inline">\(f_{i,...}\)</span> 表示前 <span class="math inline">\(i\)</span> 个位置（或其它）怎么怎么样。然后因为我们的根本需求是计数，而计数我们也用到增量法，所以可以把 <span class="math inline">\(f_{i,...}\)</span> 的 <span class="math inline">\(i\)</span> 放到外层 DP 处，然后把剩下的 <span class="math inline">\(f_{...}\)</span> 给排成一列压缩起来，变成一个状态。这样在外层我们就得到了 <span class="math inline">\(F_{i,S}\)</span>，表示考虑前 <span class="math inline">\(i\)</span> 个位置（或其它），内层 DP 的状态是 <span class="math inline">\(S\)</span> 的方案数。在转移 <span class="math inline">\(i+1\)</span> 的时候，我们把 <span class="math inline">\(S\)</span> 还原成内层 DP 数组 <span class="math inline">\(f_{...}\)</span>，然后对 <span class="math inline">\(f_{...}\)</span> 和 <span class="math inline">\(i+1\)</span> 跑内层 DP 得到一个新状态<span class="math inline">\(f^{&#39;}_{...}\)</span> 并重新压缩成 <span class="math inline">\(T\)</span>，这样就可以从 <span class="math inline">\(F_{i,S}\)</span> 转移到 <span class="math inline">\(F_{i+1,T}\)</span>。</p>
+<p>考虑看一道例题：</p>
+<blockquote>
+<p>给一个小写字母字符串 <span class="math inline">\(S\)</span>，<span class="math inline">\(|S|\leq15\)</span>，问有多少个长度为 <span class="math inline">\(n\)</span>，<span class="math inline">\((n\leq 100)\)</span> 的小写字母字符串 <span class="math inline">\(T\)</span>，使得 <span class="math inline">\(S\)</span> 和 <span class="math inline">\(T\)</span> 的最长上升子序列的长度为 <span class="math inline">\(k\)</span>。对于 <span class="math inline">\(k=0,1,2...|S|\)</span> 都要求答案。</p>
+</blockquote>
+<p>经典题，按照上面的流程来做。</p>
+<p>首先对于一个已知字符串 <span class="math inline">\(T\)</span>，考虑求它的最长上升子序列。设 <span class="math inline">\(f_{i,j}\)</span> 表示考虑 <span class="math inline">\(T\)</span> 的前 <span class="math inline">\(i\)</span> 个字符，<span class="math inline">\(S\)</span> 的前 <span class="math inline">\(j\)</span> 个字符的最长上升子序列最长是多少。这个 DP 符合增量法，所以把 <span class="math inline">\(f_{1,2...j}\)</span> 压缩成一个状态 <span class="math inline">\(S\)</span>。在外层，设 <span class="math inline">\(F_{i,S}\)</span> 表示考虑 <span class="math inline">\(T\)</span> 的前 <span class="math inline">\(i\)</span> 个字符，<span class="math inline">\(f_{i,\{0,1...|S|\}}\)</span> 算出来的值状压起来为 <span class="math inline">\(S\)</span> 的方案数。转移的时候，枚举下一个字符填什么，然后把 <span class="math inline">\(S\)</span> 还原成 <span class="math inline">\(f\)</span>，然后计算出新的 <span class="math inline">\(f&#39;\)</span>，再状压回 <span class="math inline">\(T\)</span>，就可以从 <span class="math inline">\(F_{i,S}\)</span> 转移到 <span class="math inline">\(F_{i+1,T}\)</span> 了。</p>
+<p>这样我们就完成了普通的 DP of DP，但是这样复杂度有问题，因为 <span class="math inline">\(f\)</span> 的取值范围是 <span class="math inline">\([0,15]\)</span> 压起来特别大，但是我们发现 <span class="math inline">\(f_i-f_{i-1}\in[0,1]\)</span>，所以可以把 <span class="math inline">\(f_i-f_{i-1}\)</span> 压起来，这样 <span class="math inline">\(F_{i,S}\)</span> 的 <span class="math inline">\(S\)</span> 的取值只有 <span class="math inline">\(2^{15}\)</span> 了。</p>
+<p>代码如下，这里只实现了字符集为 <span class="math inline">\(\{N,O,I\}\)</span> 。原题是 <a href="https://www.luogu.com.cn/problem/P4590">[TJOI2018] 游园会</a>。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">20</span>], g[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> Trans[<span class="number">1</span> &lt;&lt; <span class="number">15</span>][<span class="number">3</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2</span>][<span class="number">3</span>][<span class="number">1</span> &lt;&lt; <span class="number">15</span>];</span><br><span class="line"><span class="keyword">int</span> bitcnt[<span class="number">1</span> &lt;&lt; <span class="number">15</span>];</span><br><span class="line"><span class="keyword">int</span> Ans[<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y - mod, x += (x &gt;&gt; <span class="number">31</span>) &amp; mod; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n, k; <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, s + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (RI S = <span class="number">0</span>, NS; S &lt; (<span class="number">1</span> &lt;&lt; k); ++S) &#123;</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      f[i] = f[i - <span class="number">1</span>] + ((S &gt;&gt; (i - <span class="number">1</span>)) &amp; <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      g[i] = max(g[i - <span class="number">1</span>], max(f[i], f[i - <span class="number">1</span>] + (s[i] == <span class="string">&#x27;N&#x27;</span>)));</span><br><span class="line">    NS = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      NS |= (g[i] - g[i - <span class="number">1</span>]) &lt;&lt; (i - <span class="number">1</span>);</span><br><span class="line">    Trans[S][<span class="number">0</span>] = NS;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      g[i] = max(g[i - <span class="number">1</span>], max(f[i], f[i - <span class="number">1</span>] + (s[i] == <span class="string">&#x27;O&#x27;</span>)));</span><br><span class="line">    NS = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      NS |= (g[i] - g[i - <span class="number">1</span>]) &lt;&lt; (i - <span class="number">1</span>);</span><br><span class="line">    Trans[S][<span class="number">1</span>] = NS;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      g[i] = max(g[i - <span class="number">1</span>], max(f[i], f[i - <span class="number">1</span>] + (s[i] == <span class="string">&#x27;I&#x27;</span>)));</span><br><span class="line">    NS = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= k; ++i)</span><br><span class="line">      NS |= (g[i] - g[i - <span class="number">1</span>]) &lt;&lt; (i - <span class="number">1</span>);</span><br><span class="line">    Trans[S][<span class="number">2</span>] = NS;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> cur = <span class="number">1</span>, nxt = <span class="number">0</span>;</span><br><span class="line">  dp[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    swap(cur, nxt);</span><br><span class="line">    <span class="built_in">memset</span>(dp[nxt], <span class="number">0</span>, <span class="keyword">sizeof</span>(dp[nxt]));</span><br><span class="line">    <span class="keyword">for</span> (RI S = <span class="number">0</span>; S &lt; (<span class="number">1</span> &lt;&lt; k); ++S) &#123;</span><br><span class="line">      Add(dp[nxt][<span class="number">1</span>][Trans[S][<span class="number">0</span>]], dp[cur][<span class="number">0</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">1</span>][Trans[S][<span class="number">0</span>]], dp[cur][<span class="number">1</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">1</span>][Trans[S][<span class="number">0</span>]], dp[cur][<span class="number">2</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">0</span>][Trans[S][<span class="number">1</span>]], dp[cur][<span class="number">0</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">2</span>][Trans[S][<span class="number">1</span>]], dp[cur][<span class="number">1</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">0</span>][Trans[S][<span class="number">1</span>]], dp[cur][<span class="number">2</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">0</span>][Trans[S][<span class="number">2</span>]], dp[cur][<span class="number">0</span>][S]);</span><br><span class="line">      Add(dp[nxt][<span class="number">0</span>][Trans[S][<span class="number">2</span>]], dp[cur][<span class="number">1</span>][S]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (RI S = <span class="number">1</span>; S &lt; (<span class="number">1</span> &lt;&lt; k); ++S)</span><br><span class="line">    bitcnt[S] = bitcnt[S ^ (S &amp; (-S))] + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">    <span class="keyword">for</span> (RI S = <span class="number">0</span>; S &lt; (<span class="number">1</span> &lt;&lt; k); ++S)</span><br><span class="line">      Add(Ans[bitcnt[S]], dp[nxt][i][S]);</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt;= k; ++i)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, Ans[i]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>但是我们肯定不仅仅满足这个普通的 DP of DP，我们需要更便捷的东西——自动机。</p>
+<p>也就是说我们干脆就直接把 <span class="math inline">\(S\)</span> 看成是一个状态的集合，然后把所有的状态的集合建出一个转移的自动机。一个自动机上面的节点代表着一个状态，而转移边就代表着这个状态加入一个东西后可以转移到哪里。这样我们的 DP 就变成了一个普通的自动机上 DP。</p>
+<p>典型例子是 <a href="https://www.luogu.com.cn/problem/P5279">[ZJOI2019] 麻将</a>，可以结合<a href="https://daniel-yuan.github.io/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/#more">我的这篇博客</a>把这个题切了。</p>
+<p><del>（不知为何写着写着就变成一个普及 DP of DP 的博客了……）</del></p>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>DP of DP</tag>
       </tags>
   </entry>
   <entry>
@@ -369,6 +304,49 @@
       </tags>
   </entry>
   <entry>
+    <title>CSP-S 2019 游记</title>
+    <url>/2019/11/16/CSP-S%202019%20%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<p>我们还在这样的世上活着；我也早觉得有写一点东西的必要了。离十一月十六日只不足几天，CSP 的审判快要降临了罢，我正有写一点东西的必要了。（雾</p>
+<a id="more"></a>
+<h2 id="day--1">Day -1</h2>
+<p>教练组织高二的学长出去玩去了，苦逼的我还要接着考 CSP 信(zi)心(bi)赛。/羡慕</p>
+<p>配 <code>emacs</code> 的时候突然忘记 <code>default</code> 怎么写了，一直认为最后两个字母是 <code>te</code> 。最后还是靠着 <code>switch</code> 的高亮打出来的（CSP 前犯这种错误我怕不是要爆零）</p>
+<p>晚上 U 盘坏了，捣鼓了一晚上。</p>
+<p>考前 RP 突然爆炸，感觉吃枣药丸（怕不是 CSP-S RP++ 爆负了……）</p>
+<h2 id="day-0">Day 0</h2>
+<p>上午写了一个线性基板子，一个矩阵快速幂板子，一个 <code>Miller-Rabin</code> 板子。</p>
+<p>之后就欢快地颓了一下午加一晚上。<del>（某乎：如何看待某巨佬 AK CSP-S）</del></p>
+<h2 id="day-1">Day 1</h2>
+<p>在一阵互相膜拜之后进入了考场。</p>
+<p>座位之间有隔板 <del>考试前还在讨论如何用毒瘤码风祸害周围同学</del>，键盘敲起来特别舒服，值得一提的是，<code>Emacs</code> 有配置文件！<del>好评</del>。</p>
+<p>开考后 10 分钟就把 T1 切了。</p>
+<p>T2 像极了考前的一道 <del>九条可怜</del> 的括号匹配题，几分钟码了个 <code>Trie</code> 树就过样例了，然而那个题<strong>忽略括号方向</strong> <del>我给忘了QAQ</del>。</p>
+<p>然后 T3 看上去很玄学的样子，开始手玩，结果手玩不动样例……<del>还不如暴搜</del></p>
+<p>闲的没事就给 T2 写了个对拍，一组就错……</p>
+<p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p>
+<p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p>
+<p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p>
+<p>当我百思不得其解时，已经 10:50了 QAQ。</p>
+<p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p>
+<p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p>
+<p>改完之后拍几万组都没有问题，不过这次考试也因为 T2 止步 210 了……</p>
+<p>又欢乐地颓了一下午加一晚上。</p>
+<h2 id="day-2">Day 2</h2>
+<p>昨天颓太欢乐了，今早莫名的困……</p>
+<p>感觉今天心态都不一样了……昨天想着怎么拿高分怎么 AK，今天就只想着多拿点分 <del>（还是不能给我这种蒟蒻太高的期望）</del></p>
+<p>开场就写了一个 T1 的 <span class="math inline">\(n^2m\)</span> 的做法，后来发现它假了，只能补上一维保证正确性，最后打了个 <span class="math inline">\(n^3m\)</span> 的 <code>DP</code>。</p>
+<p>然后写 T2，一开始写了一个 <span class="math inline">\(n^3\)</span> 的<code>DP</code>，并且理性分析发现可以优化到 <span class="math inline">\(n^2\)</span> 。经过人(bao)类(li)智(da)慧(biao)后，发现每个以每个点为终点的 <code>DP</code> 值有且仅有一个有用，于是可以使用单调队列优化做到 <span class="math inline">\(O(n)\)</span> ，<del>但是为啥我压 8 位高精都可以MLE，只能过 type=0</del></p>
+<p>最后写 T3，发现暴力分出奇地高，于是写完暴搜后就找特殊数据的规律，<del>还真被我找到了</del>，又骗了一大波分。</p>
+<p>一道题都没切预计都比昨天高……<del>我 ** 昨天在干嘛</del>。</p>
+<h2 id="后记">后记：</h2>
+<p>210 + 247 = 457……没能完成教练定的500分目标<del>AFO AFO</del>……</p>
+<p>趁还没有退役先把游记码了……<del>AFO了就没机会了</del></p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PAM 学习笔记</title>
     <url>/2020/09/26/PAM-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="定义">定义</h4>
@@ -455,35 +433,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ZJOI2019]开关 题解</title>
-    <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
-<p>为了方便，设 <span class="math inline">\(p_i\)</span> 为 <span class="math inline">\(i\)</span> 被选的概率，对应到输入即 <span class="math inline">\(\frac{p_i}{\sum_{j=1}^n p_j}\)</span> 。</p>
-<p>设 <span class="math inline">\(f(S)\)</span> 表示从 <span class="math inline">\(S\)</span> 状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p>
-<p>那么显然有<a id="more"></a> <span class="math inline">\(f(S)=\begin{cases}0&amp;S=\varnothing\\1+\sum p_if_{S \text{ xor } i}&amp;S\not=\varnothing\end{cases}\)</span>。</p>
-<p>如果把 <span class="math inline">\(f(S)\)</span> 看做是集合幂级数 <span class="math inline">\(F=\sum_S f(S)x^S\)</span>，下半部分的 <span class="math inline">\(\sum\)</span> 可以看做是一个异或卷积（更多有关位运算的卷积，可以参考<a href="https://daniel-yuan.github.io/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/#more">我的另一篇博客</a>），那么我们设另一个集合幂级数 <span class="math inline">\(G=\sum_S g(S)x^S\)</span>，其中 <span class="math inline">\(g(S)\)</span> 在 <span class="math inline">\(S\)</span> 中仅含一个元素 <span class="math inline">\(k\)</span> 的时候为 <span class="math inline">\(p_k\)</span>，否则为 <span class="math inline">\(0\)</span>。那么下半部分的 <span class="math inline">\(\sum\)</span> 就可以看做是 <span class="math inline">\(F*G\)</span>。</p>
-<p>不看 <span class="math inline">\(\varnothing\)</span>，我们有 <span class="math inline">\(F*G+1=F\)</span>，即 <span class="math inline">\(F*(G-1)=-1\)</span>，为了方便，把 <span class="math inline">\(g(S)\)</span> 做一个微调，即 <span class="math inline">\(g(S)=\begin{cases}-1&amp;S=\varnothing\\p_i&amp;|S|=1,S\text{ 中的元素为 }i\\0&amp;|S|&gt;1\end{cases}\)</span>。这样在不考虑 <span class="math inline">\(\varnothing\)</span> 的时候，<span class="math inline">\(F*G=-1\)</span>。</p>
-<p>考虑 <span class="math inline">\(F*G\)</span> 的 <span class="math inline">\(\varnothing\)</span> 项是什么，我们可以知道 <span class="math inline">\(\sum_i(F*G)(i)=\sum_{i,j} F(i)G(j)\)</span>，因为 <span class="math inline">\(\sum_iG(i)=0\)</span>，所以右边为 <span class="math inline">\(0\)</span>，所以 <span class="math inline">\(\sum_i(F*G)(i)=0\)</span>，所以可以推出 <span class="math inline">\((F*G)(\varnothing)=2^n-1\)</span>。</p>
-<p>设 <span class="math inline">\(H=F*G\)</span>，那么就有 <span class="math inline">\(h(S)=\begin{cases}2^n-1&amp;S=\varnothing\\-1&amp;S\not=\varnothing\end{cases}\)</span>。</p>
-<p><span class="math inline">\(G,H\)</span> 我们都知道，考虑反推 <span class="math inline">\(F\)</span>。</p>
-<p>设 <span class="math inline">\(FWTX\)</span> 为集合幂级数 <span class="math inline">\(X\)</span> 在 <span class="math inline">\(FWT\)</span> 之后的结果。根据异或卷积 <span class="math inline">\(FWT\)</span> 的公式（在上面给出的博客有详细介绍）<span class="math inline">\(F(i)=\sum_j(-1)^{|i\text{ and }j|}F(j)\)</span>，不难得到 <span class="math inline">\(FWTG(S)=\begin{cases}0&amp;S=\varnothing\\\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1&amp;S\not=\varnothing\end{cases}\)</span>，<span class="math inline">\(FWTH(S)=\begin{cases}0&amp;S=\varnothing\\2^n&amp;S\not=\varnothing\end{cases}\)</span>。对于前者，就是照搬式子，然后在 <span class="math inline">\(S=\varnothing\)</span> 处特别展开一下。对于后者，<span class="math inline">\(S=\varnothing\)</span> 的部分是 <span class="math inline">\(H(S)\)</span> 全部相加显然为 <span class="math inline">\(0\)</span>，而其它位置，对 <span class="math inline">\(FWTH(S)\)</span> 贡献为正的 <span class="math inline">\(H(S)\)</span> 和负的 <span class="math inline">\(H(S)\)</span> 应该各占一半，而 <span class="math inline">\(H(\varnothing)\)</span> 的贡献为正，那么剩下的部分相加就应该是 <span class="math inline">\((-1)\times(-1)\)</span>，再加上 <span class="math inline">\(H(\varnothing)\)</span> 就为 <span class="math inline">\(2^n\)</span>。</p>
-<p>那么我们可以很轻易的得到，在 <span class="math inline">\(S\not=\varnothing\)</span> 时， <span class="math inline">\(FWTF(S)=\frac{2^n}{\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1}\)</span>，而当 <span class="math inline">\(S=\varnothing\)</span> 的时候，<span class="math inline">\(FWTF(S)\)</span> 用除法求就 <span class="math inline">\(\text{nan}\)</span> 了，所以需要特别处理。</p>
-<p>考虑在 <span class="math inline">\(\sum_SFWTF(S)\)</span> 中每个 <span class="math inline">\(F(S)\)</span> 的贡献，假设 <span class="math inline">\(|S|=X\)</span>，枚举 <span class="math inline">\(|S \text{ and } T|\)</span>，那么就有 <span class="math inline">\(\sum_k(-1)^kC_X^k2^{n-X}=2^{n-X}[X=0]\)</span>，其中 <span class="math inline">\(C_x^y\)</span> 表示组合数（后同）。所以 <span class="math inline">\(\sum_S FWTF(S)=2^nF(\varnothing)\)</span>，而上文有 <span class="math inline">\(F(\varnothing)=0\)</span>，所以 <span class="math inline">\(\sum_S FWTF(S)=0\)</span>。所以 <span class="math inline">\(FWTF(\varnothing)\)</span> 就是 <span class="math inline">\(-\sum_{S\not=\varnothing}FWTF(S)\)</span>。</p>
-<p>根据上面推导，我们也可以知道 <span class="math inline">\(F(S)=\frac{1}{2^n}\sum_T(-1)^{|S\text{ and }T|}FWTF(T)\)</span>。（原理也是 <span class="math inline">\(\sum_k(-1)^kC_X^k=[X=0]\)</span>）。</p>
-<p>把 <span class="math inline">\(\varnothing\)</span> 单独考虑，那么就有 <span class="math inline">\(F(S)=\sum_{T\not=\varnothing}(\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p}-(-1)^{|S\text{ and }T|}\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p})\)</span>。</p>
-<p>把左右相抵的去掉，稍加整理，有 <span class="math inline">\(F(S)=\sum_{(-1)^{T\text{ and } S}=-1}\frac{2}{2\sum_{|U|=1}p[|U\text{ and }T|=1]}\)</span>。</p>
-<p>最后就是一个简单 DP 了<del>（不会吧不会吧，推到这里还不会 DP？）</del>。</p>
-<p>设 <span class="math inline">\(dp_{i,j,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 个开关，分子总和为 <span class="math inline">\(j\)</span>，交的奇偶性为 <span class="math inline">\(0/1\)</span> 的方案数。转移显然，总复杂度 <span class="math inline">\(O(n\sum p)\)</span>。</p>
-<p>贴个代码。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> p[MAXN], s[MAXN], sum[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">50005</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y - mod; x += (x &gt;&gt; <span class="number">31</span>) &amp; mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> re = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = <span class="number">1l</span>l * a * a % mod)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = <span class="number">1l</span>l * re * a % mod;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; p[i], sum[i] = sum[i - <span class="number">1</span>] + p[i];</span><br><span class="line">  f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (RI j = p[i]; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">0</span> ^ s[i]]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">1</span> ^ s[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">0</span>; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j][<span class="number">0</span>]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j][<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt;= sum[n]; ++i)</span><br><span class="line">    Add(ans, <span class="number">1l</span>l * sum[n] * f[n][i][<span class="number">1</span>] % mod * qpow(i, mod - <span class="number">2</span>) % mod);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>FWT</tag>
-        <tag>多项式</tag>
-        <tag>期望概率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UOJ Contests</title>
     <url>/2020/10/14/UOJ-Contests/</url>
     <content><![CDATA[<p><del>九条可怜老师</del>吉老师在他的博客中大力赞扬 UR 。</p>
@@ -533,6 +482,35 @@
       </tags>
   </entry>
   <entry>
+    <title>[ZJOI2019]开关 题解</title>
+    <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
+<p>为了方便，设 <span class="math inline">\(p_i\)</span> 为 <span class="math inline">\(i\)</span> 被选的概率，对应到输入即 <span class="math inline">\(\frac{p_i}{\sum_{j=1}^n p_j}\)</span> 。</p>
+<p>设 <span class="math inline">\(f(S)\)</span> 表示从 <span class="math inline">\(S\)</span> 状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p>
+<p>那么显然有<a id="more"></a> <span class="math inline">\(f(S)=\begin{cases}0&amp;S=\varnothing\\1+\sum p_if_{S \text{ xor } i}&amp;S\not=\varnothing\end{cases}\)</span>。</p>
+<p>如果把 <span class="math inline">\(f(S)\)</span> 看做是集合幂级数 <span class="math inline">\(F=\sum_S f(S)x^S\)</span>，下半部分的 <span class="math inline">\(\sum\)</span> 可以看做是一个异或卷积（更多有关位运算的卷积，可以参考<a href="https://daniel-yuan.github.io/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/#more">我的另一篇博客</a>），那么我们设另一个集合幂级数 <span class="math inline">\(G=\sum_S g(S)x^S\)</span>，其中 <span class="math inline">\(g(S)\)</span> 在 <span class="math inline">\(S\)</span> 中仅含一个元素 <span class="math inline">\(k\)</span> 的时候为 <span class="math inline">\(p_k\)</span>，否则为 <span class="math inline">\(0\)</span>。那么下半部分的 <span class="math inline">\(\sum\)</span> 就可以看做是 <span class="math inline">\(F*G\)</span>。</p>
+<p>不看 <span class="math inline">\(\varnothing\)</span>，我们有 <span class="math inline">\(F*G+1=F\)</span>，即 <span class="math inline">\(F*(G-1)=-1\)</span>，为了方便，把 <span class="math inline">\(g(S)\)</span> 做一个微调，即 <span class="math inline">\(g(S)=\begin{cases}-1&amp;S=\varnothing\\p_i&amp;|S|=1,S\text{ 中的元素为 }i\\0&amp;|S|&gt;1\end{cases}\)</span>。这样在不考虑 <span class="math inline">\(\varnothing\)</span> 的时候，<span class="math inline">\(F*G=-1\)</span>。</p>
+<p>考虑 <span class="math inline">\(F*G\)</span> 的 <span class="math inline">\(\varnothing\)</span> 项是什么，我们可以知道 <span class="math inline">\(\sum_i(F*G)(i)=\sum_{i,j} F(i)G(j)\)</span>，因为 <span class="math inline">\(\sum_iG(i)=0\)</span>，所以右边为 <span class="math inline">\(0\)</span>，所以 <span class="math inline">\(\sum_i(F*G)(i)=0\)</span>，所以可以推出 <span class="math inline">\((F*G)(\varnothing)=2^n-1\)</span>。</p>
+<p>设 <span class="math inline">\(H=F*G\)</span>，那么就有 <span class="math inline">\(h(S)=\begin{cases}2^n-1&amp;S=\varnothing\\-1&amp;S\not=\varnothing\end{cases}\)</span>。</p>
+<p><span class="math inline">\(G,H\)</span> 我们都知道，考虑反推 <span class="math inline">\(F\)</span>。</p>
+<p>设 <span class="math inline">\(FWTX\)</span> 为集合幂级数 <span class="math inline">\(X\)</span> 在 <span class="math inline">\(FWT\)</span> 之后的结果。根据异或卷积 <span class="math inline">\(FWT\)</span> 的公式（在上面给出的博客有详细介绍）<span class="math inline">\(F(i)=\sum_j(-1)^{|i\text{ and }j|}F(j)\)</span>，不难得到 <span class="math inline">\(FWTG(S)=\begin{cases}0&amp;S=\varnothing\\\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1&amp;S\not=\varnothing\end{cases}\)</span>，<span class="math inline">\(FWTH(S)=\begin{cases}0&amp;S=\varnothing\\2^n&amp;S\not=\varnothing\end{cases}\)</span>。对于前者，就是照搬式子，然后在 <span class="math inline">\(S=\varnothing\)</span> 处特别展开一下。对于后者，<span class="math inline">\(S=\varnothing\)</span> 的部分是 <span class="math inline">\(H(S)\)</span> 全部相加显然为 <span class="math inline">\(0\)</span>，而其它位置，对 <span class="math inline">\(FWTH(S)\)</span> 贡献为正的 <span class="math inline">\(H(S)\)</span> 和负的 <span class="math inline">\(H(S)\)</span> 应该各占一半，而 <span class="math inline">\(H(\varnothing)\)</span> 的贡献为正，那么剩下的部分相加就应该是 <span class="math inline">\((-1)\times(-1)\)</span>，再加上 <span class="math inline">\(H(\varnothing)\)</span> 就为 <span class="math inline">\(2^n\)</span>。</p>
+<p>那么我们可以很轻易的得到，在 <span class="math inline">\(S\not=\varnothing\)</span> 时， <span class="math inline">\(FWTF(S)=\frac{2^n}{\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1}\)</span>，而当 <span class="math inline">\(S=\varnothing\)</span> 的时候，<span class="math inline">\(FWTF(S)\)</span> 用除法求就 <span class="math inline">\(\text{nan}\)</span> 了，所以需要特别处理。</p>
+<p>考虑在 <span class="math inline">\(\sum_SFWTF(S)\)</span> 中每个 <span class="math inline">\(F(S)\)</span> 的贡献，假设 <span class="math inline">\(|S|=X\)</span>，枚举 <span class="math inline">\(|S \text{ and } T|\)</span>，那么就有 <span class="math inline">\(\sum_k(-1)^kC_X^k2^{n-X}=2^{n-X}[X=0]\)</span>，其中 <span class="math inline">\(C_x^y\)</span> 表示组合数（后同）。所以 <span class="math inline">\(\sum_S FWTF(S)=2^nF(\varnothing)\)</span>，而上文有 <span class="math inline">\(F(\varnothing)=0\)</span>，所以 <span class="math inline">\(\sum_S FWTF(S)=0\)</span>。所以 <span class="math inline">\(FWTF(\varnothing)\)</span> 就是 <span class="math inline">\(-\sum_{S\not=\varnothing}FWTF(S)\)</span>。</p>
+<p>根据上面推导，我们也可以知道 <span class="math inline">\(F(S)=\frac{1}{2^n}\sum_T(-1)^{|S\text{ and }T|}FWTF(T)\)</span>。（原理也是 <span class="math inline">\(\sum_k(-1)^kC_X^k=[X=0]\)</span>）。</p>
+<p>把 <span class="math inline">\(\varnothing\)</span> 单独考虑，那么就有 <span class="math inline">\(F(S)=\sum_{T\not=\varnothing}(\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p}-(-1)^{|S\text{ and }T|}\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p})\)</span>。</p>
+<p>把左右相抵的去掉，稍加整理，有 <span class="math inline">\(F(S)=\sum_{(-1)^{T\text{ and } S}=-1}\frac{2}{2\sum_{|U|=1}p[|U\text{ and }T|=1]}\)</span>。</p>
+<p>最后就是一个简单 DP 了<del>（不会吧不会吧，推到这里还不会 DP？）</del>。</p>
+<p>设 <span class="math inline">\(dp_{i,j,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 个开关，分子总和为 <span class="math inline">\(j\)</span>，交的奇偶性为 <span class="math inline">\(0/1\)</span> 的方案数。转移显然，总复杂度 <span class="math inline">\(O(n\sum p)\)</span>。</p>
+<p>贴个代码。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> p[MAXN], s[MAXN], sum[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">50005</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y - mod; x += (x &gt;&gt; <span class="number">31</span>) &amp; mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> re = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = <span class="number">1l</span>l * a * a % mod)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = <span class="number">1l</span>l * re * a % mod;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; p[i], sum[i] = sum[i - <span class="number">1</span>] + p[i];</span><br><span class="line">  f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (RI j = p[i]; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">0</span> ^ s[i]]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">1</span> ^ s[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">0</span>; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j][<span class="number">0</span>]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j][<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt;= sum[n]; ++i)</span><br><span class="line">    Add(ans, <span class="number">1l</span>l * sum[n] * f[n][i][<span class="number">1</span>] % mod * qpow(i, mod - <span class="number">2</span>) % mod);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>FWT</tag>
+        <tag>多项式</tag>
+        <tag>期望概率</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ZJOI2019] 麻将 题解</title>
     <url>/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p>首先对于已有的一堆牌，我们应该要能确定它能不能胡。</p>
@@ -551,8 +529,8 @@
 ]]></content>
       <tags>
         <tag>DP</tag>
-        <tag>自动机</tag>
         <tag>DP of DP</tag>
+        <tag>自动机</tag>
       </tags>
   </entry>
   <entry>
@@ -774,44 +752,6 @@
       </tags>
   </entry>
   <entry>
-    <title>广义二项式定理</title>
-    <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
-    <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
-<a id="more"></a>
-<p>对于广义的组合数，有个恒等式 <span class="math inline">\(\tbinom{n}{m}=\tbinom{m-n-1}{m}\times (-1)^{m}\)</span> 。</p>
-<blockquote>
-<p>两式的分母都是一样的，对于左式，其分子是 <span class="math inline">\(n\times (n-1)\times ... \times (n-m+1)\)</span>，对于右式，其分子是 <span class="math inline">\((m-n-1)\times ((m-n-1)-1) \times ... \times ((m-n-1)-m+1)\)</span>，可以发现右式分子的每个单项式和左式分子的单项式一一对应，并且互为相反数，那么最后乘上一个 <span class="math inline">\((-1)^m\)</span> 即可。</p>
-</blockquote>
-<p>有个很妙的记忆方法：两级反转（和艾克真的一点关系都没有 /doge）连续变化两次，设未知数，下标不变，上标用 <span class="math inline">\(m-1\)</span> 去减，即：<span class="math inline">\(\tbinom{n}{m}=\tbinom{m-?-1}{m}\times (-1)^{2m}\)</span>，那么可以很快得出问号是 <span class="math inline">\(m-n-1\)</span> 。当然直接用上文的证明去推更 nice。</p>
-<p>广义二项式定理： <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 这里的 <span class="math inline">\(k\)</span> 可以是任意实数，一般会用在 <span class="math inline">\(k\)</span> 为负整数的时候，那么我们在下面约定所有出现的 <span class="math inline">\(k\)</span> 都是<strong>负整数</strong>，且为了方便理解，设 <span class="math inline">\(n=-k\)</span>。</p>
-<p>考虑用生成函数去解释，先把 <span class="math inline">\((a+b)^{k}\)</span> 看成 <span class="math inline">\((a+bx)^{k}\)</span> 那么最后只要把 <span class="math inline">\(x\)</span> 看成 <span class="math inline">\(1\)</span> 即可。</p>
-<p>先考虑最基本的情况：<span class="math inline">\((1-x)^{-n}\)</span> 。</p>
-<p>根据数学知识可以知道上式就是 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}\)</span> 。</p>
-<p>根据生成函数，可以知道 <span class="math inline">\((1-x)^{-1}=\sum_{i=0}^{\infty} x^i\)</span> 。</p>
-<blockquote>
-<p>设 <span class="math inline">\(S=1+x+x^2+...\)</span>，那么 <span class="math inline">\(xS=x+x^2+x^3+...\)</span>，那么 <span class="math inline">\(S-xS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-x}\)</span> 即 $ (1-x)^{-1}$</p>
-</blockquote>
-<p>那么 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\left( \sum_{i=0}^{\infty} x^i \right)^{n}\)</span> 。</p>
-<p>考虑从组合意义上去计算这个式子：你有 <span class="math inline">\(n\)</span> 种球，每种球无限个，你需要从这 <span class="math inline">\(n\)</span> 种球中选择一共 <span class="math inline">\(i\)</span> 个球，每种球至少选 <span class="math inline">\(0\)</span> 个，其方案数就是 <span class="math inline">\(x^i\)</span> 的系数。那么使用隔板法就有 <span class="math inline">\(\tbinom{i+n-1}{n-1}\)</span> 。</p>
-<p>所以 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}x^i\)</span> 。</p>
-<p>那么我们再在 <span class="math inline">\(x\)</span> 前面加上一个系数 <span class="math inline">\(p\)</span> ，即求 <span class="math inline">\((1-px)^{-1}\)</span> 。它是等于 <span class="math inline">\(\sum_{i=0}^{\infty} p^ix^i\)</span> 。</p>
-<blockquote>
-<p>设 <span class="math inline">\(S=1+px+p^2x^2+...\)</span> ，那么 <span class="math inline">\(pxS=px+p^2x^2+p^3x^3+...\)</span>，那么 <span class="math inline">\(S-pxS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-px}\)</span> 即 <span class="math inline">\((1-px)^{-1}\)</span> 。</p>
-</blockquote>
-<p>那再按照上面的方法去推，就有 <span class="math inline">\(\left( (1-px)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}p^ix^i\)</span></p>
-<p>回到一开始的问题，<span class="math inline">\((a+bx)^k=a^k \left( 1-(-\frac{b}{a}x) \right)^k\)</span> 。</p>
-<p>那么就有 <span class="math inline">\((a+bx)^k=a^k \sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-\frac{b}{a})^ix^i\)</span> 。整理一下，<span class="math inline">\(\sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-1)^ia^{k-i}b^ix^i\)</span> 。</p>
-<p>注意了，这里等式内部的组合数的 <span class="math inline">\(k\)</span> 前面都带个负号，因为上文在推导过程中，设的是 <span class="math inline">\(n=-k\)</span>，所以在组合数中的 <span class="math inline">\(n\)</span> 才是正号。</p>
-<p>再根据文首提及的那个恒等式，就有 <span class="math inline">\(\tbinom{i-k-1}{-k-1}=\tbinom{i-k-1}{i}=\tbinom{k}{i}\times (-1)^i\)</span> 。</p>
-<p>可以发现两个 <span class="math inline">\((-1)^i\)</span> 抵掉了，那么 <span class="math inline">\((a+bx)^k=\sum_{i=0}^{\infty} \tbinom{k}{i}a^{k-i}b^ix^i\)</span> 。</p>
-<p>把 <span class="math inline">\(x=1\)</span> 带入原式，即可得 <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 。</p>
-]]></content>
-      <tags>
-        <tag>数学</tag>
-        <tag>组合数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字符串的回文划分</title>
     <url>/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/</url>
     <content><![CDATA[<p>定义一个串 <span class="math inline">\(S\)</span> 的划分 <span class="math inline">\(s_1,s_2...s_k\)</span> 为回文划分当且仅当 <span class="math inline">\(s_1,s_2...s_k\)</span> 都是回文串。</p>
@@ -853,6 +793,44 @@
       <tags>
         <tag>字符串</tag>
         <tag>PAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>广义二项式定理</title>
+    <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
+    <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
+<a id="more"></a>
+<p>对于广义的组合数，有个恒等式 <span class="math inline">\(\tbinom{n}{m}=\tbinom{m-n-1}{m}\times (-1)^{m}\)</span> 。</p>
+<blockquote>
+<p>两式的分母都是一样的，对于左式，其分子是 <span class="math inline">\(n\times (n-1)\times ... \times (n-m+1)\)</span>，对于右式，其分子是 <span class="math inline">\((m-n-1)\times ((m-n-1)-1) \times ... \times ((m-n-1)-m+1)\)</span>，可以发现右式分子的每个单项式和左式分子的单项式一一对应，并且互为相反数，那么最后乘上一个 <span class="math inline">\((-1)^m\)</span> 即可。</p>
+</blockquote>
+<p>有个很妙的记忆方法：两级反转（和艾克真的一点关系都没有 /doge）连续变化两次，设未知数，下标不变，上标用 <span class="math inline">\(m-1\)</span> 去减，即：<span class="math inline">\(\tbinom{n}{m}=\tbinom{m-?-1}{m}\times (-1)^{2m}\)</span>，那么可以很快得出问号是 <span class="math inline">\(m-n-1\)</span> 。当然直接用上文的证明去推更 nice。</p>
+<p>广义二项式定理： <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 这里的 <span class="math inline">\(k\)</span> 可以是任意实数，一般会用在 <span class="math inline">\(k\)</span> 为负整数的时候，那么我们在下面约定所有出现的 <span class="math inline">\(k\)</span> 都是<strong>负整数</strong>，且为了方便理解，设 <span class="math inline">\(n=-k\)</span>。</p>
+<p>考虑用生成函数去解释，先把 <span class="math inline">\((a+b)^{k}\)</span> 看成 <span class="math inline">\((a+bx)^{k}\)</span> 那么最后只要把 <span class="math inline">\(x\)</span> 看成 <span class="math inline">\(1\)</span> 即可。</p>
+<p>先考虑最基本的情况：<span class="math inline">\((1-x)^{-n}\)</span> 。</p>
+<p>根据数学知识可以知道上式就是 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}\)</span> 。</p>
+<p>根据生成函数，可以知道 <span class="math inline">\((1-x)^{-1}=\sum_{i=0}^{\infty} x^i\)</span> 。</p>
+<blockquote>
+<p>设 <span class="math inline">\(S=1+x+x^2+...\)</span>，那么 <span class="math inline">\(xS=x+x^2+x^3+...\)</span>，那么 <span class="math inline">\(S-xS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-x}\)</span> 即 $ (1-x)^{-1}$</p>
+</blockquote>
+<p>那么 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\left( \sum_{i=0}^{\infty} x^i \right)^{n}\)</span> 。</p>
+<p>考虑从组合意义上去计算这个式子：你有 <span class="math inline">\(n\)</span> 种球，每种球无限个，你需要从这 <span class="math inline">\(n\)</span> 种球中选择一共 <span class="math inline">\(i\)</span> 个球，每种球至少选 <span class="math inline">\(0\)</span> 个，其方案数就是 <span class="math inline">\(x^i\)</span> 的系数。那么使用隔板法就有 <span class="math inline">\(\tbinom{i+n-1}{n-1}\)</span> 。</p>
+<p>所以 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}x^i\)</span> 。</p>
+<p>那么我们再在 <span class="math inline">\(x\)</span> 前面加上一个系数 <span class="math inline">\(p\)</span> ，即求 <span class="math inline">\((1-px)^{-1}\)</span> 。它是等于 <span class="math inline">\(\sum_{i=0}^{\infty} p^ix^i\)</span> 。</p>
+<blockquote>
+<p>设 <span class="math inline">\(S=1+px+p^2x^2+...\)</span> ，那么 <span class="math inline">\(pxS=px+p^2x^2+p^3x^3+...\)</span>，那么 <span class="math inline">\(S-pxS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-px}\)</span> 即 <span class="math inline">\((1-px)^{-1}\)</span> 。</p>
+</blockquote>
+<p>那再按照上面的方法去推，就有 <span class="math inline">\(\left( (1-px)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}p^ix^i\)</span></p>
+<p>回到一开始的问题，<span class="math inline">\((a+bx)^k=a^k \left( 1-(-\frac{b}{a}x) \right)^k\)</span> 。</p>
+<p>那么就有 <span class="math inline">\((a+bx)^k=a^k \sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-\frac{b}{a})^ix^i\)</span> 。整理一下，<span class="math inline">\(\sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-1)^ia^{k-i}b^ix^i\)</span> 。</p>
+<p>注意了，这里等式内部的组合数的 <span class="math inline">\(k\)</span> 前面都带个负号，因为上文在推导过程中，设的是 <span class="math inline">\(n=-k\)</span>，所以在组合数中的 <span class="math inline">\(n\)</span> 才是正号。</p>
+<p>再根据文首提及的那个恒等式，就有 <span class="math inline">\(\tbinom{i-k-1}{-k-1}=\tbinom{i-k-1}{i}=\tbinom{k}{i}\times (-1)^i\)</span> 。</p>
+<p>可以发现两个 <span class="math inline">\((-1)^i\)</span> 抵掉了，那么 <span class="math inline">\((a+bx)^k=\sum_{i=0}^{\infty} \tbinom{k}{i}a^{k-i}b^ix^i\)</span> 。</p>
+<p>把 <span class="math inline">\(x=1\)</span> 带入原式，即可得 <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 。</p>
+]]></content>
+      <tags>
+        <tag>数学</tag>
+        <tag>组合数学</tag>
       </tags>
   </entry>
   <entry>
@@ -1293,5 +1271,53 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
         <tag>DP</tag>
         <tag>搜索</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>CF506E 题解</title>
+    <url>/2020/09/17/CF506E-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>一道极 (e) 妙 (xin) 的自动机优化 DP 的题目。</p>
+<p>先假设最后得到的字符串为 <span class="math inline">\(T\)</span>，由题意易知 <span class="math inline">\(T\)</span> 合法当且仅当 <span class="math inline">\(T\)</span> 是回文串且 <span class="math inline">\(S\)</span> 是 <span class="math inline">\(T\)</span> 的一个子序列。</p>
+<p><span class="math inline">\(T\)</span> 是回文串的这个性质我们可以通过从外向内一个一个填字符来实现，所以我们需要 DP 的是 <span class="math inline">\(S\)</span> 相对于 <span class="math inline">\(T\)</span> 而言被匹配了多少个字符。</p>
+<p>特别的，因为当 <span class="math inline">\(T\)</span> 的长度为奇数的时候，最后一次填的字符本质上是一个字符，需要特别处理，所以下面我们先讨论 <span class="math inline">\(T\)</span> 的长度为偶数的情况。</p>
+<a id="more"></a>
+<p>因为 <span class="math inline">\(T\)</span> 这个字符串是从外向内确定的，所以 <span class="math inline">\(S\)</span> 的匹配也是从外向内的，故可以设 <span class="math inline">\(f_{i,l,r}\)</span> 表示考虑 <span class="math inline">\(T\)</span> 的前后 <span class="math inline">\(i\)</span> 个字符，当前 <span class="math inline">\(S\)</span> 还剩下 <span class="math inline">\([l,r]\)</span> 没有匹配到的方案数。</p>
+<p>考虑转移，假设当前有 <span class="math inline">\(s[l] = s[r]\)</span>，那么如果当前填的字符是 <span class="math inline">\(s[l]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l+1,r-1}\)</span>，如果当前填的字符不是 <span class="math inline">\(s[l]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l,r}\)</span>，转移系数为 <span class="math inline">\(25\)</span>。</p>
+<p>假设当前 <span class="math inline">\(s[l] \not= s[r]\)</span>，那么如果当前填的字符是 <span class="math inline">\(s[l]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l+1,r}\)</span>，如果当前填的字符是 <span class="math inline">\(s[r]\)</span>，就可以转移到 <span class="math inline">\(f_{i+1,l,r-1}\)</span>，如果当前填的字符不是两者，就可以转移到 <span class="math inline">\(f_{i+1,l,r}\)</span>，转移系数为 <span class="math inline">\(24\)</span>。</p>
+<p>需要注意的是，对于所有的 <span class="math inline">\(f_{i,l,r}(l&gt;r)\)</span>，因为 <span class="math inline">\((l&gt;r)\)</span>，也就是说 <span class="math inline">\(S\)</span> 已经被匹配完，所以无论填什么字符都没关系，那么它们就可以转移到 <span class="math inline">\(f_{i+1,l,r}\)</span>，转移系数为 <span class="math inline">\(26\)</span>。</p>
+<p>这样我们便有了一个 <span class="math inline">\(n\times |S|^2\)</span> 的 DP，如果把后面的状态强行剥离就可以做到 <span class="math inline">\(|S|^6\log n\)</span>，似乎并没有什么用。</p>
+<p>考虑优化这个 DP，我们把这个 DP 的转移用一张图来表示，对于 <span class="math inline">\(S=abab\)</span>，转移图是这样的：</p>
+<figure>
+<img src="https://s1.ax1x.com/2020/09/17/wftvp6.png" alt="wftvp6.png" /><figcaption>wftvp6.png</figcaption>
+</figure>
+<p>其中下划线是已经匹配的部分，在 <span class="math inline">\(i\)</span> 行 <span class="math inline">\(j\)</span> 列的椭圆表示 <span class="math inline">\(f_{x,i,j}\)</span>，我们把所有的 <span class="math inline">\(l&gt;r\)</span> 的状态归到一个状态里面去，就有了如上的转移图。一个合法的方案本质上就是从 <span class="math inline">\(abab\)</span> 走 <span class="math inline">\(n+|S|\)</span> 步到 ____​ 的一条路径。</p>
+<p>我们把某条路径上面的所有节点拿出来，并且按照 <span class="math inline">\(s[l]\)</span> 是否等于 <span class="math inline">\(s[r]\)</span> 分类成两种点，可以发现，无论这两种点的排列如何，当这两种点的数量确定的时候，答案已经确定了。</p>
+<p>设 <span class="math inline">\(s[l]=s[r]\)</span> 的点为 <span class="math inline">\(0\)</span> 类点，<span class="math inline">\(s[l]\not=s[r]\)</span> 的点为 <span class="math inline">\(1\)</span> 类点，不难发现在某条路径上确定了 <span class="math inline">\(1\)</span> 类点的数目后，可以直接计算得到一个唯一的 <span class="math inline">\(0\)</span> 类点的数目，而 <span class="math inline">\(1\)</span> 类点的数目的取值范围为 <span class="math inline">\([0,len-1]\)</span>，所以总共不同的路径数最多只有 <span class="math inline">\(|S|\)</span> 条。</p>
+<p>考虑有多少种方案经过某条路径，设 <span class="math inline">\(g_{x,l,r}\)</span> 表示在区间 <span class="math inline">\([l,r]\)</span> 的这段转移中，总共经过 <span class="math inline">\(x\)</span> 个 <span class="math inline">\(1\)</span> 类点的方案数，用记忆化搜索即可求得，我们需要的就是 <span class="math inline">\(g_{x,1,|S|}\)</span>。这部分复杂度 <span class="math inline">\(|S|^3\)</span>。</p>
+<p>在一条路径上面 DP 的复杂度是 <span class="math inline">\(|S|\times n\)</span>，通过矩阵优化可以优化到 <span class="math inline">\(|S|^3\times \log n\)</span>，总复杂度即 <span class="math inline">\(|S|^4\log n\)</span>，虽然仍然过不了，但是优化了很多。</p>
+<p>我们设起点为 <span class="math inline">\(S\)</span>， <span class="math inline">\(0\)</span> 类点为黑色，<span class="math inline">\(1\)</span> 类点为白色，终点为 <span class="math inline">\(T\)</span>，上述过程中的转移图差不多是这样：</p>
+<figure>
+<img src="https://s1.ax1x.com/2020/09/18/w4aqtH.png" alt="w4aqtH.png" /><figcaption>w4aqtH.png</figcaption>
+</figure>
+<p>考虑继续优化，上述算法问题就出在我们对每种路径都跑了一次 DP，考虑把它们合并成一次。先规定所有的路径<span class="math inline">\(0\)</span> 类点都在前面，<span class="math inline">\(1\)</span> 类点都在后面。然后在新的转移图上把第一行放上 <span class="math inline">\(0\)</span> 类点，第二行放上 <span class="math inline">\(1\)</span> 类点，在第一行的点之间连边，第二行的点之间连边，现在就考虑怎么在第一行的点和第二行的点之间连边，不难发现，这种连边实质上代表了一种路径，因为这种边只能走一次，且走这种边就可以确定经过的 <span class="math inline">\(0\)</span> 类点和 <span class="math inline">\(1\)</span> 类点的数目，这样的话复杂度就优化到了 <span class="math inline">\(|S|^3\log n\)</span>。</p>
+<p>把上图按照这种优化连边之后的图就是这样：</p>
+<figure>
+<img src="https://s1.ax1x.com/2020/09/18/w4d83R.png" alt="w4d83R.png" /><figcaption>w4d83R.png</figcaption>
+</figure>
+<p>其中从第一行的点到第二行的点的转移系数为有多少种方案经过这种路径，即 <span class="math inline">\(g_{x,l,r}\)</span>。可以发现这样转化之后只有 <span class="math inline">\(\frac{3}{2}|S|\)</span> 个点，且因为转移图是 DAG 图，所以可以通过编号使得转移都是从编号小的点转移到编号大的点，这样可以得到一个比较优秀的常数优化。复杂度 <span class="math inline">\(|S|^3\log n\)</span>。</p>
+<p>最后还需要考虑一下 <span class="math inline">\(|T|\)</span> 为奇数。我们先把 <span class="math inline">\(|T|\)</span> 的长度看做 <span class="math inline">\(|T|+1\)</span> ，这样就可以得到一个答案。考虑有多少种方案不合法，可以发现是所有最后一步是放两个字符，且恰好在最后一次转移的时候放的方案，我们把这种方案算出来减掉即可。具体的，把所有最后一步是放两个字符的路径拿出来，然后去掉终点的自环再跑一遍上述 DP，这次求出来的答案就是要减掉的方案。</p>
+<p>至此便可完美解决此题。</p>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">1e4</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">205</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">205</span>][<span class="number">205</span>][<span class="number">205</span>];</span><br><span class="line"><span class="keyword">int</span> lim;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> a[<span class="number">305</span>][<span class="number">305</span>];</span><br><span class="line">  Matrix <span class="keyword">operator</span> * (<span class="keyword">const</span> Matrix &amp;A) &#123;</span><br><span class="line">    Matrix re;</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= lim; ++i)</span><br><span class="line">      <span class="keyword">for</span> (RI j = i; j &lt;= lim; ++j) &#123;</span><br><span class="line">        re.a[i][j] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (RI k = i; k &lt;= j; ++k)</span><br><span class="line">          re.a[i][j] = (re.a[i][j] + a[i][k] * A.a[k][j]) % mod;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> re;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; F;</span><br><span class="line"></span><br><span class="line"><span class="function">Matrix <span class="title">Matpow</span><span class="params">(Matrix a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  Matrix re;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= lim; ++i)</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">1</span>; j &lt;= lim; ++j)</span><br><span class="line">      re.a[i][j] = (i == j);</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = a * a)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = re * a;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DP</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span> x == <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (f[x][l][r] != <span class="number">-1</span>) <span class="keyword">return</span> f[x][l][r];</span><br><span class="line">  <span class="keyword">if</span> (s[l] == s[r])</span><br><span class="line">    f[x][l][r] = DP(x, l + <span class="number">1</span>, r - <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    f[x][l][r] = (DP(x - <span class="number">1</span>, l + <span class="number">1</span>, r) + DP(x - <span class="number">1</span>, l, r - <span class="number">1</span>)) % mod;</span><br><span class="line">  <span class="keyword">return</span> f[x][l][r];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">  <span class="keyword">int</span> n, len;</span><br><span class="line">  <span class="built_in">cin</span> &gt;&gt; (s + <span class="number">1</span>) &gt;&gt; n;</span><br><span class="line">  len = <span class="built_in">strlen</span>(s + <span class="number">1</span>);</span><br><span class="line">  lim = len + (len + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= len - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">    F.a[i][i] = <span class="number">24</span>;</span><br><span class="line">    F.a[i][i + <span class="number">1</span>] = (i != len - <span class="number">1</span>);</span><br><span class="line">    F.a[i][lim - (len - i + <span class="number">1</span>) / <span class="number">2</span>] = DP(i, <span class="number">1</span>, len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (RI i = len; i &lt; lim; ++i) &#123;</span><br><span class="line">    F.a[i][i] = <span class="number">25</span>;</span><br><span class="line">    F.a[i][i + <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  F.a[lim][lim] = <span class="number">26</span>;</span><br><span class="line">  F = Matpow(F, (n + len + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (len != <span class="number">1</span>)</span><br><span class="line">    ans = F.a[<span class="number">1</span>][lim];</span><br><span class="line">  ans = (ans + F.a[len][lim] * DP(<span class="number">0</span>, <span class="number">1</span>, len) % mod) % mod;</span><br><span class="line">  <span class="keyword">if</span> ((n + len) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">memset</span>(F.a, <span class="number">0</span>, <span class="keyword">sizeof</span>(F.a));</span><br><span class="line">    <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= len - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">      F.a[i][i] = <span class="number">24</span>;</span><br><span class="line">      F.a[i][i + <span class="number">1</span>] = (i != len - <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span> (!((len - i) &amp; <span class="number">1</span>))</span><br><span class="line">        F.a[i][lim - (len - i + <span class="number">1</span>) / <span class="number">2</span>] = DP(i, <span class="number">1</span>, len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI i = len; i &lt; lim; ++i) &#123;</span><br><span class="line">      F.a[i][i] = <span class="number">25</span>;</span><br><span class="line">      F.a[i][i + <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    F = Matpow(F, (n + len + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (len != <span class="number">1</span>)</span><br><span class="line">      ans = (ans - F.a[<span class="number">1</span>][lim] + mod) % mod;</span><br><span class="line">    <span class="keyword">if</span> (!(len &amp; <span class="number">1</span>))</span><br><span class="line">      ans = (ans - F.a[len][lim] * DP(<span class="number">0</span>, <span class="number">1</span>, len) % mod + mod) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Daniel_yuan&#39;s New Blog</title>
+    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
+    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
+]]></content>
   </entry>
 </search>
