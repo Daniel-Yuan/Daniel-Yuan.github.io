@@ -109,6 +109,12 @@
       </tags>
   </entry>
   <entry>
+    <title>Daniel_yuan&#39;s New Blog</title>
+    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
+    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>CSP-S2 2020 游记</title>
     <url>/2020/11/08/CSP-S2-2020-%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="day--1">Day -1</h4>
@@ -167,12 +173,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Daniel_yuan&#39;s New Blog</title>
-    <url>/2020/09/15/Daniel-yuan-s-New-Blog/</url>
-    <content><![CDATA[<p>这是 Daniel_yuan 的新博客。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>FWT 小结</title>
     <url>/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/</url>
     <content><![CDATA[<p>FWT 是快速求形如 <span class="math inline">\(C(x)=\sum_{i?j=x}A(i)B(j)\)</span> 的算法，其中 <span class="math inline">\(?\)</span> 表示一种二进制的位运算。</p>
@@ -183,8 +183,8 @@
 <p>因为我们所做的是线性变换（即只存在加减），那么在 <span class="math inline">\(A&#39;\)</span> 中，我们可以把 <span class="math inline">\(A\)</span> 中每个数对它的贡献用一个系数表示，即 <span class="math inline">\(A&#39;(x)=\sum_i f(x,i)A(i)\)</span>。</p>
 <p>那么 <span class="math inline">\(C&#39;(x)=\sum_i f(x,i)C(i)=\sum_if(x,i)\sum_{j?k=i}A(j)B(k)\)</span>，<span class="math inline">\(A&#39;(x)B&#39;(x)=\sum_if(x,i)A(i)\sum_jf(x,j)B(j)\)</span>。整理得 <span class="math inline">\(\sum_i\sum_jf(x,i?j)A(i)B(j)=\sum_i\sum_jf(x,i)f(x,j)A(i)B(j)\)</span>。故有 <span class="math inline">\(f(x,i?j)=f(x,i)f(x,j)\)</span>。</p>
 <p>也就是说我们需要构造 <span class="math inline">\(f(x,i)\)</span>，使得它满足上述需求。</p>
-<p>对于或操作，有 <span class="math inline">\(f(x,i \text{ or }j)=f(x,i)f(x,j)\)</span>，不难发现 <span class="math inline">\(i\text{ or }j\in x\Leftrightarrow i\in x\and j\in x\)</span>，那么设 <span class="math inline">\(f(x,i)=[i\in x]\)</span> 即可。</p>
-<p>对于与操作，有 <span class="math inline">\(f(x,i\text{ and }j)=f(x,i)f(x,j)\)</span>，和或相似的，<span class="math inline">\(x\in i\text{ and }j\Leftrightarrow x\in i\and x\in j\)</span>。<span class="math inline">\(f(x,i)=[x\in i]\)</span>。</p>
+<p>对于或操作，有 <span class="math inline">\(f(x,i \text{ or }j)=f(x,i)f(x,j)\)</span>，不难发现 <span class="math inline">\(i\text{ or }j\in x\Leftrightarrow i\in x\land j\in x\)</span>，那么设 <span class="math inline">\(f(x,i)=[i\in x]\)</span> 即可。</p>
+<p>对于与操作，有 <span class="math inline">\(f(x,i\text{ and }j)=f(x,i)f(x,j)\)</span>，和或相似的，<span class="math inline">\(x\in i\text{ and }j\Leftrightarrow x\in i\land x\in j\)</span>。<span class="math inline">\(f(x,i)=[x\in i]\)</span>。</p>
 <p>对于异或操作，这可能就有些麻烦。我们需要挖掘一些异或的性质。对于两个数 <span class="math inline">\(x,y\)</span>，显然 <span class="math inline">\(x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(y\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\(x \text{ xor } y\)</span> 的相同。而与和异或有恒等式 <span class="math inline">\((x\text{ xor } y)\text{ and } z=(x\text{ and }z)\text{ xor }(y\text{ and }z)\)</span>（不难证明），所以 <span class="math inline">\(i\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数加上 <span class="math inline">\(j\text{ and }x\)</span> 的 <span class="math inline">\(1\)</span> 的个数的奇偶性和 <span class="math inline">\((i\text{ and }x)\text{ xor }(j\text{ and }x)=(i\text{ xor } j)\text{ and } x\)</span> 的相同，而奇偶性的区分加减我们一般用 <span class="math inline">\((-1)^k\)</span> ，所以设 <span class="math inline">\(f(x,i)=(-1)^{|x \text { and }i|}\)</span> 即可。</p>
 <h4 id="实现">实现</h4>
 <p>下面只讨论 FWT，对于 IFWT，其就是 FWT 的逆向过程。</p>
@@ -455,6 +455,35 @@
       </tags>
   </entry>
   <entry>
+    <title>[ZJOI2019]开关 题解</title>
+    <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
+<p>为了方便，设 <span class="math inline">\(p_i\)</span> 为 <span class="math inline">\(i\)</span> 被选的概率，对应到输入即 <span class="math inline">\(\frac{p_i}{\sum_{j=1}^n p_j}\)</span> 。</p>
+<p>设 <span class="math inline">\(f(S)\)</span> 表示从 <span class="math inline">\(S\)</span> 状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p>
+<p>那么显然有<a id="more"></a> <span class="math inline">\(f(S)=\begin{cases}0&amp;S=\varnothing\\1+\sum p_if_{S \text{ xor } i}&amp;S\not=\varnothing\end{cases}\)</span>。</p>
+<p>如果把 <span class="math inline">\(f(S)\)</span> 看做是集合幂级数 <span class="math inline">\(F=\sum_S f(S)x^S\)</span>，下半部分的 <span class="math inline">\(\sum\)</span> 可以看做是一个异或卷积（更多有关位运算的卷积，可以参考<a href="https://daniel-yuan.github.io/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/#more">我的另一篇博客</a>），那么我们设另一个集合幂级数 <span class="math inline">\(G=\sum_S g(S)x^S\)</span>，其中 <span class="math inline">\(g(S)\)</span> 在 <span class="math inline">\(S\)</span> 中仅含一个元素 <span class="math inline">\(k\)</span> 的时候为 <span class="math inline">\(p_k\)</span>，否则为 <span class="math inline">\(0\)</span>。那么下半部分的 <span class="math inline">\(\sum\)</span> 就可以看做是 <span class="math inline">\(F*G\)</span>。</p>
+<p>不看 <span class="math inline">\(\varnothing\)</span>，我们有 <span class="math inline">\(F*G+1=F\)</span>，即 <span class="math inline">\(F*(G-1)=-1\)</span>，为了方便，把 <span class="math inline">\(g(S)\)</span> 做一个微调，即 <span class="math inline">\(g(S)=\begin{cases}-1&amp;S=\varnothing\\p_i&amp;|S|=1,S\text{ 中的元素为 }i\\0&amp;|S|&gt;1\end{cases}\)</span>。这样在不考虑 <span class="math inline">\(\varnothing\)</span> 的时候，<span class="math inline">\(F*G=-1\)</span>。</p>
+<p>考虑 <span class="math inline">\(F*G\)</span> 的 <span class="math inline">\(\varnothing\)</span> 项是什么，我们可以知道 <span class="math inline">\(\sum_i(F*G)(i)=\sum_{i,j} F(i)G(j)\)</span>，因为 <span class="math inline">\(\sum_iG(i)=0\)</span>，所以右边为 <span class="math inline">\(0\)</span>，所以 <span class="math inline">\(\sum_i(F*G)(i)=0\)</span>，所以可以推出 <span class="math inline">\((F*G)(\varnothing)=2^n-1\)</span>。</p>
+<p>设 <span class="math inline">\(H=F*G\)</span>，那么就有 <span class="math inline">\(h(S)=\begin{cases}2^n-1&amp;S=\varnothing\\-1&amp;S\not=\varnothing\end{cases}\)</span>。</p>
+<p><span class="math inline">\(G,H\)</span> 我们都知道，考虑反推 <span class="math inline">\(F\)</span>。</p>
+<p>设 <span class="math inline">\(FWTX\)</span> 为集合幂级数 <span class="math inline">\(X\)</span> 在 <span class="math inline">\(FWT\)</span> 之后的结果。根据异或卷积 <span class="math inline">\(FWT\)</span> 的公式（在上面给出的博客有详细介绍）<span class="math inline">\(F(i)=\sum_j(-1)^{|i\text{ and }j|}F(j)\)</span>，不难得到 <span class="math inline">\(FWTG(S)=\begin{cases}0&amp;S=\varnothing\\\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1&amp;S\not=\varnothing\end{cases}\)</span>，<span class="math inline">\(FWTH(S)=\begin{cases}0&amp;S=\varnothing\\2^n&amp;S\not=\varnothing\end{cases}\)</span>。对于前者，就是照搬式子，然后在 <span class="math inline">\(S=\varnothing\)</span> 处特别展开一下。对于后者，<span class="math inline">\(S=\varnothing\)</span> 的部分是 <span class="math inline">\(H(S)\)</span> 全部相加显然为 <span class="math inline">\(0\)</span>，而其它位置，对 <span class="math inline">\(FWTH(S)\)</span> 贡献为正的 <span class="math inline">\(H(S)\)</span> 和负的 <span class="math inline">\(H(S)\)</span> 应该各占一半，而 <span class="math inline">\(H(\varnothing)\)</span> 的贡献为正，那么剩下的部分相加就应该是 <span class="math inline">\((-1)\times(-1)\)</span>，再加上 <span class="math inline">\(H(\varnothing)\)</span> 就为 <span class="math inline">\(2^n\)</span>。</p>
+<p>那么我们可以很轻易的得到，在 <span class="math inline">\(S\not=\varnothing\)</span> 时， <span class="math inline">\(FWTF(S)=\frac{2^n}{\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1}\)</span>，而当 <span class="math inline">\(S=\varnothing\)</span> 的时候，<span class="math inline">\(FWTF(S)\)</span> 用除法求就 <span class="math inline">\(\text{nan}\)</span> 了，所以需要特别处理。</p>
+<p>考虑在 <span class="math inline">\(\sum_SFWTF(S)\)</span> 中每个 <span class="math inline">\(F(S)\)</span> 的贡献，假设 <span class="math inline">\(|S|=X\)</span>，枚举 <span class="math inline">\(|S \text{ and } T|\)</span>，那么就有 <span class="math inline">\(\sum_k(-1)^kC_X^k2^{n-X}=2^{n-X}[X=0]\)</span>，其中 <span class="math inline">\(C_x^y\)</span> 表示组合数（后同）。所以 <span class="math inline">\(\sum_S FWTF(S)=2^nF(\varnothing)\)</span>，而上文有 <span class="math inline">\(F(\varnothing)=0\)</span>，所以 <span class="math inline">\(\sum_S FWTF(S)=0\)</span>。所以 <span class="math inline">\(FWTF(\varnothing)\)</span> 就是 <span class="math inline">\(-\sum_{S\not=\varnothing}FWTF(S)\)</span>。</p>
+<p>根据上面推导，我们也可以知道 <span class="math inline">\(F(S)=\frac{1}{2^n}\sum_T(-1)^{|S\text{ and }T|}FWTF(T)\)</span>。（原理也是 <span class="math inline">\(\sum_k(-1)^kC_X^k=[X=0]\)</span>）。</p>
+<p>把 <span class="math inline">\(\varnothing\)</span> 单独考虑，那么就有 <span class="math inline">\(F(S)=\sum_{T\not=\varnothing}(\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p}-(-1)^{|S\text{ and }T|}\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p})\)</span>。</p>
+<p>把左右相抵的去掉，稍加整理，有 <span class="math inline">\(F(S)=\sum_{(-1)^{T\text{ and } S}=-1}\frac{2}{2\sum_{|U|=1}p[|U\text{ and }T|=1]}\)</span>。</p>
+<p>最后就是一个简单 DP 了<del>（不会吧不会吧，推到这里还不会 DP？）</del>。</p>
+<p>设 <span class="math inline">\(dp_{i,j,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 个开关，分子总和为 <span class="math inline">\(j\)</span>，交的奇偶性为 <span class="math inline">\(0/1\)</span> 的方案数。转移显然，总复杂度 <span class="math inline">\(O(n\sum p)\)</span>。</p>
+<p>贴个代码。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> p[MAXN], s[MAXN], sum[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">50005</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y - mod; x += (x &gt;&gt; <span class="number">31</span>) &amp; mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> re = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = <span class="number">1l</span>l * a * a % mod)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = <span class="number">1l</span>l * re * a % mod;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; p[i], sum[i] = sum[i - <span class="number">1</span>] + p[i];</span><br><span class="line">  f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (RI j = p[i]; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">0</span> ^ s[i]]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">1</span> ^ s[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">0</span>; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j][<span class="number">0</span>]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j][<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt;= sum[n]; ++i)</span><br><span class="line">    Add(ans, <span class="number">1l</span>l * sum[n] * f[n][i][<span class="number">1</span>] % mod * qpow(i, mod - <span class="number">2</span>) % mod);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>FWT</tag>
+        <tag>多项式</tag>
+        <tag>期望概率</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UOJ Contests</title>
     <url>/2020/10/14/UOJ-Contests/</url>
     <content><![CDATA[<p><del>九条可怜老师</del>吉老师在他的博客中大力赞扬 UR 。</p>
@@ -504,38 +533,21 @@
       </tags>
   </entry>
   <entry>
-    <title>[ZJOI2019]开关 题解</title>
-    <url>/2021/01/19/ZJOI2019-%E5%BC%80%E5%85%B3-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>把初始状态和目标状态交换，题目不变。</p>
-<p>为了方便，设 <span class="math inline">\(p_i\)</span> 为 <span class="math inline">\(i\)</span> 被选的概率，对应到输入即 <span class="math inline">\(\frac{p_i}{\sum_{j=1}^n p_j}\)</span> 。</p>
-<p>设 <span class="math inline">\(f(S)\)</span> 表示从 <span class="math inline">\(S\)</span> 状态开始，期望走 <span class="math inline">\(f(S)\)</span> 步到达全零状态。为了方便，我们定义 <span class="math inline">\(\varnothing\)</span> 表示全零状态。</p>
-<p>那么显然有<a id="more"></a> <span class="math inline">\(f(S)=\begin{cases}0&amp;S=\varnothing\\1+\sum p_if_{S \text{ xor } i}&amp;S\not=\varnothing\end{cases}\)</span>。</p>
-<p>如果把 <span class="math inline">\(f(S)\)</span> 看做是集合幂级数 <span class="math inline">\(F=\sum_S f(S)x^S\)</span>，下半部分的 <span class="math inline">\(\sum\)</span> 可以看做是一个异或卷积（更多有关位运算的卷积，可以参考<a href="https://daniel-yuan.github.io/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/#more">我的另一篇博客</a>），那么我们设另一个集合幂级数 <span class="math inline">\(G=\sum_S g(S)x^S\)</span>，其中 <span class="math inline">\(g(S)\)</span> 在 <span class="math inline">\(S\)</span> 中仅含一个元素 <span class="math inline">\(k\)</span> 的时候为 <span class="math inline">\(p_k\)</span>，否则为 <span class="math inline">\(0\)</span>。那么下半部分的 <span class="math inline">\(\sum\)</span> 就可以看做是 <span class="math inline">\(F*G\)</span>。</p>
-<p>不看 <span class="math inline">\(\varnothing\)</span>，我们有 <span class="math inline">\(F*G+1=F\)</span>，即 <span class="math inline">\(F*(G-1)=-1\)</span>，为了方便，把 <span class="math inline">\(g(S)\)</span> 做一个微调，即 <span class="math inline">\(g(S)=\begin{cases}-1&amp;S=\varnothing\\p_i&amp;|S|=1,S\text{ 中的元素为 }i\\0&amp;|S|&gt;1\end{cases}\)</span>。这样在不考虑 <span class="math inline">\(\varnothing\)</span> 的时候，<span class="math inline">\(F*G=-1\)</span>。</p>
-<p>考虑 <span class="math inline">\(F*G\)</span> 的 <span class="math inline">\(\varnothing\)</span> 项是什么，我们可以知道 <span class="math inline">\(\sum_i(F*G)(i)=\sum_{i,j} F(i)G(j)\)</span>，因为 <span class="math inline">\(\sum_iG(i)=0\)</span>，所以右边为 <span class="math inline">\(0\)</span>，所以 <span class="math inline">\(\sum_i(F*G)(i)=0\)</span>，所以可以推出 <span class="math inline">\((F*G)(\varnothing)=2^n-1\)</span>。</p>
-<p>设 <span class="math inline">\(H=F*G\)</span>，那么就有 <span class="math inline">\(h(S)=\begin{cases}2^n-1&amp;S=\varnothing\\-1&amp;S\not=\varnothing\end{cases}\)</span>。</p>
-<p><span class="math inline">\(G,H\)</span> 我们都知道，考虑反推 <span class="math inline">\(F\)</span>。</p>
-<p>设 <span class="math inline">\(FWTX\)</span> 为集合幂级数 <span class="math inline">\(X\)</span> 在 <span class="math inline">\(FWT\)</span> 之后的结果。根据异或卷积 <span class="math inline">\(FWT\)</span> 的公式（在上面给出的博客有详细介绍）<span class="math inline">\(F(i)=\sum_j(-1)^{|i\text{ and }j|}F(j)\)</span>，不难得到 <span class="math inline">\(FWTG(S)=\begin{cases}0&amp;S=\varnothing\\\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1&amp;S\not=\varnothing\end{cases}\)</span>，<span class="math inline">\(FWTH(S)=\begin{cases}0&amp;S=\varnothing\\2^n&amp;S\not=\varnothing\end{cases}\)</span>。对于前者，就是照搬式子，然后在 <span class="math inline">\(S=\varnothing\)</span> 处特别展开一下。对于后者，<span class="math inline">\(S=\varnothing\)</span> 的部分是 <span class="math inline">\(H(S)\)</span> 全部相加显然为 <span class="math inline">\(0\)</span>，而其它位置，对 <span class="math inline">\(FWTH(S)\)</span> 贡献为正的 <span class="math inline">\(H(S)\)</span> 和负的 <span class="math inline">\(H(S)\)</span> 应该各占一半，而 <span class="math inline">\(H(\varnothing)\)</span> 的贡献为正，那么剩下的部分相加就应该是 <span class="math inline">\((-1)\times(-1)\)</span>，再加上 <span class="math inline">\(H(\varnothing)\)</span> 就为 <span class="math inline">\(2^n\)</span>。</p>
-<p>那么我们可以很轻易的得到，在 <span class="math inline">\(S\not=\varnothing\)</span> 时， <span class="math inline">\(FWTF(S)=\frac{2^n}{\sum_{|T|=1}(-1)^{|S\text{ and T|}}p-1}\)</span>，而当 <span class="math inline">\(S=\varnothing\)</span> 的时候，<span class="math inline">\(FWTF(S)\)</span> 用除法求就 <span class="math inline">\(\text{nan}\)</span> 了，所以需要特别处理。</p>
-<p>考虑在 <span class="math inline">\(\sum_SFWTF(S)\)</span> 中每个 <span class="math inline">\(F(S)\)</span> 的贡献，假设 <span class="math inline">\(|S|=X\)</span>，枚举 <span class="math inline">\(|S \text{ and } T|\)</span>，那么就有 <span class="math inline">\(\sum_k(-1)^kC_X^k2^{n-X}=2^{n-X}[X=0]\)</span>，其中 <span class="math inline">\(C_x^y\)</span> 表示组合数（后同）。所以 <span class="math inline">\(\sum_S FWTF(S)=2^nF(\varnothing)\)</span>，而上文有 <span class="math inline">\(F(\varnothing)=0\)</span>，所以 <span class="math inline">\(\sum_S FWTF(S)=0\)</span>。所以 <span class="math inline">\(FWTF(\varnothing)\)</span> 就是 <span class="math inline">\(-\sum_{S\not=\varnothing}FWTF(S)\)</span>。</p>
-<p>根据上面推导，我们也可以知道 <span class="math inline">\(F(S)=\frac{1}{2^n}\sum_T(-1)^{|S\text{ and }T|}FWTF(T)\)</span>。（原理也是 <span class="math inline">\(\sum_k(-1)^kC_X^k=[X=0]\)</span>）。</p>
-<p>把 <span class="math inline">\(\varnothing\)</span> 单独考虑，那么就有 <span class="math inline">\(F(S)=\sum_{T\not=\varnothing}(\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p}-(-1)^{|S\text{ and }T|}\frac{1}{1-\sum_{|U|=1}(-1)^{|U\text{ and }T|}p})\)</span>。</p>
-<p>把左右相抵的去掉，稍加整理，有 <span class="math inline">\(F(S)=\sum_{(-1)^{T\text{ and } S}=-1}\frac{2}{2\sum_{|U|=1}p[|U\text{ and }T|=1]}\)</span>。</p>
-<p>最后就是一个简单 DP 了<del>（不会吧不会吧，推到这里还不会 DP？）</del>。</p>
-<p>设 <span class="math inline">\(dp_{i,j,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 个开关，分子总和为 <span class="math inline">\(j\)</span>，交的奇偶性为 <span class="math inline">\(0/1\)</span> 的方案数。转移显然，总复杂度 <span class="math inline">\(O(n\sum p)\)</span>。</p>
-<p>贴个代码。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILEIO(name) freopen(name<span class="meta-string">&quot;.in&quot;</span>, <span class="meta-string">&quot;r&quot;</span>, stdin), freopen(name<span class="meta-string">&quot;.out&quot;</span>, <span class="meta-string">&quot;w&quot;</span>, stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> MAXN = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> p[MAXN], s[MAXN], sum[MAXN];</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">50005</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y - mod; x += (x &gt;&gt; <span class="number">31</span>) &amp; mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> re = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; k; k &gt;&gt;= <span class="number">1</span>, a = <span class="number">1l</span>l * a * a % mod)</span><br><span class="line">    <span class="keyword">if</span> (k &amp; <span class="number">1</span>) re = <span class="number">1l</span>l * re * a % mod;</span><br><span class="line">  <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  FILEIO(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; p[i], sum[i] = sum[i - <span class="number">1</span>] + p[i];</span><br><span class="line">  f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (RI j = p[i]; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">0</span> ^ s[i]]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j - p[i]][<span class="number">1</span> ^ s[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (RI j = <span class="number">0</span>; j &lt;= sum[i]; ++j) &#123;</span><br><span class="line">      Add(f[i][j][<span class="number">0</span>], f[i - <span class="number">1</span>][j][<span class="number">0</span>]);</span><br><span class="line">      Add(f[i][j][<span class="number">1</span>], f[i - <span class="number">1</span>][j][<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (RI i = <span class="number">0</span>; i &lt;= sum[n]; ++i)</span><br><span class="line">    Add(ans, <span class="number">1l</span>l * sum[n] * f[n][i][<span class="number">1</span>] % mod * qpow(i, mod - <span class="number">2</span>) % mod);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// created by Daniel yuan</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     ________</span></span><br><span class="line"><span class="comment">    /        \</span></span><br><span class="line"><span class="comment">   / /      \ \</span></span><br><span class="line"><span class="comment">  / /        \ \</span></span><br><span class="line"><span class="comment">  \            /</span></span><br><span class="line"><span class="comment">   \  ______  /</span></span><br><span class="line"><span class="comment">    \________/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>FWT</tag>
-        <tag>多项式</tag>
-        <tag>期望概率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ZJOI2019] 麻将 题解</title>
     <url>/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>首先对于已有的一堆牌，我们应该要能确定它能不能胡。</p>
+<p>这部分具体的可以参考<a href="https://daniel-yuan.github.io/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/#more">我的另一篇博客</a>，顺带说一句，[ZJOI2019] 麻将的前置知识居然被拿去 [GXOI/GZOI2019] 出了个宝牌一大堆<del>，ZJOI 恐怖如斯</del>。</p>
+<a id="more"></a>
+<p>回到这个题目，对于一个已知状态，我们可以设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 张牌，<span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，<span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，有无雀头的最大面子数。</p>
+<p>但是现在状态是未知的，所以考虑 DP of DP，即把这个 <span class="math inline">\(f\)</span> 压到状态里面去。为了方便，我们把 <span class="math inline">\(f_{0/1/2,0/1/2,0/1}\)</span> （注意到这里已经忽略了 <span class="math inline">\(i\)</span>，因为 <span class="math inline">\(i\)</span> 对转移没有影响）建一个自动机。而自动机上面的信息就是形如 <span class="math inline">\(f_{0,0,0}=x,f_{0,0,1}=y...\)</span> 这样的多元组，因为还有七对子的特殊牌型，所以在自动机上面额外记录一个 <span class="math inline">\(cnt\)</span> 表示对子数。</p>
+<p>乍一看，一共有 <span class="math inline">\(3\times 3\times 2=18\)</span> 个 <span class="math inline">\(f\)</span> 状态，而 <span class="math inline">\(f\)</span> 的取值有 <span class="math inline">\(0/1/2/3/4\)</span> 五种（大于 <span class="math inline">\(4\)</span> 已经没有意义，故可以限制最大值为 <span class="math inline">\(4\)</span>），并且还有一个额外的 <span class="math inline">\(cnt\)</span> 需要记录，自动机上的节点数会达到 <span class="math inline">\(5^{18}\times 8=3.0517578125×10^{13}\)</span>，我们难以承受。但是显然有很多状态不会被涉及到，比如说 <span class="math inline">\(f_{0,0,0}=3\)</span> 的时候任何 <span class="math inline">\(f\)</span> 值都不会小于 <span class="math inline">\(3\)</span>。所以我们可以写一个 BFS 去看看自动机节点数有多少。特别的，如果 <span class="math inline">\(cnt=7\)</span> 或者 <span class="math inline">\(f_{0,0,0}=4\)</span>，那么已经胡牌，我们可以建立一个胡牌节点，与此同时，我们也可以把转移边记录下来，特别的，胡牌节点只有自环。代码形如这样。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map &lt;Status, int&gt; mp;</span><br><span class="line">void GetStatus() &#123;</span><br><span class="line">  Status t, nxt; &#x2F;&#x2F; 这是一个定义状态的结构体</span><br><span class="line">  int cnt &#x3D; 0;</span><br><span class="line">  q.push(t), mp[t] &#x3D; ++cnt;</span><br><span class="line">  while (t.cnt !&#x3D; -1) t.Trans(2); &#x2F;&#x2F; 这里是构造一个胡牌节点</span><br><span class="line">  mp[t] &#x3D; ++cnt;</span><br><span class="line">  for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i)</span><br><span class="line">    child[mp[t]][i] &#x3D; mp[t];</span><br><span class="line">  while (!q.empty()) &#123;</span><br><span class="line">    t &#x3D; q.front(); q.pop();</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i) &#123;</span><br><span class="line">      nxt &#x3D; t, nxt.Trans(i); &#x2F;&#x2F; 更新 f</span><br><span class="line">      if (mp.find(nxt) &#x3D;&#x3D; mp.end())</span><br><span class="line">        q.push(nxt), mp[nxt] &#x3D; ++cnt; &#x2F;&#x2F; 新建节点</span><br><span class="line">      child[mp[t]][i] &#x3D; mp[nxt]; &#x2F;&#x2F; 记录转移边</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt &gt; 100000) break; &#x2F;&#x2F; protection</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; mp.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至于 <span class="math inline">\(f\)</span> 具体怎么转移大家可以自己推一推。</p>
+<p>然后你会发现搜出来只有 1566 个节点（我也不知道为什么和很多博客上写的都不同，我还怀疑了自己好久……），于是我们就可以根据这个来 DP 了（可以把节点看做是内部的 DP）。</p>
+<p>设 <span class="math inline">\(g_{i,j,k}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，当前牌长度为 <span class="math inline">\(j\)</span>，在自动机上面的点 <span class="math inline">\(k\)</span> 的方案数。转移的时候枚举这一种牌有多少张即可，复杂度 <span class="math inline">\(O(n^2\times 1566)\)</span>。因为相同种类的牌是有编号区分的，所以转移的时候一定要乘组合数（被卡了好久）。</p>
+<p>最后再考虑计算答案。对于一个至少 <span class="math inline">\(k\)</span> 次才能胡牌的状态，它对答案的贡献为 <span class="math inline">\(k\)</span>。因为是至少，不好直接求，考虑转化成至多。即改成对于一个至多 <span class="math inline">\(k-1\)</span> 次都不能胡牌的状态，它对答案的贡献为 <span class="math inline">\(k\)</span>。而这个状态在 <span class="math inline">\(1\sim k-1\)</span> 次都不能胡牌。所以我们可以把贡献拆分到 <span class="math inline">\(1\sim k-1\)</span> 上面去，每个部分的权值为 <span class="math inline">\(1\)</span>。（或者说 <span class="math inline">\(k=\sum_{i=1}^k1\)</span>？）。</p>
+<p>那么最终答案就是 <span class="math inline">\(\frac{\sum_{i=14}^{4n}\sum_{j=1}^{len}g_{n,i,j}(4n-i)!(i-13)![\text{ $j$ 不是胡牌节点 }]}{(4n-13)!}+1\)</span>。代码如下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">#define debug(...) fprintf(stderr, __VA_ARGS__)</span><br><span class="line">#define RI register int</span><br><span class="line">typedef long long LL;</span><br><span class="line"></span><br><span class="line">#define FILEIO(name) freopen(name&quot;.in&quot;, &quot;r&quot;, stdin), freopen(name&quot;.out&quot;, &quot;w&quot;, stdout);</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Status &#123; &#x2F;&#x2F; 自动机中的状态</span><br><span class="line">  int f[3][3][2], cnt;</span><br><span class="line">  Status () &#123;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          f[i][j][k] &#x3D; -0x3f3f3f3f;</span><br><span class="line">    cnt &#x3D; f[0][0][0] &#x3D; 0;</span><br><span class="line">  &#125;</span><br><span class="line">  void Trans(int res) &#123; &#x2F;&#x2F; 自动机状态的内部转移</span><br><span class="line">    Status nxt;</span><br><span class="line">    int win &#x3D; 0;</span><br><span class="line">    nxt.cnt &#x3D; cnt + (res &gt;&#x3D; 2);</span><br><span class="line">    win |&#x3D; (nxt.cnt &gt;&#x3D; 7);</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k) &#123;</span><br><span class="line">          for (RI lasi &#x3D; 0; lasi &lt;&#x3D; 2; ++lasi)</span><br><span class="line">            for (RI lask &#x3D; 0; lask &lt;&#x3D; k; ++lask) &#123;</span><br><span class="line">              int ned &#x3D; lasi + i + j + 2 * (k - lask);</span><br><span class="line">              if (ned &gt; res) continue;</span><br><span class="line">              nxt.f[i][j][k] &#x3D; min(4, max(nxt.f[i][j][k], f[lasi][i][lask] + j + (res - ned &gt;&#x3D; 3)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          if (nxt.f[i][j][k] &lt; 0)</span><br><span class="line">            nxt.f[i][j][k] &#x3D; -0x3f3f3f3f;</span><br><span class="line">    win |&#x3D; (nxt.f[0][0][1] &gt;&#x3D; 4);</span><br><span class="line">    if (win) &#x2F;&#x2F; 判胡牌</span><br><span class="line">      for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">        for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">          for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">            nxt.f[i][j][k] &#x3D; nxt.cnt &#x3D; -1;</span><br><span class="line">    *this &#x3D; nxt;</span><br><span class="line">  &#125;</span><br><span class="line">  bool operator &lt; (const Status &amp;A) const &#123;</span><br><span class="line">    if (cnt !&#x3D; A.cnt) return cnt &lt; A.cnt;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          if (f[i][j][k] !&#x3D; A.f[i][j][k])</span><br><span class="line">            return f[i][j][k] &lt; A.f[i][j][k];</span><br><span class="line">    return 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">map &lt;Status, int&gt; mp;</span><br><span class="line">queue &lt;Status&gt; q;</span><br><span class="line">int const MAXN &#x3D; 2005, mod &#x3D; 998244353;</span><br><span class="line">int child[MAXN][5];</span><br><span class="line">int f[2][405][MAXN];</span><br><span class="line">int tong[105];</span><br><span class="line">int length;</span><br><span class="line">LL frac[MAXN], invfrac[MAXN];</span><br><span class="line"></span><br><span class="line">LL qpow(LL a, LL k) &#123;</span><br><span class="line">  LL re &#x3D; 1;</span><br><span class="line">  for (; k; k &gt;&gt;&#x3D; 1, a &#x3D; a * a % mod)</span><br><span class="line">    if (k &amp; 1) re &#x3D; re * a % mod;</span><br><span class="line">  return re;</span><br><span class="line">&#125;</span><br><span class="line">void Init(int Max) &#123;</span><br><span class="line">  frac[0] &#x3D; 1;</span><br><span class="line">  for (RI i &#x3D; 1; i &lt;&#x3D; Max; ++i)</span><br><span class="line">    frac[i] &#x3D; frac[i - 1] * i % mod;</span><br><span class="line">  invfrac[Max] &#x3D; qpow(frac[Max], mod - 2);</span><br><span class="line">  for (RI i &#x3D; Max; i &gt;&#x3D; 1; --i)</span><br><span class="line">    invfrac[i - 1] &#x3D; invfrac[i] * i % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void GetStatus() &#123; &#x2F;&#x2F; 上文已经解释了</span><br><span class="line">  Status t, nxt;</span><br><span class="line">  int cnt &#x3D; 0;</span><br><span class="line">  q.push(t), mp[t] &#x3D; ++cnt;</span><br><span class="line">  while (t.cnt !&#x3D; -1) t.Trans(2);</span><br><span class="line">  mp[t] &#x3D; ++cnt;</span><br><span class="line">  for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i)</span><br><span class="line">    child[mp[t]][i] &#x3D; mp[t];</span><br><span class="line">  while (!q.empty()) &#123;</span><br><span class="line">    t &#x3D; q.front(); q.pop();</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i) &#123;</span><br><span class="line">      nxt &#x3D; t, nxt.Trans(i);</span><br><span class="line">      if (mp.find(nxt) &#x3D;&#x3D; mp.end())</span><br><span class="line">        q.push(nxt), mp[nxt] &#x3D; ++cnt;</span><br><span class="line">      child[mp[t]][i] &#x3D; mp[nxt];</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt &gt; 100000) break; &#x2F;&#x2F; protection</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; mp.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline void Add(int &amp;x, int y) &#123; x +&#x3D; y - mod; x +&#x3D; (x &gt;&gt; 31) &amp; mod; &#125;</span><br><span class="line"></span><br><span class="line">LL C[10][10];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  </span><br><span class="line">#ifdef LOCAL</span><br><span class="line">  FILEIO(&quot;a&quot;);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">  GetStatus();</span><br><span class="line">  int n; cin &gt;&gt; n;</span><br><span class="line">  C[0][0] &#x3D; 1;</span><br><span class="line">  C[1][0] &#x3D; C[1][1] &#x3D; 1;</span><br><span class="line">  C[2][0] &#x3D; C[2][2] &#x3D; 1, C[2][1] &#x3D; 2;</span><br><span class="line">  C[3][0] &#x3D; C[3][3] &#x3D; 1, C[3][1] &#x3D; C[3][2] &#x3D; 3;</span><br><span class="line">  C[4][0] &#x3D; C[4][4] &#x3D; 1, C[4][1] &#x3D; C[4][3] &#x3D; 4, C[4][2] &#x3D; 6;</span><br><span class="line">  Init(4 * n);</span><br><span class="line">  for (RI i &#x3D; 1, x, y; i &lt;&#x3D; 13; ++i)</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y, ++tong[x];</span><br><span class="line">  int cur &#x3D; 0, nxt &#x3D; 1;</span><br><span class="line">  f[nxt][0][1] &#x3D; 1;</span><br><span class="line">  for (RI i &#x3D; 1; i &lt;&#x3D; n; ++i) &#123; &#x2F;&#x2F; 简单 DP</span><br><span class="line">    swap(cur, nxt);</span><br><span class="line">    memset(f[nxt], 0, sizeof(f[nxt]));</span><br><span class="line">    for (RI j &#x3D; 0; j &lt;&#x3D; 4 * (i - 1); ++j)</span><br><span class="line">      for (RI now &#x3D; 1; now &lt;&#x3D; length; ++now)</span><br><span class="line">        for (RI k &#x3D; tong[i]; k &lt;&#x3D; 4; ++k)</span><br><span class="line">          Add(f[nxt][j + k][child[now][k]], 1ll * f[cur][j][now] * C[4 - tong[i]][k - tong[i]] % mod);</span><br><span class="line">  &#125;</span><br><span class="line">  int ans &#x3D; 0;</span><br><span class="line">  for (RI i &#x3D; 14; i &lt;&#x3D; 4 * n; ++i)</span><br><span class="line">    for (RI j &#x3D; 1; j &lt;&#x3D; length; ++j)</span><br><span class="line">      if (j !&#x3D; 2)</span><br><span class="line">        Add(ans, 1ll * f[nxt][i][j] * frac[4 * n - i] % mod * frac[i - 13] % mod);</span><br><span class="line">  ans &#x3D; (1ll * ans * invfrac[4 * n - 13] % mod + 1) % mod;</span><br><span class="line">  cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; created by Daniel yuan</span><br><span class="line">&#x2F;*</span><br><span class="line">     ________</span><br><span class="line">    &#x2F;        \</span><br><span class="line">   &#x2F; &#x2F;      \ \</span><br><span class="line">  &#x2F; &#x2F;        \ \</span><br><span class="line">  \            &#x2F;</span><br><span class="line">   \  ______  &#x2F;</span><br><span class="line">    \________&#x2F;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>DP</tag>
@@ -549,63 +561,6 @@
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <tags>
         <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>划分数</title>
-    <url>/2020/10/09/%E5%88%92%E5%88%86%E6%95%B0/</url>
-    <content><![CDATA[<p>划分数就是把一个数 <span class="math inline">\(n\)</span> 拆分成若干个正整数的和的方案数，其中这若干个正整数是无序的，也就是 <span class="math inline">\(\{1,1,2\}\)</span> 和 <span class="math inline">\(\{1,2,1\}\)</span> 是等价的拆分。</p>
-<p>下面我们来讨论怎么求它。</p>
-<a id="more"></a>
-<h5 id="简单-dp">简单 DP</h5>
-<p>我们可以设 <span class="math inline">\(f_{i,j}\)</span> 表示把 <span class="math inline">\(i\)</span> 拆分成 <span class="math inline">\(j\)</span> 个正整数的方案数。</p>
-<p>转移有两种，要么添加一个 <span class="math inline">\(1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
-<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j-1}+f_{i-j,j}\)</span>。</p>
-<p>那么我们要求的划分数就是 <span class="math inline">\(\sum_{x=0}^n f_{n,x}\)</span>。复杂度 <span class="math inline">\(O(n^2)\)</span>。</p>
-<p>这个算法的优点是我们可以知道所有把 <span class="math inline">\(x\leq n\)</span> 拆分成 <span class="math inline">\(y\leq n\)</span> 个正整数的方案数，缺点是复杂度过高。</p>
-<h5 id="根号分治-dp">根号分治 DP</h5>
-<p>可以发现，大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多选 <span class="math inline">\(\sqrt{n}\)</span> 个，所以我们可以依靠这个来优化算法。</p>
-<p>设 <span class="math inline">\(f_{i,j}\)</span> 表示用小于等于 <span class="math inline">\(i\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
-<p>转移有两种，要么是多加一个 <span class="math inline">\(i\)</span>，要么就把 <span class="math inline">\(i\)</span> 加 <span class="math inline">\(1\)</span>。</p>
-<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j}+f_{i,j-i}\)</span>。</p>
-<p>这里的 <span class="math inline">\(i\)</span> 我们只枚举到 <span class="math inline">\(\sqrt{n}\)</span>，这样我们就可以知道用小于等于 <span class="math inline">\(\sqrt{n}\)</span> 拼成某个数的方案数。</p>
-<p>设 <span class="math inline">\(g_{i,j}\)</span> 表示用 <span class="math inline">\(i\)</span> 个数大于 <span class="math inline">\(\sqrt{n}\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
-<p>转移有两种，要么添加一个 <span class="math inline">\(\sqrt{n}+1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
-<p>即 <span class="math inline">\(g_{i,j}=g_{i-1,j-\sqrt{n}-1}+g_{i,j-i}\)</span>。</p>
-<p>因为大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多用 <span class="math inline">\(\sqrt{n}\)</span> 个，所以 <span class="math inline">\(i\)</span> 的上限也是 <span class="math inline">\(\sqrt{n}\)</span>。</p>
-<p>那么最后的答案就是 <span class="math inline">\(\sum_{x=0}^n f_{\sqrt{n},x}\times \left(\sum_{y=0}^{\sqrt{n}} g_{y,n-x}\right)\)</span> 。即枚举小于等于 <span class="math inline">\(\sqrt{n}\)</span> 的数的和。复杂度 <span class="math inline">\(O(n\sqrt{n})\)</span>。</p>
-<p>这个算法的优点是比多项式做法容易，且复杂度优于简单 DP。缺点是我们只能求得 <span class="math inline">\(n\)</span> 的划分数。</p>
-<h5 id="多项式">多项式</h5>
-<p>我们可以类似背包的来构造生成函数。</p>
-<p>设 <span class="math inline">\(P\)</span> 为划分数的生成函数，即 <span class="math inline">\(P_k\)</span> 的系数为 <span class="math inline">\(k\)</span> 的划分数。</p>
-<p>那么就有 <span class="math inline">\(P=\prod_j^\infty\left(\sum_i a_ix^{ij}\right)\)</span>。</p>
-<p>即枚举选择的数的大小 <span class="math inline">\(j\)</span>，然后乘上它的生成函数。</p>
-<p>根据常识，原式等于 <span class="math inline">\(\prod_{j=1}^\infty \frac{1}{1-x^j}\)</span>。</p>
-<p>然后通过 <span class="math inline">\(\ln\)</span> 和 <span class="math inline">\(\exp\)</span> 化乘为加，就可以求得 <span class="math inline">\(P\)</span>。</p>
-<p>我们先不看 <span class="math inline">\(\exp\)</span>，先算 <span class="math inline">\(\ln\)</span>。那么原式就是 <span class="math inline">\(-\sum_{j=1}^\infty\ln(1-x^j)\)</span>。</p>
-<p>考虑怎么计算 <span class="math inline">\(\ln(1-x^j)\)</span>，换个元设 <span class="math inline">\(u=x^j\)</span>，我们就需要求 <span class="math inline">\(\ln(1-u)\)</span>。</p>
-<p>先求导，即 <span class="math inline">\(-\frac{1}{1-u}=-\sum_{i=0}^\infty u^i\)</span>，然后积分，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{u^i}{i}\)</span> 。把元换回来，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
-<p>那么原式就成了 <span class="math inline">\(\sum_{j=1}^\infty \sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
-<p>最后把这一坨 <span class="math inline">\(\exp\)</span> 一下就得到了 <span class="math inline">\(P\)</span>。</p>
-<p>不难发现当上界为 <span class="math inline">\(n\)</span> 的时候，这个求和的复杂度是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
-<p>而求 <span class="math inline">\(\exp\)</span> 的复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的，故总复杂度为 <span class="math inline">\(O(n\log n)\)</span>。</p>
-<p>这个算法的优点是能非常快的计算出 <span class="math inline">\(x\leq n\)</span> 的划分数，缺点是很复杂，且对模数有要求。</p>
-<hr />
-<p>至此就讨论完了三种求划分数的方法。但是如果你认为这就完了那就 <code>too young too simple, sometimes naive</code> 了，出题人怎么可能就只考裸的划分数呢。</p>
-<p>下面我们再讨论一下如果限制了划分出来的正整数个数，或者限制了划分出来的正整数的大小该怎么做。</p>
-<p>我们可以发现，上述算法的【简单 DP】是很好处理前者的，【多项式】是很好处理后者的，而【根号分治 DP】中的 <span class="math inline">\(f\)</span> 可以维护后者， <span class="math inline">\(g\)</span> 可以维护前者，合并都不好维护。但是回顾上述算法，你会发现它们在最根本的思想上是相似的，而它们在这方面的性质又不一样，这就促使了我们去探究上面两个限制的关系。</p>
-<p><strong>引理：把划分出来的正整数排序，并形成一个阶梯图，这个图在行列上具有对偶性。</strong></p>
-<p>这么说比较抽象，我也不知道表达对不对，但是看了下面的图就知道了。（只看加粗部分）</p>
-<p><img src="https://s1.ax1x.com/2020/10/09/0DFNCV.png" /></p>
-<p>这张图不管是以列划分（左），还是以行划分（右），都可以看做是一个划分数的划分，且它们一一对应。</p>
-<p>假设柱状物的个数为数的个数，柱状物的高度是数的大小。</p>
-<p>那么如果限制是划分出来的正整数个数不超过数 <span class="math inline">\(x\)</span> ，在左图相当于是柱状物的个数不超过 <span class="math inline">\(x\)</span>，那么在右图就是柱状物的高度不超过 <span class="math inline">\(x\)</span>。</p>
-<p>也就是说，限制划分出来的正整数个数不超过 <span class="math inline">\(x\)</span>，和限制划分出来的正整数的大小不大于 <span class="math inline">\(x\)</span> 在本质上是相同的。我们可以对它们进行等价的转化。</p>
-<p>这样就可以解释为何上述三个同根的算法性质不同了。</p>
-]]></content>
-      <tags>
-        <tag>DP</tag>
-        <tag>多项式</tag>
       </tags>
   </entry>
   <entry>
@@ -686,6 +641,63 @@
       </tags>
   </entry>
   <entry>
+    <title>划分数</title>
+    <url>/2020/10/09/%E5%88%92%E5%88%86%E6%95%B0/</url>
+    <content><![CDATA[<p>划分数就是把一个数 <span class="math inline">\(n\)</span> 拆分成若干个正整数的和的方案数，其中这若干个正整数是无序的，也就是 <span class="math inline">\(\{1,1,2\}\)</span> 和 <span class="math inline">\(\{1,2,1\}\)</span> 是等价的拆分。</p>
+<p>下面我们来讨论怎么求它。</p>
+<a id="more"></a>
+<h5 id="简单-dp">简单 DP</h5>
+<p>我们可以设 <span class="math inline">\(f_{i,j}\)</span> 表示把 <span class="math inline">\(i\)</span> 拆分成 <span class="math inline">\(j\)</span> 个正整数的方案数。</p>
+<p>转移有两种，要么添加一个 <span class="math inline">\(1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
+<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j-1}+f_{i-j,j}\)</span>。</p>
+<p>那么我们要求的划分数就是 <span class="math inline">\(\sum_{x=0}^n f_{n,x}\)</span>。复杂度 <span class="math inline">\(O(n^2)\)</span>。</p>
+<p>这个算法的优点是我们可以知道所有把 <span class="math inline">\(x\leq n\)</span> 拆分成 <span class="math inline">\(y\leq n\)</span> 个正整数的方案数，缺点是复杂度过高。</p>
+<h5 id="根号分治-dp">根号分治 DP</h5>
+<p>可以发现，大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多选 <span class="math inline">\(\sqrt{n}\)</span> 个，所以我们可以依靠这个来优化算法。</p>
+<p>设 <span class="math inline">\(f_{i,j}\)</span> 表示用小于等于 <span class="math inline">\(i\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
+<p>转移有两种，要么是多加一个 <span class="math inline">\(i\)</span>，要么就把 <span class="math inline">\(i\)</span> 加 <span class="math inline">\(1\)</span>。</p>
+<p>即 <span class="math inline">\(f_{i,j}=f_{i-1,j}+f_{i,j-i}\)</span>。</p>
+<p>这里的 <span class="math inline">\(i\)</span> 我们只枚举到 <span class="math inline">\(\sqrt{n}\)</span>，这样我们就可以知道用小于等于 <span class="math inline">\(\sqrt{n}\)</span> 拼成某个数的方案数。</p>
+<p>设 <span class="math inline">\(g_{i,j}\)</span> 表示用 <span class="math inline">\(i\)</span> 个数大于 <span class="math inline">\(\sqrt{n}\)</span> 的数构成 <span class="math inline">\(j\)</span> 的方案数。</p>
+<p>转移有两种，要么添加一个 <span class="math inline">\(\sqrt{n}+1\)</span>，要么把所有数都加 <span class="math inline">\(1\)</span>。</p>
+<p>即 <span class="math inline">\(g_{i,j}=g_{i-1,j-\sqrt{n}-1}+g_{i,j-i}\)</span>。</p>
+<p>因为大于 <span class="math inline">\(\sqrt{n}\)</span> 的数我们最多用 <span class="math inline">\(\sqrt{n}\)</span> 个，所以 <span class="math inline">\(i\)</span> 的上限也是 <span class="math inline">\(\sqrt{n}\)</span>。</p>
+<p>那么最后的答案就是 <span class="math inline">\(\sum_{x=0}^n f_{\sqrt{n},x}\times \left(\sum_{y=0}^{\sqrt{n}} g_{y,n-x}\right)\)</span> 。即枚举小于等于 <span class="math inline">\(\sqrt{n}\)</span> 的数的和。复杂度 <span class="math inline">\(O(n\sqrt{n})\)</span>。</p>
+<p>这个算法的优点是比多项式做法容易，且复杂度优于简单 DP。缺点是我们只能求得 <span class="math inline">\(n\)</span> 的划分数。</p>
+<h5 id="多项式">多项式</h5>
+<p>我们可以类似背包的来构造生成函数。</p>
+<p>设 <span class="math inline">\(P\)</span> 为划分数的生成函数，即 <span class="math inline">\(P_k\)</span> 的系数为 <span class="math inline">\(k\)</span> 的划分数。</p>
+<p>那么就有 <span class="math inline">\(P=\prod_j^\infty\left(\sum_i a_ix^{ij}\right)\)</span>。</p>
+<p>即枚举选择的数的大小 <span class="math inline">\(j\)</span>，然后乘上它的生成函数。</p>
+<p>根据常识，原式等于 <span class="math inline">\(\prod_{j=1}^\infty \frac{1}{1-x^j}\)</span>。</p>
+<p>然后通过 <span class="math inline">\(\ln\)</span> 和 <span class="math inline">\(\exp\)</span> 化乘为加，就可以求得 <span class="math inline">\(P\)</span>。</p>
+<p>我们先不看 <span class="math inline">\(\exp\)</span>，先算 <span class="math inline">\(\ln\)</span>。那么原式就是 <span class="math inline">\(-\sum_{j=1}^\infty\ln(1-x^j)\)</span>。</p>
+<p>考虑怎么计算 <span class="math inline">\(\ln(1-x^j)\)</span>，换个元设 <span class="math inline">\(u=x^j\)</span>，我们就需要求 <span class="math inline">\(\ln(1-u)\)</span>。</p>
+<p>先求导，即 <span class="math inline">\(-\frac{1}{1-u}=-\sum_{i=0}^\infty u^i\)</span>，然后积分，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{u^i}{i}\)</span> 。把元换回来，即 <span class="math inline">\(-\sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
+<p>那么原式就成了 <span class="math inline">\(\sum_{j=1}^\infty \sum_{i=1}^\infty \frac{x^{ij}}{i}\)</span>。</p>
+<p>最后把这一坨 <span class="math inline">\(\exp\)</span> 一下就得到了 <span class="math inline">\(P\)</span>。</p>
+<p>不难发现当上界为 <span class="math inline">\(n\)</span> 的时候，这个求和的复杂度是 <span class="math inline">\(O(n\log n)\)</span> 的。</p>
+<p>而求 <span class="math inline">\(\exp\)</span> 的复杂度也是 <span class="math inline">\(O(n\log n)\)</span> 的，故总复杂度为 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<p>这个算法的优点是能非常快的计算出 <span class="math inline">\(x\leq n\)</span> 的划分数，缺点是很复杂，且对模数有要求。</p>
+<hr />
+<p>至此就讨论完了三种求划分数的方法。但是如果你认为这就完了那就 <code>too young too simple, sometimes naive</code> 了，出题人怎么可能就只考裸的划分数呢。</p>
+<p>下面我们再讨论一下如果限制了划分出来的正整数个数，或者限制了划分出来的正整数的大小该怎么做。</p>
+<p>我们可以发现，上述算法的【简单 DP】是很好处理前者的，【多项式】是很好处理后者的，而【根号分治 DP】中的 <span class="math inline">\(f\)</span> 可以维护后者， <span class="math inline">\(g\)</span> 可以维护前者，合并都不好维护。但是回顾上述算法，你会发现它们在最根本的思想上是相似的，而它们在这方面的性质又不一样，这就促使了我们去探究上面两个限制的关系。</p>
+<p><strong>引理：把划分出来的正整数排序，并形成一个阶梯图，这个图在行列上具有对偶性。</strong></p>
+<p>这么说比较抽象，我也不知道表达对不对，但是看了下面的图就知道了。（只看加粗部分）</p>
+<p><img src="https://s1.ax1x.com/2020/10/09/0DFNCV.png" /></p>
+<p>这张图不管是以列划分（左），还是以行划分（右），都可以看做是一个划分数的划分，且它们一一对应。</p>
+<p>假设柱状物的个数为数的个数，柱状物的高度是数的大小。</p>
+<p>那么如果限制是划分出来的正整数个数不超过数 <span class="math inline">\(x\)</span> ，在左图相当于是柱状物的个数不超过 <span class="math inline">\(x\)</span>，那么在右图就是柱状物的高度不超过 <span class="math inline">\(x\)</span>。</p>
+<p>也就是说，限制划分出来的正整数个数不超过 <span class="math inline">\(x\)</span>，和限制划分出来的正整数的大小不大于 <span class="math inline">\(x\)</span> 在本质上是相同的。我们可以对它们进行等价的转化。</p>
+<p>这样就可以解释为何上述三个同根的算法性质不同了。</p>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>多项式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>后缀数组学习笔记</title>
     <url>/2020/09/26/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>老忘后缀数组咋写，写个东西记录下。</p>
@@ -762,6 +774,44 @@
       </tags>
   </entry>
   <entry>
+    <title>广义二项式定理</title>
+    <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
+    <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
+<a id="more"></a>
+<p>对于广义的组合数，有个恒等式 <span class="math inline">\(\tbinom{n}{m}=\tbinom{m-n-1}{m}\times (-1)^{m}\)</span> 。</p>
+<blockquote>
+<p>两式的分母都是一样的，对于左式，其分子是 <span class="math inline">\(n\times (n-1)\times ... \times (n-m+1)\)</span>，对于右式，其分子是 <span class="math inline">\((m-n-1)\times ((m-n-1)-1) \times ... \times ((m-n-1)-m+1)\)</span>，可以发现右式分子的每个单项式和左式分子的单项式一一对应，并且互为相反数，那么最后乘上一个 <span class="math inline">\((-1)^m\)</span> 即可。</p>
+</blockquote>
+<p>有个很妙的记忆方法：两级反转（和艾克真的一点关系都没有 /doge）连续变化两次，设未知数，下标不变，上标用 <span class="math inline">\(m-1\)</span> 去减，即：<span class="math inline">\(\tbinom{n}{m}=\tbinom{m-?-1}{m}\times (-1)^{2m}\)</span>，那么可以很快得出问号是 <span class="math inline">\(m-n-1\)</span> 。当然直接用上文的证明去推更 nice。</p>
+<p>广义二项式定理： <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 这里的 <span class="math inline">\(k\)</span> 可以是任意实数，一般会用在 <span class="math inline">\(k\)</span> 为负整数的时候，那么我们在下面约定所有出现的 <span class="math inline">\(k\)</span> 都是<strong>负整数</strong>，且为了方便理解，设 <span class="math inline">\(n=-k\)</span>。</p>
+<p>考虑用生成函数去解释，先把 <span class="math inline">\((a+b)^{k}\)</span> 看成 <span class="math inline">\((a+bx)^{k}\)</span> 那么最后只要把 <span class="math inline">\(x\)</span> 看成 <span class="math inline">\(1\)</span> 即可。</p>
+<p>先考虑最基本的情况：<span class="math inline">\((1-x)^{-n}\)</span> 。</p>
+<p>根据数学知识可以知道上式就是 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}\)</span> 。</p>
+<p>根据生成函数，可以知道 <span class="math inline">\((1-x)^{-1}=\sum_{i=0}^{\infty} x^i\)</span> 。</p>
+<blockquote>
+<p>设 <span class="math inline">\(S=1+x+x^2+...\)</span>，那么 <span class="math inline">\(xS=x+x^2+x^3+...\)</span>，那么 <span class="math inline">\(S-xS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-x}\)</span> 即 $ (1-x)^{-1}$</p>
+</blockquote>
+<p>那么 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\left( \sum_{i=0}^{\infty} x^i \right)^{n}\)</span> 。</p>
+<p>考虑从组合意义上去计算这个式子：你有 <span class="math inline">\(n\)</span> 种球，每种球无限个，你需要从这 <span class="math inline">\(n\)</span> 种球中选择一共 <span class="math inline">\(i\)</span> 个球，每种球至少选 <span class="math inline">\(0\)</span> 个，其方案数就是 <span class="math inline">\(x^i\)</span> 的系数。那么使用隔板法就有 <span class="math inline">\(\tbinom{i+n-1}{n-1}\)</span> 。</p>
+<p>所以 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}x^i\)</span> 。</p>
+<p>那么我们再在 <span class="math inline">\(x\)</span> 前面加上一个系数 <span class="math inline">\(p\)</span> ，即求 <span class="math inline">\((1-px)^{-1}\)</span> 。它是等于 <span class="math inline">\(\sum_{i=0}^{\infty} p^ix^i\)</span> 。</p>
+<blockquote>
+<p>设 <span class="math inline">\(S=1+px+p^2x^2+...\)</span> ，那么 <span class="math inline">\(pxS=px+p^2x^2+p^3x^3+...\)</span>，那么 <span class="math inline">\(S-pxS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-px}\)</span> 即 <span class="math inline">\((1-px)^{-1}\)</span> 。</p>
+</blockquote>
+<p>那再按照上面的方法去推，就有 <span class="math inline">\(\left( (1-px)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}p^ix^i\)</span></p>
+<p>回到一开始的问题，<span class="math inline">\((a+bx)^k=a^k \left( 1-(-\frac{b}{a}x) \right)^k\)</span> 。</p>
+<p>那么就有 <span class="math inline">\((a+bx)^k=a^k \sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-\frac{b}{a})^ix^i\)</span> 。整理一下，<span class="math inline">\(\sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-1)^ia^{k-i}b^ix^i\)</span> 。</p>
+<p>注意了，这里等式内部的组合数的 <span class="math inline">\(k\)</span> 前面都带个负号，因为上文在推导过程中，设的是 <span class="math inline">\(n=-k\)</span>，所以在组合数中的 <span class="math inline">\(n\)</span> 才是正号。</p>
+<p>再根据文首提及的那个恒等式，就有 <span class="math inline">\(\tbinom{i-k-1}{-k-1}=\tbinom{i-k-1}{i}=\tbinom{k}{i}\times (-1)^i\)</span> 。</p>
+<p>可以发现两个 <span class="math inline">\((-1)^i\)</span> 抵掉了，那么 <span class="math inline">\((a+bx)^k=\sum_{i=0}^{\infty} \tbinom{k}{i}a^{k-i}b^ix^i\)</span> 。</p>
+<p>把 <span class="math inline">\(x=1\)</span> 带入原式，即可得 <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 。</p>
+]]></content>
+      <tags>
+        <tag>数学</tag>
+        <tag>组合数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字符串的回文划分</title>
     <url>/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/</url>
     <content><![CDATA[<p>定义一个串 <span class="math inline">\(S\)</span> 的划分 <span class="math inline">\(s_1,s_2...s_k\)</span> 为回文划分当且仅当 <span class="math inline">\(s_1,s_2...s_k\)</span> 都是回文串。</p>
@@ -803,44 +853,6 @@
       <tags>
         <tag>字符串</tag>
         <tag>PAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>广义二项式定理</title>
-    <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
-    <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
-<a id="more"></a>
-<p>对于广义的组合数，有个恒等式 <span class="math inline">\(\tbinom{n}{m}=\tbinom{m-n-1}{m}\times (-1)^{m}\)</span> 。</p>
-<blockquote>
-<p>两式的分母都是一样的，对于左式，其分子是 <span class="math inline">\(n\times (n-1)\times ... \times (n-m+1)\)</span>，对于右式，其分子是 <span class="math inline">\((m-n-1)\times ((m-n-1)-1) \times ... \times ((m-n-1)-m+1)\)</span>，可以发现右式分子的每个单项式和左式分子的单项式一一对应，并且互为相反数，那么最后乘上一个 <span class="math inline">\((-1)^m\)</span> 即可。</p>
-</blockquote>
-<p>有个很妙的记忆方法：两级反转（和艾克真的一点关系都没有 /doge）连续变化两次，设未知数，下标不变，上标用 <span class="math inline">\(m-1\)</span> 去减，即：<span class="math inline">\(\tbinom{n}{m}=\tbinom{m-?-1}{m}\times (-1)^{2m}\)</span>，那么可以很快得出问号是 <span class="math inline">\(m-n-1\)</span> 。当然直接用上文的证明去推更 nice。</p>
-<p>广义二项式定理： <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 这里的 <span class="math inline">\(k\)</span> 可以是任意实数，一般会用在 <span class="math inline">\(k\)</span> 为负整数的时候，那么我们在下面约定所有出现的 <span class="math inline">\(k\)</span> 都是<strong>负整数</strong>，且为了方便理解，设 <span class="math inline">\(n=-k\)</span>。</p>
-<p>考虑用生成函数去解释，先把 <span class="math inline">\((a+b)^{k}\)</span> 看成 <span class="math inline">\((a+bx)^{k}\)</span> 那么最后只要把 <span class="math inline">\(x\)</span> 看成 <span class="math inline">\(1\)</span> 即可。</p>
-<p>先考虑最基本的情况：<span class="math inline">\((1-x)^{-n}\)</span> 。</p>
-<p>根据数学知识可以知道上式就是 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}\)</span> 。</p>
-<p>根据生成函数，可以知道 <span class="math inline">\((1-x)^{-1}=\sum_{i=0}^{\infty} x^i\)</span> 。</p>
-<blockquote>
-<p>设 <span class="math inline">\(S=1+x+x^2+...\)</span>，那么 <span class="math inline">\(xS=x+x^2+x^3+...\)</span>，那么 <span class="math inline">\(S-xS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-x}\)</span> 即 $ (1-x)^{-1}$</p>
-</blockquote>
-<p>那么 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\left( \sum_{i=0}^{\infty} x^i \right)^{n}\)</span> 。</p>
-<p>考虑从组合意义上去计算这个式子：你有 <span class="math inline">\(n\)</span> 种球，每种球无限个，你需要从这 <span class="math inline">\(n\)</span> 种球中选择一共 <span class="math inline">\(i\)</span> 个球，每种球至少选 <span class="math inline">\(0\)</span> 个，其方案数就是 <span class="math inline">\(x^i\)</span> 的系数。那么使用隔板法就有 <span class="math inline">\(\tbinom{i+n-1}{n-1}\)</span> 。</p>
-<p>所以 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}x^i\)</span> 。</p>
-<p>那么我们再在 <span class="math inline">\(x\)</span> 前面加上一个系数 <span class="math inline">\(p\)</span> ，即求 <span class="math inline">\((1-px)^{-1}\)</span> 。它是等于 <span class="math inline">\(\sum_{i=0}^{\infty} p^ix^i\)</span> 。</p>
-<blockquote>
-<p>设 <span class="math inline">\(S=1+px+p^2x^2+...\)</span> ，那么 <span class="math inline">\(pxS=px+p^2x^2+p^3x^3+...\)</span>，那么 <span class="math inline">\(S-pxS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-px}\)</span> 即 <span class="math inline">\((1-px)^{-1}\)</span> 。</p>
-</blockquote>
-<p>那再按照上面的方法去推，就有 <span class="math inline">\(\left( (1-px)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}p^ix^i\)</span></p>
-<p>回到一开始的问题，<span class="math inline">\((a+bx)^k=a^k \left( 1-(-\frac{b}{a}x) \right)^k\)</span> 。</p>
-<p>那么就有 <span class="math inline">\((a+bx)^k=a^k \sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-\frac{b}{a})^ix^i\)</span> 。整理一下，<span class="math inline">\(\sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-1)^ia^{k-i}b^ix^i\)</span> 。</p>
-<p>注意了，这里等式内部的组合数的 <span class="math inline">\(k\)</span> 前面都带个负号，因为上文在推导过程中，设的是 <span class="math inline">\(n=-k\)</span>，所以在组合数中的 <span class="math inline">\(n\)</span> 才是正号。</p>
-<p>再根据文首提及的那个恒等式，就有 <span class="math inline">\(\tbinom{i-k-1}{-k-1}=\tbinom{i-k-1}{i}=\tbinom{k}{i}\times (-1)^i\)</span> 。</p>
-<p>可以发现两个 <span class="math inline">\((-1)^i\)</span> 抵掉了，那么 <span class="math inline">\((a+bx)^k=\sum_{i=0}^{\infty} \tbinom{k}{i}a^{k-i}b^ix^i\)</span> 。</p>
-<p>把 <span class="math inline">\(x=1\)</span> 带入原式，即可得 <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 。</p>
-]]></content>
-      <tags>
-        <tag>数学</tag>
-        <tag>组合数学</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,24 +1080,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
-    <title>用二进制模拟 K 进制</title>
-    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
-    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
-<a id="more"></a>
-<p>先考虑怎么用二进制模拟三进制。</p>
-<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
-<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
-<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
-<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
-<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
-<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
-]]></content>
-      <tags>
-        <tag>数位</tag>
-        <tag>进制</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>牛客练习赛 70 E 题解</title>
     <url>/2020/09/29/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B-70-E-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p><a href="https://ac.nowcoder.com/acm/contest/7509/E">题目链接</a></p>
@@ -1127,6 +1121,24 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
         <tag>DP</tag>
         <tag>容斥</tag>
         <tag>妙题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用二进制模拟 K 进制</title>
+    <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
+    <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
+<a id="more"></a>
+<p>先考虑怎么用二进制模拟三进制。</p>
+<p>用 <span class="math inline">\(01\)</span> 串 <span class="math inline">\(s_0,s_1,s_2\)</span> 依次表示某数在三进制下，数位为 <span class="math inline">\(0,1,2\)</span> 的位的集合。</p>
+<p>不难发现 <span class="math inline">\(s_0,s_1,s_2\)</span> 两两无交。</p>
+<p>那么对于两个数的三进制下位运算，就可以通过枚举两数的 <span class="math inline">\(s_0,s_1,s_2\)</span>，得到两数在三进制下数位为 <span class="math inline">\(0,1,2,3,4\)</span> 的位的集合。且这些集合也两两无交。</p>
+<p>之后再通过位运算的定义，把五个集合重新整理成新的 <span class="math inline">\(s_0,s_1,s_2\)</span>。</p>
+<p>复杂度是 <span class="math inline">\(O(9)\)</span> 的（因为需要枚举 <span class="math inline">\(s_0,s_1,s_2\)</span>）。</p>
+<p>类似的，这种做法也可以推广到 K 进制下，复杂度是 <span class="math inline">\(O(K^2)\)</span> 的。</p>
+]]></content>
+      <tags>
+        <tag>数位</tag>
+        <tag>进制</tag>
       </tags>
   </entry>
   <entry>
