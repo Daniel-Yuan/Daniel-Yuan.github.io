@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BZOJ3328 PYXFIB 题解</title>
+    <url>/2021/01/28/BZOJ3328-PYXFIB-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>好像网上没有这么做的题解，所以就写个吧。</p>
+<a id="more"></a>
+<p>直接单位根反演，就有： <span class="math display">\[
+\frac{1}{k}\sum_{j=0}^{k-1}\sum_{i=0}^n{n \choose i}(\omega_k^j)^iF_i
+\]</span> 正常的做法是把斐波那契数用矩阵表示，然后用二项式定理。</p>
+<p>考虑直接头铁用通项公式展开斐波那契数，就有 <span class="math display">\[
+\frac{1}{\sqrt{5}k}\sum_{j=0}^{k-1}\left(\frac{1+\sqrt{5}}{2}(1+\frac{1+\sqrt{5}}{2}\omega_k^j)^n-\frac{1-\sqrt{5}}{2}(1+\frac{1-\sqrt{5}}{2}\omega_k^j)^n\right)
+\]</span> 在模意义下可能没有 <span class="math inline">\(5\)</span> 的二次剩余，故考虑扩域，把数表示成 <span class="math inline">\(a+b\sqrt{5}\)</span> 的形式。</p>
+<p>定义一下扩域后数的加减乘除然后直接做即可。在这里除法的本质是求逆元，也就是求 <span class="math inline">\(c+d\sqrt{5}\)</span> 使得它和 <span class="math inline">\(a+b\sqrt{5}\)</span> 乘起来为 <span class="math inline">\(1\)</span>。</p>
+<p>不过需要注意的是，当 <span class="math inline">\(P=5\)</span> 的时候，<span class="math inline">\(\frac{1}{\sqrt{5}k}\)</span> 没有逆元，这样就会 WA，考虑特殊处理一下。</p>
+<p>可以发现 <span class="math inline">\(\frac{1}{\sqrt{5}k}\)</span> 表示成 <span class="math inline">\(a+b\sqrt{5}\)</span> 的形式的时候 <span class="math inline">\(a=0\)</span>，那么当 <span class="math inline">\(P\not=5\)</span> 的时候它的逆元 <span class="math inline">\(a=0\)</span>，既然这样，后面的式子求出来的 <span class="math inline">\(a\)</span> 也会等于 <span class="math inline">\(0\)</span>。</p>
+<p>所以我们根本没有必要在这一步把这个复数求逆，直接把 <span class="math inline">\(k\)</span> 求逆乘上后面的式子求出来的 <span class="math inline">\(b\)</span> 即可。</p>
+<p>常数可能会比矩阵乘法的做法小。</p>
+]]></content>
+      <tags>
+        <tag>单位根反演</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CF506E 题解</title>
     <url>/2020/09/17/CF506E-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p>一道极 (e) 妙 (xin) 的自动机优化 DP 的题目。</p>
@@ -720,6 +741,29 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
       </tags>
   </entry>
   <entry>
+    <title>[ZJOI2019] 麻将 题解</title>
+    <url>/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p>首先对于已有的一堆牌，我们应该要能确定它能不能胡。</p>
+<p>这部分具体的可以参考<a href="https://daniel-yuan.github.io/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/#more">我的另一篇博客</a>，顺带说一句，[ZJOI2019] 麻将的前置知识居然被拿去 [GXOI/GZOI2019] 出了个宝牌一大堆<del>，ZJOI 恐怖如斯</del>。</p>
+<a id="more"></a>
+<p>回到这个题目，对于一个已知状态，我们可以设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 张牌，<span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，<span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，有无雀头的最大面子数。</p>
+<p>但是现在状态是未知的，所以考虑 DP of DP，即把这个 <span class="math inline">\(f\)</span> 压到状态里面去。为了方便，我们把 <span class="math inline">\(f_{0/1/2,0/1/2,0/1}\)</span> （注意到这里已经忽略了 <span class="math inline">\(i\)</span>，因为 <span class="math inline">\(i\)</span> 对转移没有影响）建一个自动机。而自动机上面的信息就是形如 <span class="math inline">\(f_{0,0,0}=x,f_{0,0,1}=y...\)</span> 这样的多元组，因为还有七对子的特殊牌型，所以在自动机上面额外记录一个 <span class="math inline">\(cnt\)</span> 表示对子数。</p>
+<p>乍一看，一共有 <span class="math inline">\(3\times 3\times 2=18\)</span> 个 <span class="math inline">\(f\)</span> 状态，而 <span class="math inline">\(f\)</span> 的取值有 <span class="math inline">\(0/1/2/3/4\)</span> 五种（大于 <span class="math inline">\(4\)</span> 已经没有意义，故可以限制最大值为 <span class="math inline">\(4\)</span>），并且还有一个额外的 <span class="math inline">\(cnt\)</span> 需要记录，自动机上的节点数会达到 <span class="math inline">\(5^{18}\times 8=3.0517578125×10^{13}\)</span>，我们难以承受。但是显然有很多状态不会被涉及到，比如说 <span class="math inline">\(f_{0,0,0}=3\)</span> 的时候任何 <span class="math inline">\(f\)</span> 值都不会小于 <span class="math inline">\(3\)</span>。所以我们可以写一个 BFS 去看看自动机节点数有多少。特别的，如果 <span class="math inline">\(cnt=7\)</span> 或者 <span class="math inline">\(f_{0,0,0}=4\)</span>，那么已经胡牌，我们可以建立一个胡牌节点，与此同时，我们也可以把转移边记录下来，特别的，胡牌节点只有自环。代码形如这样。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map &lt;Status, int&gt; mp;</span><br><span class="line">void GetStatus() &#123;</span><br><span class="line">  Status t, nxt; &#x2F;&#x2F; 这是一个定义状态的结构体</span><br><span class="line">  int cnt &#x3D; 0;</span><br><span class="line">  q.push(t), mp[t] &#x3D; ++cnt;</span><br><span class="line">  while (t.cnt !&#x3D; -1) t.Trans(2); &#x2F;&#x2F; 这里是构造一个胡牌节点</span><br><span class="line">  mp[t] &#x3D; ++cnt;</span><br><span class="line">  for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i)</span><br><span class="line">    child[mp[t]][i] &#x3D; mp[t];</span><br><span class="line">  while (!q.empty()) &#123;</span><br><span class="line">    t &#x3D; q.front(); q.pop();</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i) &#123;</span><br><span class="line">      nxt &#x3D; t, nxt.Trans(i); &#x2F;&#x2F; 更新 f</span><br><span class="line">      if (mp.find(nxt) &#x3D;&#x3D; mp.end())</span><br><span class="line">        q.push(nxt), mp[nxt] &#x3D; ++cnt; &#x2F;&#x2F; 新建节点</span><br><span class="line">      child[mp[t]][i] &#x3D; mp[nxt]; &#x2F;&#x2F; 记录转移边</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt &gt; 100000) break; &#x2F;&#x2F; protection</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; mp.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至于 <span class="math inline">\(f\)</span> 具体怎么转移大家可以自己推一推。</p>
+<p>然后你会发现搜出来只有 1566 个节点（我也不知道为什么和很多博客上写的都不同，我还怀疑了自己好久……），于是我们就可以根据这个来 DP 了（可以把节点看做是内部的 DP）。</p>
+<p>设 <span class="math inline">\(g_{i,j,k}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，当前牌长度为 <span class="math inline">\(j\)</span>，在自动机上面的点 <span class="math inline">\(k\)</span> 的方案数。转移的时候枚举这一种牌有多少张即可，复杂度 <span class="math inline">\(O(n^2\times 1566)\)</span>。因为相同种类的牌是有编号区分的，所以转移的时候一定要乘组合数（被卡了好久）。</p>
+<p>最后再考虑计算答案。对于一个至少 <span class="math inline">\(k\)</span> 次才能胡牌的状态，它对答案的贡献为 <span class="math inline">\(k\)</span>。因为是至少，不好直接求，考虑转化成至多。即改成对于一个至多 <span class="math inline">\(k-1\)</span> 次都不能胡牌的状态，它对答案的贡献为 <span class="math inline">\(k\)</span>。而这个状态在 <span class="math inline">\(1\sim k-1\)</span> 次都不能胡牌。所以我们可以把贡献拆分到 <span class="math inline">\(1\sim k-1\)</span> 上面去，每个部分的权值为 <span class="math inline">\(1\)</span>。（或者说 <span class="math inline">\(k=\sum_{i=1}^k1\)</span>？）。</p>
+<p>那么最终答案就是 <span class="math inline">\(\frac{\sum_{i=14}^{4n}\sum_{j=1}^{len}g_{n,i,j}(4n-i)!(i-13)![\text{ $j$ 不是胡牌节点 }]}{(4n-13)!}+1\)</span>。代码如下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">#define debug(...) fprintf(stderr, __VA_ARGS__)</span><br><span class="line">#define RI register int</span><br><span class="line">typedef long long LL;</span><br><span class="line"></span><br><span class="line">#define FILEIO(name) freopen(name&quot;.in&quot;, &quot;r&quot;, stdin), freopen(name&quot;.out&quot;, &quot;w&quot;, stdout);</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Status &#123; &#x2F;&#x2F; 自动机中的状态</span><br><span class="line">  int f[3][3][2], cnt;</span><br><span class="line">  Status () &#123;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          f[i][j][k] &#x3D; -0x3f3f3f3f;</span><br><span class="line">    cnt &#x3D; f[0][0][0] &#x3D; 0;</span><br><span class="line">  &#125;</span><br><span class="line">  void Trans(int res) &#123; &#x2F;&#x2F; 自动机状态的内部转移</span><br><span class="line">    Status nxt;</span><br><span class="line">    int win &#x3D; 0;</span><br><span class="line">    nxt.cnt &#x3D; cnt + (res &gt;&#x3D; 2);</span><br><span class="line">    win |&#x3D; (nxt.cnt &gt;&#x3D; 7);</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k) &#123;</span><br><span class="line">          for (RI lasi &#x3D; 0; lasi &lt;&#x3D; 2; ++lasi)</span><br><span class="line">            for (RI lask &#x3D; 0; lask &lt;&#x3D; k; ++lask) &#123;</span><br><span class="line">              int ned &#x3D; lasi + i + j + 2 * (k - lask);</span><br><span class="line">              if (ned &gt; res) continue;</span><br><span class="line">              nxt.f[i][j][k] &#x3D; min(4, max(nxt.f[i][j][k], f[lasi][i][lask] + j + (res - ned &gt;&#x3D; 3)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          if (nxt.f[i][j][k] &lt; 0)</span><br><span class="line">            nxt.f[i][j][k] &#x3D; -0x3f3f3f3f;</span><br><span class="line">    win |&#x3D; (nxt.f[0][0][1] &gt;&#x3D; 4);</span><br><span class="line">    if (win) &#x2F;&#x2F; 判胡牌</span><br><span class="line">      for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">        for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">          for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">            nxt.f[i][j][k] &#x3D; nxt.cnt &#x3D; -1;</span><br><span class="line">    *this &#x3D; nxt;</span><br><span class="line">  &#125;</span><br><span class="line">  bool operator &lt; (const Status &amp;A) const &#123;</span><br><span class="line">    if (cnt !&#x3D; A.cnt) return cnt &lt; A.cnt;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          if (f[i][j][k] !&#x3D; A.f[i][j][k])</span><br><span class="line">            return f[i][j][k] &lt; A.f[i][j][k];</span><br><span class="line">    return 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">map &lt;Status, int&gt; mp;</span><br><span class="line">queue &lt;Status&gt; q;</span><br><span class="line">int const MAXN &#x3D; 2005, mod &#x3D; 998244353;</span><br><span class="line">int child[MAXN][5];</span><br><span class="line">int f[2][405][MAXN];</span><br><span class="line">int tong[105];</span><br><span class="line">int length;</span><br><span class="line">LL frac[MAXN], invfrac[MAXN];</span><br><span class="line"></span><br><span class="line">LL qpow(LL a, LL k) &#123;</span><br><span class="line">  LL re &#x3D; 1;</span><br><span class="line">  for (; k; k &gt;&gt;&#x3D; 1, a &#x3D; a * a % mod)</span><br><span class="line">    if (k &amp; 1) re &#x3D; re * a % mod;</span><br><span class="line">  return re;</span><br><span class="line">&#125;</span><br><span class="line">void Init(int Max) &#123;</span><br><span class="line">  frac[0] &#x3D; 1;</span><br><span class="line">  for (RI i &#x3D; 1; i &lt;&#x3D; Max; ++i)</span><br><span class="line">    frac[i] &#x3D; frac[i - 1] * i % mod;</span><br><span class="line">  invfrac[Max] &#x3D; qpow(frac[Max], mod - 2);</span><br><span class="line">  for (RI i &#x3D; Max; i &gt;&#x3D; 1; --i)</span><br><span class="line">    invfrac[i - 1] &#x3D; invfrac[i] * i % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void GetStatus() &#123; &#x2F;&#x2F; 上文已经解释了</span><br><span class="line">  Status t, nxt;</span><br><span class="line">  int cnt &#x3D; 0;</span><br><span class="line">  q.push(t), mp[t] &#x3D; ++cnt;</span><br><span class="line">  while (t.cnt !&#x3D; -1) t.Trans(2);</span><br><span class="line">  mp[t] &#x3D; ++cnt;</span><br><span class="line">  for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i)</span><br><span class="line">    child[mp[t]][i] &#x3D; mp[t];</span><br><span class="line">  while (!q.empty()) &#123;</span><br><span class="line">    t &#x3D; q.front(); q.pop();</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i) &#123;</span><br><span class="line">      nxt &#x3D; t, nxt.Trans(i);</span><br><span class="line">      if (mp.find(nxt) &#x3D;&#x3D; mp.end())</span><br><span class="line">        q.push(nxt), mp[nxt] &#x3D; ++cnt;</span><br><span class="line">      child[mp[t]][i] &#x3D; mp[nxt];</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt &gt; 100000) break; &#x2F;&#x2F; protection</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; mp.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline void Add(int &amp;x, int y) &#123; x +&#x3D; y - mod; x +&#x3D; (x &gt;&gt; 31) &amp; mod; &#125;</span><br><span class="line"></span><br><span class="line">LL C[10][10];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  </span><br><span class="line">#ifdef LOCAL</span><br><span class="line">  FILEIO(&quot;a&quot;);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">  GetStatus();</span><br><span class="line">  int n; cin &gt;&gt; n;</span><br><span class="line">  C[0][0] &#x3D; 1;</span><br><span class="line">  C[1][0] &#x3D; C[1][1] &#x3D; 1;</span><br><span class="line">  C[2][0] &#x3D; C[2][2] &#x3D; 1, C[2][1] &#x3D; 2;</span><br><span class="line">  C[3][0] &#x3D; C[3][3] &#x3D; 1, C[3][1] &#x3D; C[3][2] &#x3D; 3;</span><br><span class="line">  C[4][0] &#x3D; C[4][4] &#x3D; 1, C[4][1] &#x3D; C[4][3] &#x3D; 4, C[4][2] &#x3D; 6;</span><br><span class="line">  Init(4 * n);</span><br><span class="line">  for (RI i &#x3D; 1, x, y; i &lt;&#x3D; 13; ++i)</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y, ++tong[x];</span><br><span class="line">  int cur &#x3D; 0, nxt &#x3D; 1;</span><br><span class="line">  f[nxt][0][1] &#x3D; 1;</span><br><span class="line">  for (RI i &#x3D; 1; i &lt;&#x3D; n; ++i) &#123; &#x2F;&#x2F; 简单 DP</span><br><span class="line">    swap(cur, nxt);</span><br><span class="line">    memset(f[nxt], 0, sizeof(f[nxt]));</span><br><span class="line">    for (RI j &#x3D; 0; j &lt;&#x3D; 4 * (i - 1); ++j)</span><br><span class="line">      for (RI now &#x3D; 1; now &lt;&#x3D; length; ++now)</span><br><span class="line">        for (RI k &#x3D; tong[i]; k &lt;&#x3D; 4; ++k)</span><br><span class="line">          Add(f[nxt][j + k][child[now][k]], 1ll * f[cur][j][now] * C[4 - tong[i]][k - tong[i]] % mod);</span><br><span class="line">  &#125;</span><br><span class="line">  int ans &#x3D; 0;</span><br><span class="line">  for (RI i &#x3D; 14; i &lt;&#x3D; 4 * n; ++i)</span><br><span class="line">    for (RI j &#x3D; 1; j &lt;&#x3D; length; ++j)</span><br><span class="line">      if (j !&#x3D; 2)</span><br><span class="line">        Add(ans, 1ll * f[nxt][i][j] * frac[4 * n - i] % mod * frac[i - 13] % mod);</span><br><span class="line">  ans &#x3D; (1ll * ans * invfrac[4 * n - 13] % mod + 1) % mod;</span><br><span class="line">  cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; created by Daniel yuan</span><br><span class="line">&#x2F;*</span><br><span class="line">     ________</span><br><span class="line">    &#x2F;        \</span><br><span class="line">   &#x2F; &#x2F;      \ \</span><br><span class="line">  &#x2F; &#x2F;        \ \</span><br><span class="line">  \            &#x2F;</span><br><span class="line">   \  ______  &#x2F;</span><br><span class="line">    \________&#x2F;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>自动机</tag>
+        <tag>DP of DP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>diary</title>
     <url>/2020/10/06/diary/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
@@ -759,29 +803,6 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
 ]]></content>
       <tags>
         <tag>多项式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ZJOI2019] 麻将 题解</title>
-    <url>/2021/01/21/ZJOI2019-%E9%BA%BB%E5%B0%86-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>首先对于已有的一堆牌，我们应该要能确定它能不能胡。</p>
-<p>这部分具体的可以参考<a href="https://daniel-yuan.github.io/2021/01/19/%E9%BA%BB%E5%B0%86%E7%9B%B8%E5%85%B3/#more">我的另一篇博客</a>，顺带说一句，[ZJOI2019] 麻将的前置知识居然被拿去 [GXOI/GZOI2019] 出了个宝牌一大堆<del>，ZJOI 恐怖如斯</del>。</p>
-<a id="more"></a>
-<p>回到这个题目，对于一个已知状态，我们可以设 <span class="math inline">\(f_{i,0/1/2,0/1/2,0/1}\)</span> 表示前 <span class="math inline">\(i\)</span> 张牌，<span class="math inline">\(i-1\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，<span class="math inline">\(i\)</span> 开始的顺子有 <span class="math inline">\(0/1/2\)</span> 个，有无雀头的最大面子数。</p>
-<p>但是现在状态是未知的，所以考虑 DP of DP，即把这个 <span class="math inline">\(f\)</span> 压到状态里面去。为了方便，我们把 <span class="math inline">\(f_{0/1/2,0/1/2,0/1}\)</span> （注意到这里已经忽略了 <span class="math inline">\(i\)</span>，因为 <span class="math inline">\(i\)</span> 对转移没有影响）建一个自动机。而自动机上面的信息就是形如 <span class="math inline">\(f_{0,0,0}=x,f_{0,0,1}=y...\)</span> 这样的多元组，因为还有七对子的特殊牌型，所以在自动机上面额外记录一个 <span class="math inline">\(cnt\)</span> 表示对子数。</p>
-<p>乍一看，一共有 <span class="math inline">\(3\times 3\times 2=18\)</span> 个 <span class="math inline">\(f\)</span> 状态，而 <span class="math inline">\(f\)</span> 的取值有 <span class="math inline">\(0/1/2/3/4\)</span> 五种（大于 <span class="math inline">\(4\)</span> 已经没有意义，故可以限制最大值为 <span class="math inline">\(4\)</span>），并且还有一个额外的 <span class="math inline">\(cnt\)</span> 需要记录，自动机上的节点数会达到 <span class="math inline">\(5^{18}\times 8=3.0517578125×10^{13}\)</span>，我们难以承受。但是显然有很多状态不会被涉及到，比如说 <span class="math inline">\(f_{0,0,0}=3\)</span> 的时候任何 <span class="math inline">\(f\)</span> 值都不会小于 <span class="math inline">\(3\)</span>。所以我们可以写一个 BFS 去看看自动机节点数有多少。特别的，如果 <span class="math inline">\(cnt=7\)</span> 或者 <span class="math inline">\(f_{0,0,0}=4\)</span>，那么已经胡牌，我们可以建立一个胡牌节点，与此同时，我们也可以把转移边记录下来，特别的，胡牌节点只有自环。代码形如这样。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map &lt;Status, int&gt; mp;</span><br><span class="line">void GetStatus() &#123;</span><br><span class="line">  Status t, nxt; &#x2F;&#x2F; 这是一个定义状态的结构体</span><br><span class="line">  int cnt &#x3D; 0;</span><br><span class="line">  q.push(t), mp[t] &#x3D; ++cnt;</span><br><span class="line">  while (t.cnt !&#x3D; -1) t.Trans(2); &#x2F;&#x2F; 这里是构造一个胡牌节点</span><br><span class="line">  mp[t] &#x3D; ++cnt;</span><br><span class="line">  for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i)</span><br><span class="line">    child[mp[t]][i] &#x3D; mp[t];</span><br><span class="line">  while (!q.empty()) &#123;</span><br><span class="line">    t &#x3D; q.front(); q.pop();</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i) &#123;</span><br><span class="line">      nxt &#x3D; t, nxt.Trans(i); &#x2F;&#x2F; 更新 f</span><br><span class="line">      if (mp.find(nxt) &#x3D;&#x3D; mp.end())</span><br><span class="line">        q.push(nxt), mp[nxt] &#x3D; ++cnt; &#x2F;&#x2F; 新建节点</span><br><span class="line">      child[mp[t]][i] &#x3D; mp[nxt]; &#x2F;&#x2F; 记录转移边</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt &gt; 100000) break; &#x2F;&#x2F; protection</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; mp.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>至于 <span class="math inline">\(f\)</span> 具体怎么转移大家可以自己推一推。</p>
-<p>然后你会发现搜出来只有 1566 个节点（我也不知道为什么和很多博客上写的都不同，我还怀疑了自己好久……），于是我们就可以根据这个来 DP 了（可以把节点看做是内部的 DP）。</p>
-<p>设 <span class="math inline">\(g_{i,j,k}\)</span> 表示考虑前 <span class="math inline">\(i\)</span> 种牌，当前牌长度为 <span class="math inline">\(j\)</span>，在自动机上面的点 <span class="math inline">\(k\)</span> 的方案数。转移的时候枚举这一种牌有多少张即可，复杂度 <span class="math inline">\(O(n^2\times 1566)\)</span>。因为相同种类的牌是有编号区分的，所以转移的时候一定要乘组合数（被卡了好久）。</p>
-<p>最后再考虑计算答案。对于一个至少 <span class="math inline">\(k\)</span> 次才能胡牌的状态，它对答案的贡献为 <span class="math inline">\(k\)</span>。因为是至少，不好直接求，考虑转化成至多。即改成对于一个至多 <span class="math inline">\(k-1\)</span> 次都不能胡牌的状态，它对答案的贡献为 <span class="math inline">\(k\)</span>。而这个状态在 <span class="math inline">\(1\sim k-1\)</span> 次都不能胡牌。所以我们可以把贡献拆分到 <span class="math inline">\(1\sim k-1\)</span> 上面去，每个部分的权值为 <span class="math inline">\(1\)</span>。（或者说 <span class="math inline">\(k=\sum_{i=1}^k1\)</span>？）。</p>
-<p>那么最终答案就是 <span class="math inline">\(\frac{\sum_{i=14}^{4n}\sum_{j=1}^{len}g_{n,i,j}(4n-i)!(i-13)![\text{ $j$ 不是胡牌节点 }]}{(4n-13)!}+1\)</span>。代码如下。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">#define debug(...) fprintf(stderr, __VA_ARGS__)</span><br><span class="line">#define RI register int</span><br><span class="line">typedef long long LL;</span><br><span class="line"></span><br><span class="line">#define FILEIO(name) freopen(name&quot;.in&quot;, &quot;r&quot;, stdin), freopen(name&quot;.out&quot;, &quot;w&quot;, stdout);</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Status &#123; &#x2F;&#x2F; 自动机中的状态</span><br><span class="line">  int f[3][3][2], cnt;</span><br><span class="line">  Status () &#123;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          f[i][j][k] &#x3D; -0x3f3f3f3f;</span><br><span class="line">    cnt &#x3D; f[0][0][0] &#x3D; 0;</span><br><span class="line">  &#125;</span><br><span class="line">  void Trans(int res) &#123; &#x2F;&#x2F; 自动机状态的内部转移</span><br><span class="line">    Status nxt;</span><br><span class="line">    int win &#x3D; 0;</span><br><span class="line">    nxt.cnt &#x3D; cnt + (res &gt;&#x3D; 2);</span><br><span class="line">    win |&#x3D; (nxt.cnt &gt;&#x3D; 7);</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k) &#123;</span><br><span class="line">          for (RI lasi &#x3D; 0; lasi &lt;&#x3D; 2; ++lasi)</span><br><span class="line">            for (RI lask &#x3D; 0; lask &lt;&#x3D; k; ++lask) &#123;</span><br><span class="line">              int ned &#x3D; lasi + i + j + 2 * (k - lask);</span><br><span class="line">              if (ned &gt; res) continue;</span><br><span class="line">              nxt.f[i][j][k] &#x3D; min(4, max(nxt.f[i][j][k], f[lasi][i][lask] + j + (res - ned &gt;&#x3D; 3)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          if (nxt.f[i][j][k] &lt; 0)</span><br><span class="line">            nxt.f[i][j][k] &#x3D; -0x3f3f3f3f;</span><br><span class="line">    win |&#x3D; (nxt.f[0][0][1] &gt;&#x3D; 4);</span><br><span class="line">    if (win) &#x2F;&#x2F; 判胡牌</span><br><span class="line">      for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">        for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">          for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">            nxt.f[i][j][k] &#x3D; nxt.cnt &#x3D; -1;</span><br><span class="line">    *this &#x3D; nxt;</span><br><span class="line">  &#125;</span><br><span class="line">  bool operator &lt; (const Status &amp;A) const &#123;</span><br><span class="line">    if (cnt !&#x3D; A.cnt) return cnt &lt; A.cnt;</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 2; ++i)</span><br><span class="line">      for (RI j &#x3D; 0; j &lt;&#x3D; 2; ++j)</span><br><span class="line">        for (RI k &#x3D; 0; k &lt;&#x3D; 1; ++k)</span><br><span class="line">          if (f[i][j][k] !&#x3D; A.f[i][j][k])</span><br><span class="line">            return f[i][j][k] &lt; A.f[i][j][k];</span><br><span class="line">    return 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">map &lt;Status, int&gt; mp;</span><br><span class="line">queue &lt;Status&gt; q;</span><br><span class="line">int const MAXN &#x3D; 2005, mod &#x3D; 998244353;</span><br><span class="line">int child[MAXN][5];</span><br><span class="line">int f[2][405][MAXN];</span><br><span class="line">int tong[105];</span><br><span class="line">int length;</span><br><span class="line">LL frac[MAXN], invfrac[MAXN];</span><br><span class="line"></span><br><span class="line">LL qpow(LL a, LL k) &#123;</span><br><span class="line">  LL re &#x3D; 1;</span><br><span class="line">  for (; k; k &gt;&gt;&#x3D; 1, a &#x3D; a * a % mod)</span><br><span class="line">    if (k &amp; 1) re &#x3D; re * a % mod;</span><br><span class="line">  return re;</span><br><span class="line">&#125;</span><br><span class="line">void Init(int Max) &#123;</span><br><span class="line">  frac[0] &#x3D; 1;</span><br><span class="line">  for (RI i &#x3D; 1; i &lt;&#x3D; Max; ++i)</span><br><span class="line">    frac[i] &#x3D; frac[i - 1] * i % mod;</span><br><span class="line">  invfrac[Max] &#x3D; qpow(frac[Max], mod - 2);</span><br><span class="line">  for (RI i &#x3D; Max; i &gt;&#x3D; 1; --i)</span><br><span class="line">    invfrac[i - 1] &#x3D; invfrac[i] * i % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void GetStatus() &#123; &#x2F;&#x2F; 上文已经解释了</span><br><span class="line">  Status t, nxt;</span><br><span class="line">  int cnt &#x3D; 0;</span><br><span class="line">  q.push(t), mp[t] &#x3D; ++cnt;</span><br><span class="line">  while (t.cnt !&#x3D; -1) t.Trans(2);</span><br><span class="line">  mp[t] &#x3D; ++cnt;</span><br><span class="line">  for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i)</span><br><span class="line">    child[mp[t]][i] &#x3D; mp[t];</span><br><span class="line">  while (!q.empty()) &#123;</span><br><span class="line">    t &#x3D; q.front(); q.pop();</span><br><span class="line">    for (RI i &#x3D; 0; i &lt;&#x3D; 4; ++i) &#123;</span><br><span class="line">      nxt &#x3D; t, nxt.Trans(i);</span><br><span class="line">      if (mp.find(nxt) &#x3D;&#x3D; mp.end())</span><br><span class="line">        q.push(nxt), mp[nxt] &#x3D; ++cnt;</span><br><span class="line">      child[mp[t]][i] &#x3D; mp[nxt];</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt &gt; 100000) break; &#x2F;&#x2F; protection</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; mp.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline void Add(int &amp;x, int y) &#123; x +&#x3D; y - mod; x +&#x3D; (x &gt;&gt; 31) &amp; mod; &#125;</span><br><span class="line"></span><br><span class="line">LL C[10][10];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  </span><br><span class="line">#ifdef LOCAL</span><br><span class="line">  FILEIO(&quot;a&quot;);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">  GetStatus();</span><br><span class="line">  int n; cin &gt;&gt; n;</span><br><span class="line">  C[0][0] &#x3D; 1;</span><br><span class="line">  C[1][0] &#x3D; C[1][1] &#x3D; 1;</span><br><span class="line">  C[2][0] &#x3D; C[2][2] &#x3D; 1, C[2][1] &#x3D; 2;</span><br><span class="line">  C[3][0] &#x3D; C[3][3] &#x3D; 1, C[3][1] &#x3D; C[3][2] &#x3D; 3;</span><br><span class="line">  C[4][0] &#x3D; C[4][4] &#x3D; 1, C[4][1] &#x3D; C[4][3] &#x3D; 4, C[4][2] &#x3D; 6;</span><br><span class="line">  Init(4 * n);</span><br><span class="line">  for (RI i &#x3D; 1, x, y; i &lt;&#x3D; 13; ++i)</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y, ++tong[x];</span><br><span class="line">  int cur &#x3D; 0, nxt &#x3D; 1;</span><br><span class="line">  f[nxt][0][1] &#x3D; 1;</span><br><span class="line">  for (RI i &#x3D; 1; i &lt;&#x3D; n; ++i) &#123; &#x2F;&#x2F; 简单 DP</span><br><span class="line">    swap(cur, nxt);</span><br><span class="line">    memset(f[nxt], 0, sizeof(f[nxt]));</span><br><span class="line">    for (RI j &#x3D; 0; j &lt;&#x3D; 4 * (i - 1); ++j)</span><br><span class="line">      for (RI now &#x3D; 1; now &lt;&#x3D; length; ++now)</span><br><span class="line">        for (RI k &#x3D; tong[i]; k &lt;&#x3D; 4; ++k)</span><br><span class="line">          Add(f[nxt][j + k][child[now][k]], 1ll * f[cur][j][now] * C[4 - tong[i]][k - tong[i]] % mod);</span><br><span class="line">  &#125;</span><br><span class="line">  int ans &#x3D; 0;</span><br><span class="line">  for (RI i &#x3D; 14; i &lt;&#x3D; 4 * n; ++i)</span><br><span class="line">    for (RI j &#x3D; 1; j &lt;&#x3D; length; ++j)</span><br><span class="line">      if (j !&#x3D; 2)</span><br><span class="line">        Add(ans, 1ll * f[nxt][i][j] * frac[4 * n - i] % mod * frac[i - 13] % mod);</span><br><span class="line">  ans &#x3D; (1ll * ans * invfrac[4 * n - 13] % mod + 1) % mod;</span><br><span class="line">  cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; created by Daniel yuan</span><br><span class="line">&#x2F;*</span><br><span class="line">     ________</span><br><span class="line">    &#x2F;        \</span><br><span class="line">   &#x2F; &#x2F;      \ \</span><br><span class="line">  &#x2F; &#x2F;        \ \</span><br><span class="line">  \            &#x2F;</span><br><span class="line">   \  ______  &#x2F;</span><br><span class="line">    \________&#x2F;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>DP</tag>
-        <tag>自动机</tag>
-        <tag>DP of DP</tag>
       </tags>
   </entry>
   <entry>
@@ -923,24 +944,6 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
       </tags>
   </entry>
   <entry>
-    <title>后缀数组学习笔记</title>
-    <url>/2020/09/26/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>老忘后缀数组咋写，写个东西记录下。</p>
-<p>算法核心：因为后缀是在同一个串内的，要充分利用其它信息。</p>
-<a id="more"></a>
-<p>考虑倍增，即从小到大按照长度为 <span class="math inline">\(2^k\)</span> 的串进行排序。</p>
-<p>先按照长度为 <span class="math inline">\(1\)</span> 的串排序，每个点有一个排名。</p>
-<p>然后扩展到长度为 <span class="math inline">\(2\)</span>，现在可以知道每个长度为 <span class="math inline">\(2\)</span> 的串前一半相对的排名和后一半相对的排名，那么显然是要先按前一半的排，如果相等再按后一半的排，用 pair 加快排可以做到 <span class="math inline">\(n\log n\)</span>，但是不够。考虑使用基数排序，就可以做到 <span class="math inline">\(n\)</span> 。</p>
-<p>再扩展到长度为 <span class="math inline">\(4\)</span> …… 总时间复杂度 <span class="math inline">\(n\log n\)</span>。</p>
-<p>光求这个没啥用，考虑求一个 height，表示排名为 i 的后缀和排名为 i-1 的最长公共前缀有多长。那么任意两个后缀的 LCP 就可以直接通过 RMQ 求。</p>
-<p>考虑怎么求 height，设 h 表示第 i 串和排名恰好小于它 1 的串的最长公共前缀。那么有 <span class="math inline">\(h[i]\ge h[i-1]+1\)</span>。如果 <span class="math inline">\(h[i-1]\leq 1\)</span>，那么显然成立，否则 <span class="math inline">\(h[i-1]\geq 2\)</span>，假设排名恰好小于第 i-1 串 1 的串是第 k 串，那么就有 <span class="math inline">\(s[i-1,i-1+h[i-1])=s[k,k+h[i-1])\)</span> 且 <span class="math inline">\(s[i-1+h[i-1]]&gt;s[k+h[i-1]]\)</span>，那么 <span class="math inline">\(s[i,i-1+h[i-1])=s[k+1,k+h[i-1])\)</span>，因为 <span class="math inline">\(h[i-1]\geq 2\)</span>，那么这个区间不为空，又因为 <span class="math inline">\(s[i-1+h[i-1]]&gt;s[k+h[i-1]]\)</span>，那么第 k+1 串的排名肯定是小于第 i 串的，而距离 i 越远 LCP 就越小，那么第 i 串和排名恰好小于它 1 的串的 LCP 至少为 <span class="math inline">\(h[i-1]-1\)</span> 。所以可以直接从小到大暴力枚举求。</p>
-]]></content>
-      <tags>
-        <tag>字符串</tag>
-        <tag>后缀数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多项式学习笔记</title>
     <url>/2020/09/26/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="前置知识">前置知识</h4>
@@ -999,6 +1002,24 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
       </tags>
   </entry>
   <entry>
+    <title>后缀数组学习笔记</title>
+    <url>/2020/09/26/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>老忘后缀数组咋写，写个东西记录下。</p>
+<p>算法核心：因为后缀是在同一个串内的，要充分利用其它信息。</p>
+<a id="more"></a>
+<p>考虑倍增，即从小到大按照长度为 <span class="math inline">\(2^k\)</span> 的串进行排序。</p>
+<p>先按照长度为 <span class="math inline">\(1\)</span> 的串排序，每个点有一个排名。</p>
+<p>然后扩展到长度为 <span class="math inline">\(2\)</span>，现在可以知道每个长度为 <span class="math inline">\(2\)</span> 的串前一半相对的排名和后一半相对的排名，那么显然是要先按前一半的排，如果相等再按后一半的排，用 pair 加快排可以做到 <span class="math inline">\(n\log n\)</span>，但是不够。考虑使用基数排序，就可以做到 <span class="math inline">\(n\)</span> 。</p>
+<p>再扩展到长度为 <span class="math inline">\(4\)</span> …… 总时间复杂度 <span class="math inline">\(n\log n\)</span>。</p>
+<p>光求这个没啥用，考虑求一个 height，表示排名为 i 的后缀和排名为 i-1 的最长公共前缀有多长。那么任意两个后缀的 LCP 就可以直接通过 RMQ 求。</p>
+<p>考虑怎么求 height，设 h 表示第 i 串和排名恰好小于它 1 的串的最长公共前缀。那么有 <span class="math inline">\(h[i]\ge h[i-1]+1\)</span>。如果 <span class="math inline">\(h[i-1]\leq 1\)</span>，那么显然成立，否则 <span class="math inline">\(h[i-1]\geq 2\)</span>，假设排名恰好小于第 i-1 串 1 的串是第 k 串，那么就有 <span class="math inline">\(s[i-1,i-1+h[i-1])=s[k,k+h[i-1])\)</span> 且 <span class="math inline">\(s[i-1+h[i-1]]&gt;s[k+h[i-1]]\)</span>，那么 <span class="math inline">\(s[i,i-1+h[i-1])=s[k+1,k+h[i-1])\)</span>，因为 <span class="math inline">\(h[i-1]\geq 2\)</span>，那么这个区间不为空，又因为 <span class="math inline">\(s[i-1+h[i-1]]&gt;s[k+h[i-1]]\)</span>，那么第 k+1 串的排名肯定是小于第 i 串的，而距离 i 越远 LCP 就越小，那么第 i 串和排名恰好小于它 1 的串的 LCP 至少为 <span class="math inline">\(h[i-1]-1\)</span> 。所以可以直接从小到大暴力枚举求。</p>
+]]></content>
+      <tags>
+        <tag>字符串</tag>
+        <tag>后缀数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字符串的回文划分</title>
     <url>/2021/01/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9E%E6%96%87%E5%88%92%E5%88%86/</url>
     <content><![CDATA[<p>定义一个串 <span class="math inline">\(S\)</span> 的划分 <span class="math inline">\(s_1,s_2...s_k\)</span> 为回文划分当且仅当 <span class="math inline">\(s_1,s_2...s_k\)</span> 都是回文串。</p>
@@ -1040,44 +1061,6 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
       <tags>
         <tag>字符串</tag>
         <tag>PAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>广义二项式定理</title>
-    <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
-    <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
-<a id="more"></a>
-<p>对于广义的组合数，有个恒等式 <span class="math inline">\(\tbinom{n}{m}=\tbinom{m-n-1}{m}\times (-1)^{m}\)</span> 。</p>
-<blockquote>
-<p>两式的分母都是一样的，对于左式，其分子是 <span class="math inline">\(n\times (n-1)\times ... \times (n-m+1)\)</span>，对于右式，其分子是 <span class="math inline">\((m-n-1)\times ((m-n-1)-1) \times ... \times ((m-n-1)-m+1)\)</span>，可以发现右式分子的每个单项式和左式分子的单项式一一对应，并且互为相反数，那么最后乘上一个 <span class="math inline">\((-1)^m\)</span> 即可。</p>
-</blockquote>
-<p>有个很妙的记忆方法：两级反转（和艾克真的一点关系都没有 /doge）连续变化两次，设未知数，下标不变，上标用 <span class="math inline">\(m-1\)</span> 去减，即：<span class="math inline">\(\tbinom{n}{m}=\tbinom{m-?-1}{m}\times (-1)^{2m}\)</span>，那么可以很快得出问号是 <span class="math inline">\(m-n-1\)</span> 。当然直接用上文的证明去推更 nice。</p>
-<p>广义二项式定理： <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 这里的 <span class="math inline">\(k\)</span> 可以是任意实数，一般会用在 <span class="math inline">\(k\)</span> 为负整数的时候，那么我们在下面约定所有出现的 <span class="math inline">\(k\)</span> 都是<strong>负整数</strong>，且为了方便理解，设 <span class="math inline">\(n=-k\)</span>。</p>
-<p>考虑用生成函数去解释，先把 <span class="math inline">\((a+b)^{k}\)</span> 看成 <span class="math inline">\((a+bx)^{k}\)</span> 那么最后只要把 <span class="math inline">\(x\)</span> 看成 <span class="math inline">\(1\)</span> 即可。</p>
-<p>先考虑最基本的情况：<span class="math inline">\((1-x)^{-n}\)</span> 。</p>
-<p>根据数学知识可以知道上式就是 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}\)</span> 。</p>
-<p>根据生成函数，可以知道 <span class="math inline">\((1-x)^{-1}=\sum_{i=0}^{\infty} x^i\)</span> 。</p>
-<blockquote>
-<p>设 <span class="math inline">\(S=1+x+x^2+...\)</span>，那么 <span class="math inline">\(xS=x+x^2+x^3+...\)</span>，那么 <span class="math inline">\(S-xS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-x}\)</span> 即 $ (1-x)^{-1}$</p>
-</blockquote>
-<p>那么 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\left( \sum_{i=0}^{\infty} x^i \right)^{n}\)</span> 。</p>
-<p>考虑从组合意义上去计算这个式子：你有 <span class="math inline">\(n\)</span> 种球，每种球无限个，你需要从这 <span class="math inline">\(n\)</span> 种球中选择一共 <span class="math inline">\(i\)</span> 个球，每种球至少选 <span class="math inline">\(0\)</span> 个，其方案数就是 <span class="math inline">\(x^i\)</span> 的系数。那么使用隔板法就有 <span class="math inline">\(\tbinom{i+n-1}{n-1}\)</span> 。</p>
-<p>所以 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}x^i\)</span> 。</p>
-<p>那么我们再在 <span class="math inline">\(x\)</span> 前面加上一个系数 <span class="math inline">\(p\)</span> ，即求 <span class="math inline">\((1-px)^{-1}\)</span> 。它是等于 <span class="math inline">\(\sum_{i=0}^{\infty} p^ix^i\)</span> 。</p>
-<blockquote>
-<p>设 <span class="math inline">\(S=1+px+p^2x^2+...\)</span> ，那么 <span class="math inline">\(pxS=px+p^2x^2+p^3x^3+...\)</span>，那么 <span class="math inline">\(S-pxS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-px}\)</span> 即 <span class="math inline">\((1-px)^{-1}\)</span> 。</p>
-</blockquote>
-<p>那再按照上面的方法去推，就有 <span class="math inline">\(\left( (1-px)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}p^ix^i\)</span></p>
-<p>回到一开始的问题，<span class="math inline">\((a+bx)^k=a^k \left( 1-(-\frac{b}{a}x) \right)^k\)</span> 。</p>
-<p>那么就有 <span class="math inline">\((a+bx)^k=a^k \sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-\frac{b}{a})^ix^i\)</span> 。整理一下，<span class="math inline">\(\sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-1)^ia^{k-i}b^ix^i\)</span> 。</p>
-<p>注意了，这里等式内部的组合数的 <span class="math inline">\(k\)</span> 前面都带个负号，因为上文在推导过程中，设的是 <span class="math inline">\(n=-k\)</span>，所以在组合数中的 <span class="math inline">\(n\)</span> 才是正号。</p>
-<p>再根据文首提及的那个恒等式，就有 <span class="math inline">\(\tbinom{i-k-1}{-k-1}=\tbinom{i-k-1}{i}=\tbinom{k}{i}\times (-1)^i\)</span> 。</p>
-<p>可以发现两个 <span class="math inline">\((-1)^i\)</span> 抵掉了，那么 <span class="math inline">\((a+bx)^k=\sum_{i=0}^{\infty} \tbinom{k}{i}a^{k-i}b^ix^i\)</span> 。</p>
-<p>把 <span class="math inline">\(x=1\)</span> 带入原式，即可得 <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 。</p>
-]]></content>
-      <tags>
-        <tag>数学</tag>
-        <tag>组合数学</tag>
       </tags>
   </entry>
   <entry>
@@ -1349,6 +1332,20 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       </tags>
   </entry>
   <entry>
+    <title>简单模拟费用流</title>
+    <url>/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
+    <content><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p>
+<p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p>
+<p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p>
+<a id="more"></a>
+]]></content>
+      <tags>
+        <tag>DP</tag>
+        <tag>费用流</tag>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用二进制模拟 K 进制</title>
     <url>/2020/11/11/%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E6%8B%9F-K-%E8%BF%9B%E5%88%B6/</url>
     <content><![CDATA[<p>被个三进制下位运算题搞自闭了，琢磨了好久才有了一个看似贼简单的做法，故记录一下。</p>
@@ -1364,20 +1361,6 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>数位</tag>
         <tag>进制</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>简单模拟费用流</title>
-    <url>/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
-    <content><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p>
-<p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p>
-<p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p>
-<a id="more"></a>
-]]></content>
-      <tags>
-        <tag>DP</tag>
-        <tag>费用流</tag>
-        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
@@ -1417,6 +1400,44 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>数位</tag>
         <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>广义二项式定理</title>
+    <url>/2020/09/26/%E5%B9%BF%E4%B9%89%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86/</url>
+    <content><![CDATA[<p>提前介绍一下广义的组合数，组合数 <span class="math inline">\(\tbinom{n}{m}\)</span> 的定义是 <span class="math inline">\(\frac{n\times (n-1)\times ... \times (n-m+1)}{m!}\)</span>，广义下的组合数只需要保证 <span class="math inline">\(m\)</span> 为非负整数，<span class="math inline">\(n\)</span> 可以是任意实数。</p>
+<a id="more"></a>
+<p>对于广义的组合数，有个恒等式 <span class="math inline">\(\tbinom{n}{m}=\tbinom{m-n-1}{m}\times (-1)^{m}\)</span> 。</p>
+<blockquote>
+<p>两式的分母都是一样的，对于左式，其分子是 <span class="math inline">\(n\times (n-1)\times ... \times (n-m+1)\)</span>，对于右式，其分子是 <span class="math inline">\((m-n-1)\times ((m-n-1)-1) \times ... \times ((m-n-1)-m+1)\)</span>，可以发现右式分子的每个单项式和左式分子的单项式一一对应，并且互为相反数，那么最后乘上一个 <span class="math inline">\((-1)^m\)</span> 即可。</p>
+</blockquote>
+<p>有个很妙的记忆方法：两级反转（和艾克真的一点关系都没有 /doge）连续变化两次，设未知数，下标不变，上标用 <span class="math inline">\(m-1\)</span> 去减，即：<span class="math inline">\(\tbinom{n}{m}=\tbinom{m-?-1}{m}\times (-1)^{2m}\)</span>，那么可以很快得出问号是 <span class="math inline">\(m-n-1\)</span> 。当然直接用上文的证明去推更 nice。</p>
+<p>广义二项式定理： <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 这里的 <span class="math inline">\(k\)</span> 可以是任意实数，一般会用在 <span class="math inline">\(k\)</span> 为负整数的时候，那么我们在下面约定所有出现的 <span class="math inline">\(k\)</span> 都是<strong>负整数</strong>，且为了方便理解，设 <span class="math inline">\(n=-k\)</span>。</p>
+<p>考虑用生成函数去解释，先把 <span class="math inline">\((a+b)^{k}\)</span> 看成 <span class="math inline">\((a+bx)^{k}\)</span> 那么最后只要把 <span class="math inline">\(x\)</span> 看成 <span class="math inline">\(1\)</span> 即可。</p>
+<p>先考虑最基本的情况：<span class="math inline">\((1-x)^{-n}\)</span> 。</p>
+<p>根据数学知识可以知道上式就是 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}\)</span> 。</p>
+<p>根据生成函数，可以知道 <span class="math inline">\((1-x)^{-1}=\sum_{i=0}^{\infty} x^i\)</span> 。</p>
+<blockquote>
+<p>设 <span class="math inline">\(S=1+x+x^2+...\)</span>，那么 <span class="math inline">\(xS=x+x^2+x^3+...\)</span>，那么 <span class="math inline">\(S-xS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-x}\)</span> 即 $ (1-x)^{-1}$</p>
+</blockquote>
+<p>那么 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\left( \sum_{i=0}^{\infty} x^i \right)^{n}\)</span> 。</p>
+<p>考虑从组合意义上去计算这个式子：你有 <span class="math inline">\(n\)</span> 种球，每种球无限个，你需要从这 <span class="math inline">\(n\)</span> 种球中选择一共 <span class="math inline">\(i\)</span> 个球，每种球至少选 <span class="math inline">\(0\)</span> 个，其方案数就是 <span class="math inline">\(x^i\)</span> 的系数。那么使用隔板法就有 <span class="math inline">\(\tbinom{i+n-1}{n-1}\)</span> 。</p>
+<p>所以 <span class="math inline">\(\left( (1-x)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}x^i\)</span> 。</p>
+<p>那么我们再在 <span class="math inline">\(x\)</span> 前面加上一个系数 <span class="math inline">\(p\)</span> ，即求 <span class="math inline">\((1-px)^{-1}\)</span> 。它是等于 <span class="math inline">\(\sum_{i=0}^{\infty} p^ix^i\)</span> 。</p>
+<blockquote>
+<p>设 <span class="math inline">\(S=1+px+p^2x^2+...\)</span> ，那么 <span class="math inline">\(pxS=px+p^2x^2+p^3x^3+...\)</span>，那么 <span class="math inline">\(S-pxS=1\)</span>，所以 <span class="math inline">\(S=\frac{1}{1-px}\)</span> 即 <span class="math inline">\((1-px)^{-1}\)</span> 。</p>
+</blockquote>
+<p>那再按照上面的方法去推，就有 <span class="math inline">\(\left( (1-px)^{-1} \right)^{n}=\sum_{i=0}^{\infty}\tbinom{i+n-1}{n-1}p^ix^i\)</span></p>
+<p>回到一开始的问题，<span class="math inline">\((a+bx)^k=a^k \left( 1-(-\frac{b}{a}x) \right)^k\)</span> 。</p>
+<p>那么就有 <span class="math inline">\((a+bx)^k=a^k \sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-\frac{b}{a})^ix^i\)</span> 。整理一下，<span class="math inline">\(\sum_{i=0}^{\infty} \tbinom{i-k-1}{-k-1}(-1)^ia^{k-i}b^ix^i\)</span> 。</p>
+<p>注意了，这里等式内部的组合数的 <span class="math inline">\(k\)</span> 前面都带个负号，因为上文在推导过程中，设的是 <span class="math inline">\(n=-k\)</span>，所以在组合数中的 <span class="math inline">\(n\)</span> 才是正号。</p>
+<p>再根据文首提及的那个恒等式，就有 <span class="math inline">\(\tbinom{i-k-1}{-k-1}=\tbinom{i-k-1}{i}=\tbinom{k}{i}\times (-1)^i\)</span> 。</p>
+<p>可以发现两个 <span class="math inline">\((-1)^i\)</span> 抵掉了，那么 <span class="math inline">\((a+bx)^k=\sum_{i=0}^{\infty} \tbinom{k}{i}a^{k-i}b^ix^i\)</span> 。</p>
+<p>把 <span class="math inline">\(x=1\)</span> 带入原式，即可得 <span class="math inline">\((a+b)^{k}=\sum_{i=0}^{\infty}\tbinom{k}{i}a^{k-i}b^i\)</span> 。</p>
+]]></content>
+      <tags>
+        <tag>数学</tag>
+        <tag>组合数学</tag>
       </tags>
   </entry>
   <entry>
