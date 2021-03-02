@@ -813,8 +813,29 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
   <entry>
     <title>c++11——范围 for 的那些事</title>
     <url>/2021/03/02/c-11%E2%80%94%E2%80%94%E8%8C%83%E5%9B%B4-for-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>众所周知在 <code>c++11</code> 中支持了同 <code>python3</code> 一样的范围 <code>for</code> 语句。即 <code>for (int x : vector)</code>。</p>
+<p>该语法结合 <code>c++11</code> 中方便的 <code>auto</code> 不定类型名使用体验极佳。</p>
+<a id="more"></a>
+<p>但是这样仅适用于系统提供的容器，包括但不限于 STL、数组等。如：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> x : v) &#123; <span class="comment">/* do something */</span> &#125;</span><br><span class="line"><span class="built_in">set</span> &lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> x : s) &#123; <span class="comment">/* do something */</span> &#125;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1005</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> x : a) &#123; <span class="comment">/* do something */</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>在一些时候如果我们想要如此方便的遍历自己的结构体就不适用了。</p>
+<p>这里给出一种可以实现这个效果的方法。</p>
+<p>首先我们要知道 <code>for (:)</code> 在程序内部到底是怎么实现的。抛开数组不谈，对于一些可遍历的 STL，我们自己在遍历的时候是用迭代器从 <code>begin()</code> 到 <code>end()</code> 遍历。其实在程序内部，这种范围 <code>for</code> 有一种实现也是这样，即 <code>for (auto x = v.begin(); x != v.end(); ++x)</code>。当然具体如何实现不管，我们只需要知道，对于我们自己定义的结构体，如果能自定义一个迭代器，且该结构体有 <code>begin()</code>、<code>end()</code> 函数供迭代器遍历，那么就可以实现这个过程。</p>
+<p>实际上迭代器用指针模拟就可以了。但是因为指针的 <code>++</code> 和 <code>*</code> 已经被定义，不适合当做这里的迭代器。但是我们可以用一个结构体来存储指针并模拟。即</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="class"><span class="keyword">struct</span> <span class="title">Iterator</span> &#123;</span></span><br><span class="line">  T *iter;</span><br><span class="line">  Iterator (T *p) &#123; iter = p; &#125;</span><br><span class="line">  T&amp; <span class="keyword">operator</span> *() &#123; <span class="keyword">return</span> *iter; &#125;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> != (<span class="keyword">const</span> Iterator&amp; that) &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;iter != that.iter; &#125;</span><br><span class="line">  Iterator&amp; <span class="keyword">operator</span>++() &#123; iter = iter-&gt;next; <span class="keyword">return</span> *<span class="keyword">this</span>; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>为了能够适用更多情况，这里的模拟迭代器适用 <code>template</code> 模板。在其中定义了一个指针来储存数据，重载的取值的 <code>*</code>，自加 <code>++</code> 和不等于，即与上文暴力实现的需求相对应。这里有两个注意项，<code>++</code> 的函数中的语句 <code>iter = iter-&gt;next</code>，这需要适用这个迭代器的结构体有 <code>next</code> 指针；<code>*</code> 的返回值必须为传引用，不然的话就不能通过这个来修改了。</p>
+<p>考虑怎么使用它。下面给出一个边表的实现：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edges</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> to; Edges *next;</span><br><span class="line">  Edges () &#123; to = <span class="number">0</span>, next = <span class="literal">nullptr</span>; &#125;</span><br><span class="line">  <span class="function">Iterator&lt;Edges&gt; <span class="title">begin</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> Iterator&lt;Edges&gt;(<span class="keyword">this</span>); &#125;;</span><br><span class="line">  <span class="function">Iterator&lt;Edges&gt; <span class="title">end</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> Iterator&lt;Edges&gt;(<span class="literal">nullptr</span>); &#125;</span><br><span class="line">&#125; e[];</span><br></pre></td></tr></table></figure>
+<p>其中 <code>to</code> 是边表要存的信息，这里不管。<code>next</code> 是连接下一个元素的指针，这里和迭代器中的 <code>next</code> 相对应。在该结构体中我们还需要定义两个函数 <code>begin()</code> 和 <code>end()</code>，这样才能遍历这个结构体。</p>
+<p>不难发现最后 <code>Edges</code> 会连出一个链表。用范围 <code>for</code> 遍历的时候，我们传入的是开始遍历的位置。具体的，即 <code>for (auto x : e[k])</code>，这意味着它会从 <code>e[k]</code> 开始遍历，到链尾才会结束。</p>
+<p>至此我们就可以实现用范围 <code>for</code> 遍历自定义的结构体了。</p>
+<p>❀ ~撒花~ ❀</p>
+<hr />
+<p>但事实上在算法竞赛中它的用途极少，因为似乎除了边表就没有什么东西需要遍历一个结构体了。但是或许可以写一些算法竞赛之外的东西，<del>用来装 X</del>。</p>
 ]]></content>
+      <tags>
+        <tag>语言</tag>
+      </tags>
   </entry>
   <entry>
     <title>diary</title>
