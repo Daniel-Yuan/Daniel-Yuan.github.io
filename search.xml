@@ -240,6 +240,12 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Euler Project</title>
+    <url>/2021/02/22/Euler-Project/</url>
+    <content><![CDATA[<p>大佬说 Euler-Project 没有刷的必要，这篇博客咕了。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>FWT 小结</title>
     <url>/2021/01/19/FWT-%E5%B0%8F%E7%BB%93/</url>
     <content><![CDATA[<p>FWT 是快速求形如 <span class="math inline">\(C(x)=\sum_{i?j=x}A(i)B(j)\)</span> 的算法，其中 <span class="math inline">\(?\)</span> 表示一种二进制的位运算。</p>
@@ -805,6 +811,12 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
       </tags>
   </entry>
   <entry>
+    <title>c++11——范围 for 的那些事</title>
+    <url>/2021/03/02/c-11%E2%80%94%E2%80%94%E8%8C%83%E5%9B%B4-for-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>diary</title>
     <url>/2020/10/06/diary/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
@@ -1168,6 +1180,7 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
     <title>快读相关</title>
     <url>/2021/02/18/%E5%BF%AB%E8%AF%BB%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<p>琢磨了一下午，在输入输出流上面有了一点点自己的理解。</p>
+<a id="more"></a>
 <hr />
 <p>关于重载运算符读入结构体。</p>
 <p>对于一个结构体，如果要读入它我们是不能直接用 <code>cin</code> 的，但是我们可以重载输入流的运算符 <code>&gt;&gt;</code>，从而使得它可以支持这个操作。</p>
