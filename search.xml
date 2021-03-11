@@ -85,7 +85,7 @@
 <p>闲的没事就给 T2 写了个对拍，一组就错……</p>
 <p>发现了那个小错误后重新思考做法，发现还是可以用栈的思想，在每次加入或删除一个节点的时候计算贡献，过了样例后接着拍，还是炸了，不过 <del>它已经被我优化到拍几百组错一组了</del>。</p>
 <p>接着调，发现是个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几千组错一组了</del>。</p>
-<p>接着调，又发现个小错误，跳完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p>
+<p>接着调，又发现个小错误，调完后 <del>又过了样例</del>，接着拍，还是炸了，不过 <del>它已经被我优化到拍几万组错一组了</del>。</p>
 <p>当我百思不得其解时，已经 10:50了 QAQ。</p>
 <p>当我气的去打完 T3 搜索并且想了一下特殊数据后，已经 11:20 了。</p>
 <p>当我感慨造化弄人，以为要命绝于此，要被这次 <code>CSP</code> 送退役时，发现：<strong>我 ** <code>vector</code> 访问了非法内存 ？？？</strong> 。</p>
@@ -123,7 +123,7 @@
 <p>但是……听说同校的聚聚不仅 AK 初赛，而且月考年级第二（说不定还是位人赢），突然就感觉生活失去希望。</p>
 <p>不过还是祝愿 CSP-S2 2020 RP++。</p>
 <p><del>为了不引起日期恐慌，博主决定把游记分开写</del>。</p>
-<p><a href="">CPS-S2 2020 游记</a></p>
+<p><a href="https://daniel-yuan.github.io/2020/11/08/CSP-S2-2020-%E6%B8%B8%E8%AE%B0/">CPS-S2 2020 游记</a></p>
 ]]></content>
       <tags>
         <tag>游记</tag>
@@ -840,7 +840,9 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
   <entry>
     <title>diary</title>
     <url>/2020/10/06/diary/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="用魔法咒语解开它吧。" /><label>用魔法咒语解开它吧。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5489929edd011c760b878f4951bc1063b894e9da73884962b54414abc098b0df">d760a8545d0b399d6f7b4615394ac9fb</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content><![CDATA[<p>本意是在联赛前记录些什么。</p>
+<p>因为博主太懒所以咕了。</p>
+]]></content>
       <tags>
         <tag>日常</tag>
       </tags>
@@ -1454,6 +1456,27 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
       <tags>
         <tag>数学</tag>
         <tag>斯特林数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机房日常</title>
+    <url>/2021/03/11/%E6%9C%BA%E6%88%BF%E6%97%A5%E5%B8%B8/</url>
+    <content><![CDATA[<p>神说记录机房日常可以涨 RP。</p>
+<p>积积积积积点点点点点阳阳阳阳阳德德德德德。</p>
+<a id="more"></a>
+<p>博主是老鸽子，咕咕咕咕咕。</p>
+<p>因为博主太懒了，下文的时间是倒序的。</p>
+<hr />
+<h3 id="section">2021.3.11</h3>
+<blockquote>
+<p>Imakf: 为什么这么做最优啊？<br />
+Qiu: 因为这么做最优。<br />
+Imakf: ？<br />
+Qiu: 显然啊。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>日常</tag>
       </tags>
   </entry>
   <entry>

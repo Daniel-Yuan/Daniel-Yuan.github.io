@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-02T12:48:52.513Z</updated>
+  <updated>2021-03-11T12:18:43.258Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机房日常</title>
+    <link href="http://example.com/2021/03/11/%E6%9C%BA%E6%88%BF%E6%97%A5%E5%B8%B8/"/>
+    <id>http://example.com/2021/03/11/%E6%9C%BA%E6%88%BF%E6%97%A5%E5%B8%B8/</id>
+    <published>2021-03-11T10:52:00.000Z</published>
+    <updated>2021-03-11T12:18:43.258Z</updated>
+    
+    <content type="html"><![CDATA[<p>神说记录机房日常可以涨 RP。</p><p>积积积积积点点点点点阳阳阳阳阳德德德德德。</p><a id="more"></a><p>博主是老鸽子，咕咕咕咕咕。</p><p>因为博主太懒了，下文的时间是倒序的。</p><hr /><h3 id="section">2021.3.11</h3><blockquote><p>Imakf: 为什么这么做最优啊？<br />Qiu: 因为这么做最优。<br />Imakf: ？<br />Qiu: 显然啊。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;神说记录机房日常可以涨 RP。&lt;/p&gt;
+&lt;p&gt;积积积积积点点点点点阳阳阳阳阳德德德德德。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>c++11——范围 for 的那些事</title>
@@ -428,31 +448,6 @@
     <category term="可持久化数据结构" scheme="http://example.com/tags/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="KMP" scheme="http://example.com/tags/KMP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简单模拟费用流</title>
-    <link href="http://example.com/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
-    <id>http://example.com/2020/12/27/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F%E8%B4%B9%E7%94%A8%E6%B5%81/</id>
-    <published>2020-12-27T13:14:45.000Z</published>
-    <updated>2020-12-27T14:06:00.060Z</updated>
-    
-    <content type="html"><![CDATA[<p>众所周知，只要把模建好，什么题都可以用网络流/费用流跑。</p><p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p><p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p><a id="more"></a>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;众所周知，只要把模建好，什么题都可以用网络流/费用流跑。&lt;/p&gt;
-&lt;p&gt;随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。&lt;/p&gt;
-&lt;p&gt;由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="DP" scheme="http://example.com/tags/DP/"/>
-    
-    <category term="费用流" scheme="http://example.com/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
-    
-    <category term="贪心" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
