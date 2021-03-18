@@ -278,7 +278,7 @@
 <p>可以发现对于长度为 <span class="math inline">\([1,x1]\)</span> 的部分，第 <span class="math inline">\(i\)</span> 个的 <span class="math inline">\(nxt\)</span> 长度是 <span class="math inline">\(length_{fail1}+i\)</span>。对于 <span class="math inline">\([x1+1,x2]\)</span> 的部分，第 <span class="math inline">\(i\)</span> 个的<span class="math inline">\(nxt\)</span> 的长度是 <span class="math inline">\(length_{fail2}+i\)</span>，以此类推。我们把这个长度给拆开，那么一部分是 <span class="math inline">\(length\)</span> 的和，一部分是 <span class="math inline">\(i\)</span> 的和。对于后者，只要求出其 <span class="math inline">\(fail\)</span> 链上最长的一个 <span class="math inline">\(x\)</span>，总和就是 <span class="math inline">\(\frac{x(x+1)}{2}\)</span>。对于前者，可以发现如果一个地方有多个选择，一定选择 <span class="math inline">\(length\)</span> 最长的一个，而我们整个过程是在树上遍历，每次往下走 <span class="math inline">\(length\)</span> 是单调不减的，所以可以类似于维护 <span class="math inline">\(fail\)</span>，用 <span class="math inline">\(len_{now,c,x}\)</span> 表示这个点 <span class="math inline">\(now\)</span> 一直往上跳 <span class="math inline">\(fail\)</span> 树，往下加 <span class="math inline">\(x\)</span> 的最大 <span class="math inline">\(length\)</span>，用主席树维护 <span class="math inline">\(len_{now,c}\)</span>，每次扫的一个儿子时把 <span class="math inline">\(len_{now,c}\)</span> 从 <span class="math inline">\(fail_{now}\)</span> 那里继承，假设它到该儿子的边是 <span class="math inline">\((C,X)\)</span>，那么直接把 <span class="math inline">\(len_{now,c}\)</span> 中的 <span class="math inline">\(1\sim X\)</span> 赋值成 <span class="math inline">\(length_{now}\)</span>。</p>
 <p>需要注意的是，如果这个加入的段可以匹配整个串的第一段，如 <span class="math inline">\(abaa\)</span>，最后的那个 <span class="math inline">\(a\)</span> 就需要特判。稍加讨论即可。</p>
 <p>这样就可以直接做了。时空复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -379,7 +379,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,12 +491,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -655,5 +655,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

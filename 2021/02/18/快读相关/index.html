@@ -285,7 +285,7 @@
 <p>因为我们这里使用的是 <code>fwrite</code>，所以在程序结束的时候可能在输出数组中仍然有未输出的字符，这时候就需要 <code>Flush</code>。但是为了避免在程序结束后忘记 <code>Flush</code>，我们给 <code>Output</code> 类型的结构体一个析构函数，在程序结束析构它的时候进行 <code>Flush</code>。</p>
 <p>还有一点就是不管是快读还是快输，函数的返回值一定要是 <code>Input/Output &amp;</code>，即传引用。不然在 <code>return *this</code> 的时候会把这个结构体复制一份返回，这不是我们期望看到的。</p>
 <p>但是这样还是有点奇怪，因为 <code>fin</code> 和 <code>fout</code> 我们不习惯写，我们可以 <code>#define cin fin</code>，<code>#define cout fout</code>。而且可以 <code>define endl</code> 等。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -384,7 +384,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,12 +496,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -660,5 +660,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

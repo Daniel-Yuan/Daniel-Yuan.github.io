@@ -262,7 +262,7 @@
 <p>再扩展到长度为 <span class="math inline">\(4\)</span> …… 总时间复杂度 <span class="math inline">\(n\log n\)</span>。</p>
 <p>光求这个没啥用，考虑求一个 height，表示排名为 i 的后缀和排名为 i-1 的最长公共前缀有多长。那么任意两个后缀的 LCP 就可以直接通过 RMQ 求。</p>
 <p>考虑怎么求 height，设 h 表示第 i 串和排名恰好小于它 1 的串的最长公共前缀。那么有 <span class="math inline">\(h[i]\ge h[i-1]+1\)</span>。如果 <span class="math inline">\(h[i-1]\leq 1\)</span>，那么显然成立，否则 <span class="math inline">\(h[i-1]\geq 2\)</span>，假设排名恰好小于第 i-1 串 1 的串是第 k 串，那么就有 <span class="math inline">\(s[i-1,i-1+h[i-1])=s[k,k+h[i-1])\)</span> 且 <span class="math inline">\(s[i-1+h[i-1]]&gt;s[k+h[i-1]]\)</span>，那么 <span class="math inline">\(s[i,i-1+h[i-1])=s[k+1,k+h[i-1])\)</span>，因为 <span class="math inline">\(h[i-1]\geq 2\)</span>，那么这个区间不为空，又因为 <span class="math inline">\(s[i-1+h[i-1]]&gt;s[k+h[i-1]]\)</span>，那么第 k+1 串的排名肯定是小于第 i 串的，而距离 i 越远 LCP 就越小，那么第 i 串和排名恰好小于它 1 的串的 LCP 至少为 <span class="math inline">\(h[i-1]-1\)</span> 。所以可以直接从小到大暴力枚举求。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -362,7 +362,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -474,12 +474,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -638,5 +638,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

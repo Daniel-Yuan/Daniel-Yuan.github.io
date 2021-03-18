@@ -313,7 +313,7 @@
 <p>但是你会发现上述情况是不可能存在的，因为在删除 K-完美匹配 的边后，左边的点的度数就都变成了 <span class="math inline">\(0\)</span>，而右边此时会存在至少一个点的度数大于 <span class="math inline">\(0\)</span>（因为每一个匹配最多让一个点的度数减一），这是矛盾的。</p>
 <p>故必要性得证。</p>
 <p>这就能解释对于二分图的 K-完美匹配 的判定，为何可以用【 <span class="math inline">\(S\)</span> 向左边的点连流量为 <span class="math inline">\(K\)</span> 的边，在每个二分图上的边中左边的点向右边的点连流量为 <span class="math inline">\(1\)</span> 的边，右边的点向 <span class="math inline">\(T\)</span> 连流量为 <span class="math inline">\(K\)</span> 的边，看网络流的结果中左边的点是否都满流】来判断了。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -414,7 +414,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -526,12 +526,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -690,5 +690,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

@@ -276,7 +276,7 @@
 <p>通过手算可以求得 <span class="math inline">\(C^{-1}= \begin{bmatrix} 1-\frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5} &amp; -\frac{\sqrt{5}}{5} \\ \frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5} &amp; \frac{\sqrt{5}}{5} \\ \end{bmatrix}\)</span>。</p>
 <p>对于斐波那契数列第 <span class="math inline">\(m\)</span> 项，即是 <span class="math inline">\(A^m\)</span> 的 <span class="math inline">\(a_{1,1}\)</span>。显然 <span class="math inline">\(P^m=\begin{bmatrix} (\frac{1-\sqrt{5}}{2})^m &amp; 0 \\ 0 &amp; (\frac{1+\sqrt{5}}{2})^m \ \end{bmatrix}\)</span> ，那么 <span class="math inline">\(C\times P^m \times C^{-1}\)</span> 的 <span class="math inline">\(a_{1,1}\)</span> 为 <span class="math inline">\((\frac{1-\sqrt{5}}{2})^m\times(1-\frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5})+(\frac{1+\sqrt{5}}{2})^m\times \frac{1+\sqrt{5}}{2}\times \frac{\sqrt{5}}{5}\)</span>，整理之后就为 <span class="math inline">\(\frac{1}{\sqrt{5}}\left((\frac{1+\sqrt{5}}{2})^{m+1}-(\frac{1-\sqrt{5}}{2})^{m+1}\right)\)</span> ，即为斐波那契数列的通项公式。</p>
 <p>因为出现了根号，所以整个过程看似比较麻烦，不过在递推矩阵满足一些性质的时候有较快的方法求特征值和特征向量（比如在整个矩阵是一个上/下三角矩阵时，特征值就是主对角线上的值，自由元就是项数变少了某行，设它为 <span class="math inline">\(1\)</span>，就可以在矩阵大小的复杂度内求得一个特征向量）。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -376,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,12 +488,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -652,5 +652,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

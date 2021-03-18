@@ -287,7 +287,7 @@
 <p>还是用那个老到不能再老的例子举例，求 <span class="math inline">\(\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)\)</span>。</p>
 <p>我们来枚举 <span class="math inline">\(\gcd\)</span>，然后变化一下就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}[\gcd(i,j)=1]\)</span> 。根据常识，就有 <span class="math inline">\(\sum_{d=1}^nd\sum_{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)\lfloor\frac{n}{kd}\rfloor\lfloor\frac{n}{kd}\rfloor\)</span>，直接这么做就是 <span class="math inline">\(n\log n\)</span> 的，而且对于 <span class="math inline">\(n\)</span> 很大或者是多组询问不太好优化。</p>
 <p>我们发现求和式中出现了 <span class="math inline">\(d\)</span>，也出现了 <span class="math inline">\(k\)</span>，同时涉及到了 <span class="math inline">\(dk\)</span>，那么考虑设 <span class="math inline">\(T=dk\)</span>，我们来枚举 <span class="math inline">\(T\)</span>，就有 <span class="math inline">\(\sum_{T=1}^n\lfloor\frac{n}{T}\rfloor\lfloor\frac{n}{T}\rfloor\sum_{k|T}\mu(k)\frac{T}{k}\)</span>。这样的话，有个求和变成了狄利克雷卷积，而一般来说卷出来的东西是积性函数。这样的话，前面的东西就可以用整数分块，而后面的东西可以线性筛预处理，或者使用亚线性筛直接求。这样大大加快了代码运行的时间。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -388,7 +388,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -500,12 +500,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -664,5 +664,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

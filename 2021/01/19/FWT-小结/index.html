@@ -279,7 +279,7 @@
 <p>类似的，对于与，<span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span> ，<span class="math inline">\(f_{k+1}(v)=f_k(v)\)</span>。</p>
 <p>对于异或，<span class="math inline">\(u\)</span> 在 <span class="math inline">\(k+1\)</span> 位对数的符号没有影响，而 <span class="math inline">\(v\)</span> 在 <span class="math inline">\(k+1\)</span> 位对 <span class="math inline">\(k+1\)</span> 位为 <span class="math inline">\(1\)</span> 的数的符号有一个 <span class="math inline">\(-1\)</span> 的影响（因为之前没有考虑这一位对答案贡献的影响），所以 <span class="math inline">\(f_{k+1}(u)=f_k(u)+f_k(v)\)</span>，<span class="math inline">\(f_{k+1}(v)=f_k(u)-f_k(v)\)</span>。</p>
 <p>这样就能在 <span class="math inline">\(O(len\log len)\)</span> 的时间内对于 <span class="math inline">\(A\)</span> 求得 <span class="math inline">\(A&#39;\)</span>。而逆变化就是正变化的相反操作，在此就不再赘述。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -380,7 +380,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -492,12 +492,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -656,5 +656,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>

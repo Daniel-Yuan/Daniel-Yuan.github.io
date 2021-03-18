@@ -263,7 +263,7 @@
 <p>把基底 <span class="math inline">\(A\)</span> 做线性基，并且在线性基的同时维护线性基中每个元素是由基底中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>，那么在查询的时候，把对应位置的 <span class="math inline">\(S\)</span> 也一起异或，就可以得到最终所求。</p>
 <h4 id="把基底-a-的一个数-a_i-与另一个数-x-交换保证交换后基底-a-仍然满足基底的性质">2. 把基底 <span class="math inline">\(A\)</span> 的一个数 <span class="math inline">\(A_i\)</span> 与另一个数 <span class="math inline">\(x\)</span> 交换，保证交换后基底 <span class="math inline">\(A&#39;\)</span> 仍然满足基底的性质</h4>
 <p>同上，在线性基的同时维护线性基中每个元素是由 <span class="math inline">\(A\)</span> 中的哪些元素异或得到的，记作 <span class="math inline">\(S\)</span>。先查询 <span class="math inline">\(x\)</span> 怎么被 <span class="math inline">\(A\)</span> 表示，因为 <span class="math inline">\(A&#39;\)</span> 依旧满足基底的性质，那么如果用 <span class="math inline">\(A\)</span> 来表示 <span class="math inline">\(x\)</span>，那么 <span class="math inline">\(A_i\)</span> 一定会被用到。所以 <span class="math inline">\(A_i\)</span> 也可以用 <span class="math inline">\(A\)</span> 中的数和 <span class="math inline">\(x\)</span> 一起表示，那么就可以直接交换 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(A_i\)</span>，然后去更新线性基中的每个位置的 <span class="math inline">\(S\)</span> 即可。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -364,7 +364,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -476,12 +476,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -640,5 +640,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+<script type="text/javascript" src="/js/fold_action.js"></script>
 </body>
 </html>
