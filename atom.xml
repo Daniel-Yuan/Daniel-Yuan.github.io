@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-04-22T06:55:24.636Z</updated>
+  <updated>2021-04-22T06:57:03.458Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,19 +21,12 @@
     <link href="http://example.com/2021/04/12/HNOI2021-%E6%B8%B8%E8%AE%B0/"/>
     <id>http://example.com/2021/04/12/HNOI2021-%E6%B8%B8%E8%AE%B0/</id>
     <published>2021-04-12T13:50:19.000Z</published>
-    <updated>2021-04-22T06:55:24.636Z</updated>
+    <updated>2021-04-22T06:57:03.458Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>时间总是流逝得很快，这已经是 Daniel_yuan 经历的第三次省选了。</p><p>这也是 Daniel_yuan 所能参加的最后一次省选了。</p><p>从懵懂、激动到沉稳，改变的是心态，不变的是实力。（划掉</p><h3 id="day--inf">Day -INF</h3><p>不知为啥明明活得挺开心的晚上睡眠质量还是不好。</p><p>要么就是睡不着要么就是做一些奇奇怪怪的梦。</p><p>每天早上都睡到考勤前，然后急急忙忙跑到学校。</p><h3 id="day--1">Day -1</h3><p>去某新开发的公园散心。</p><p>因为主路十分崎岖，而选择了一条大公路。结果就围着公园绕了半圈，啥都没看到 :(。</p><p>途中发现了一串楼梯就往上爬，越爬越离谱，到了山顶就变成泥泞小路了<del>（甚至怀疑走到了山顶洞人老家）</del>。</p><p>为了激励士气，教练和班主任一拍即合，决定让我们喊山。</p><p>然而因为大家都觉得谁喊谁尴尬，就没人打算喊。结果被教练教育了一顿（大概是因为教练尴尬 :)）</p><h3 id="day-0">Day 0</h3><p>早上强制要求制定计划，决定复习一波网络流+差分约束（要素察觉</p><p>但实际上效率并不高，算是半颓半学吧。</p><h3 id="day-1">Day 1</h3><p>紧张得 5 点多就醒了，迷迷糊糊睡到了出发时间。</p><p>到了考场，发现下载文件只有 <code>.vimrc</code>，用 <code>emacs</code> 的我在一瞬间有那么小慌，后来猛然发现配置文件就在主目录下……</p><p>T1 的保证 <span class="math inline">\(a_i\)</span> 有序感觉很有问题，直接 rush 线性做法，缝缝补补肝出来个，对上拍就没管了。</p><p>T2 发现一个数的约束只有三个，但是没什么想法，手玩了 <span class="math inline">\(m=2\)</span> 后发现 <span class="math inline">\(n,m\leq 3\)</span> 都不会手玩，只能自闭。</p><p>T3 随手转化一下就有 44 分了，发现是个动态图强连通性，感觉是个不会的模板，只能自闭。</p><p>然后……就这么以 <span class="math inline">\(100+30+44\)</span> 离场了。很是自闭。</p><p>考完之后吃完饭就在机房睡觉，回家之后也是半睡半醒，迷迷糊糊地一天就这么过去了。</p><h3 id="day-2">Day 2</h3><p>在家睡觉果然就是不一样，差点就睡过头了。</p><p>雨下得很大，颇有壮士一去兮不复返之势。</p><p>T1 sb 数据结构，脑抽用 <code>map</code> 存了个东西写了个 <span class="math inline">\(\log^3\)</span> 的做法。</p><p>T2 sb 状压 DP，但是更加 sb 的我写完搜索的部分分之后就死活肝不出来。</p><p>T3 压位暴力似乎显然，然后就直接 rush 了。</p><p>写完感觉很无聊，想也想不动，颓也不敢颓，就开始想下午回家怎么 happy。</p><p>考完自爆 <span class="math inline">\(100+60+75\)</span>。很是自闭。</p><p>下午和小伙伴们胡吃海喝、把酒言欢，紧张而又平淡的 HNOI 就这么结束了。</p><h3 id="day-3">Day 3</h3><p>没测民间数据，也没上你谷，感觉考完之后整个人都置身于 OI 之外了。</p><p>考后在机房整了好几次活。</p><h3 id="day-inf">Day INF</h3><p>成绩出了，<span class="math inline">\(100+30+44+95+60+40\)</span>，很是拉胯，但是靠着 NOIP 的发挥苟进了 A 队。</p><p>Daniel_yuan 的 OI 生涯又被续上了一命（+1s</p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3><a id="more"></a><p>时间总是流逝得很快，这已经是 Daniel_yuan 经历的第三次省选了。</p><p>这也是 Daniel_yuan 所能参加的最后一次省选了。</p><p>从懵懂、激动到沉稳，改变的是心态，不变的是实力。（划掉</p><h3 id="day--inf">Day -INF</h3><p>不知为啥明明活得挺开心的晚上睡眠质量还是不好。</p><p>要么就是睡不着要么就是做一些奇奇怪怪的梦。</p><p>每天早上都睡到考勤前，然后急急忙忙跑到学校。</p><h3 id="day--1">Day -1</h3><p>去某新开发的公园散心。</p><p>因为主路十分崎岖，而选择了一条大公路。结果就围着公园绕了半圈，啥都没看到 :(。</p><p>途中发现了一串楼梯就往上爬，越爬越离谱，到了山顶就变成泥泞小路了<del>（甚至怀疑走到了山顶洞人老家）</del>。</p><p>为了激励士气，教练和班主任一拍即合，决定让我们喊山。</p><p>然而因为大家都觉得谁喊谁尴尬，就没人打算喊。结果被教练教育了一顿（大概是因为教练尴尬 :)）</p><h3 id="day-0">Day 0</h3><p>早上强制要求制定计划，决定复习一波网络流+差分约束（要素察觉</p><p>但实际上效率并不高，算是半颓半学吧。</p><h3 id="day-1">Day 1</h3><p>紧张得 5 点多就醒了，迷迷糊糊睡到了出发时间。</p><p>到了考场，发现下载文件只有 <code>.vimrc</code>，用 <code>emacs</code> 的我在一瞬间有那么小慌，后来猛然发现配置文件就在主目录下……</p><p>T1 的保证 <span class="math inline">\(a_i\)</span> 有序感觉很有问题，直接 rush 线性做法，缝缝补补肝出来个，对上拍就没管了。</p><p>T2 发现一个数的约束只有三个，但是没什么想法，手玩了 <span class="math inline">\(m=2\)</span> 后发现 <span class="math inline">\(n,m\leq 3\)</span> 都不会手玩，只能自闭。</p><p>T3 随手转化一下就有 44 分了，发现是个动态图强连通性，感觉是个不会的模板，只能自闭。</p><p>然后……就这么以 <span class="math inline">\(100+30+44\)</span> 离场了。很是自闭。</p><p>考完之后吃完饭就在机房睡觉，回家之后也是半睡半醒，迷迷糊糊地一天就这么过去了。</p><h3 id="day-2">Day 2</h3><p>在家睡觉果然就是不一样，差点就睡过头了。</p><p>雨下得很大，颇有壮士一去兮不复返之势。</p><p>T1 sb 数据结构，脑抽用 <code>map</code> 存了个东西写了个 <span class="math inline">\(\log^3\)</span> 的做法。</p><p>T2 sb 状压 DP，但是更加 sb 的我写完搜索的部分分之后就死活肝不出来。</p><p>T3 压位暴力似乎显然，然后就直接 rush 了。</p><p>写完感觉很无聊，想也想不动，颓也不敢颓，就开始想下午回家怎么 happy。</p><p>考完自爆 <span class="math inline">\(100+60+75\)</span>。很是自闭。</p><p>下午和小伙伴们胡吃海喝、把酒言欢，紧张而又平淡的 HNOI 就这么结束了。</p><h3 id="day-3">Day 3</h3><p>没测民间数据，也没上你谷，感觉考完之后整个人都置身于 OI 之外了。</p><p>考后在机房整了好几次活。</p><h3 id="day-inf">Day INF</h3><p>成绩出了，<span class="math inline">\(100+30+44+95+60+40\)</span>，很是拉胯，但是靠着 NOIP 的发挥苟进了 A 队。</p><p>Daniel_yuan 的 OI 生涯又被续上了一命（+1s</p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;时间总是流逝得很快，这已经是 Daniel_yuan 经历的第三次省选了。&lt;/p&gt;
-&lt;p&gt;这也是 Daniel_yuan 所能参加的最后一次省选了。&lt;/p&gt;
-&lt;p&gt;从懵懂、激动到沉稳，改变的是心态，不变的是实力。（划掉&lt;/p&gt;
-&lt;h3</summary>
-      
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;</summary>
     
     
     
