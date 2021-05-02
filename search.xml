@@ -541,6 +541,7 @@ F_i={L \choose i}A^i[x][y]
 <p>所以直接枚举第一个经过的叶子，最后经过的叶子就是它后面的那个叶子，剩下的部分就要求每个子树可以从最小标号的叶子进去，从最大标号的叶子出来且所有点都遍历到。</p>
 <p>考虑 DP，设 <span class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示节点 <span class="math inline">\(i\)</span> 的子树，<span class="math inline">\(i\)</span> 号节点有没有被遍历到，<span class="math inline">\(i\)</span> 号节点有没有属于一个往下走到当前子树最小标号的叶子的路径，<span class="math inline">\(i\)</span> 号节点有没有属于一个从当前子树最大标号的叶子往上走的路径，大力讨论转移即可。</p>
 <p>枚举之后，树就被切成了森林，每个森林 <span class="math inline">\(f_{root,1,0,0}\)</span> 的乘积就是答案。</p>
+<p><span class="math inline">\(50\)</span> 差不多了。</p>
 <h4 id="总结-1">总结</h4>
 <p>考察算法全面，类型新颖，部分分足，区分度高，不失为一套好 NOI 题。</p>
 <p><del>正经的总结懒得写。</del></p>
@@ -611,6 +612,7 @@ F_i={L \choose i}A^i[x][y]
 <p>复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
 <h4 id="时代的眼泪">时代的眼泪</h4>
 <p>大力四维莫队 <span class="math inline">\(O(n^{\frac{7}{4}})\)</span> 加上一个人均特殊性质 A 就有 <span class="math inline">\(52\)</span> 分了。</p>
+<p>根号算法爬。</p>
 <h4 id="制作菜品">制作菜品</h4>
 <p>厉害的构造题。</p>
 <p>特殊性质有大用。</p>
