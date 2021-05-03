@@ -243,6 +243,7 @@
 <p>长度为 <span class="math inline">\(K\)</span> 的常系数齐次线性递推，矩阵快速幂的求转移矩阵的 <span class="math inline">\(n-K\)</span> 次方，而多项式做法是求 <span class="math inline">\(x^n\)</span> 对特征多项式取模的结果。</p>
 <p>写 SAM 的时候复制节点记得要把大多数维护的信息都传过去。</p>
 <p>线段树合并优化 DP 注意左右孩子合并顺序。</p>
+<p><code>vector</code> 内部元素内存确实是动态开的，但是它有一个指针的静态内存。（不要傻到 <code>vector</code> 静态内存爆炸）</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
@@ -704,7 +705,7 @@ F_i={L \choose i}A^i[x][y]
 &amp;S \rightarrow A_1 \rightarrow B_1 \rightarrow R \rightarrow B_2 \rightarrow A_2 \rightarrow L \rightarrow A_3 \rightarrow B_3 \rightarrow T\\
 \end{aligned}
 \]</span> 在有下标的路径中，下标相同的点的位置相同。（如 <span class="math inline">\(A_1\)</span> 和 <span class="math inline">\(B_1\)</span> 的）</p>
-<p>可以发现其中只有路径 <span class="math inline">\(2\)</span> 会经过 <span class="math inline">\(L\rightarrow R\)</span> 的边，所以我们可以先贪心把路径 <span class="math inline">\(2\)</span> 走完，然后再增广 <span class="math inline">\(K-L\)</span> 次。</p>
+<p>可以发现其中只有路径 <span class="math inline">\(2\)</span> 会经过 <span class="math inline">\(L\rightarrow R\)</span> 的边，所以我们可以先贪心把路径 <span class="math inline">\(2\)</span> 走完，然后再增广 <span class="math inline">\(L\)</span> 次。</p>
 <p>考虑剩下的增广，设 <span class="math inline">\(P\)</span> 为没选的点的集合，<span class="math inline">\(Q\)</span> 为选了的点，且当前状态是用 <span class="math inline">\(L\rightarrow R\)</span> 边形成的集合，<span class="math inline">\(O\)</span> 为选了的点，且当前状态是用 <span class="math inline">\(A_i\rightarrow B_i\)</span> 的边形成的集合。</p>
 <p>那么对于剩下的五种路径，我们有以下限制： <span class="math display">\[
 \begin{aligned}
