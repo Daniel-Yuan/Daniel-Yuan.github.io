@@ -548,6 +548,9 @@ F_i={L \choose i}A^i[x][y]
 <hr />
 <h3 id="noi-2019">NOI 2019</h3>
 <h4 id="回家路线">回家路线</h4>
+<p><del>之前不小心把这题漏了。</del></p>
+<p>按照时间排序之后 DP。</p>
+<p>一脸可以优化的样子。</p>
 <h4 id="机器人">机器人</h4>
 <p>区间 DP 显然。</p>
 <p>设 <span class="math inline">\(f_{l,r,x}\)</span> 表示区间 <span class="math inline">\(l,r\)</span> 且最大值上限为 <span class="math inline">\(x\)</span> 的方案数。因为题目限制有用的 <span class="math inline">\(l,r\)</span> 很少。而 <span class="math inline">\(x\)</span> 可以做前缀和。</p>
