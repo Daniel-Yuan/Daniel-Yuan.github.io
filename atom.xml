@@ -41,9 +41,9 @@
     <link href="http://example.com/2021/05/02/Dan-%E7%9A%84%E7%8A%AF%E5%82%BB%E5%90%88%E9%9B%86/"/>
     <id>http://example.com/2021/05/02/Dan-%E7%9A%84%E7%8A%AF%E5%82%BB%E5%90%88%E9%9B%86/</id>
     <published>2021-05-02T03:57:40.000Z</published>
-    <updated>2021-05-02T07:35:18.630Z</updated>
+    <updated>2021-05-03T00:03:01.613Z</updated>
     
-    <content type="html"><![CDATA[<p>Daniel_yuan 笨死了！！！</p><a id="more"></a><p>不管是左移还是右移，移动的位数超过位长是 UB，主流编译器会把移动的位数对位长取模。所以 <code>1ull &gt;&gt; 64</code> 得到的是 <code>1</code> 不是 <code>0</code>。</p><p>生成函数的前缀和是乘上 <span class="math inline">\(1+x\)</span>，普通函数的离散前缀和是离散积分，两者完全不同。</p><p>长度为 <span class="math inline">\(K\)</span> 的常系数齐次线性递推，矩阵快速幂的求转移矩阵的 <span class="math inline">\(n-K\)</span> 次方，而多项式做法是求 <span class="math inline">\(x^n\)</span> 对特征多项式取模的结果。</p><p>写 SAM 的时候复制节点记得要把大多数维护的信息都传过去。</p><p>线段树合并优化 DP 注意左右孩子合并顺序。</p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    <content type="html"><![CDATA[<p>Daniel_yuan 笨死了！！！</p><a id="more"></a><p>不管是左移还是右移，移动的位数超过位长是 UB，主流编译器会把移动的位数对位长取模。所以 <code>1ull &gt;&gt; 64</code> 得到的是 <code>1</code> 不是 <code>0</code>。</p><p>生成函数的前缀和是乘上 <span class="math inline">\(1+x+x^2+...\)</span>，普通函数的离散前缀和是离散积分，两者完全不同。</p><p>长度为 <span class="math inline">\(K\)</span> 的常系数齐次线性递推，矩阵快速幂的求转移矩阵的 <span class="math inline">\(n-K\)</span> 次方，而多项式做法是求 <span class="math inline">\(x^n\)</span> 对特征多项式取模的结果。</p><p>写 SAM 的时候复制节点记得要把大多数维护的信息都传过去。</p><p>线段树合并优化 DP 注意左右孩子合并顺序。</p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
     
     
     <summary type="html">&lt;p&gt;Daniel_yuan 笨死了！！！&lt;/p&gt;</summary>
