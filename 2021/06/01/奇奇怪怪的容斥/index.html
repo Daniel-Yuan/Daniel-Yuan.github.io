@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="核心思想 一类奇奇怪怪的容斥，解决形如：  对 \(k\) 个计数对象计数，且这 \(k\) 个计数对象是无序的。  这类问题的难点就在无序上，因为对于某种方案，它会被计算 \(\frac{k!}{\prod {a_i!}}\) 次，其中 \(a_i\) 是数字 \(i\) 出现的次数。我们无法除掉通过某个简单的东西来得到最终结果。 考虑枚举这 \(k\) 个数的集合划分（不难得到总方案数是贝尔数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="奇奇怪怪的容斥">
+<meta property="og:url" content="http://example.com/2021/06/01/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%AE%B9%E6%96%A5/index.html">
+<meta property="og:site_name" content="Daniel_yuan&#39;s Blog">
+<meta property="og:description" content="核心思想 一类奇奇怪怪的容斥，解决形如：  对 \(k\) 个计数对象计数，且这 \(k\) 个计数对象是无序的。  这类问题的难点就在无序上，因为对于某种方案，它会被计算 \(\frac{k!}{\prod {a_i!}}\) 次，其中 \(a_i\) 是数字 \(i\) 出现的次数。我们无法除掉通过某个简单的东西来得到最终结果。 考虑枚举这 \(k\) 个数的集合划分（不难得到总方案数是贝尔数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-01T06:40:25.000Z">
+<meta property="article:modified_time" content="2021-06-01T09:12:13.379Z">
+<meta property="article:author" content="Daniel_yuan">
+<meta property="article:tag" content="容斥">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/06/01/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%AE%B9%E6%96%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>奇奇怪怪的容斥 | Daniel_yuan's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script type="text/javascript" src="/js/love.js"></script>
+<link rel="alternate" href="/atom.xml" title="Daniel_yuan's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Daniel_yuan's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">芙卡米天下第一可爱 n(*≧▽≦*)n</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/01/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%AE%B9%E6%96%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/duck.jpg">
+      <meta itemprop="name" content="Daniel_yuan">
+      <meta itemprop="description" content="Fkami is our sun !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel_yuan's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          奇奇怪怪的容斥
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-01 14:40:25 / 修改时间：17:12:13" itemprop="dateCreated datePublished" datetime="2021-06-01T14:40:25+08:00">2021-06-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="核心思想">核心思想</h3>
+<p>一类奇奇怪怪的容斥，解决形如：</p>
+<ul>
+<li>对 <span class="math inline">\(k\)</span> 个计数对象计数，且这 <span class="math inline">\(k\)</span> 个计数对象是无序的。</li>
+</ul>
+<p>这类问题的难点就在无序上，因为对于某种方案，它会被计算 <span class="math inline">\(\frac{k!}{\prod {a_i!}}\)</span> 次，其中 <span class="math inline">\(a_i\)</span> 是数字 <span class="math inline">\(i\)</span> 出现的次数。我们无法除掉通过某个简单的东西来得到最终结果。</p>
+<p>考虑枚举这 <span class="math inline">\(k\)</span> 个数的集合划分（不难得到总方案数是贝尔数），并且钦定同一个集合里面的数相同，不同集合里面的数不同。对于每个划分 <span class="math inline">\(p_1,p_2...p_m\)</span> 算出方案数之后，就只需要对方案数除掉 <span class="math inline">\(\prod{a_i!}\)</span> 即可，其中 <span class="math inline">\(a_i=\sum_j [|p_j|=i]\)</span> 。</p>
+<p>接下来对于某个划分 <span class="math inline">\(p_1,p_2...p_m\)</span>，考虑用容斥求它的方案数。一种朴素的方法是用 <span class="math inline">\(O(2^{\frac{m(m-1)}{2}})\)</span> 的时间复杂度来钦定每对划分是否相等，对于没有钦定的情况它们是任意的，钦定完之后实际上我们得到的就是一个朴素的序列问题。</p>
+<p>显然上述容斥的复杂度十分高，考虑优化。我们把 <span class="math inline">\(p_1,p_2...p_m\)</span> 抽象成点，钦定它们是否相等抽象为边，那么朴素的枚举方法就是枚举每条边存不存在，然后同一个连通块的点必须相同，不同连通块则没有要求。考虑直接枚举连通块，也就是对 <span class="math inline">\(p_1,p_2...p_m\)</span> 再做一遍集合划分，设划分成 <span class="math inline">\(q_1,q_2...q_n\)</span>，划分在相同集合的 <span class="math inline">\(p\)</span> 强制钦定相同。考虑某种划分的容斥系数，显然就是 <span class="math inline">\(\sum_{G_1 \text{是} |q_1| \text{个点的连通图}}(-1)^{e(G_1)}...\sum_{G_n \text{是} |q_n| \text{个点的连通图}}(-1)^{e(G_n)}\)</span>，其中 <span class="math inline">\(e(G)\)</span> 是图 <span class="math inline">\(G\)</span> 的边数。显然求和之间是独立的，可以直接简化为 <span class="math inline">\(\prod g(q_i)\)</span>，其中 <span class="math inline">\(g(x)\)</span> 表示 <span class="math inline">\(\sum_{G_1 \text{是} x \text{个点的连通图}}(-1)^{e(G_1)}\)</span>。</p>
+<p>考虑计算 <span class="math inline">\(g\)</span>，通过常识，设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 个点的任意图的容斥系数和，即 <span class="math inline">\(f(x)=\sum_{i=0}^{\frac{x(x-1)}{2}}{\frac{x(x-1)}{2}\choose i}=[x=1]\)</span>。枚举 <span class="math inline">\(1\)</span> 号点所在连通块的大小，则有 <span class="math inline">\(f(x)=\sum_{i=1}^x{x-1\choose i-1}g(i)f(x-i)\)</span>。代入 <span class="math inline">\(f\)</span> 后不难发现只有 <span class="math inline">\(g(x)\)</span> 和 <span class="math inline">\(g(x-1)\)</span> 在式子中，整理即 <span class="math inline">\(g(x)=(-1){x-1\choose x-2}g(x-1)\)</span>，<span class="math inline">\(g(1)=1\)</span>，归纳不难得到 <span class="math inline">\(g(x)=(-1)^{x-1}(x-1)!\)</span>。</p>
+<p>至此，我们把容斥的复杂度从 <span class="math inline">\(O(2^{\frac{m(m-1)}{2}})\)</span> 优化到了第 <span class="math inline">\(m\)</span> 个贝尔数的复杂度。</p>
+<h3 id="再次优化">再次优化</h3>
+<p>不难发现总复杂度大概是一个“贝尔数的贝尔数”的复杂度，尽管已经较优，但是还是可以优化。</p>
+<p>考虑把第一个集合划分从第 <span class="math inline">\(m\)</span> 个贝尔数的复杂度优化到第 <span class="math inline">\(m\)</span> 个划分数的复杂度，也就是说我们现在枚举的划分是无序的，我们需要把所有有序的位置分配给这些划分。首先我们把所有有序的位置全排列，方案数是 <span class="math inline">\(k!\)</span>，再考虑除掉一些同构的情况。假设我们的划分是 <span class="math inline">\(p_1,p_2...p_m\)</span>，那么我们首先要除掉 <span class="math inline">\(\prod p_i!\)</span>，因为划分内部是无序的，其次我们还需要除掉 <span class="math inline">\(\prod a_i !\)</span>，其中 <span class="math inline">\(a_i=\sum_j [p_j=i]\)</span>，因为划分之间也是无序的。这样就可以求得所有的方案了。</p>
+<p>可以发现的是，如果我们现在对计数加一个条件——这 <span class="math inline">\(k\)</span> 个计数对象不仅无序，而且两两不同。那么它就没有第一个集合划分的复杂度，并且容斥部分可以直接使用上述优化，总复杂度就被优化到了大小为 <span class="math inline">\(k\)</span> 的划分数。</p>
+<p>而对于没有两两不同限制的情况，我们依旧可以通过这个优化把时间复杂度优化到“划分数的贝尔数”。当然，在容斥部分我们也可以搜划分数，然后用状压 DP 去计算，直觉上复杂度是比贝尔数要优的，但暂时还不会具体的分析。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%B9%E6%96%A5/" rel="tag"># 容斥</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/04/%E7%9E%8E%E8%B0%88%E7%BD%91%E7%BB%9C%E6%B5%81%E5%92%8C%E5%9B%BE%E5%8C%B9%E9%85%8D%E7%9B%B8%E5%85%B3/" rel="prev" title="瞎谈网络流和图匹配相关">
+      <i class="fa fa-chevron-left"></i> 瞎谈网络流和图匹配相关
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-number">1.</span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E6%AC%A1%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">再次优化</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Daniel_yuan"
+      src="/images/duck.jpg">
+  <p class="site-author-name" itemprop="name">Daniel_yuan</p>
+  <div class="site-description" itemprop="description">Fkami is our sun !</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Daniel-yuan" title="GitHub → https://github.com/Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:576311436@qq.com" title="E-Mail → mailto:576311436@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https://www.luogu.com.cn/user/71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http://codeforces.com/profile/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https://atcoder.jp/users/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https://www.zhihu.com/people/daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/imakf/" title="https://www.cnblogs.com/imakf/" rel="noopener" target="_blank">Imakf</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/lsq147/" title="https://www.cnblogs.com/lsq147/" rel="noopener" target="_blank">xiaolilsq</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://clamee.github.io/" title="https://clamee.github.io/" rel="noopener" target="_blank">fhs_lzx</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https://www.cnblogs.com/lightmain-blog/p/" rel="noopener" target="_blank">lightmain</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/zjy123456" title="https://www.cnblogs.com/zjy123456" rel="noopener" target="_blank">春日野悠</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https://www.luogu.com.cn/blog/emmmwelcome/#" rel="noopener" target="_blank">TUIFEI_oier</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://zzt.blog.luogu.org/#" title="https://zzt.blog.luogu.org/#" rel="noopener" target="_blank">zzt</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/parauni-blog" title="https://www.cnblogs.com/parauni-blog" rel="noopener" target="_blank">ovor</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https://www.luogu.com.cn/blog/CYJian/#" rel="noopener" target="_blank">CYJian</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kewth.blog.luogu.org/#" title="https://kewth.blog.luogu.org/#" rel="noopener" target="_blank">Kewth</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https://www.luogu.com.cn/blog/hwb20030213/#" rel="noopener" target="_blank">BoXe</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/Soulist" title="https://www.cnblogs.com/Soulist" rel="noopener" target="_blank">Soulist</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://zhy12138.github.io/" title="https://zhy12138.github.io/" rel="noopener" target="_blank">zhy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lightfom.github.io/" title="https://lightfom.github.io/" rel="noopener" target="_blank">wrp</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel_yuan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">118k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:47</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '52f741e6e891f7354c3d',
+      clientSecret: 'fa1c332093ad3dc847f29ec40b477024c700fc0d',
+      repo        : 'daniel-yuan.github.io',
+      owner       : 'daniel-yuan',
+      admin       : ['daniel-yuan'],
+      id          : '019c280357969636dcf4fddea6b1f95b',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script type="text/javascript" src="/js/fold_action.js"></script>
+</body>
+</html>
