@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="吉老师是我们的红太阳，紧随吉老师的步伐。">
+  <meta name="description" content="六个单词的英文微小说： Sixty-two points. Ag. Away from OI. 62 Ag 退役了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POI2012">
-<meta property="og:url" content="http://example.com/2020/10/17/POI2012/index.html">
+<meta property="og:title" content="APIO2021 游记">
+<meta property="og:url" content="http://example.com/2021/06/14/APIO2021-%E6%B8%B8%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Daniel_yuan&#39;s Blog">
-<meta property="og:description" content="吉老师是我们的红太阳，紧随吉老师的步伐。">
+<meta property="og:description" content="六个单词的英文微小说： Sixty-two points. Ag. Away from OI. 62 Ag 退役了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-17T01:34:46.000Z">
-<meta property="article:modified_time" content="2020-10-17T09:24:56.431Z">
+<meta property="article:published_time" content="2021-06-14T11:40:19.000Z">
+<meta property="article:modified_time" content="2021-06-14T11:42:33.004Z">
 <meta property="article:author" content="Daniel_yuan">
-<meta property="article:tag" content="POI">
+<meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2020/10/17/POI2012/">
+<link rel="canonical" href="http://example.com/2021/06/14/APIO2021-%E6%B8%B8%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>POI2012 | Daniel_yuan's Blog</title>
+  <title>APIO2021 游记 | Daniel_yuan's Blog</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/17/POI2012/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/APIO2021-%E6%B8%B8%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/duck.jpg">
@@ -206,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          POI2012
+          APIO2021 游记
         </h1>
 
         <div class="post-meta">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-17 09:34:46 / 修改时间：17:24:56" itemprop="dateCreated datePublished" datetime="2020-10-17T09:34:46+08:00">2020-10-17</time>
+              <time title="创建时间：2021-06-14 19:40:19 / 修改时间：19:42:33" itemprop="dateCreated datePublished" datetime="2021-06-14T19:40:19+08:00">2021-06-14</time>
             </span>
 
           
@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>702</span>
+              <span>49</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,28 +252,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><del>吉老师是我们的红太阳，紧随吉老师的步伐。</del></p>
-<a id="more"></a>
-<h5 id="distance">Distance</h5>
-<p>设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 的质因数个数（相同算多个）。</p>
-<p>那么 <span class="math inline">\(x\)</span> 到 <span class="math inline">\(y\)</span> 的操作数就是 <span class="math inline">\(f(\frac{xy}{\gcd(x,y)^2})\)</span>。</p>
-<p>而不难发现上式等于 <span class="math inline">\(f(x)+f(y)-2f(\gcd(x,y))\)</span>。</p>
-<p>所以对于要求答案的数 <span class="math inline">\(x\)</span>，枚举 <span class="math inline">\(\gcd\)</span> 后就只要看最小的 <span class="math inline">\(f(y)\)</span> 即可，而这个 <span class="math inline">\(y\)</span> 必须是枚举的 <span class="math inline">\(\gcd\)</span> 的倍数，预处理一下即可。</p>
-<h5 id="cloakroom">Cloakroom</h5>
-<p>考虑把询问离线，那么就可以把所有查询归为 <span class="math inline">\(n^2\)</span> 个组。</p>
-<p>对于某个组，直接用 <code>bitset</code> 跑可行性背包。</p>
-<p>复杂度 <span class="math inline">\(O(\frac{n^2k}{w})\)</span>，需要卡常。</p>
-<h5 id="a-horrible-poem">A Horrible Poem</h5>
-<p>把字符串按照块大小为 <span class="math inline">\(1,2...n\)</span> 分块，然后预处理每种分块每个块往前有多少个块和它一样。</p>
-<p>对于一个查询，枚举长度的一个因子，然后查询整块是不是都相等，如果都相等就把散块拼接成一个整块再去判断这个拼接的整块和原来的整块是否相等。</p>
-<p>画图就可以很显然的看出这个性质。</p>
-<p>判断字符串相等直接用哈希。</p>
-<p>需要卡常。</p>
-<h5 id="fibonacci-representation">Fibonacci Representation</h5>
-<p>先把这个数用斐波那契数拆分。</p>
-<p>这么拆分有一个性质——没有相邻的 <span class="math inline">\(1\)</span>。</p>
-<p>减去一个数可以看成是把原数加上一个数，所以现在就是在这个序列上面加减，求变成全 <span class="math inline">\(0\)</span> 的最小次数。需要注意的一个性质就是如果有两个相邻的 <span class="math inline">\(1\)</span> 会自动往后合并。</p>
-<p>从前往后扫，碰到一个 <span class="math inline">\(1\)</span> 后，如果其后面第二位或者第三位有值，就在某个位置加上一个 <span class="math inline">\(1\)</span> 使得可以连锁反应把后面那个 <span class="math inline">\(1\)</span> 也弄掉，否则就直接删掉这个 <span class="math inline">\(1\)</span>。</p>
+        <p>六个单词的英文微小说：</p>
+<p>Sixty-two points. Ag. Away from OI.</p>
+<p>62 Ag 退役了。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -283,7 +264,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/POI/" rel="tag"># POI</a>
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"># 游记</a>
           </div>
 
         
@@ -292,13 +273,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/14/UOJ-Contests/" rel="prev" title="UOJ Contests">
-      <i class="fa fa-chevron-left"></i> UOJ Contests
+    <a href="/2021/06/01/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%AE%B9%E6%96%A5/" rel="prev" title="奇奇怪怪的容斥">
+      <i class="fa fa-chevron-left"></i> 奇奇怪怪的容斥
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/11/08/CSP-S2-2020-%E6%B8%B8%E8%AE%B0/" rel="next" title="CSP-S2 2020 游记">
-      CSP-S2 2020 游记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -358,7 +336,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#distance"><span class="nav-number">1.</span> <span class="nav-text">Distance</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cloakroom"><span class="nav-number">2.</span> <span class="nav-text">Cloakroom</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#a-horrible-poem"><span class="nav-number">3.</span> <span class="nav-text">A Horrible Poem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fibonacci-representation"><span class="nav-number">4.</span> <span class="nav-text">Fibonacci Representation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -641,7 +618,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'daniel-yuan.github.io',
       owner       : 'daniel-yuan',
       admin       : ['daniel-yuan'],
-      id          : '2f0bdc10915fe212d46ab5233ac88152',
+      id          : '46862555d4fee61a3c0d462aafe95ff4',
         language: '',
       distractionFreeMode: true
     });

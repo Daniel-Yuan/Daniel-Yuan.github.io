@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>APIO2021 游记</title>
+    <url>/2021/06/14/APIO2021-%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<p>六个单词的英文微小说：</p>
+<p>Sixty-two points. Ag. Away from OI.</p>
+<p>62 Ag 退役了。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BZOJ3328 PYXFIB 题解</title>
     <url>/2021/01/28/BZOJ3328-PYXFIB-%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p>好像网上没有这么做的题解，所以就写个吧。</p>
@@ -1315,6 +1326,31 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
       </tags>
   </entry>
   <entry>
+    <title>奇奇怪怪的容斥</title>
+    <url>/2021/06/01/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%AE%B9%E6%96%A5/</url>
+    <content><![CDATA[<h3 id="核心思想">核心思想</h3>
+<p>一类奇奇怪怪的容斥，解决形如：</p>
+<ul>
+<li>对 <span class="math inline">\(k\)</span> 个计数对象计数，且这 <span class="math inline">\(k\)</span> 个计数对象是无序的。</li>
+</ul>
+<a id="more"></a>
+<p>这类问题的难点就在无序上，因为对于某种方案，它会被计算 <span class="math inline">\(\frac{k!}{\prod {a_i!}}\)</span> 次，其中 <span class="math inline">\(a_i\)</span> 是数字 <span class="math inline">\(i\)</span> 出现的次数。我们无法除掉通过某个简单的东西来得到最终结果。</p>
+<p>考虑枚举这 <span class="math inline">\(k\)</span> 个数的集合划分（不难得到总方案数是贝尔数），并且钦定同一个集合里面的数相同，不同集合里面的数不同。对于每个划分 <span class="math inline">\(p_1,p_2...p_m\)</span> 算出方案数之后，就只需要对方案数除掉 <span class="math inline">\(\prod{a_i!}\)</span> 即可，其中 <span class="math inline">\(a_i=\sum_j [|p_j|=i]\)</span> 。</p>
+<p>接下来对于某个划分 <span class="math inline">\(p_1,p_2...p_m\)</span>，考虑用容斥求它的方案数。一种朴素的方法是用 <span class="math inline">\(O(2^{\frac{m(m-1)}{2}})\)</span> 的时间复杂度来钦定每对划分是否相等，对于没有钦定的情况它们是任意的，钦定完之后实际上我们得到的就是一个朴素的序列问题。</p>
+<p>显然上述容斥的复杂度十分高，考虑优化。我们把 <span class="math inline">\(p_1,p_2...p_m\)</span> 抽象成点，钦定它们是否相等抽象为边，那么朴素的枚举方法就是枚举每条边存不存在，然后同一个连通块的点必须相同，不同连通块则没有要求。考虑直接枚举连通块，也就是对 <span class="math inline">\(p_1,p_2...p_m\)</span> 再做一遍集合划分，设划分成 <span class="math inline">\(q_1,q_2...q_n\)</span>，划分在相同集合的 <span class="math inline">\(p\)</span> 强制钦定相同。考虑某种划分的容斥系数，显然就是 <span class="math inline">\(\sum_{G_1 \text{是} |q_1| \text{个点的连通图}}(-1)^{e(G_1)}...\sum_{G_n \text{是} |q_n| \text{个点的连通图}}(-1)^{e(G_n)}\)</span>，其中 <span class="math inline">\(e(G)\)</span> 是图 <span class="math inline">\(G\)</span> 的边数。显然求和之间是独立的，可以直接简化为 <span class="math inline">\(\prod g(q_i)\)</span>，其中 <span class="math inline">\(g(x)\)</span> 表示 <span class="math inline">\(\sum_{G_1 \text{是} x \text{个点的连通图}}(-1)^{e(G_1)}\)</span>。</p>
+<p>考虑计算 <span class="math inline">\(g\)</span>，通过常识，设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 个点的任意图的容斥系数和，即 <span class="math inline">\(f(x)=\sum_{i=0}^{\frac{x(x-1)}{2}}{\frac{x(x-1)}{2}\choose i}=[x=1]\)</span>。枚举 <span class="math inline">\(1\)</span> 号点所在连通块的大小，则有 <span class="math inline">\(f(x)=\sum_{i=1}^x{x-1\choose i-1}g(i)f(x-i)\)</span>。代入 <span class="math inline">\(f\)</span> 后不难发现只有 <span class="math inline">\(g(x)\)</span> 和 <span class="math inline">\(g(x-1)\)</span> 在式子中，整理即 <span class="math inline">\(g(x)=(-1){x-1\choose x-2}g(x-1)\)</span>，<span class="math inline">\(g(1)=1\)</span>，归纳不难得到 <span class="math inline">\(g(x)=(-1)^{x-1}(x-1)!\)</span>。</p>
+<p>至此，我们把容斥的复杂度从 <span class="math inline">\(O(2^{\frac{m(m-1)}{2}})\)</span> 优化到了第 <span class="math inline">\(m\)</span> 个贝尔数的复杂度。</p>
+<h3 id="再次优化">再次优化</h3>
+<p>不难发现总复杂度大概是一个“贝尔数的贝尔数”的复杂度，尽管已经较优，但是还是可以优化。</p>
+<p>考虑把第一个集合划分从第 <span class="math inline">\(m\)</span> 个贝尔数的复杂度优化到第 <span class="math inline">\(m\)</span> 个划分数的复杂度，也就是说我们现在枚举的划分是无序的，我们需要把所有有序的位置分配给这些划分。首先我们把所有有序的位置全排列，方案数是 <span class="math inline">\(k!\)</span>，再考虑除掉一些同构的情况。假设我们的划分是 <span class="math inline">\(p_1,p_2...p_m\)</span>，那么我们首先要除掉 <span class="math inline">\(\prod p_i!\)</span>，因为划分内部是无序的，其次我们还需要除掉 <span class="math inline">\(\prod a_i !\)</span>，其中 <span class="math inline">\(a_i=\sum_j [p_j=i]\)</span>，因为划分之间也是无序的。这样就可以求得所有的方案了。</p>
+<p>可以发现的是，如果我们现在对计数加一个条件——这 <span class="math inline">\(k\)</span> 个计数对象不仅无序，而且两两不同。那么它就没有第一个集合划分的复杂度，并且容斥部分可以直接使用上述优化，总复杂度就被优化到了大小为 <span class="math inline">\(k\)</span> 的划分数。</p>
+<p>而对于没有两两不同限制的情况，我们依旧可以通过这个优化把时间复杂度优化到“划分数的贝尔数”。当然，在容斥部分我们也可以搜划分数，然后用状压 DP 去计算，直觉上复杂度是比贝尔数要优的，但暂时还不会具体的分析。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>容斥</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多项式学习笔记</title>
     <url>/2020/09/26/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="前置知识">前置知识</h4>
@@ -1370,30 +1406,6 @@ A_1, B_3 \in &amp;P; &amp;B_1, A_3 \in &amp;Q; &amp;A_2, B_2 \in O
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
         <tag>多项式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>奇奇怪怪的容斥</title>
-    <url>/2021/06/01/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%AE%B9%E6%96%A5/</url>
-    <content><![CDATA[<h3 id="核心思想">核心思想</h3>
-<p>一类奇奇怪怪的容斥，解决形如：</p>
-<ul>
-<li>对 <span class="math inline">\(k\)</span> 个计数对象计数，且这 <span class="math inline">\(k\)</span> 个计数对象是无序的。</li>
-</ul>
-<p>这类问题的难点就在无序上，因为对于某种方案，它会被计算 <span class="math inline">\(\frac{k!}{\prod {a_i!}}\)</span> 次，其中 <span class="math inline">\(a_i\)</span> 是数字 <span class="math inline">\(i\)</span> 出现的次数。我们无法除掉通过某个简单的东西来得到最终结果。</p>
-<p>考虑枚举这 <span class="math inline">\(k\)</span> 个数的集合划分（不难得到总方案数是贝尔数），并且钦定同一个集合里面的数相同，不同集合里面的数不同。对于每个划分 <span class="math inline">\(p_1,p_2...p_m\)</span> 算出方案数之后，就只需要对方案数除掉 <span class="math inline">\(\prod{a_i!}\)</span> 即可，其中 <span class="math inline">\(a_i=\sum_j [|p_j|=i]\)</span> 。</p>
-<p>接下来对于某个划分 <span class="math inline">\(p_1,p_2...p_m\)</span>，考虑用容斥求它的方案数。一种朴素的方法是用 <span class="math inline">\(O(2^{\frac{m(m-1)}{2}})\)</span> 的时间复杂度来钦定每对划分是否相等，对于没有钦定的情况它们是任意的，钦定完之后实际上我们得到的就是一个朴素的序列问题。</p>
-<p>显然上述容斥的复杂度十分高，考虑优化。我们把 <span class="math inline">\(p_1,p_2...p_m\)</span> 抽象成点，钦定它们是否相等抽象为边，那么朴素的枚举方法就是枚举每条边存不存在，然后同一个连通块的点必须相同，不同连通块则没有要求。考虑直接枚举连通块，也就是对 <span class="math inline">\(p_1,p_2...p_m\)</span> 再做一遍集合划分，设划分成 <span class="math inline">\(q_1,q_2...q_n\)</span>，划分在相同集合的 <span class="math inline">\(p\)</span> 强制钦定相同。考虑某种划分的容斥系数，显然就是 <span class="math inline">\(\sum_{G_1 \text{是} |q_1| \text{个点的连通图}}(-1)^{e(G_1)}...\sum_{G_n \text{是} |q_n| \text{个点的连通图}}(-1)^{e(G_n)}\)</span>，其中 <span class="math inline">\(e(G)\)</span> 是图 <span class="math inline">\(G\)</span> 的边数。显然求和之间是独立的，可以直接简化为 <span class="math inline">\(\prod g(q_i)\)</span>，其中 <span class="math inline">\(g(x)\)</span> 表示 <span class="math inline">\(\sum_{G_1 \text{是} x \text{个点的连通图}}(-1)^{e(G_1)}\)</span>。</p>
-<p>考虑计算 <span class="math inline">\(g\)</span>，通过常识，设 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 个点的任意图的容斥系数和，即 <span class="math inline">\(f(x)=\sum_{i=0}^{\frac{x(x-1)}{2}}{\frac{x(x-1)}{2}\choose i}=[x=1]\)</span>。枚举 <span class="math inline">\(1\)</span> 号点所在连通块的大小，则有 <span class="math inline">\(f(x)=\sum_{i=1}^x{x-1\choose i-1}g(i)f(x-i)\)</span>。代入 <span class="math inline">\(f\)</span> 后不难发现只有 <span class="math inline">\(g(x)\)</span> 和 <span class="math inline">\(g(x-1)\)</span> 在式子中，整理即 <span class="math inline">\(g(x)=(-1){x-1\choose x-2}g(x-1)\)</span>，<span class="math inline">\(g(1)=1\)</span>，归纳不难得到 <span class="math inline">\(g(x)=(-1)^{x-1}(x-1)!\)</span>。</p>
-<p>至此，我们把容斥的复杂度从 <span class="math inline">\(O(2^{\frac{m(m-1)}{2}})\)</span> 优化到了第 <span class="math inline">\(m\)</span> 个贝尔数的复杂度。</p>
-<h3 id="再次优化">再次优化</h3>
-<p>不难发现总复杂度大概是一个“贝尔数的贝尔数”的复杂度，尽管已经较优，但是还是可以优化。</p>
-<p>考虑把第一个集合划分从第 <span class="math inline">\(m\)</span> 个贝尔数的复杂度优化到第 <span class="math inline">\(m\)</span> 个划分数的复杂度，也就是说我们现在枚举的划分是无序的，我们需要把所有有序的位置分配给这些划分。首先我们把所有有序的位置全排列，方案数是 <span class="math inline">\(k!\)</span>，再考虑除掉一些同构的情况。假设我们的划分是 <span class="math inline">\(p_1,p_2...p_m\)</span>，那么我们首先要除掉 <span class="math inline">\(\prod p_i!\)</span>，因为划分内部是无序的，其次我们还需要除掉 <span class="math inline">\(\prod a_i !\)</span>，其中 <span class="math inline">\(a_i=\sum_j [p_j=i]\)</span>，因为划分之间也是无序的。这样就可以求得所有的方案了。</p>
-<p>可以发现的是，如果我们现在对计数加一个条件——这 <span class="math inline">\(k\)</span> 个计数对象不仅无序，而且两两不同。那么它就没有第一个集合划分的复杂度，并且容斥部分可以直接使用上述优化，总复杂度就被优化到了大小为 <span class="math inline">\(k\)</span> 的划分数。</p>
-<p>而对于没有两两不同限制的情况，我们依旧可以通过这个优化把时间复杂度优化到“划分数的贝尔数”。当然，在容斥部分我们也可以搜划分数，然后用状压 DP 去计算，直觉上复杂度是比贝尔数要优的，但暂时还不会具体的分析。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>容斥</tag>
       </tags>
   </entry>
   <entry>
@@ -1840,18 +1852,20 @@ g(n)&amp;=\sum_{i=0}^n[i==n]g(i)\\
 <p>博主是老鸽子，咕咕咕咕咕。</p>
 <p>因为博主太懒了，下文的时间是倒序的。</p>
 <hr />
-<h3 id="section">2021.4.28</h3>
+<h3 id="section">2021.6.14</h3>
+<p>机房欢乐一大把，这篇博客写不下。</p>
+<h3 id="section-1">2021.4.28</h3>
 <p>Dan 咕了太久了心里有些过意不去，决定更新一手。</p>
 <p>但是似乎没有什么好写的。</p>
 <p>算了不写了。</p>
-<h3 id="section-1">2021.3.23</h3>
+<h3 id="section-2">2021.3.23</h3>
 <blockquote>
 <p>XiG: 我发现把眼镜反过来戴脑袋会特别晕<br />
 lsqs: 因为度数不一样啊<br />
 Dan: 那我先反一下，再反一下……<br />
 All: 那和没反有什么区别吗？</p>
 </blockquote>
-<h3 id="section-2">2021.3.22</h3>
+<h3 id="section-3">2021.3.22</h3>
 <blockquote>
 <p>Dan: 给个提示 <span class="math inline">\(F^2_{k-1}\equiv c \pmod {F_k}\)</span><br />
 All: 也就是说对于所有的 <span class="math inline">\(k\)</span>，<span class="math inline">\(F^2_{k-1}\bmod F_k\)</span> 是常数咯？<br />
@@ -1861,7 +1875,7 @@ Dan: 不是啊，对于不同的 <span class="math inline">\(k\)</span> 来说 <
 All: 那给了个啥提示啊？<br />
 Dan: 哦~【恍然大悟】</p>
 </blockquote>
-<h3 id="section-3">2021.3.21</h3>
+<h3 id="section-4">2021.3.21</h3>
 <p>PETS 考试：</p>
 <blockquote>
 <p>Q: Do you like your school ?<br />
@@ -1870,7 +1884,7 @@ Q: Why ?<br />
 ...<br />
 A: I think ... the students are kind. XD</p>
 </blockquote>
-<h3 id="section-4">2021.3.11</h3>
+<h3 id="section-5">2021.3.11</h3>
 <blockquote>
 <p>Imakf: 为什么这么做最优啊？<br />
 Qiu: 因为这么做最优。<br />
@@ -1965,6 +1979,8 @@ Qiu: 显然啊。</p>
 <p><code>S</code> 向每个房间连流量为 <span class="math inline">\(1\)</span> 的边（每个房间只能用一次），每个菜品向 <code>T</code> 连流量为 <span class="math inline">\(1\)</span> 的边（每个菜只能给一个人吃），而对于人，直接</p>
 <p>你会发现这个流网络中的每个流都有实际意义——它甚至是类似于匹配的。</p>
 <p>这是应该是最简单的网络流模型了。</p>
+<hr />
+<p>好像是咕了。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
@@ -1974,6 +1990,7 @@ Qiu: 显然啊。</p>
 <p>随着这些算法普及度的提高，出题人也就不再局限于单纯的网络流/费用流，而模拟费用流就是其中衍生出来的一个上限很高的算法。</p>
 <p>由于博主水平有限，在此记录一些比较简单的模拟费用流问题和思路。</p>
 <a id="more"></a>
+<p>不知道为什么就咕掉了。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
         <tag>DP</tag>
