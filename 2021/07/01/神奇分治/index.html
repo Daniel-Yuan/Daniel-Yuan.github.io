@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="这篇博客被邪恶的博主用魔法封住了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神奇分治">
+<meta property="og:url" content="http://example.com/2021/07/01/%E7%A5%9E%E5%A5%87%E5%88%86%E6%B2%BB/index.html">
+<meta property="og:site_name" content="Daniel_yuan&#39;s Blog">
+<meta property="og:description" content="这篇博客被邪恶的博主用魔法封住了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-01T02:04:21.000Z">
+<meta property="article:modified_time" content="2021-07-01T02:20:08.903Z">
+<meta property="article:author" content="Daniel_yuan">
+<meta property="article:tag" content="分治">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/07/01/%E7%A5%9E%E5%A5%87%E5%88%86%E6%B2%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>神奇分治 | Daniel_yuan's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script type="text/javascript" src="/js/love.js"></script>
+<link rel="alternate" href="/atom.xml" title="Daniel_yuan's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Daniel_yuan's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">芙卡米天下第一可爱 n(*≧▽≦*)n</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/01/%E7%A5%9E%E5%A5%87%E5%88%86%E6%B2%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/duck.jpg">
+      <meta itemprop="name" content="Daniel_yuan">
+      <meta itemprop="description" content="Fkami is our sun !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daniel_yuan's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          神奇分治
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-01 10:04:21 / 修改时间：10:20:08" itemprop="dateCreated datePublished" datetime="2021-07-01T10:04:21+08:00">2021-07-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>624</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的魔法咒语太弱了。" data-whm="博主的魔法失效了。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="c05f1b17da1346c3f5bdac516b6036cf041f5549df8ee209b76dcb360bc4d5db">db04d9dc6c0c619199a2f58108234d077e2da1292f5c2a331ac629bdf05d505d086b73d92b24c6dfcd6a5bcd08b7f312875757dbdc0f3617d4ef398325f5a7da276e06ca5b4374ca740011773808ac26c39a6b08b9864a4726399864efac9d2f36c29020c04d904beb0e8947ba248117672fa65d71ed7f2cde0ff8c5ee51f8c26153978ea0b65b3500b8b18ce0e166162aacbc55342905011195699efe0177e2b51fa8945990c17b5e62e012eb389aefdf36bb1141d7b20e74fd9930fe1d5914a28fdc47b43098ed121f514a1eded27d20cfc6b9270263364f9d00c9333fe8480c3ad3034323c69c253e2ba12ce44c9b1812f8b3c6b51b1b849b6435661bebceb8952ec8828c2ac6e6207391387e932656d21a1c24ba76bd431d720bd5a1fb8e33017875c35e139a813ded6e3cb0c74c7c11addbe58f105c056257a547c61081041eaaa8c1ece24d8f92934b41bb9d20baa72ffaed64ab9343918b8a5bb5576dec2fc3c8189ffe21869f0924fb6f52048d25002c3595d1334b87b6d9efc416bc68f1a909086f5f9ba31d2edfa6fa6640c9f01c1b475474734f5789048dc8031e387ede643ddf3f22259e451473fb4779d49efb418b9b75e67140e86e49d404cad5f367311acb98059826739c05131627108b4b1e0bb5df7c045ce400cede206191e67a84fc1c3768c440a674bc4a2ee6d731774b6dce6ae463755cef356f6b6a09e429b2fac1e86f21fe36ff2280d0949a5c5b79814cb6f66fd61f6c2ebcb26c855722ca59c1876ee5bdb8b2209fb7a23e43e326298b1facd5dacd9ba9ac8619565f1050d0b9cd5215071e9d223f795b3a1558f983f38cbcd52eda49455c2e8a8e52169e595b52118d64d8ad038687141618f8a9a97f18ca1a58a34b81ff0b2aa48d3c5f1d7b4cd802cf432bd2f649d9b73549c874392751ecdf37f4ff9cf3c891ed8f5d9a192f4741f3b8ea51f66165be1d1aa4f442df1fd78bd9f776b9d7aabdbc4313744d6e0a168bd76d2753c278f1c81a9301b90e0a728d021357ce7053c0d899b18f7ddaac2a33e7fdbacd1611756d9ba1090c81bbe22e2301cde803eb93c8edee0ac1ccb339494e6848f24d071f59754b9576c9d9c23569154ac82357777fbc18a82b824fcba9ff4a1ed82e1264f19c9abe0efad78b346a95f0676e47098d0f6175f184e69ff6858f2f0be1b46f8cd438879f11f4ce758fd46bd54d959ebe22004b9d99fe8c4f594e60d4b6d35b02c7393082ad45b818c3cd8274f450991d055221f9f9933371738f34a0f1276e69e7f2aa76ad1e02be27b4a7b77323d76b85b079682819a3c982795d06e97a2e3d2bef145ddd069d57e73fc381fe0dc47f31069146843882f1be4d59e2a6383c94427a1e4e763cff408006aa84b9f23afd4204680416342eab58bd1465260a7f8ace14d33ae8cafffbfe6013ef5e5974afa906e47d3dab51f1b8650e2295ebec1dc549d3537da71944abc41fc75ca593128d59cb394e33c952b349fa9eb2e527be76afe2d30d48c84a355eaa90db84d1db519bc8c15dc1d5343f56e7386a311866554c8f9aff1ef5256dad76a78f3533147c56a0a27bb60ea99ab5792d9dbeb12ce05dd193c11733a4d34f22e8c5cecc09662ca8bc30168c942690698f655f9764dffc88140033e09775f41f45efbadbfb65f15c29eef2341149aa1ce3648acec6f42f6b5978e6864456c10eacf9c1ed60b1d49fb1c48d20417cd556ce947820f0ce6759dcb0b37078b6f8e1d87523d28dce54f7b3813ad8c0a39722cfa270f73a62349404bdedd1bc082db5305df428dca21b0d41b9809fc449088cc3f18a9414d51b3eb383264c98c53a24bd69950c36b66d68351941ede0ec10710f3267b01ee2de94d7f18f72235b4d0dbe6ec616c76a221c14a78dec13fcf0f1bc107ee09b16d2432593ea63ba0593fe0a9840ec43c744ec4f530ee8c0743c82acf470f95360f891305c412f49fbefe50731d707cea76c58f3b39f39b38775c2fc6b88e373f1e74a51c87dfe45bcec76386503628765d90410b828ec12f38716b2b291b5f1056f61c4cce4dadce40d04665e8477b246924c9cfe1d9ef6b7c3cb22f3734dea73d531ac457ee24bc97c2ba655c5058492e9dc4bd0b6aa148f6dc844a407ff7b2776f34c98dc92113e14dad555dcf9ad62a222e8d126e0ad1097c51ee2cf356549a682bf2368da4bd78f4e34626367073b034ab6d32ef9f1027f71348e4658eacca5e4bc4995de2bf4d57beeda5e914d13d3eaf8fa2911d23d16fb51f52a239d83ee7465568ee15a1c413f5e677d010c613e24490a64065c83901feced0989ff70485c2e8171403dc17fe7186ca1149b2411627f782dbbf00b26a3907804fef158abdeab7223c04c36604e148a8c191097028802a579d604320b3d8b9a5f379ec98695d98bf74135c75abc6dae86cb57e2b3611f4c6afa1fe71927073e68037440783e087a7052e35d1989d588d173923f277d9b46dfdfe4b41c69deda5d5fec399150b1dd82c0ccf57c49eaf43d07854ccf796c1ea4ebd6e767fdbb9f72f40739e3d271d9300bd187f68f31601ffea5f65fa6af72590985c593beb03535d90b93b452ff847837939135a032489b2c59bc2de44e479a37ba2bdeec23364be189e421e584be1bf3e08063a8c5669a870f76fdac88800b81404ce44190699aeb3ba6d8b44a7705d09268fe4d2149b4f3ec999551785147583ce9e98a35d0179eb1c635a1706bd76a52744b0998d051f555408255e5248df30c3bcca4935771a69adb7c6b467f17fb5763c3e883c64b62ef680d3dadc0d0a696ada1c1f363cefe8d13f375d1d5fa5c99cf6eb8dc59c2ba40ea54067ee6237064f4095f52f2681982d255567214824648b7fd4a95a1845868a3badebf97154fad338ed85b3a45cc8c90bbfd2b18b985c5b6cd733d1a948965e68609e1523d0b808e23c6157aedc3e0f06d3aff64da4bde45710cf9fd86aa6bcb0a921645aa7b0e90d7cd8c97679e43330e58429f0f682f489914f61974d0cece755c151ebe76fdee4ae0aa681e7f5ad2c26b01b5a6aa0248e9387257d9a2177d6d1fdcf6d38ea54d4f6bfa1b043673e7527b6a55381d13418e021d5462778f5d7e81335d4c797fb5bdef4439e6e9d53b4a0e10ed7e1a93d3cbebed1606608764b1fcc6186448df95e73f11e8ceb69445f5a207fbd6cddb77007f0ff023ff81243882bf68b3ed2216e540eddca6397ef0e8d7b1486a04f09fd781958f63e827c3a01153db086a2f686fb9df228642b99758e6f5989bdc0ddbb165f81262c59b860acc210486b1e4dd052003846ac4a0b4f9e3e4df862b093909cb072f218464c7c48254719a0a82748ca8263a586f68018d81fd6f9c29f58d88f7a073563002bb058ce0a2a72247478cbdf24502689f288113a1dbb7e2a120cf7275a7eedd644572aded81864b5307e3c49d09944edb9f7402337732eb01b0fda26ca3749150cff1d02aaee3bd321454005d0653c571fc7b744730ef70096d484637ecd5780abf7add3ce3df2285f3790d00beae5d7eaf78f0ff550bc8e3eff105cc038ef04a90f8339ba287bbf8758709ecc9268fe8dccc0e9bd050f8468bd7498c682df9c68bc150bf75004edf5ec742d0fc499516c01568aefd46fc30f2035799bdd646ef2aec20e90df83f3408e2886ba8b4d3362018c640f9ddc4c6db29594e11cd1cf3788035101937fb5de7626e5eb9591918d982ce8ce22e8b7803ec4a4eb1f0</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">用魔法咒语解开它吧。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%88%86%E6%B2%BB/" rel="tag"># 分治</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/14/APIO2021-%E6%B8%B8%E8%AE%B0/" rel="prev" title="APIO2021 游记">
+      <i class="fa fa-chevron-left"></i> APIO2021 游记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Daniel_yuan"
+      src="/images/duck.jpg">
+  <p class="site-author-name" itemprop="name">Daniel_yuan</p>
+  <div class="site-description" itemprop="description">Fkami is our sun !</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Daniel-yuan" title="GitHub → https://github.com/Daniel-yuan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:576311436@qq.com" title="E-Mail → mailto:576311436@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/71955" title="Luogu → https://www.luogu.com.cn/user/71955" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://codeforces.com/profile/Daniel_yuan" title="Codeforces → http://codeforces.com/profile/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Codeforces</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/Daniel_yuan" title="Atcoder → https://atcoder.jp/users/Daniel_yuan" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Atcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/daniel-56-24" title="Zhihu → https://www.zhihu.com/people/daniel-56-24" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/imakf/" title="https://www.cnblogs.com/imakf/" rel="noopener" target="_blank">Imakf</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/lsq147/" title="https://www.cnblogs.com/lsq147/" rel="noopener" target="_blank">xiaolilsq</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://clamee.github.io/" title="https://clamee.github.io/" rel="noopener" target="_blank">fhs_lzx</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/lightmain-blog/p/" title="https://www.cnblogs.com/lightmain-blog/p/" rel="noopener" target="_blank">lightmain</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/zjy123456" title="https://www.cnblogs.com/zjy123456" rel="noopener" target="_blank">春日野悠</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/emmmwelcome/#" title="https://www.luogu.com.cn/blog/emmmwelcome/#" rel="noopener" target="_blank">TUIFEI_oier</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://zzt.blog.luogu.org/#" title="https://zzt.blog.luogu.org/#" rel="noopener" target="_blank">zzt</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/parauni-blog" title="https://www.cnblogs.com/parauni-blog" rel="noopener" target="_blank">ovor</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/CYJian/#" title="https://www.luogu.com.cn/blog/CYJian/#" rel="noopener" target="_blank">CYJian</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kewth.blog.luogu.org/#" title="https://kewth.blog.luogu.org/#" rel="noopener" target="_blank">Kewth</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/hwb20030213/#" title="https://www.luogu.com.cn/blog/hwb20030213/#" rel="noopener" target="_blank">BoXe</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/Soulist" title="https://www.cnblogs.com/Soulist" rel="noopener" target="_blank">Soulist</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://zhy12138.github.io/" title="https://zhy12138.github.io/" rel="noopener" target="_blank">zhy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lightfom.github.io/" title="https://lightfom.github.io/" rel="noopener" target="_blank">wrp</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel_yuan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">118k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:47</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '52f741e6e891f7354c3d',
+      clientSecret: 'fa1c332093ad3dc847f29ec40b477024c700fc0d',
+      repo        : 'daniel-yuan.github.io',
+      owner       : 'daniel-yuan',
+      admin       : ['daniel-yuan'],
+      id          : '54e9ac0a14d038a96732c8e93d855806',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script type="text/javascript" src="/js/fold_action.js"></script>
+</body>
+</html>
